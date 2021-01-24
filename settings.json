@@ -53,13 +53,13 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         },
         "list": [
             {
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
                 "commandline": "pwsh.exe",
                 "name": "PowerShell Core",
                 "source": "Windows.Terminal.PowershellCore"
             },
-            { //C:/Program Files/Git/
-                "guid": "{143c7f8e-c601-405d-84c8-6184a7f6140c}",
+            { //%GIT_INSTALL_ROOT%:C:/Program Files/Git/
+                "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
                 "icon": "%GIT_INSTALL_ROOT%/mingw64/share/git/git-for-windows.ico",
                 "name": "Git Bash",
                 "commandline": "%GIT_INSTALL_ROOT%/bin/bash.exe",
