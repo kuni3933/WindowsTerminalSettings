@@ -10,7 +10,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
 */
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "defaultProfile": "{2524d399-fa10-4d1c-b4f6-5fa11f3a0c4e}",
     //ラップトップの場合
     //"initialCols": 75,
     //"initialRows": 20,
@@ -53,7 +53,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         },
         "list": [
             {
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "guid": "{2524d399-fa10-4d1c-b4f6-5fa11f3a0c4e}",
                 "commandline": "pwsh.exe",
                 "name": "PowerShell Core",
                 "source": "Windows.Terminal.PowershellCore"
