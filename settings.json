@@ -54,10 +54,10 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
             },
             { //C:/Program Files/Git/
                 "guid": "{143c7f8e-c601-405d-84c8-6184a7f6140c}",
-                "icon": "C:/Program Files/Git/mingw64/share/git/git-for-windows.ico",
+                "icon": "%GIT_INSTALL_ROOT%/mingw64/share/git/git-for-windows.ico",
                 "name": "Git Bash",
-                "commandline": "C:/Program Files/Git/bin/bash.exe",
-                "backgroundImage": "C:/Program Files/Git/mingw64/share/git/git-for-windows.ico",
+                "commandline": "%GIT_INSTALL_ROOT%/bin/bash.exe",
+                "backgroundImage": "%GIT_INSTALL_ROOT%/mingw64/share/git/git-for-windows.ico",
                 "backgroundImageAlignment": "bottomRight",
                 "backgroundImageStretchMode": "none",
                 "backgroundImageOpacity": 0.75
