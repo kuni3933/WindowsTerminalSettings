@@ -37,8 +37,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
     "profiles": {
         "defaults": {
             // Put settings here that you want to apply to all profiles.
-            "fontFamily": "Source Han Code JP",
-            "fontFace": "Source Han Code JP",
+            //"fontFace": "Source Han Code JP",
+            "fontFace": "SauceCodePro NF",
             "useAcrylic": true,
             "acrylicOpacity": 0.25,
             "closeOnExit": true,
