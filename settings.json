@@ -11,8 +11,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "initialCols": 120,
-    "initialRows": 30,
+    "initialCols": 130, //幅16
+    "initialRows": 30, //縦9
     "theme": "dark",
     "wordDelimiters": " ",
     // You can add more global application settings here.
