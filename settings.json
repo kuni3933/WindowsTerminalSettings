@@ -11,6 +11,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "initialCols": 120,
+    "initialRows": 30,
     "theme": "dark",
     "wordDelimiters": " ",
     // You can add more global application settings here.
@@ -96,10 +98,11 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
     // Add custom actions and keybindings to this array.
     // To unbind a key combination from your defaults.json, set the command to "unbound".
     // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
-    "actions": [
+    "keybindings": [
         // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
         // These two lines additionally bind them to Ctrl+C and Ctrl+V.
         // To learn more about selection, visit https://aka.ms/terminal-selection
+        // 基本操作
         {
             "command": {
                 "action": "copy",
@@ -111,15 +114,45 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
             "command": "paste",
             "keys": "ctrl+v"
         },
-        // Press Ctrl+Shift+F to open the search box
         {
             "command": "find",
-            "keys": "ctrl+shift+f"
+            "keys": "ctrl+alt+f"
         },
-        // Press Alt+Shift+D to open a new pane.
-        // - "split": "auto" makes this pane open in the direction that provides the most surface area.
-        // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
-        // To learn more about panes, visit https://aka.ms/terminal-panes
+        // 画面スクロール
+        {
+            "command": "scrollUp",
+            "keys": "shift+up"
+        },
+        {
+            "command": "scrollDown",
+            "keys": "shift+down"
+        },
+        {
+            "command": "scrollUpPage",
+            "keys": "shift+pgup"
+        },
+        {
+            "command": "scrollDownPage",
+            "keys": "shift+pgdn"
+        },
+        // タブ
+        {
+            "command": "newTab",
+            "keys": "ctrl+t"
+        },
+        {
+            "command": "closeTab",
+            "keys": "ctrl+w"
+        },
+        {
+            "command": "nextTab",
+            "keys": "alt+l"
+        },
+        {
+            "command": "prevTab",
+            "keys": "alt+h"
+        },
+        // ペインの分割
         {
             "command": {
                 "action": "splitPane",
@@ -127,6 +160,64 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        // ペイン移動
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "alt+ctrl+j"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+ctrl+h"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "alt+ctrl+l"
+        },
+        {
+            "command": {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "alt+ctrl+k"
+        },
+        // ペインサイズ変更
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "alt+shift+j"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "keys": "alt+shift+h"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "keys": "alt+shift+l"
+        },
+        {
+            "command": {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "keys": "alt+shift+k"
         }
     ]
 }
