@@ -87,13 +87,19 @@ function uniq() { $input | uutils uniq $args}
 Remove-Item alias:sort -Force
 function sort() { $input | uutils sort $args}
 
-# 代替コマンドを使用
 Set-Alias grep rg
-function ls() { uutils ls $args }
-function tree() { exa --icons -T $args}
+# ll
+function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
+
+# tree
+function tree() { lsd --tree $args}
+
+# 代替コマンドを使用(exa未対応なので注意)
+#function ls() { uutils ls $args }
+#function tree() { exa --icons -T $args}
 
 # Linuxコマンドのエイリアス
-function ll() { uutils ls -l $args}
+#function ll() { uutils ls -l $args}
 
 #-----------------------------------------------------
 # Useful commands
@@ -131,7 +137,7 @@ function gbm()  { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf
 
 # git log
 function gls()   { git log -3}
-function gll()   { git log -10 --oneline --all --graph --decorate }
+function gll()   { git log -10 --oneline --all --caph --decorate }
 function glll()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
 function glls()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10}
 
