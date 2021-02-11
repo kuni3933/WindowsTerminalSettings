@@ -1,3 +1,4 @@
+winfetch.ps1
 #-----------------------------------------------------
 # General
 #-----------------------------------------------------
@@ -30,7 +31,7 @@ Import-Module z
 Set-Theme Powerlevel10k-Lean
 
 # Prompt
-$ThemeSettings.Colors.DriveForegroundColor = "Blue"
+$ThemeSettings.Colors.DriveForegroundColor = "Cyan"
 # Git
 $ThemeSettings.GitSymbols.LocalStagedStatusSymbol = ""
 $ThemeSettings.GitSymbols.LocalWorkingStatusSymbol = ""
