@@ -25,23 +25,26 @@ Set-PSReadLineOption -EditMode Emacs
 
 Import-Module posh-git
 Import-Module oh-my-posh
-Import-Module z
+Invoke-Expression (& {
+    $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
+    (zoxide init --hook $hook powershell) -join "`n"
+})
 
-Set-Theme Powerlevel10k-Lean
-
+Set-PoshPrompt -Theme powerlevel10k_lean
+Export-PoshTheme -FilePath $env:OneDriveConsumer/WindowsTerminalSettings/.oh-my-posh.omp.json
 # Prompt
-$ThemeSettings.Colors.DriveForegroundColor = "Cyan"
+#$ThemeSettings.Colors.DriveForegroundColor = "Blue"
 # Git
-$ThemeSettings.GitSymbols.LocalStagedStatusSymbol = ""
-$ThemeSettings.GitSymbols.LocalWorkingStatusSymbol = ""
-$ThemeSettings.GitSymbols.BeforeWorkingSymbol = [char]::ConvertFromUtf32(0xf040)+" "
-$ThemeSettings.GitSymbols.DelimSymbol = [char]::ConvertFromUtf32(0xf040)
-$ThemeSettings.GitSymbols.BranchSymbol = [char]::ConvertFromUtf32(0xf126)
-$ThemeSettings.GitSymbols.BranchAheadStatusSymbol = [char]::ConvertFromUtf32(0xf0ee)+" "
-$ThemeSettings.GitSymbols.BranchBehindStatusSymbol = [char]::ConvertFromUtf32(0xf0ed)+" "
-$ThemeSettings.GitSymbols.BeforeIndexSymbol = [char]::ConvertFromUtf32(0xf6b7)+" "
-$ThemeSettings.GitSymbols.BranchIdenticalStatusToSymbol = ""
-$ThemeSettings.GitSymbols.BranchUntrackedSymbol = [char]::ConvertFromUtf32(0xf663)+" "
+##$ThemeSettings.GitSymbols.LocalStagedStatusSymbol = ""
+##$ThemeSettings.GitSymbols.LocalWorkingStatusSymbol = ""
+#$ThemeSettings.GitSymbols.BeforeWorkingSymbol = [char]::ConvertFromUtf32(0xf040)+" "
+#$ThemeSettings.GitSymbols.DelimSymbol = [char]::ConvertFromUtf32(0xf040)
+#$ThemeSettings.GitSymbols.BranchSymbol = [char]::ConvertFromUtf32(0xf126)
+#$ThemeSettings.GitSymbols.BranchAheadStatusSymbol = [char]::ConvertFromUtf32(0xf0ee)+" "
+#$ThemeSettings.GitSymbols.BranchBehindStatusSymbol = [char]::ConvertFromUtf32(0xf0ed)+" "
+#$ThemeSettings.GitSymbols.BeforeIndexSymbol = [char]::ConvertFromUtf32(0xf6b7)+" "
+#$ThemeSettings.GitSymbols.BranchIdenticalStatusToSymbol = ""
+#$ThemeSettings.GitSymbols.BranchUntrackedSymbol = [char]::ConvertFromUtf32(0xf663)+" "
 
 #-----------------------------------------------------
 # fzf
@@ -87,12 +90,13 @@ function uniq() { $input | uutils uniq $args}
 Remove-Item alias:sort -Force
 function sort() { $input | uutils sort $args}
 
+# 代替コマンドを使用
 Set-Alias grep rg
-# ll
-function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
-
+function ls() { uutils ls $args }
 # tree
 function tree() { lsd --tree $args}
+# ll
+function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
 
 # 代替コマンドを使用(exa未対応なので注意)
 #function ls() { uutils ls $args }
@@ -111,7 +115,7 @@ function ...() { cd ../../ }
 function ....() { cd ../../../ }
 function cdg() { gowl list | fzf | cd }
 function cdr() { fd -H -t d -E .git -E node_modules | fzf | cd }
-function cdz() { z -l | oss | select -skip 3 | % { $_ -split " +" } | sls -raw '^[a-zA-Z].+' | fzf | cd }
+Set-Alias cdz zi
 function buscdd() { ls -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | % { cd C:\\Work\\treng\\Bus\\data\\$_ } }
 function buscdw() { ls -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | % { cd C:\\Work\\treng\\Bus\\work\\$_ } }
 
@@ -137,7 +141,7 @@ function gbm()  { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf
 
 # git log
 function gls()   { git log -3}
-function gll()   { git log -10 --oneline --all --caph --decorate }
+function gll()   { git log -10 --oneline --all --graph --decorate }
 function glll()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
 function glls()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10}
 
@@ -155,6 +159,24 @@ function ffgif360() { ffmpeg -i $args[0] -filter_complex "[0:v]scale=360:-1 [s];
 function ffresize() { $width = $args[1]; ffmpeg -i $args[0] -vf scale=$width":-1" $args[2] }
 function fffavicon() { $width = $args[1]; ffmpeg -i $args[0] -vf scale=$width":-1" favicon.ico }
 
+# broot
+function bo() { broot -g --conf $env:USERPROFILE\broot.toml $args }
+function br() {
+    $outcmd = new-temporaryfile
+    bo --outcmd $outcmd $args
+    if (!$?) {
+        remove-item -force $outcmd
+        return $lastexitcode
+    }
+
+    $command = get-content $outcmd
+    if ($command) {
+        # workaround - paths have some garbage at the start
+        $command = $command.replace("\\?\", "", 1)
+        invoke-expression $command
+    }
+    remove-item -force $outcmd
+}
 
 #-----------------------------------------------------
 # Golang
