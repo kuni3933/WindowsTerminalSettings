@@ -100,6 +100,7 @@ function tree() { lsd --tree $args}
 
 # ll Linuxコマンドのエイリアス
 function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
+#function ll() { uutils ls -l $args}
 
 
 #-----------------------------------------------------
