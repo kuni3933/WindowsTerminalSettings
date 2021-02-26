@@ -90,20 +90,17 @@ function uniq() { $input | uutils uniq $args}
 Remove-Item alias:sort -Force
 function sort() { $input | uutils sort $args}
 
-# 代替コマンドを使用
+# 代替コマンドを使用(exa未対応なので注意)
 Set-Alias grep rg
+# ls
 function ls() { uutils ls $args }
 # tree
 function tree() { lsd --tree $args}
-# ll
-function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
-
-# 代替コマンドを使用(exa未対応なので注意)
-#function ls() { uutils ls $args }
 #function tree() { exa --icons -T $args}
 
-# Linuxコマンドのエイリアス
-#function ll() { uutils ls -l $args}
+# ll Linuxコマンドのエイリアス
+function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
+
 
 #-----------------------------------------------------
 # Useful commands
