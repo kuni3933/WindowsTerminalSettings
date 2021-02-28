@@ -5,6 +5,7 @@ scoop bucket add extras
 
 # CLI Tools
 scoop install `
+  aria2 `
   sudo `
   wget `
   bat `
