@@ -13,7 +13,7 @@
 ## 3.シンボリックリンク作成  
 1. mklinkコマンドでWindowsTerminalのsetting.jsonを指すシンボリックリンクを作成し、適切な位置に配置(以下参考)  
    <a href="https://qiita.com/ma2shita/items/a6256ef3d81329f52ec7">Windows Terminal の設定(settings.json)を複数の PC で共有する方法 (OneDrive の場合) - Qiita</a>  
-2. 同じく.PS1ファイルのシンボリックリンクを作成し、  
+2. 同じく.PS1ファイルのシンボリックリンクを作成し配置  
    適切な位置(%USERPROFILE%\Documents\PowerShell)の下に配置する。  
 3. Provisioフォルダ内のinstall.ps1を各自実行して、パッケージのインストールを行う。  
 ## 参考  
