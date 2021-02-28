@@ -1,5 +1,5 @@
 # WindowsTerminalSettings  
-## 1.WindowsTerminal・PowerShell Core(pwsh)のインストール  
+## 1.Windows Terminal Preview・PowerShell Core(pwsh)のインストール  
 ## 2.フォントのインストール  
 1. 以下から「Source Code Pro」をダウンロードしてWindows Compatible版だけは必ずインストールする。  
     <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>  
