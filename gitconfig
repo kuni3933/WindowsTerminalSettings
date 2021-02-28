@@ -1,0 +1,29 @@
+[core]
+	autocrlf = true
+	fscache = true
+	symlinks = true
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = true
+[help]
+	format = html
+[diff "astextplain"]
+	textconv = astextplain
+[rebase]
+	autosquash = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[http]
+	sslBackend = openssl
+	sslCAInfo = C:/ProgramData/scoop/apps/git/current/mingw64/ssl/certs/ca-bundle.crt
+[pull]
+	rebase = false
+[credential]
+	helper = manager-core
+[credential "https://dev.azure.com"]
+	useHttpPath = true
