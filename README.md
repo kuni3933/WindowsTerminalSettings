@@ -4,6 +4,7 @@
 1. 以下から「Source Code Pro」をダウンロードしてWindows Compatible版だけは必ずインストールする。  
     <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>  
 ## 2.scoopの有効化とモジュールインストール  
+pwsh上で以下のコマンドを実行  
 1. Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force  
 2. iwr -useb get.scoop.sh | iex  
 3. Install-Module posh-git -Scope CurrentUser -Force  
