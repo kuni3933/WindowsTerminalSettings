@@ -42,7 +42,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "fontFace": "SauceCodePro NF",
       "fontSize": 13,
       "useAcrylic": true,
-      "acrylicOpacity": 0.25,
+      "acrylicOpacity": 0.1875,
       "closeOnExit": true,
       "colorScheme": "Campbell",
       //"colorScheme": "Tango Dark",
@@ -61,7 +61,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "commandline": "pwsh.exe",
         "name": "PowerShell Core",
         "source": "Windows.Terminal.PowershellCore",
-        "backgroundImage": "%OneDriveConsumer%/mnt/windows/power-shell/BxX3GioCIAEBOas 未来を見たsyuiloRemix.png"
+        "backgroundImage": "%OneDriveConsumer%/WindowsTerminalSettings/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
+        "backgroundImageOpacity": 0.09375
       },
       { //%GIT_INSTALL_ROOT%
         "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
