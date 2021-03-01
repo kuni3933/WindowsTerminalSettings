@@ -1,0 +1,207 @@
+{
+  // -------------------------------------
+  // 見た目
+  // -------------------------------------
+  "editor.fontFamily": "SauceCodePro NF",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "window.title": "${dirty}${activeEditorMedium} [${rootName}]",
+  "window.zoomLevel": 0,
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.enabled": true,
+  "breadcrumbs.enabled": true,
+  "terminal.integrated.fontFamily": "SauceCodePro NF",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": true,
+  // -------------------------------------
+  // 挙動
+  // -------------------------------------
+  "editor.tabCompletion": "on",
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnSave": true,
+  // -------------------------------------
+  // デフォルトファイル設定
+  // -------------------------------------
+  "files.eol": "\n",
+  // -------------------------------------
+  // ファイルごとの特殊設定
+  // -------------------------------------
+  "[plaintext]": {
+    "files.autoGuessEncoding": true
+  },
+  "[csv]": {
+    "files.autoGuessEncoding": true
+  },
+  "[tsv]": {
+    "files.autoGuessEncoding": true
+  },
+  "[bat]": {
+    "files.encoding": "shiftjis"
+  },
+  "files.associations": {
+    "Vagrantfile": "ruby"
+  },
+  // -------------------------------------
+  // ターミナル
+  // -------------------------------------
+  "editWithShell.shell.windows": "bash",
+  "editWithShell.shellArgs.windows": ["-c"],
+  "editWithShell.processEntireTextIfNoneSelected": true,
+  // -------------------------------------
+  // Vim
+  // -------------------------------------
+  "vim.foldfix": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.visualstar": true,
+  "vim.searchHighlightColor": "#070",
+  "vim.camelCaseMotion.enable": true,
+  "vim.highlightedyank.enable": true,
+  "vim.leader": "<space>",
+  "vim.easymotion": true,
+  "vim.easymotionMarkerBackgroundColor": "rgba(0, 0, 0, 0.5)",
+  "vim.easymotionMarkerForegroundColorOneChar": "lime",
+  "vim.enableNeovim": true,
+  "vim.replaceWithRegister": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["]"],
+      "after": ["<leader>"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["g", "b"]
+    },
+    {
+      "before": ["_"],
+      "after": ["g", "r"]
+    },
+    {
+      "before": ["<C-o>"],
+      "commands": [
+        {
+          "command": "workbench.action.navigateBack"
+        }
+      ]
+    },
+    {
+      "before": ["<C-i>"],
+      "commands": [
+        {
+          "command": "workbench.action.navigateForward"
+        }
+      ]
+    },
+    {
+      "before": ["s"],
+      "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["]"],
+      "after": ["<leader>"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["g", "b"]
+    },
+    {
+      "before": ["_"],
+      "after": ["g", "r"]
+    }
+  ],
+  "vim.disableExtension": false,
+  // -------------------------------------
+  // Neovim
+  // -------------------------------------
+  "vscode-neovim.neovimExecutablePaths.win32": "nvim",
+  "vscode-neovim.neovimInitVimPaths.win32": "$HOME\\AppData\\Local\\nvim\\init.vim",
+  // -------------------------------------
+  // revealjs
+  // -------------------------------------
+  "revealjs.highlightTheme": "",
+  "revealjs.browserPath": "",
+  "revealjs.transition": "convex",
+  "revealjs.exportHTMLPath": "",
+  // -------------------------------------
+  // VS Notes
+  // -------------------------------------
+  "vsnotes.defaultNotePath": "~\\backup\\notes",
+  // -------------------------------------
+  // JS/TS
+  // -------------------------------------
+  "prettier.disableLanguages": ["markdown", "yaml"],
+  "eslint.validate": ["javascript", "typescript"],
+  // -------------------------------------
+  // Markdown
+  // -------------------------------------
+  "markdownlint.config": {
+    "MD003": false,
+    "MD012": false,
+    "MD024": false,
+    "MD026": false,
+    "MD033": false,
+    "MD034": false,
+    "MD040": false,
+    "MD041": false,
+    "MD045": false
+  },
+  // -------------------------------------
+  // REST Client
+  // -------------------------------------
+  "rest-client.decodeEscapedUnicodeCharacters": true,
+  "rest-client.enableTelemetry": false,
+  "rest-client.previewResponsePanelTakeFocus": false,
+  "rest-client.previewOption": "exchange",
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "togglApiToken": "TOGGL_API_TOKEN"
+    },
+    "local": {
+      "restjcBaseUrl": "REST_JC_DEVELOPMENT_BASE_URL"
+    },
+    "production": {
+      "restjcBaseUrl": "REST_JC_PRODUCTION_BASE_URL",
+      "github": "https://api.github.com"
+    }
+  },
+  // -------------------------------------
+  // その他
+  // -------------------------------------
+  "terminal.integrated.rendererType": "dom",
+  "explorer.confirmDelete": false,
+  "editor.cursorSurroundingLines": 5,
+  "editor.formatOnPaste": true,
+  "editor.multiCursorModifier": "alt",
+  "git.autofetch": true,
+  "git.ignoreLegacyWarning": true,
+  "go.useLanguageServer": true,
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "explorer.confirmDragAndDrop": false,
+  "git.enableSmartCommit": true,
+  "pasteImage.path": "${currentFileDir}/images",
+  "python.formatting.provider": "black",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjpcIjI0MFwiLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODI3LFwiaGVpZ2h0XCI6MTE2OX0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
+  "yaml.schemas": {
+    "file:///c%3A/Users/tadashi-aikawa/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  }
+  // "extensions.autoUpdate": false,
+}

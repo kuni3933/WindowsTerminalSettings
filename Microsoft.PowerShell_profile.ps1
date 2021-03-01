@@ -92,16 +92,12 @@ function sort() { $input | uutils sort $args}
 
 # 代替コマンドを使用(exa未対応なので注意)
 Set-Alias grep rg
-# ls
 function ls() { uutils ls $args }
-# tree
-function tree() { lsd --tree $args}
-#function tree() { exa --icons -T $args}
+function tree() { exa --icons -T $args}
 
-# ll Linuxコマンドのエイリアス
-function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
-#function ll() { uutils ls -l $args}
-
+# Linuxコマンドのエイリアス
+function ll() { uutils ls -l $args}
+#function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
 
 #-----------------------------------------------------
 # Useful commands
@@ -187,5 +183,3 @@ $env:GO111MODULE = "on"
 #-----------------------------------------------------
 
 $env:PATH += ";" + $env:LOCALAPPDATA + "\JetBrains\Toolbox\apps\IDEA-U\ch-0\203.5981.155\bin"
-#-----------------------------------------------------#
-winfetch.ps1

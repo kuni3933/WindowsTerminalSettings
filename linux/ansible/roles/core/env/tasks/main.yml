@@ -1,0 +1,10 @@
+- name: 'Set LC_ALL to {{ lcall }}'
+  lineinfile:
+    path: ~/.bashrc
+    line: 'export LC_ALL={{ lcall }}'
+
+- name: 'Set timezone to {{ timezone }}'
+  become: yes
+  timezone:
+    name: "{{ timezone }}"
+

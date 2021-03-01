@@ -1,0 +1,11 @@
+*.retry
+.vagrant
+/.idea
+*.log
+
+vim_settings.xml
+.netrwhist
+
+# secret
+.secret
+
