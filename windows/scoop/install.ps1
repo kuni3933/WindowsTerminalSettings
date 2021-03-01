@@ -30,7 +30,6 @@ scoop install `
 
 # GUI Tools
 scoop install `
-  windows-terminal `
   dbeaver `
   postman `
   keypirinha `
@@ -47,13 +46,6 @@ scoop install `
   rustup `
   hugo-extended `
   vcxsrv
-
-# Python
-#scoop install `
-  #python27 `
-  #python37 `
-  #python
-#scoop reset python
 
 sudo scoop install autohotkey-installer
 
