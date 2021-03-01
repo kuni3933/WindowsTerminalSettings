@@ -36,7 +36,7 @@ call :link_vscode_file keybindings.json
 REM call :link_vscode_file settings.json
 call :link_vscode_dir snippets
 rem See https://blog.mamansoft.net/2018/09/17/vscode-satisfies-vimmer/
-REM call :each vscode_extension_install vscode-extensions.txt
+call :each vscode_extension_install vscode-extensions.txt
 
 
 call :******************** Homedir
