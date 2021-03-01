@@ -14,7 +14,6 @@ pwsh上で以下のコマンドを実行
 5. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck</code>
 
    以下はinstall.ps1でzモジュールをインストールしない場合のために、
-
    PowershellGallery側のモジュールをインストールする際に実行。
 6. <code>Install-Module -Name z</code>
 
