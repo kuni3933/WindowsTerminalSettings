@@ -53,7 +53,7 @@ call :link_file %POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1 %POWER_SHELL_
 call :******************** Terminal
 
 set TERMINAL_ORIGIN_DIR=%WINDOWS_MNT%\terminal
-call :link_file "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" %TERMINAL_ORIGIN_DIR%\LocalState\settings.json
+call :link_file %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json %TERMINAL_ORIGIN_DIR%\LocalState\settings.json
 
 call :******************** Keypirinha
 

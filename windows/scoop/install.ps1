@@ -56,11 +56,5 @@ scoop install `
 
 sudo scoop install autohotkey-installer
 
-#uninstall
-scoop uninstall `
-  less `
-  windows-terminal `
-  gcc `
-
 
 
