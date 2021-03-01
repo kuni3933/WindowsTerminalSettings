@@ -12,7 +12,9 @@ pwsh上で以下のコマンドを実行
 3. <code>Install-Module posh-git -Scope CurrentUser -Force</code>
 4. <code>Install-Module oh-my-posh -Scope CurrentUser -Force</code>
 5. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck</code>
+
    以下はinstall.ps1でzモジュールをインストールしない場合のために、
+
    PowershellGallery側のモジュールをインストールする際に実行。
 6. <code>Install-Module -Name z</code>
 
