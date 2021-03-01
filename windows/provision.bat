@@ -50,7 +50,7 @@ set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
 call :link_file %POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1 %POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1
 
 
-call :******************** Terminal
+call :******************** Windows Terminal Preview
 
 set TERMINAL_ORIGIN_DIR=%WINDOWS_MNT%\terminal
 call :link_file %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json %TERMINAL_ORIGIN_DIR%\LocalState\settings.json
