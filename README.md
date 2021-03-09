@@ -2,13 +2,13 @@
 
 ## 1.Windows Terminal Preview(WTP)・PowerShell Core(pwsh)のインストール
 
-* 以下からMicrosoft.DesktopAppInstaller(wingetのため)・pwshをインストール
+  以下からMicrosoft.DesktopAppInstaller(wingetのため)・pwshをインストール
   <ul>
     <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
     <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
   </ul><br>
 
-* Windows Terminal Previewをインストール
+  Windows Terminal Previewをインストール
     方法1.デフォルトのMicrosoftStoreから検索してインストール<br>
     方法2.Wingetコマンド(以下のコマンド)でインストール<br>
       <code>winget install -e --id Microsoft.WindowsTerminalPreview</code>
