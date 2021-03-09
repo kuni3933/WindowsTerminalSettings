@@ -58,7 +58,7 @@ pwsh上で以下のコマンドを実行
 を一回起動してまた閉じておく。
 インストール済みでインストールパッケージに変更があった場合はinstall.ps1を再実行。
 
-## 6.windows/provision.batをコマンドラインで実行
+## 6.windows/provision.batをコマンドラインから管理者権限で実行
 
 ※install.ps1にしたがわないでgitをインストールする場合は、windows/provision.batのgitconfigコピー処理を消してから実行する事※
 
