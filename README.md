@@ -4,12 +4,12 @@
 
   1. 以下からMicrosoft.DesktopAppInstaller(wingetのため)・pwshをインストール
 
-    <ul>
-      <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
-      <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
-    </ul><br>
+  <ul>
+    <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
+    <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
+  </ul><br>
 
-  2. Windows Terminal Previewをインストール<br>
+  3. Windows Terminal Previewをインストール<br>
     方法1.デフォルトのMicrosoftStoreから検索してインストール<br><br>
     方法2.Wingetコマンド(以下のコマンド)でインストール<br>
       <code>winget install -e --id Microsoft.WindowsTerminalPreview</code><br>
