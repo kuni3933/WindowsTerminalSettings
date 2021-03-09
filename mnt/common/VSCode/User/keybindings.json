@@ -1,0 +1,401 @@
+[
+  // 検索
+  {
+    "key": "ctrl+f",
+    "command": "actions.find",
+  },
+  // タブ分割/移動
+  {
+    "key": "ctrl+w v",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+w s",
+    "command": "workbench.action.splitEditorOrthogonal"
+  },
+  {
+    "key": "ctrl+w w",
+    "command": "workbench.action.focusNextGroup"
+  },
+  // ファイル操作
+  {
+    "key": "ctrl+shift+s",
+    "command": "workbench.action.files.saveAll"
+  },
+  {
+    "key": "ctrl+shift+q",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+j ctrl+u",
+    "command": "git.revertSelectedRanges"
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "editor.action.formatSelection.multiple"
+  },
+  {
+    "key": "shift+ctrl+f",
+    "command": "editor.action.formatSelection",
+    "when": "editorHasDocumentSelectionFormattingProvider && editorHasSelection && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+ctrl+f",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+[Semicolon]",
+    "command": "extension.table.formatCurrent",
+    "when": "editorTextFocus"
+  },
+  // 開発
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.tasks.build"
+  },
+  {
+    "key": "ctrl+j d",
+    "command": "editor.action.revealDefinition"
+  },
+  {
+    "key": "ctrl+shift+o",
+    "command": "editor.action.organizeImports",
+    "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
+  },
+  {
+    "key": "shift+alt+r",
+    "command": "editor.action.rename"
+  },
+  {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.removeCommentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+enter",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  // 補完
+  {
+    "key": "shift+space",
+    "command": "simpleAutocomplete.next"
+  },
+  // 情報表示
+  {
+    "key": "alt+a",
+    "command": "editor.action.peekDefinition"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "editor.action.triggerParameterHints",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  {
+    "key": "alt+p",
+    "command": "markdown.showPreview"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  // 移動
+  {
+    "key": "ctrl+shift+j",
+    "command": "editor.action.marker.next",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "editor.action.marker.prev",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+j ctrl+j",
+    "command": "workbench.action.editor.nextChange",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+j ctrl+k",
+    "command": "workbench.action.editor.previousChange",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+j ctrl+j",
+    "command": "workbench.action.compareEditor.nextChange",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "key": "ctrl+j ctrl+k",
+    "command": "workbench.action.compareEditor.previousChange",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "key": "ctrl+j ctrl+d",
+    "command": "editor.action.dirtydiff.next",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.previousEditor",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.nextEditor",
+    "when": "editorFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+alt+j",
+    "command": "search.action.focusNextSearchResult"
+  },
+  {
+    "key": "ctrl+alt+k",
+    "command": "search.action.focusPreviousSearchResult"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "terminalFocus"
+  },
+  // View操作
+  {
+    "key": "alt+f",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+w t",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+w",
+    "command": "workbench.action.togglePanel"
+  },
+  //
+  {
+    "key": "escape",
+    "command": "closeMarkersNavigation",
+    "when": "editorFocus && markersNavigationVisible"
+  },
+  {
+    // サイドバーのカーソル切り替え
+    "key": "escape",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "!editorFocus && !terminalFocus"
+  },
+  // Bookmark
+  {
+    "key": "ctrl+m ctrl+m",
+    "command": "bookmarks.toggle"
+  },
+  {
+    "key": "ctrl+m m",
+    "command": "bookmarks.toggleLabeled"
+  },
+  {
+    "key": "ctrl+m o",
+    "command": "bookmarks.listFromAllFiles"
+  },
+  {
+    "key": "ctrl+m ctrl+j",
+    "command": "bookmarks.jumpToNext"
+  },
+  {
+    "key": "ctrl+m ctrl+k",
+    "command": "bookmarks.jumpToPrevious"
+  },
+  // デバッグ
+  {
+    "key": "alt+d",
+    "command": "workbench.action.debug.start"
+  },
+  {
+    "key": "alt+r",
+    "command": "workbench.action.debug.run",
+    "when": "!inDebugMode"
+  },
+  {
+    "key": "alt+r",
+    "command": "workbench.action.debug.continue",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "ctrl+f2",
+    "command": "workbench.action.debug.stop"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "editor.debug.action.toggleBreakpoint"
+  },
+  // その他
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.newWindow"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.closeOtherEditors"
+  },
+  {
+    "key": "alt+up",
+    "command": "editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+down",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+i",
+    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "workbench.action.showCommands"
+  },
+  // ----------------
+  // Ctrl + j (連続はしない操作)
+  // ----------------
+  {
+    "key": "ctrl+j i",
+    "command": "editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "ctrl+j h",
+    "command": "references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "ctrl+j f",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+j e",
+    "command": "workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+j o",
+    "command": "workbench.action.gotoSymbol"
+  },
+  {
+    "key": "ctrl+j p",
+    "command": "workbench.action.problems.focus"
+  },
+  {
+    "key": "ctrl+j g",
+    "command": "workbench.view.search"
+  },
+  {
+    "key": "ctrl+j w",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+j t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+j k",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+r",
+    "command": "rest-client.request",
+    "when": "editorLangId == http"
+  },
+  {
+    "key": "alt+e",
+    "command": "rest-client.switch-environment",
+    "when": "editorLangId == http"
+  },
+  // ----------------
+  // Ctrl + j  -> ctrl +
+  // ----------------
+  {
+    "key": "ctrl+j ctrl+h",
+    "command": "editor.foldRecursively",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+j ctrl+l",
+    "command": "editor.unfoldRecursively",
+    "when": "editorTextFocus"
+  },
+  // ----------------
+  // Ctrl + j  -> shift + (ウィンドウ開く系)
+  // ----------------
+  {
+    "key": "ctrl+j shift+s",
+    "command": "workbench.action.openSettingsJson"
+  },
+  {
+    "key": "ctrl+j shift+k",
+    "command": "workbench.action.openGlobalKeybindingsFile"
+  },
+  {
+    "key": "ctrl+j shift+c",
+    "command": "workbench.files.action.compareWithClipboard"
+  },
+  // ----------------
+  // Ctrl + , (ファイルの性質変更, git)
+  // ----------------
+  {
+    "key": "ctrl+, c",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+, e",
+    "command": "workbench.action.editor.changeEncoding"
+  },
+  {
+    "key": "ctrl+, l",
+    "command": "workbench.action.editor.changeLanguageMode"
+  },
+  {
+    "key": "ctrl+, h",
+    "command": "git-graph.view"
+  },
+  // ----------------
+  // 競合による無効化
+  // ----------------
+  {
+    "key": "ctrl+shift+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "-editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+oem_6",
+    "command": "editor.action.openLink",
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-editor.action.openLink",
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  }
+]
