@@ -4,3 +4,9 @@
 [submodule "owl-playbook"]
 	path = owl-playbook
 	url = https://github.com/tadashi-aikawa/owl-playbook
+[submodule "pipes.sh"]
+	path = pipes.sh
+	url = https://github.com/pipeseroni/pipes.sh
+[submodule "pipes.go"]
+	path = pipes.go
+	url = https://github.com/phagenlocher/pipes.go
