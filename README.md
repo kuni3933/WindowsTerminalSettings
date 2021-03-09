@@ -9,12 +9,12 @@
     <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
   </ul><br>
 
-1. Windows Terminal Previewをインストール<br>
+2. Windows Terminal Previewをインストール<br>
   方法1.デフォルトのMicrosoftStoreから検索してインストール<br><br>
   方法2.Wingetコマンド(以下のコマンド)でインストール<br>
-    <code>winget install -e --id Microsoft.WindowsTerminalPreview</code><br>
-  ※Windows Terminal PreviewをデフォルトのMicrosoftStoreから入手する/した場合は、以下のコマンドは絶対に実行しない事。<br>
-  (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)<br>
+      <code>winget install -e --id Microsoft.WindowsTerminalPreview</code><br>
+    ※Windows Terminal PreviewをデフォルトのMicrosoftStoreから入手する/した場合は、以下のコマンドは絶対に実行しない事。<br>
+    (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)<br>
 
 ## 2.フォントのインストール
 
