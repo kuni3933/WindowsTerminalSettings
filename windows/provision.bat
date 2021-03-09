@@ -4,6 +4,11 @@ set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
 set pipes.go="%~dp0..\pipes.go"
 mklink %USERPROFILE%\pipes.sh %pipes.sh%
 
+set ORIGIN_gitconfig="%~dp0..\gitconfig"
+xcopy %ORIGIN_gitconfig% %GIT_INSTALL_ROOT%\etc\gitconfig
+
+rem-----------------------------------------------------------------------------
+
 set WINDOWS_MNT="%~dp0..\mnt\windows"
 set COMMON_MNT="%~dp0..\mnt\common"
 

@@ -37,12 +37,11 @@ pwsh上で以下のコマンドを実行
    PowershellGallery側のモジュールをインストールして代用する際に実行。
 6. <code>Install-Module -Name z</code>
 
-もしScoopでgitをインストールする場合は、付属のgitconfigと以下のgitconfigを入れ替える。
-<code>C:/ProgramData/scoop/apps/git/current/etc/gitconfig</code>
-
 ## 5.依存packageインストール
 
 `windows`ディレクトリ配下の`install.ps1`をコマンドラインから管理者権限で実行してインストール。
+※既にインストール済みの物がないかinstall.ps1を要確認※
+※インストール済みのものがあったら、install.ps1をエディターで開いて調節してから実行する事※
 
 | ディレクトリ | 概要                        |
 | ------------ | --------------------------- |
@@ -61,22 +60,23 @@ pwsh上で以下のコマンドを実行
 
 ## 6.windows/provision.batをコマンドラインで実行
 
-更新ファイルがあった場合は、
+※install.ps1にしたがわないでgitをインストールする場合は、windows/provision.batのgitconfigコピー処理を消してから実行する事※
+
+インストール後に更新ファイルがあった場合は、以下の作業をする必要があるので、定期的にチェックする事。
 
 1. windows/provision.batをコマンドラインから実行してアップデート
 2. 以下の項目は手動アップデート/手動マージ
-
-  <ul>
-    <li>mnt/common/settings.json</li>
-    <li>mnt/windows/power-shell/*</li>
-    <li>mnt/windows/terminal/*</li>
-    <li>mnt/windows/.bashrc</li>
-    <li>windows/scoop/install.ps1</li>
-    <li>windows/PackageUpdate.bat</li>
-    <li>windows/provision.bat</li>
-    <li></li>
-    <li></li>
-  </ul>
+    <ul>
+      <li>mnt/common/settings.json</li>
+      <li>mnt/windows/power-shell/*</li>
+      <li>mnt/windows/terminal/*</li>
+      <li>mnt/windows/.bashrc</li>
+      <li>windows/scoop/install.ps1</li>
+      <li>windows/PackageUpdate.bat</li>
+      <li>windows/provision.bat</li>
+      <!--<li></li>-->
+    </ul>
+3. 再度windows/provision.batを実行
 
 ## 以下参考
 
