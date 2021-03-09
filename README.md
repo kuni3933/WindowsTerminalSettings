@@ -57,9 +57,26 @@ pwsh上で以下のコマンドを実行
 <li>pwsh</li>
 </ul>
 を一回起動してまた閉じておく。
-インストール済みでインストールパッケージに変更があった場合は再実行。
+インストール済みでインストールパッケージに変更があった場合はinstall.ps1を再実行。
 
 ## 6.windows/provision.batをコマンドラインで実行
+
+更新ファイルがあった場合は、
+
+1. windows/provision.batをコマンドラインから実行してアップデート
+2. 以下の項目は手動アップデート/手動マージ
+
+  <ul>
+    <li>mnt/common/settings.json</li>
+    <li>mnt/windows/power-shell/*</li>
+    <li>mnt/windows/terminal/*</li>
+    <li>mnt/windows/.bashrc</li>
+    <li>windows/scoop/install.ps1</li>
+    <li>windows/PackageUpdate.bat</li>
+    <li>windows/provision.bat</li>
+    <li></li>
+    <li></li>
+  </ul>
 
 ## 以下参考
 

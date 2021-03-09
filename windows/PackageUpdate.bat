@@ -51,7 +51,6 @@ exit /b
 :copy_Windows_MNT
 xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /ES
 xcopy %owl-playbook_WINDOWS_MNT%\wsl %WINDOWS_MNT%\wsl /ES
-xcopy %owl-playbook_WINDOWS_MNT%\.bashrc %WINDOWS_MNT%\.bashrc
 xcopy %owl-playbook_WINDOWS_MNT%\.minttyrc %WINDOWS_MNT%\.minttyrc
 xcopy %owl-playbook_WINDOWS_MNT%\.vimrc %WINDOWS_MNT%\.vimrc
 xcopy %owl-playbook_WINDOWS_MNT%\broot.toml %WINDOWS_MNT%\broot.toml

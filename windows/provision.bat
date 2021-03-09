@@ -1,5 +1,9 @@
 @echo off
 
+set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
+set pipes.go="%~dp0..\pipes.go"
+mklink %USERPROFILE%\pipes.sh %pipes.sh%
+
 set WINDOWS_MNT="%~dp0..\mnt\windows"
 set COMMON_MNT="%~dp0..\mnt\common"
 
@@ -10,6 +14,9 @@ set SCOOP="%USERPROFILE%\scoop"
 rem :tmpを動かすことで実行開始箇所を制御. デバッグや動作確認用
 goto :tmp
 :tmp
+
+call :******************** pipes.sh
+
 
 call :******************** IntelliJ IDEA
 
