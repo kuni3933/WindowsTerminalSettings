@@ -5,8 +5,8 @@
 <ul>
   <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
   <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
-<ul>  
-各URLから適切なバージョンをインストール
+<ul>
+各URLから適切なバージョンをインストール  
 
 ## 2.Windows Terminal Preview(WTP)のインストール
 
