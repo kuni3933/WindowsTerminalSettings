@@ -11,9 +11,13 @@
 
     方法1.デフォルトのMicrosoftStoreから検索してインストール
 
-    方法2.Wingetコマンドでインストール
-    ※Windows Terminal PreviewをデフォルトのMicrosoftStoreから入手する/した場合は、以下のコマンドは絶対に実行しない事。
-    (その場合同、同じものが２つインストールされたわけのわかんない状況になってしまうので要注意)
+    方法2.Wingetコマンド(以下のコマンド)でインストール
+
+     <code>winget install -e --id Microsoft.WindowsTerminalPreview</code>
+
+     ※Windows Terminal PreviewをデフォルトのMicrosoftStoreから入手する/した場合は、以下のコマンドは絶対に実行しない事。
+
+     (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)
 
 
 ## 2.フォントのインストール
