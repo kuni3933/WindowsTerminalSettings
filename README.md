@@ -8,7 +8,6 @@
 <ul>
 各URLから適切なバージョンをインストール
 
-
 ## 2.Windows Terminal Preview(WTP)のインストール
 
 <ul>
@@ -19,12 +18,10 @@
   (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)<br>
 </ul>
 
-
 ## 3.フォントのインストール
 
 1. 以下から「Source Code Pro」をダウンロードしてWindows Compatible版だけは必ずインストールする。
     <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>
-
 
 ## 4.scoopの有効化とモジュールインストール
 
@@ -42,7 +39,6 @@ pwsh上で以下のコマンドを実行
 
 もしScoopでgitをインストールする場合は、付属のgitconfigと以下のgitconfigを入れ替える。
 <code>C:/ProgramData/scoop/apps/git/current/etc/gitconfig</code>
-
 
 ## 5.依存packageインストール
 
@@ -64,7 +60,6 @@ pwsh上で以下のコマンドを実行
 インストール済みでインストールパッケージに変更があった場合は再実行。
 
 ## 6.windows/provision.batをコマンドラインで実行
-
 
 ## 以下参考
 
