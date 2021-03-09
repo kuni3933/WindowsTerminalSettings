@@ -11,6 +11,7 @@
 
     方法1.デフォルトのMicrosoftStoreから検索してインストール
 
+
     方法2.Wingetコマンド(以下のコマンド)でインストール
 
      <code>winget install -e --id Microsoft.WindowsTerminalPreview</code>
