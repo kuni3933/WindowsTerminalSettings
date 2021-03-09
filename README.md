@@ -15,10 +15,12 @@
   ※Windows Terminal PreviewをデフォルトのMicrosoftStoreから入手する/した場合は、以下のコマンドは絶対に実行しない事。
   (その場合同、同じものが２つインストールされたわけのわかんない状況になってしまうので要注意)
 
+
 ## 2.フォントのインストール
 
 1. 以下から「Source Code Pro」をダウンロードしてWindows Compatible版だけは必ずインストールする。
     <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>
+
 
 ## 3.scoopの有効化とモジュールインストール
 
@@ -37,13 +39,29 @@ pwsh上で以下のコマンドを実行
 もしScoopでgitをインストールする場合は、付属のgitconfigと以下のgitconfigを入れ替える。
 <code>C:/ProgramData/scoop/apps/git/current/etc/gitconfig</code>
 
-## 4.シンボリックリンク作成
 
-1. mklinkコマンドでWindowsTerminalのsetting.jsonを指すシンボリックリンクを作成し、適切な位置に配置(以下参考)
-   <a href="https://qiita.com/ma2shita/items/a6256ef3d81329f52ec7">Windows Terminal の設定(settings.json)を複数の PC で共有する方法 (OneDrive の場合) - Qiita</a>
-2. 同じく.PS1ファイルのシンボリックリンクを作成し配置
-   適切な位置(%USERPROFILE%\Documents\PowerShell)の下に配置する。
-3. Provisioフォルダ内のinstall.ps1を各自実行して、パッケージのインストールを行う。
+## 4.依存packageインストール
+
+`windows`ディレクトリ配下の`install.ps1`をPowerShellで実行。
+
+| ディレクトリ | 概要                        |
+| ------------ | --------------------------- |
+| scoop        | Scoopでインストールするもの |
+| npm          | npmでインストールするもの   |
+| go           | goでインストールするもの    |
+
+インストールパッケージに変更があったときは再実行。
+インストール後、
+<ul>
+<li>Keypirinha</li>
+<li>VScode</li>
+<li>pwsh</li>
+</ul>
+を一回起動してまた閉じておく。
+
+
+## 5.windows/provision.batをコマンドラインで実行
+
 
 ## 以下参考
 
@@ -53,7 +71,10 @@ pwsh上で以下のコマンドを実行
   <li><a href="https://mikazuki.hatenablog.jp/entry/2020/08/01/173459">Windows の Terminal 環境を整えたい - みかづきメモ</a></li>
   <li><a href="https://secon.dev/entry/2020/08/17/070735/">MacOS ユーザが WSL では無い Windows のコンソール環境を整える - A Day in the Life</a></li>
 </ul>
+
+
 ## メモ
+
 <ul>
    <li>install.batでインストール時にエラーを返すパッケージが３~程確認されている</li>
 </ul>
