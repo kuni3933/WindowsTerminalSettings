@@ -5,7 +5,8 @@
 <ul>
   <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
   <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
-<ul>  
+<ul>
+
 
 ## 2.Windows Terminal Preview(WTP)のインストール
 
@@ -16,6 +17,7 @@
   ※Windows Terminal PreviewをデフォルトのMicrosoftStoreから入手する/した場合は、以下のコマンドは絶対に実行しない事。<br>
   (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)<br>
 </ul>
+
 
 ## 3.フォントのインストール
 
