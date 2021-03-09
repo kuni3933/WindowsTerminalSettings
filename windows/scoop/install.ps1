@@ -2,7 +2,6 @@
 scoop bucket add versions
 # Add extras
 scoop bucket add extras
-
 # CLI Tools
 scoop install `
   sudo `
@@ -37,6 +36,7 @@ scoop install `
   vscode `
   draw.io
 
+
 # Language / Framework / MiddleWare
 scoop install `
   nodejs-lts `
@@ -47,7 +47,25 @@ scoop install `
   hugo-extended `
   vcxsrv
 
+# Python
+#scoop install `
+  #python27 `
+  #python37 `
+  #python
+#scoop reset python
+
 sudo scoop install autohotkey-installer
 
 
 
+
+
+
+
+
+
+
+
+
+scoop status
+scoop cleanup *
