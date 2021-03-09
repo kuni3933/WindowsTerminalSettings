@@ -2,8 +2,18 @@
 scoop bucket add versions
 # Add extras
 scoop bucket add extras
+# Add git -g(lobal)
+scoop install git -g
 # CLI Tools
 scoop install `
+  aria2 `
+  cacert `
+  grep `
+  hub `
+  imagemagick `
+  innounp `
+  neovim `
+  winfetch `
   sudo `
   wget `
   bat `
@@ -22,7 +32,6 @@ scoop install `
   ffmpeg `
   z `
   vim `
-  neovim `
   uutils-coreutils `
   broot `
   zoxide

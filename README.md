@@ -9,6 +9,7 @@
     <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
   </ul><br>
 2. Windows Terminal Previewをインストール
+
   方法1.デフォルトのMicrosoftStoreから検索してインストール
 
   方法2.Wingetコマンドでインストール
@@ -42,7 +43,7 @@ pwsh上で以下のコマンドを実行
 
 ## 4.依存packageインストール
 
-`windows`ディレクトリ配下の`install.ps1`をPowerShellで実行。
+`windows`ディレクトリ配下の`install.ps1`をコマンドラインから管理者権限で実行してインストール。
 
 | ディレクトリ | 概要                        |
 | ------------ | --------------------------- |
@@ -50,15 +51,14 @@ pwsh上で以下のコマンドを実行
 | npm          | npmでインストールするもの   |
 | go           | goでインストールするもの    |
 
-インストールパッケージに変更があったときは再実行。
-インストール後、
+初インストールの場合は、
 <ul>
 <li>Keypirinha</li>
 <li>VScode</li>
 <li>pwsh</li>
 </ul>
 を一回起動してまた閉じておく。
-
+インストール済みでインストールパッケージに変更があった場合は再実行。
 
 ## 5.windows/provision.batをコマンドラインで実行
 
