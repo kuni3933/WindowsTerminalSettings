@@ -1,26 +1,29 @@
 # WindowsTerminalSettings
 
-## 1.Windows Terminal Preview(WTP)・PowerShell Core(pwsh)のインストール
+## 1.以下からMicrosoft.DesktopAppInstaller(winget)・pwshをインストール
 
-1. 以下からMicrosoft.DesktopAppInstaller(wingetのため)・pwshをインストール
-    <ul>
-      <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
-      <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
-    <ul>
-2. Windows Terminal Previewをインストール
-  方法1.デフォルトのMicrosoftStoreから検索してインストール<br><br>
-  方法2.Wingetコマンド(以下のコマンド)でインストール<br>
+  <ul>
+    <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
+    <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
+  <ul><br>
+
+## 2.Windows Terminal Preview(WTP)のインストール
+
+<ul>
+  <li>方法1.デフォルトのMicrosoftStoreから検索してインストール</li>
+  <li>方法2.Wingetコマンド(以下のコマンド)でインストール</li>
     <code>winget install -e --id Microsoft.WindowsTerminalPreview</code><br>
   ※Windows Terminal PreviewをデフォルトのMicrosoftStoreから入手する/した場合は、以下のコマンドは絶対に実行しない事。<br>
   (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)<br>
+</ul>
 
-## 2.フォントのインストール
+## 3.フォントのインストール
 
 1. 以下から「Source Code Pro」をダウンロードしてWindows Compatible版だけは必ずインストールする。
     <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>
 
 
-## 3.scoopの有効化とモジュールインストール
+## 4.scoopの有効化とモジュールインストール
 
 pwsh上で以下のコマンドを実行
 
@@ -38,7 +41,7 @@ pwsh上で以下のコマンドを実行
 <code>C:/ProgramData/scoop/apps/git/current/etc/gitconfig</code>
 
 
-## 4.依存packageインストール
+## 5.依存packageインストール
 
 `windows`ディレクトリ配下の`install.ps1`をコマンドラインから管理者権限で実行してインストール。
 
@@ -57,7 +60,7 @@ pwsh上で以下のコマンドを実行
 を一回起動してまた閉じておく。
 インストール済みでインストールパッケージに変更があった場合は再実行。
 
-## 5.windows/provision.batをコマンドラインで実行
+## 6.windows/provision.batをコマンドラインで実行
 
 
 ## 以下参考
