@@ -6,7 +6,8 @@
     <ul>
       <li><a href="https://github.com/PowerShell/PowerShell/releases">Releases · PowerShell/PowerShell</a></li>
       <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
-    <ul><br>
+    <ul>
+    <br>
 2. Windows Terminal Previewをインストール
   方法1.デフォルトのMicrosoftStoreから検索してインストール<br><br>
   方法2.Wingetコマンド(以下のコマンド)でインストール<br>
