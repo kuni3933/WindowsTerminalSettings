@@ -9,7 +9,7 @@
     </ul><br>
 2. Windows Terminal Previewをインストール
 
-    方法1.デフォルトのMicrosoftStoreから検索してインストール<br>
+    方法1.デフォルトのMicrosoftStoreから検索してインストール<br><br>
 
     方法2.Wingetコマンド(以下のコマンド)でインストール
 
