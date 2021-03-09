@@ -9,6 +9,7 @@
 各URLから適切なバージョンをインストール
 
 
+
 ## 2.Windows Terminal Preview(WTP)のインストール
 
 <ul>
