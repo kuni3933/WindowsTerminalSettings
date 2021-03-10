@@ -73,7 +73,7 @@ sudo scoop install autohotkey-installer
 
 sudo ./install.bat
 sudo scoop update git -g
-scoop update *
-scoop cleanup *
+sudo scoop update *
+sudo scoop cleanup *
 scoop status
 
