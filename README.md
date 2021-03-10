@@ -64,13 +64,14 @@ CurrentUserのみRemoteSignedとなっていることを確認する事。
 <li>pwsh</li>
 </ul>
 を一回起動してまた閉じておく。
-インストール済みでインストールパッケージに変更があった場合はinstall.ps1を再実行。
 
 ## 6.windows/provision.batをコマンドラインから管理者権限で実行
 
 ※install.ps1にしたがわないでgitをインストールする場合は、windows/provision.batのgitconfigコピー処理を消してから実行する事※
 
-インストール後に更新ファイルがあった場合は、以下の作業をする必要があるので、定期的にチェックする事。
+## 7.定期アップデート
+
+インストール後に更新ファイルがあった場合は以下の作業をする必要があるので、定期的にチェックして実行する事。
 
 1. windows/provision.batをコマンドラインから実行してアップデート
 2. 以下の項目は手動アップデート/手動マージ
@@ -80,11 +81,11 @@ CurrentUserのみRemoteSignedとなっていることを確認する事。
       <li>mnt/windows/terminal/*</li>
       <li>mnt/windows/.bashrc</li>
       <li>windows/scoop/install.ps1</li>
-      <li>windows/PackageUpdate.bat</li>
       <li>windows/provision.bat</li>
       <!--<li></li>-->
     </ul>
-3. 再度windows/provision.batを実行
+3. install.ps1を実行してパッケージアップデート
+4. 再度windows/provision.batを実行
 
 ## 以下参考
 

@@ -1,28 +1,55 @@
 @echo off
 
-set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
-set pipes.go="%~dp0..\pipes.go"
-call :link_file %USERPROFILE%\pipes.sh %pipes.sh%
+rem ------------------------------------------------------------------------------------------------------変数/パスのセット処理
+set LINUX="%~dp0..\linux"
+set WINDOWS="%~dp0..\windows"
 
-set ORIGIN_gitconfig="%~dp0..\gitconfig"
-xcopy %ORIGIN_gitconfig% %GIT_INSTALL_ROOT%\etc\gitconfig
+set owl-playbook_LINUX="%~dp0..\owl-playbook\linux"
+set owl-playbook_WINDOWS="%~dp0..\owl-playbook\windows"
 
-rem -----------------------------------------------------------------------------
 
 set WINDOWS_MNT="%~dp0..\mnt\windows"
-set COMMON_MNT="%~dp0..\mnt\common"
+set LINUX_MNT="%~dp0..\mnt\linux"
+set COMMON_MNT="%~dp0..\mnt\common""
+
+set owl-playbook_WINDOWS_MNT="%~dp0..\owl-playbook\mnt\windows"
+set owl-playbook_LINUX_MNT="%~dp0..\owl-playbook\mnt\linux"
+set owl-playbook_COMMON_MNT="%~dp0..\owl-playbook\mnt\common"
+
 
 set ROAMING="%USERPROFILE%\AppData\Roaming"
 set LOCAL="%USERPROFILE%\AppData\Local"
 set SCOOP="%USERPROFILE%\scoop"
 
+
+
 rem :tmpを動かすことで実行開始箇所を制御. デバッグや動作確認用
 goto :tmp
 :tmp
+rem ------------------------------------------------------------------------------------------------------更新処理
+call :******************** copy_Linux
+call :copy_Linux
+call :******************** copy_Windows
+call :copy_Windows
 
-call :******************** pipes.sh
+call :******************** copy_Windows_MNT
+call :copy_Windows_MNT
+call :******************** copy_linux_MNT
+call :copy_linux_MNT
+call :******************** copy_Common_MNT
+call :copy_Common_MNT
+
+call :******************** pipes.sh/pipes.go
+set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
+set pipes.go="%~dp0..\pipes.go"
+call :link_file %USERPROFILE%\pipes.sh %pipes.sh%
+
+call :******************** gitconfig
+set ORIGIN_gitconfig="%~dp0..\gitconfig"
+xcopy %ORIGIN_gitconfig% %GIT_INSTALL_ROOT%\etc\gitconfig
 
 
+rem ------------------------------------------------------------------------------------------------------メイン処理
 call :******************** IntelliJ IDEA
 
 set IDEA_DIR=IntelliJIdea2020.3
@@ -97,8 +124,45 @@ echo Create a shortcut of Xlaunch in `Star Menu / Program` with a to-link as fol
 echo   * ex: C:\Users\syoum\scoop\apps\vcxsrv\current\xlaunch.exe -run C:\Users\syoum\git\github.com\tadashi-aikawa\owl-playbook\windows\ubuntu\config.xlaunch
 
 goto :end
-rem ---------------------------------------------------------
 
+
+
+rem  ------------------------------------------------------------------------------------------------------
+rem  --------------------------------以下使用する関数----------------------------------------------------
+rem  ------------------------------------------------------------------------------------------------------
+rem ------------------------------------------------------------------------------------------------------更新処理の関数
+:copy_Linux
+xcopy %owl-playbook_LINUX% %LINUX% /E
+exit /b
+
+:copy_Windows
+xcopy %owl-playbook_WINDOWS%\go %WINDOWS%\go /E
+xcopy %owl-playbook_WINDOWS%\npm %WINDOWS%\npm /E
+xcopy %owl-playbook_WINDOWS%\ubuntu %WINDOWS%\ubuntu /E
+xcopy %owl-playbook_WINDOWS%\idea-files.txt %WINDOWS%\idea-files.txt
+xcopy %owl-playbook_WINDOWS%\vscode-extensions.txt %WINDOWS%\vscode-extensions.txt
+xcopy %owl-playbook_WINDOWS%\windows-home-dots.txt %WINDOWS%\windows-home-dots.txt
+exit /b
+
+:copy_Windows_MNT
+xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /E
+xcopy %owl-playbook_WINDOWS_MNT%\wsl %WINDOWS_MNT%\wsl /E
+xcopy %owl-playbook_WINDOWS_MNT%\.minttyrc %WINDOWS_MNT%\.minttyrc
+xcopy %owl-playbook_WINDOWS_MNT%\.vimrc %WINDOWS_MNT%\.vimrc
+xcopy %owl-playbook_WINDOWS_MNT%\broot.toml %WINDOWS_MNT%\broot.toml
+exit /b
+
+:copy_linux_MNT
+xcopy %owl-playbook_LINUX_MNT% %LINUX_MNT% /E
+exit /b
+
+:copy_Common_MNT
+xcopy %owl-playbook_COMMON_MNT%\.vim-snippets %COMMON_MNT%\.vim-snippets
+xcopy %owl-playbook_COMMON_MNT%\IntelliJIdea %COMMON_MNT%\IntelliJIdea
+exit /b
+
+
+rem ------------------------------------------------------------------------------------------------------メイン処理の関数
 :link_windows_home
 call :link_file %USERPROFILE%\%1 %WINDOWS_MNT%\%1
 exit /b
@@ -123,8 +187,8 @@ exit /b
 call code --install-extension %1
 exit /b
 
-rem ----- common ------
 
+rem ------------------------------------------------------------------------------------------------------common
 :link_file
 del %1
 Mklink %1 %2
