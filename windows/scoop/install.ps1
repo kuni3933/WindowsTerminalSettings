@@ -36,9 +36,6 @@ scoop install `
   broot `
   zoxide
 
-#管理者権限にし忘れてgitを入れられなかった場合に、インストールしたsudoで解決する
-sudo scoop install git -g
-
 # GUI Tools
 scoop install `
   dbeaver `
@@ -66,14 +63,14 @@ scoop install `
   #python
 #scoop reset python
 
-sudo scoop install autohotkey-installer
+scoop install autohotkey-installer
 
 
 
 
-sudo ./install.bat
-sudo scoop update git -g
-sudo scoop update *
-sudo scoop cleanup *
+./install.bat
+scoop update git -g
+scoop update *
+scoop cleanup *
 scoop status
 
