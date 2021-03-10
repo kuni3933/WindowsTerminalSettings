@@ -1,5 +1,5 @@
 @echo off
-
+chcp 932
 rem ------------------------------------------------------------------------------------------------------変数/パスのセット処理
 set LINUX="%~dp0..\linux"
 set WINDOWS="%~dp0..\windows"
@@ -10,7 +10,7 @@ set owl-playbook_WINDOWS="%~dp0..\owl-playbook\windows"
 
 set WINDOWS_MNT="%~dp0..\mnt\windows"
 set LINUX_MNT="%~dp0..\mnt\linux"
-set COMMON_MNT="%~dp0..\mnt\common""
+set COMMON_MNT="%~dp0..\mnt\common"
 
 set owl-playbook_WINDOWS_MNT="%~dp0..\owl-playbook\mnt\windows"
 set owl-playbook_LINUX_MNT="%~dp0..\owl-playbook\mnt\linux"
@@ -157,8 +157,9 @@ xcopy %owl-playbook_LINUX_MNT% %LINUX_MNT% /E /H /S /I
 exit /b
 
 :copy_Common_MNT
-xcopy %owl-playbook_COMMON_MNT%\".vim-snippets" %COMMON_MNT%\".vim-snippets" /E /H /S /I
+xcopy %owl-playbook_COMMON_MNT%\.vim-snippets %COMMON_MNT%\.vim-snippets /E /H /S /I
 xcopy %owl-playbook_COMMON_MNT%\IntelliJIdea %COMMON_MNT%\IntelliJIdea /E /H /S /I
+xcopy %owl-playbook_COMMON_MNT%\VSCode %COMMON_MNT%\VSCode /E /H /S /I
 exit /b
 
 
@@ -211,3 +212,8 @@ exit /b
 
 REM 途中で止めたい場合はここに..
 :end
+echo:
+echo ENTERを押して終了します。
+echo Press ENTER to exit.
+set /P =":"
+chcp 65001
