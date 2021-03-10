@@ -12,7 +12,7 @@
 <ul>
   <li>方法1.MicrosoftStoreアプリからインストール(WTPのみ対応)</li>
   <li>方法2.githubのreleaseページを検索してそこからインストール</li>
-  <li>方法2.Wingetコマンド(以下のコマンド)でインストール</li>
+  <li>方法3(推奨)Wingetコマンド(以下のコマンド)でインストール</li>
     <code>winget install -e --id Microsoft.WindowsTerminalPreview</code><br>
     <code>winget install -e --id Microsoft.PowerShell</code><br>
   ※すでにインストール済みだった場合は、アンインストールしてから実行する事。<br>
