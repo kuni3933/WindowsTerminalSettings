@@ -61,7 +61,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "commandline": "pwsh.exe",
         "name": "PowerShell Core",
         "source": "Windows.Terminal.PowershellCore",
-        "backgroundImage": "%OneDriveConsumer%/WindowsTerminalSettings/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
+        "backgroundImage": "%WindowsTerminalSettings%/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
         "backgroundImageOpacity": 0.09375
       },
       { //%GIT_INSTALL_ROOT%

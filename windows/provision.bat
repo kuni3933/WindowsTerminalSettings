@@ -132,33 +132,33 @@ rem  --------------------------------以下使用する関数---------------------------
 rem  ------------------------------------------------------------------------------------------------------
 rem ------------------------------------------------------------------------------------------------------更新処理の関数
 :copy_Linux
-xcopy %owl-playbook_LINUX% %LINUX% /E
+xcopy %owl-playbook_LINUX% %LINUX% /E /H /S /I
 exit /b
 
 :copy_Windows
-xcopy %owl-playbook_WINDOWS%\go %WINDOWS%\go /E
-xcopy %owl-playbook_WINDOWS%\npm %WINDOWS%\npm /E
-xcopy %owl-playbook_WINDOWS%\ubuntu %WINDOWS%\ubuntu /E
+xcopy %owl-playbook_WINDOWS%\go %WINDOWS%\go /E /H /S /I
+xcopy %owl-playbook_WINDOWS%\npm %WINDOWS%\npm /E /H /S /I
+xcopy %owl-playbook_WINDOWS%\ubuntu %WINDOWS%\ubuntu /E /H /S /I
 xcopy %owl-playbook_WINDOWS%\idea-files.txt %WINDOWS%\idea-files.txt
 xcopy %owl-playbook_WINDOWS%\vscode-extensions.txt %WINDOWS%\vscode-extensions.txt
 xcopy %owl-playbook_WINDOWS%\windows-home-dots.txt %WINDOWS%\windows-home-dots.txt
 exit /b
 
 :copy_Windows_MNT
-xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /E
-xcopy %owl-playbook_WINDOWS_MNT%\wsl %WINDOWS_MNT%\wsl /E
+xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /E /H /S /I
+xcopy %owl-playbook_WINDOWS_MNT%\wsl %WINDOWS_MNT%\wsl /E /H /S /I
 xcopy %owl-playbook_WINDOWS_MNT%\.minttyrc %WINDOWS_MNT%\.minttyrc
 xcopy %owl-playbook_WINDOWS_MNT%\.vimrc %WINDOWS_MNT%\.vimrc
 xcopy %owl-playbook_WINDOWS_MNT%\broot.toml %WINDOWS_MNT%\broot.toml
 exit /b
 
 :copy_linux_MNT
-xcopy %owl-playbook_LINUX_MNT% %LINUX_MNT% /E
+xcopy %owl-playbook_LINUX_MNT% %LINUX_MNT% /E /H /S /I
 exit /b
 
 :copy_Common_MNT
-xcopy %owl-playbook_COMMON_MNT%\.vim-snippets %COMMON_MNT%\.vim-snippets
-xcopy %owl-playbook_COMMON_MNT%\IntelliJIdea %COMMON_MNT%\IntelliJIdea
+xcopy %owl-playbook_COMMON_MNT%\".vim-snippets" %COMMON_MNT%\".vim-snippets" /E /H /S /I
+xcopy %owl-playbook_COMMON_MNT%\IntelliJIdea %COMMON_MNT%\IntelliJIdea /E /H /S /I
 exit /b
 
 

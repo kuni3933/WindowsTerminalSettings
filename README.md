@@ -1,5 +1,14 @@
 # WindowsTerminalSettings
 
+## 0.このリポジトリが配置されているパスをユーザー環境変数として登録
+
+このリポジトリが配置されているパスを、ユーザー環境変数:WindowsTerminalSettingsとして登録
+
+以下、「C:/Users/ユーザー名/WindowsTerminalSettings(このリポジトリ)」という配置状況での例
+
+<code>ユーザー環境変数名:WindowsTerminalSettings</code><br>
+<code>ユーザー環境変数値:C:/Users/ユーザー名/WindowsTerminalSettings</code>
+
 ## 1.以下からMicrosoft.DesktopAppInstaller(winget)をインストール
 
 <ul>
@@ -34,12 +43,10 @@ pwsh上で以下のコマンドを管理者権限で実行
 4. <code>Install-Module oh-my-posh -Scope CurrentUser -Force</code>
 5. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck</code>
 
-   以下はinstall.ps1でzモジュールをインストールせずに、
-   PowershellGallery側のモジュールをインストールして代用する際に実行。
+    以下はinstall.ps1でzモジュールをインストールせずに、PowershellGallery側のモジュールをインストールして代用する際に実行。
 6. <code>Install-Module -Name z</code>
 
-※以下のコマンドを実行して、セキュリティポリシーが
-CurrentUserのみRemoteSignedとなっていることを確認する事。
+※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
 
 <code>Get-ExecutionPolicy -l</code>
 

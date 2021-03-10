@@ -31,7 +31,7 @@ Invoke-Expression (& {
 })
 
 Set-PoshPrompt -Theme powerlevel10k_lean
-Export-PoshTheme -FilePath $env:OneDriveConsumer/WindowsTerminalSettings/mnt/windows/power-shell/.oh-my-posh.omp.json
+Export-PoshTheme -FilePath $env:WindowsTerminalSettings/mnt/windows/power-shell/.oh-my-posh.omp.json
 # Prompt
 #$ThemeSettings.Colors.DriveForegroundColor = "Blue"
 # Git
