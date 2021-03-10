@@ -1,4 +1,10 @@
 #uninstall
 scoop uninstall `
-  windows-terminal `
   gcc `
+
+
+sudo ./install.bat
+sudo scoop update git -g
+scoop update *
+scoop cleanup *
+scoop status

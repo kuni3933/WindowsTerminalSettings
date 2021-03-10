@@ -1,9 +1,9 @@
+# Add git -g(lobal)
+scoop install git -g
 # Add versions bucket
 scoop bucket add versions
 # Add extras
 scoop bucket add extras
-# Add git -g(lobal)
-scoop install git -g
 # CLI Tools
 scoop install `
   aria2 `
@@ -35,6 +35,9 @@ scoop install `
   uutils-coreutils `
   broot `
   zoxide
+
+#管理者権限にし忘れてgitを入れられなかった場合に、インストールしたsudoで解決する
+sudo scoop install git -g
 
 # GUI Tools
 scoop install `
@@ -68,13 +71,9 @@ sudo scoop install autohotkey-installer
 
 
 
-
-
-
-
-
-
-
-
-scoop status
+sudo ./install.bat
+sudo scoop update git -g
+scoop update *
 scoop cleanup *
+scoop status
+
