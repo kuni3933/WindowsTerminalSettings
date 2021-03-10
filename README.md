@@ -40,6 +40,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 ※以下のコマンドを実行して、セキュリティポリシーが
 CurrentUserのみRemoteSignedとなっていることを確認する事。
+
 <code>Get-ExecutionPolicy -l</code>
 それ以外の場合は、1番で使用したコマンドを修正入力して実行
 
