@@ -81,9 +81,6 @@ call :each vscode_extension_install vscode-extensions.txt
 call :******************** Homedir
 call :each link_windows_home windows-home-dots.txt
 
-call :******************** init.vimÅ©--Å®.vimrcc
-call :link_init.vim "init.vim" ".vimrc"
-
 call :******************** PowerShell Core
 
 set POWER_SHELL_ORIGIN_DIR=%WINDOWS_MNT%\power-shell
@@ -169,10 +166,6 @@ exit /b
 rem ------------------------------------------------------------------------------------------------------ÉÅÉCÉìèàóùÇÃä÷êî
 :link_windows_home
 call :link_file %USERPROFILE%\%1 %WINDOWS_MNT%\%1
-exit /b
-
-:link_init.vim
-call :link_file %LOCALAPPDATA%\nvim\%1 %WINDOWS_MNT%\%2
 exit /b
 
 :link_idea_file
