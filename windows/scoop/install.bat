@@ -1,5 +1,5 @@
 @echo off
-
+chcp 932
 rem :tmp‚ð“®‚©‚·‚±‚Æ‚ÅŽÀsŠJŽn‰ÓŠ‚ð§Œä. ƒfƒoƒbƒO‚â“®ìŠm”F—p
 goto :tmp
 :tmp
@@ -22,3 +22,4 @@ echo „¯„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„
 exit /b
 
 :end
+chcp 65001
