@@ -22,4 +22,8 @@ echo „¯„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„
 exit /b
 
 :end
+echo:
+echo ENTER‚ð‰Ÿ‚µ‚ÄAŽŸ‚Ìƒy[ƒW‚Éi‚Ý‚Ü‚·B
+echo Press ENTER to go to the next page.
+set /P input_tmp=":"
 chcp 65001
