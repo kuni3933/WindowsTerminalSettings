@@ -44,7 +44,7 @@ set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
 set pipes.go="%~dp0..\pipes.go"
 call :link_file %USERPROFILE%\pipes.sh %pipes.sh%
 
-call :******************** gitconfig
+call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%~dp0..\gitconfig"
 xcopy %ORIGIN_gitconfig% %GIT_INSTALL_ROOT%\etc\gitconfig
 
