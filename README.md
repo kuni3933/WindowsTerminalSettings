@@ -35,6 +35,7 @@
 ## 4.パス設定
 
 1. このリポジトリが配置されているパスを、ユーザー環境変数:WindowsTerminalSettings として登録
+
     以下、「C:/Users/ユーザー名/WindowsTerminalSettings(このリポジトリ)」という配置状況での例
 
     <code>ユーザー環境変数名:WindowsTerminalSettings</code><br>
