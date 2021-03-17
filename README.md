@@ -43,7 +43,9 @@
 
 2. 今度はGitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
-    まずは<code>cmd /c where git</code>このコマンドを実行して、git.exeの位置を確認
+    まずは以下のコマンドを実行してgit.exeの位置を確認
+
+    <code>cmd /c where git</code><br>
 
    出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する。
 
