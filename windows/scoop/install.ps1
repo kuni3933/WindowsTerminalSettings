@@ -1,5 +1,3 @@
-# Add git -g(lobal)
-scoop install git -g
 # Add versions bucket
 scoop bucket add versions
 # Add extras
@@ -42,7 +40,6 @@ scoop install `
   postman `
   keypirinha `
   ditto `
-  vscode `
   draw.io
 
 
