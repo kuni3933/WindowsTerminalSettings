@@ -79,3 +79,6 @@ ElseIf(-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Co
   echo " "
 }
 
+
+$input_tmp = Read-Host "ENTERを押して終了します。 `r`n Press ENTER to exit. `r`n"
+echo "'install.ps1' has finished.

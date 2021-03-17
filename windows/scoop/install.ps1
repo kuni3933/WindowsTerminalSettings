@@ -64,8 +64,6 @@ scoop install autohotkey-installer
 
 
 
-./install.bat
-scoop update git -g
 scoop update *
 scoop cleanup *
 scoop status
