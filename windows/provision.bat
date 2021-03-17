@@ -42,11 +42,11 @@ call :copy_Common_MNT
 call :******************** pipes.sh/pipes.go
 set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
 set pipes.go="%~dp0..\pipes.go"
-call :link_file %USERPROFILE%\pipes.sh %pipes.sh%
+call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%""
 
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%~dp0..\gitconfig"
-xcopy %ORIGIN_gitconfig% %GIT_INSTALL_ROOT%\etc\gitconfig
+xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 
 rem ------------------------------------------------------------------------------------------------------メイン処理
@@ -62,7 +62,7 @@ call :link_idea_dir keymaps
 call :link_idea_dir templates
 call :link_idea_dir codestyles
 call :link_idea_dir inspection
-call :link_file %USERPROFILE%\.ideavimrc %COMMON_MNT%\IntelliJIdea\.ideavimrc
+call :link_file "%USERPROFILE%\.ideavimrc" "%COMMON_MNT%\IntelliJIdea\.ideavimrc"
 
 call :each link_idea_file idea-files.txt
 
@@ -86,26 +86,26 @@ call :******************** PowerShell Core
 set POWER_SHELL_ORIGIN_DIR=%WINDOWS_MNT%\power-shell
 set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
 
-call :link_file %POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1 %POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1
+call :link_file "%POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1" "%POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1"
 
 
 call :******************** Windows Terminal Preview
 
 set TERMINAL_ORIGIN_DIR=%WINDOWS_MNT%\terminal
-call :link_file %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json %TERMINAL_ORIGIN_DIR%\LocalState\settings.json
+call :link_file "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" "%TERMINAL_ORIGIN_DIR%\LocalState\settings.json"
 
 call :******************** Keypirinha
 
 set KEYPIRINHA_ORIGIN_DIR=%WINDOWS_MNT%\keypirinha
-call :link_file %SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini %KEYPIRINHA_ORIGIN_DIR%\User\Keypirinha.ini
+call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini" "%KEYPIRINHA_ORIGIN_DIR%\User\Keypirinha.ini"
 
 call :******************** Broot
 
-call :link_file "%USERPROFILE%\broot.toml" %WINDOWS_MNT%\broot.toml
+call :link_file "%USERPROFILE%\broot.toml" "%WINDOWS_MNT%\broot.toml"
 
 
 call :******************** git config
-
+rem グローバル(ユーザー)設定
 git config --global core.preloadindex true
 git config --global core.fscache true
 git config --global core.autoCRLF false
@@ -148,7 +148,6 @@ exit /b
 xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /E /H /S /I
 xcopy %owl-playbook_WINDOWS_MNT%\wsl %WINDOWS_MNT%\wsl /E /H /S /I
 xcopy %owl-playbook_WINDOWS_MNT%\.minttyrc %WINDOWS_MNT%\.minttyrc
-xcopy %owl-playbook_WINDOWS_MNT%\.vimrc %WINDOWS_MNT%\.vimrc
 xcopy %owl-playbook_WINDOWS_MNT%\broot.toml %WINDOWS_MNT%\broot.toml
 exit /b
 
