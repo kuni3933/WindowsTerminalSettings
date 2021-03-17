@@ -36,15 +36,6 @@ ElseIf(-not(Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsT
   winget install -e --id Microsoft.WindowsTerminalPreview
 }
 
-Write_Title "pwsh"
-echo "インストール又はアップデートを行います。"
-echo "Install or update the software."
-echo " "
-winget show --id Microsoft.PowerShell
-echo " "
-winget install -e --id Microsoft.PowerShell
-echo " "
-
 Write_Title "VSCode"
 If(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe){
   echo "インストール済みです。"
@@ -81,6 +72,14 @@ ElseIf(-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Co
   echo " "
 }
 
+Write_Title "pwsh"
+echo "インストール又はアップデートを行います。"
+echo "Install or update the software."
+echo " "
+winget show --id Microsoft.PowerShell
+echo " "
+winget install -e --id Microsoft.PowerShell
+echo " "
 
 $input_tmp = Read-Host "ENTERを押して終了します。 `r`n Press ENTER to exit. `r`n"
 echo "'install.ps1' has finished."
