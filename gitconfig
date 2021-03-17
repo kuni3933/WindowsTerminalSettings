@@ -20,7 +20,7 @@
 	required = true
 [http]
 	sslBackend = openssl
-	sslCAInfo = C:/ProgramData/scoop/apps/git/current/mingw64/ssl/certs/ca-bundle.crt
+	sslCAInfo = C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
 [pull]
 	rebase = false
 [credential]
