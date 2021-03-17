@@ -59,7 +59,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 1. <code>Install-Module posh-git -Scope CurrentUser -Force</code>
 2. <code>Install-Module oh-my-posh -Scope CurrentUser -Force</code>
-3. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck</code>
+3. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force</code>
 
 ※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
 

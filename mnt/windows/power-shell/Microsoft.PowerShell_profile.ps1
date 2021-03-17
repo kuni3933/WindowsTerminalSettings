@@ -1,4 +1,10 @@
 winfetch.PS1
+# fish風のオートサジェスト機能を有効に
+Set-PSReadLineOption -PredictionSource History
+# (optional) Ctrl+f 入力で前方1単語進む : 補完の確定に使う用
+Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
+#参考-https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
+Set-PSReadlineOption -EditMode vi
 #-----------------------------------------------------
 # General
 #-----------------------------------------------------

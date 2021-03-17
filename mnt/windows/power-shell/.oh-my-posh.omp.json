@@ -4,6 +4,7 @@
     "console_title": false,
     "console_title_style": "",
     "console_title_template": "",
+    "terminal_background": "",
     "blocks": [
         {
             "type": "prompt",

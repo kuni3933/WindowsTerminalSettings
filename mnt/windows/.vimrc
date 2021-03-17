@@ -1,3 +1,16 @@
+if &term == 'win32'
+        let &t_ti.=" \e[1 q"
+        let &t_SI.=" \e[5 q-- INSERT --"
+        let &t_EI.=" \e[1 q"
+        let &t_te.=" \e[0 q"
+        let &t_SR.="\e[4 q"
+else
+        let &t_ti.="\e[1 q"
+        let &t_SI.="\e[5 q"
+        let &t_EI.="\e[1 q"
+        let &t_te.="\e[0 q"
+        let &t_SR.="\e[4 q"
+endif
 " ---------------------------------------------------
 "  全体
 " ---------------------------------------------------
@@ -87,7 +100,7 @@ else
   Plugin 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_map = '<C-j>f'      " ファイル検索
   nnoremap <C-j>e :CtrlPMRU<CR>   " 最近のファイル検索
-  set wildignore+=*/node_modules/*,*.so,*.swp,*.zip 
+  set wildignore+=*/node_modules/*,*.so,*.swp,*.zip
 
 
   " Fern
