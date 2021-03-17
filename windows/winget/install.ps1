@@ -57,6 +57,8 @@ If(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe){
 
 }
 ElseIf(-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe)){
+  winget show --id Microsoft.VisualStudioCode-User-x64
+  echo " "
   winget install -e --id Microsoft.VisualStudioCode-User-x64
   echo " "
 }
