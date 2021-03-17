@@ -35,21 +35,20 @@
 ## 4.パス設定
 
 1. このリポジトリが配置されているパスを、ユーザー環境変数:WindowsTerminalSettings として登録
+    以下、「C:/Users/ユーザー名/WindowsTerminalSettings(このリポジトリ)」という配置状況での例
 
-  以下、「C:/Users/ユーザー名/WindowsTerminalSettings(このリポジトリ)」という配置状況での例
-
-  <code>ユーザー環境変数名:WindowsTerminalSettings</code><br>
-  <code>ユーザー環境変数値:C:/Users/ユーザー名/WindowsTerminalSettings</code><br>
+    <code>ユーザー環境変数名:WindowsTerminalSettings</code><br>
+    <code>ユーザー環境変数値:C:/Users/ユーザー名/WindowsTerminalSettings</code><br>
 
 2. 今度はGitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
-  まずは<code>cmd /c where git</code>このコマンドを実行して、git.exeの位置を確認
+    まずは<code>cmd /c where git</code>このコマンドを実行して、git.exeの位置を確認
 
-  出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する。
+   出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する。
 
-  <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
-  <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
-  <code>システム環境変数値:C:\Program Files\Git</code><br>
+    <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
+    <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
+    <code>システム環境変数値:C:\Program Files\Git</code><br>
 
 ## 5.フォントのインストール
 
