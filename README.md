@@ -62,10 +62,15 @@
 
 ## 5.フォントのインストール
 
-1. 以下から「Source Code Pro」をダウンロードしてWindows Compatible版だけは必ずインストールする。
-    <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>
+1. 以下から好きなフォントをダウンロードしてWindows Compatible版だけは必ずインストールする。
 
-## 6.pwshのモジュールインストール
+    * <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>
+
+    おすすめは「Source Code Pro」で、以下から直接ダウンロード可能
+
+    * <a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip"></a>
+
+## 6.pwshのモジュールインストール・scoopの有効化(有効化済みの場合はスキップ)
 
 pwsh上で以下のコマンドを管理者権限で実行
 
@@ -73,19 +78,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 2. <code>Install-Module posh-git -Scope CurrentUser -Force</code>
 3. <code>Install-Module oh-my-posh -Scope CurrentUser -Force</code>
 4. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force</code>
-
-※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
-
-<code>Get-ExecutionPolicy -l</code>
-
-それ以外の場合は、1番で使用したコマンドを修正入力して実行
-
-## 7.scoopの有効化(有効化済みの場合はスキップ)
-
-デフォルトのPowershellから以下のコマンドを管理者権限で実行
-
-1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
-2. <code>iwr -useb get.scoop.sh | iex</code>
+5. <code>iwr -useb get.scoop.sh | iex</code>
 
 ※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
 
@@ -93,7 +86,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 <code>Get-ExecutionPolicy -l</code>
 
-## 8.依存packageインストール
+## 7.依存packageインストール
 
 `windows`ディレクトリ配下の`install.ps1`をコマンドラインから管理者権限で実行してインストール。
 ※既にインストール済みの物がないかinstall.ps1を要確認※
@@ -113,11 +106,11 @@ pwsh上で以下のコマンドを管理者権限で実行
 </ul>
 を一回起動してまた閉じておく。
 
-## 9.windows/provision.batをコマンドラインから管理者権限で実行
+## 8.windows/provision.batをコマンドラインから管理者権限で実行
 
 ※install.ps1にしたがわないでgitをインストールする場合は、windows/provision.batのgitconfigコピー処理を消してから実行する事※
 
-## 10.定期アップデート
+## 9.定期アップデート
 
 インストール後に更新ファイルがあった場合は以下の作業をする必要があるので、定期的にチェックして実行する事。
 
