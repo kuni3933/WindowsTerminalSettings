@@ -68,7 +68,7 @@
 
     おすすめは「Source Code Pro」で、以下から直接ダウンロード可能
 
-    * <a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip"></a>
+    * <a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher - Sauce Code Pro Nerd Font</a>
 
 ## 6.pwshのモジュールインストール・scoopの有効化(有効化済みの場合はスキップ)
 
