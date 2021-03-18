@@ -1,9 +1,20 @@
 function Write_Title($msg) {
-  Write-Output "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-  Write-Output "┃$msg"
-  Write-Output "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  Write-Host "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
+  Write-Host "┃$msg" -ForegroundColor Yellow
+  Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
 
+function Installed_msg {
+  Write-Host "  インストール済みです." -ForegroundColor Green
+  Write-Host "  This application is already installed." -ForegroundColor Green
+  Write-Host " "
+}
+
+function  Update_msg {
+  Write-Host "  インストール済みです. アップデートを行います." -ForegroundColor Cyan
+  Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
+  Write-Host " "
+}
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $bit = "null"
 If ($env:PROCESSOR_ARCHITECTURE -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
@@ -17,15 +28,13 @@ Write_Title $msg
 
 Write_Title " Git"
 If (Test-Path $env:PROGRAMFILES/Git/bin/git.exe) {
-  Write-Output "インストール済みです。"
-  Write-Output "This application is already installed."
-  Write-Output " "
+  Update_msg
   git --version
-  Write-Output " "
+  Write-Host " "
   winget show --id Git.Git
-  Write-Output " "
+  Write-Host " "
   git update-git-for-windows
-  Write-Output " "
+  Write-Host " "
 }
 ElseIf (-not(Test-Path $env:PROGRAMFILES/Git/bin/git.exe)) {
   winget show --id Git.Git
@@ -34,11 +43,9 @@ ElseIf (-not(Test-Path $env:PROGRAMFILES/Git/bin/git.exe)) {
 
 Write_Title " Windows Terminal Preview"
 If (Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe) {
-  Write-Output "インストール済みです。"
-  Write-Output "This application is already installed."
-  Write-Output " "
+  Installed_msg
   winget show --id Microsoft.WindowsTerminalPreview
-  Write-Output " "
+  Write-Host " "
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe)) {
   winget show --id Microsoft.WindowsTerminalPreview
@@ -47,58 +54,55 @@ ElseIf (-not(Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.Windows
 
 Write_Title " Visual Studio Code (User Installer - $bit)"
 If (Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) {
-  Write-Output "インストール済みです。"
-  Write-Output "This application is already installed."
-  Write-Output " "
+  Installed_msg
   code --version
-  Write-Output " "
+  Write-Host " "
   winget show --id Microsoft.VisualStudioCode-User-x64
-  Write-Output " "
+  Write-Host " "
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x64") {
   winget show --id Microsoft.VisualStudioCode-User-x64
-  Write-Output " "
+  Write-Host " "
   winget install -e --id Microsoft.VisualStudioCode-User-x64
-  Write-Output " "
+  Write-Host " "
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x86") {
   winget show --id Microsoft.VisualStudioCode-User-x86
-  Write-Output " "
+  Write-Host " "
   winget install -e --id Microsoft.VisualStudioCode-User-x86
-  Write-Output " "
+  Write-Host " "
 }
 
 Write_Title " Visual Studio Code Insiders (User Installer - $bit)"
 If (Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") {
-  Write-Output "インストール済みです。"
-  Write-Output "This application is already installed."
-  Write-Output " "
+  Installed_msg
   code-insiders --version
-  Write-Output " "
+  Write-Host " "
   winget show --id Microsoft.VisualStudioCodeInsiders-User-x64
-  Write-Output " "
+  Write-Host " "
 }
 ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x64") {
   winget show --id Microsoft.VisualStudioCodeInsiders-User-x64
-  Write-Output " "
+  Write-Host " "
   winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x64
-  Write-Output " "
+  Write-Host " "
 }
 ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x86") {
   winget show --id Microsoft.VisualStudioCodeInsiders-User-x86
-  Write-Output " "
+  Write-Host " "
   winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x86
-  Write-Output " "
+  Write-Host " "
 }
 
 Write_Title " PowerShellCore (pwsh)"
-Write-Output "インストール又はアップデートを行います。"
-Write-Output "Install or update the software."
-Write-Output " "
+If (Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe) {
+  Update_msg
+}
 winget show --id Microsoft.PowerShell
-Write-Output " "
+Write-Host " "
 winget install -e --id Microsoft.PowerShell
-Write-Output " "
+Write-Host " "
 
-Read-Host "ENTERを押して終了します。 `r`n Press ENTER to exit. `r`n"
-Write_Title " 'install.ps1' has finished."
+Write_Title " ENTERを押して終了します. / Press ENTER to exit."
+Read-Host " "
+Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
