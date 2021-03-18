@@ -19,12 +19,19 @@
 
 推奨及びここで紹介するのは方法3
 
-<code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
+1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
+2. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
   を実行して、Git・WTP・pwsh・VSCode・VSCode-Insidersの5つをインストール
 
   ※すでにインストール済みだった場合は、アンインストールしてから実行する事。
 
   (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)
+
+※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
+
+  <code>Get-ExecutionPolicy -l</code>
+
+  それ以外の場合は、1番で使用したコマンドを修正入力して実行
 
 ## 3.本リポジトリの配置
 
@@ -62,9 +69,10 @@
 
 pwsh上で以下のコマンドを管理者権限で実行
 
-1. <code>Install-Module posh-git -Scope CurrentUser -Force</code>
-2. <code>Install-Module oh-my-posh -Scope CurrentUser -Force</code>
-3. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force</code>
+1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
+2. <code>Install-Module posh-git -Scope CurrentUser -Force</code>
+3. <code>Install-Module oh-my-posh -Scope CurrentUser -Force</code>
+4. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force</code>
 
 ※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
 
