@@ -4,7 +4,12 @@ function Write_Title($msg) {
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
 
-function Installed_msg {
+function Install_msg {
+  Write-Host "  インストールを開始します." -ForegroundColor Yellow
+  Write-Host "  Start the installation of this application." -ForegroundColor Yellow
+  Write-Host " "
+}
+function Already_Installed_msg {
   Write-Host "  インストール済みです." -ForegroundColor Green
   Write-Host "  This application is already installed." -ForegroundColor Green
   Write-Host " "
@@ -15,7 +20,16 @@ function  Update_msg {
   Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
   Write-Host " "
 }
+function br($times) {
+  $tmp = 1
+  while ($tmp -le $times) {
+    Write-Output " ";
+    $tmp += 1
+  }
+}
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 $bit = "null"
 If ($env:PROCESSOR_ARCHITECTURE -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
   $bit = "x64"
@@ -25,83 +39,108 @@ ElseIf ($env:PROCESSOR_ARCHITECTURE -ceq "X86") {
 }
 $msg = " Install the $bit version."
 Write_Title $msg
+winget --Version
+winget --info
+br(2)
+
 
 Write_Title " Git"
 If (Test-Path $env:PROGRAMFILES/Git/bin/git.exe) {
   Update_msg
   git --version
-  Write-Host " "
+  br(1)
   winget show --id Git.Git
   Write-Host " "
   git update-git-for-windows
-  Write-Host " "
+  br(2)
 }
 ElseIf (-not(Test-Path $env:PROGRAMFILES/Git/bin/git.exe)) {
+  Install_msg
   winget show --id Git.Git
+  br(1)
   winget install -e --id Git.Git
+  br(2)
 }
+
 
 Write_Title " Windows Terminal Preview"
 If (Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe) {
-  Installed_msg
+  Already_Installed_msg
   winget show --id Microsoft.WindowsTerminalPreview
-  Write-Host " "
+  br(2)
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe)) {
+  Install_msg
   winget show --id Microsoft.WindowsTerminalPreview
+  br(1)
   winget install -e --id Microsoft.WindowsTerminalPreview
+  br(2)
 }
+
 
 Write_Title " Visual Studio Code (User Installer - $bit)"
 If (Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) {
-  Installed_msg
+  Already_Installed_msg
   code --version
-  Write-Host " "
+  br(1)
   winget show --id Microsoft.VisualStudioCode-User-x64
-  Write-Host " "
+  br(2)
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x64") {
+  Install_msg
   winget show --id Microsoft.VisualStudioCode-User-x64
-  Write-Host " "
-  winget install -e --id Microsoft.VisualStudioCode-User-x64
-  Write-Host " "
+  br(1)
+  winget install -e --id Microsoft.VisualStudioCode-User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  br(2)
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x86") {
+  Install_msg
   winget show --id Microsoft.VisualStudioCode-User-x86
-  Write-Host " "
-  winget install -e --id Microsoft.VisualStudioCode-User-x86
-  Write-Host " "
+  br(1)
+  winget install -e --id Microsoft.VisualStudioCode-User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  br(2)
 }
+
 
 Write_Title " Visual Studio Code Insiders (User Installer - $bit)"
 If (Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") {
-  Installed_msg
+  Already_Installed_msg
   code-insiders --version
-  Write-Host " "
+  br(1)
   winget show --id Microsoft.VisualStudioCodeInsiders-User-x64
-  Write-Host " "
+  br(2)
 }
 ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x64") {
+  Install_msg
   winget show --id Microsoft.VisualStudioCodeInsiders-User-x64
-  Write-Host " "
-  winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x64
-  Write-Host " "
+  br(1)
+  winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  br(2)
 }
 ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x86") {
+  Install_msg
   winget show --id Microsoft.VisualStudioCodeInsiders-User-x86
-  Write-Host " "
-  winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x86
-  Write-Host " "
+  br(1)
+  winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  br(2)
 }
+
 
 Write_Title " PowerShellCore (pwsh)"
 If (Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe) {
   Update_msg
+  winget show --id Microsoft.PowerShell
+  br(1)
+  winget install -e --id Microsoft.PowerShell
+  br(2)
 }
-winget show --id Microsoft.PowerShell
-Write-Host " "
-winget install -e --id Microsoft.PowerShell
-Write-Host " "
+ElseIf (-not(Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe)) {
+  Install_msg
+  winget show --id Microsoft.PowerShell
+  br(1)
+  winget install -ei --id Microsoft.PowerShell
+  br(2)
+}
 
 Write_Title " ENTERを押して終了します. / Press ENTER to exit."
 Read-Host " "
