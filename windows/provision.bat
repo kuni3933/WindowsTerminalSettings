@@ -27,6 +27,7 @@ rem :tmpを動かすことで実行開始箇所を制御. デバッグや動作確認用
 goto :tmp
 :tmp
 rem ------------------------------------------------------------------------------------------------------更新処理
+:Update_Repository
 call :******************** copy_Linux
 call :copy_Linux
 call :******************** copy_Windows
@@ -39,6 +40,9 @@ call :copy_linux_MNT
 call :******************** copy_Common_MNT
 call :copy_Common_MNT
 
+
+rem ------------------------------------------------------------------------------------------------------メイン処理
+:Main
 call :******************** pipes.sh/pipes.go
 set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
 set pipes.go="%~dp0..\pipes.go"
@@ -49,7 +53,6 @@ set ORIGIN_gitconfig="%~dp0..\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 
-rem ------------------------------------------------------------------------------------------------------メイン処理
 call :******************** IntelliJ IDEA
 
 set IDEA_DIR=IntelliJIdea2020.3
@@ -130,6 +133,8 @@ goto :end
 rem  ------------------------------------------------------------------------------------------------------
 rem  --------------------------------以下使用する関数----------------------------------------------------
 rem  ------------------------------------------------------------------------------------------------------
+
+
 rem ------------------------------------------------------------------------------------------------------更新処理の関数
 :copy_Linux
 xcopy %owl-playbook_LINUX% %LINUX% /E /H /S /I
@@ -212,8 +217,6 @@ exit /b
 REM 途中で止めたい場合はここに..
 :end
 echo:
-echo ENTERを押して終了します。
-echo Press ENTER to exit.
-set /P input_tmp=":"
+pause
 chcp 65001
 echo 'provision.bat' has finished.

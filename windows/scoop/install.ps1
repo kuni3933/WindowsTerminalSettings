@@ -1,3 +1,9 @@
+function Write_Title($msg) {
+  Write-Host "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
+  Write-Host "┃$msg" -ForegroundColor Yellow
+  Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
+}
+
 # Add versions bucket
 scoop bucket add versions
 # Add extras
@@ -5,6 +11,8 @@ scoop bucket add extras
 # CLI Tools
 scoop install `
   aria2 `
+  streamlink `
+  youtube-dl `
   cacert `
   grep `
   hub `
@@ -55,9 +63,9 @@ scoop install `
 
 # Python
 #scoop install `
-  #python27 `
-  #python37 `
-  #python
+#python27 `
+#python37 `
+#python
 #scoop reset python
 
 scoop install autohotkey-installer
@@ -68,5 +76,5 @@ scoop update *
 scoop cleanup *
 scoop status
 
-$input_tmp = Read-Host "ENTERを押して終了します。 `r`n Press ENTER to exit. `r`n"
-echo "'install.ps1' has finished."
+Pause
+Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."

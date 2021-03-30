@@ -51,7 +51,9 @@ If (Test-Path $env:PROGRAMFILES/Git/bin/git.exe) {
   br(1)
   winget show --id Git.Git
   Write-Host " "
+  cmd /c gpg-connect-agent killagent /bye
   git update-git-for-windows
+  cmd /c gpg-connect-agent /bye
   br(2)
 }
 ElseIf (-not(Test-Path $env:PROGRAMFILES/Git/bin/git.exe)) {
@@ -142,6 +144,5 @@ ElseIf (-not(Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe)) {
   br(2)
 }
 
-Write_Title " ENTERを押して終了します. / Press ENTER to exit."
-Read-Host " "
+Pause
 Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
