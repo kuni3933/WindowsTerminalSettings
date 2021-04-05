@@ -7,21 +7,19 @@
 </ul>
 適切なバージョンをインストール
 
-## 2.Git・Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insifersのインストール
+## 2.Gitのインストール・本リポジトリの配置
+
+以下のコマンドを実行
+
+1. <code>winget install -e --id Git.Git</code>
+2. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code>
+
+## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insifersのインストール
 
 ※インストール済みの場合は、アンインストールしておくか各ステップをスキップする。※
 
-<ul>
-  <li>方法1.MicrosoftStoreアプリからインストール(WTPのみ対応)</li>
-  <li>方法2.githubのreleaseページを検索してそこからインストール</li>
-  <li>方法3(推奨)Wingetコマンドでインストール</li>
-</ul>
-
-推奨及びここで紹介するのは方法3
-
-1. <code>winget install -e --id Git.Git</code>
-2. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
-3. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
+1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
+2. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
   を実行して、Git・WTP・pwsh・VSCode・VSCode-Insidersの5つをインストール
 
   ※すでにインストール済みだった場合は、アンインストールしてから実行する事。
@@ -33,12 +31,6 @@
   <code>Get-ExecutionPolicy -l</code>
 
   それ以外の場合は、1番で使用したコマンドを修正入力して実行
-
-## 3.本リポジトリの配置
-
-以下のコマンドを実行して、クローンの作成(要はダウンロード)を行う。
-
-<code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code>
 
 ## 4.パス設定
 
