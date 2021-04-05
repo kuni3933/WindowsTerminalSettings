@@ -19,8 +19,9 @@
 
 推奨及びここで紹介するのは方法3
 
-1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
-2. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
+1. <code>winget install -e --id Git.Git</code>
+2. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
+3. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
   を実行して、Git・WTP・pwsh・VSCode・VSCode-Insidersの5つをインストール
 
   ※すでにインストール済みだった場合は、アンインストールしてから実行する事。
