@@ -69,12 +69,11 @@ scoop install `
 #scoop reset python
 
 scoop install autohotkey-installer
-
+# In the future..: scoop install volta
 
 
 scoop update *
 scoop cleanup *
 scoop status
-
 Pause
 Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
