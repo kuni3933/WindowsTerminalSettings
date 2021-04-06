@@ -40,7 +40,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       //"fontFace": "Source Han Code JP",
       // Nerd Fontを指定
       "fontFace": "SauceCodePro NF",
-      "fontSize": 13,
+      "fontSize": 11,
       "useAcrylic": true,
       "acrylicOpacity": 0.1875,
       "closeOnExit": true,

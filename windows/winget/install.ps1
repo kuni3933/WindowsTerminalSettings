@@ -85,21 +85,21 @@ If (Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) {
   Already_Installed_msg
   code --version
   br(1)
-  winget show --id Microsoft.VisualStudioCode-User-x64
+  winget show --id Microsoft.VisualStudioCode.User-x64
   br(2)
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x64") {
   Install_msg
-  winget show --id Microsoft.VisualStudioCode-User-x64
+  winget show --id Microsoft.VisualStudioCode.User-x64
   br(1)
-  winget install -e --id Microsoft.VisualStudioCode-User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  winget install -e --id Microsoft.VisualStudioCode.User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
   br(2)
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x86") {
   Install_msg
-  winget show --id Microsoft.VisualStudioCode-User-x86
+  winget show --id Microsoft.VisualStudioCode.User-x86
   br(1)
-  winget install -e --id Microsoft.VisualStudioCode-User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  winget install -e --id Microsoft.VisualStudioCode.User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
   br(2)
 }
 
@@ -109,21 +109,21 @@ If (Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Ins
   Already_Installed_msg
   code-insiders --version
   br(1)
-  winget show --id Microsoft.VisualStudioCodeInsiders-User-x64
+  winget show --id Microsoft.VisualStudioCodeInsiders.User-x64
   br(2)
 }
 ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x64") {
   Install_msg
-  winget show --id Microsoft.VisualStudioCodeInsiders-User-x64
+  winget show --id Microsoft.VisualStudioCodeInsiders.User-x64
   br(1)
-  winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  winget install -e --id Microsoft.VisualStudioCodeInsiders.User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
   br(2)
 }
 ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x86") {
   Install_msg
-  winget show --id Microsoft.VisualStudioCodeInsiders-User-x86
+  winget show --id Microsoft.VisualStudioCodeInsiders.User-x86
   br(1)
-  winget install -e --id Microsoft.VisualStudioCodeInsiders-User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  winget install -e --id Microsoft.VisualStudioCodeInsiders.User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
   br(2)
 }
 
