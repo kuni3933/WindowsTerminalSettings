@@ -13,10 +13,14 @@ IF  DEFINED WindowsTerminalSettings (
     call :******************** 現在のサブモジュールステータス / Current submodule status
     git submodule status
     echo:
+    echo:
     call :******************** Pull後のサブモジュールステータス / Submodule status after Pull
     git submodule foreach git fetch
+    echo:
     git submodule foreach git pull origin master
+    echo:
     git submodule status
+    echo:
     echo Pull is complete.
     echo:
     goto :end
