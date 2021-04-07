@@ -50,9 +50,11 @@ If (Test-Path $env:PROGRAMFILES/Git/bin/git.exe) {
   git --version
   br(1)
   winget show --id Git.Git
-  Write-Host " "
+  br(1)
   cmd /c gpg-connect-agent killagent /bye
+  br(1)
   git update-git-for-windows
+  br(1)
   cmd /c gpg-connect-agent /bye
   br(2)
 }
@@ -127,6 +129,19 @@ ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/C
   br(2)
 }
 
+Write_Title " PowerToys"
+If (Test-Path $env:PROGRAMFILES/PowerToys/PowerToys.exe) {
+  Already_Installed_msg
+  winget show --id Microsoft.PowerToys
+  br(2)
+}
+ElseIf (-not(Test-Path $env:PROGRAMFILES/PowerToys/PowerToys.exe)) {
+  Install_msg
+  winget show --id Microsoft.PowerToys
+  br(1)
+  winget install -e --id Microsoft.PowerToys
+  br(2)
+}
 
 Write_Title " PowerShellCore (pwsh)"
 If (Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe) {
