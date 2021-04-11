@@ -41,6 +41,7 @@ $msg = " Install the $bit version."
 Write_Title $msg
 winget --Version
 winget --info
+winget  source update
 br(2)
 
 
