@@ -93,12 +93,12 @@ function sort() { $input | uutils sort $args }
 
 # 代替コマンドを使用(exa未対応なので注意)
 Set-Alias grep rg
-function ls() { uutils ls $args }
-function tree() { exa --icons -T $args }
-
+function ls() { uutils ls -a $args }
+#function tree() { exa --icons -T $args }
+function tree() { lsd --tree $args }
 # Linuxコマンドのエイリアス
-#function ll() { uutils ls -l $args}
-function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
+#function ll() { uutils ls -al $args }
+function ll() { lsd -al --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
 
 #-----------------------------------------------------
 # Useful commands
