@@ -89,6 +89,7 @@ call :******************** PowerShell Core
 set POWER_SHELL_ORIGIN_DIR=%WINDOWS_MNT%\power-shell
 set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
 
+call :link_file "%USERPROFILE%\.oh-my-posh.json" %WINDOWS_MNT%\.oh-my-posh.json
 call :link_file "%POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1" "%POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1"
 
 
@@ -151,6 +152,7 @@ exit /b
 
 :copy_Windows_MNT
 xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /E /H /S /I
+xcopy %owl-playbook_WINDOWS_MNT%\.oh-my-posh.json %WINDOWS_MNT%\.oh-my-posh.json
 xcopy %owl-playbook_WINDOWS_MNT%\wsl %WINDOWS_MNT%\wsl /E /H /S /I
 xcopy %owl-playbook_WINDOWS_MNT%\.minttyrc %WINDOWS_MNT%\.minttyrc
 xcopy %owl-playbook_WINDOWS_MNT%\broot.toml %WINDOWS_MNT%\broot.toml

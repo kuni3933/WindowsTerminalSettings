@@ -38,36 +38,22 @@ Import-Module oh-my-posh
 Invoke-Expression (& {
     $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
     (zoxide init --hook $hook powershell) -join "`n"
-})
+  })
 
-Set-PoshPrompt -Theme powerlevel10k_lean
-Export-PoshTheme -FilePath $env:WindowsTerminalSettings/mnt/windows/power-shell/.oh-my-posh.omp.json
-# Prompt
-#$ThemeSettings.Colors.DriveForegroundColor = "Blue"
-# Git
-##$ThemeSettings.GitSymbols.LocalStagedStatusSymbol = ""
-##$ThemeSettings.GitSymbols.LocalWorkingStatusSymbol = ""
-#$ThemeSettings.GitSymbols.BeforeWorkingSymbol = [char]::ConvertFromUtf32(0xf040)+" "
-#$ThemeSettings.GitSymbols.DelimSymbol = [char]::ConvertFromUtf32(0xf040)
-#$ThemeSettings.GitSymbols.BranchSymbol = [char]::ConvertFromUtf32(0xf126)
-#$ThemeSettings.GitSymbols.BranchAheadStatusSymbol = [char]::ConvertFromUtf32(0xf0ee)+" "
-#$ThemeSettings.GitSymbols.BranchBehindStatusSymbol = [char]::ConvertFromUtf32(0xf0ed)+" "
-#$ThemeSettings.GitSymbols.BeforeIndexSymbol = [char]::ConvertFromUtf32(0xf6b7)+" "
-#$ThemeSettings.GitSymbols.BranchIdenticalStatusToSymbol = ""
-#$ThemeSettings.GitSymbols.BranchUntrackedSymbol = [char]::ConvertFromUtf32(0xf663)+" "
+Set-PoshPrompt -Theme ~/.oh-my-posh.json
 
 #-----------------------------------------------------
 # fzf
 #-----------------------------------------------------
 
 # fzf
-$env:FZF_DEFAULT_OPTS="--reverse --border --height 50%"
-$env:FZF_DEFAULT_COMMAND='fd -HL --exclude ".git" .'
+$env:FZF_DEFAULT_OPTS = "--reverse --border --height 50%"
+$env:FZF_DEFAULT_COMMAND = 'fd -HL --exclude ".git" .'
 function _fzf_compgen_path() {
-    fd -HL --exclude ".git" . "$1"
+  fd -HL --exclude ".git" . "$1"
 }
 function _fzf_compgen_dir() {
-    fd --type d -HL --exclude ".git" . "$1"
+  fd --type d -HL --exclude ".git" . "$1"
 }
 
 #-----------------------------------------------------
@@ -76,38 +62,38 @@ function _fzf_compgen_dir() {
 
 # パイプラインを受けつけないLinux標準コマンド
 Remove-Item alias:cp
-function cp() { uutils cp $args}
+function cp() { uutils cp $args }
 Remove-Item alias:mv
-function mv() { uutils mv $args}
+function mv() { uutils mv $args }
 Remove-Item alias:rm
-function rm() { uutils rm $args}
+function rm() { uutils rm $args }
 Remove-Item alias:ls
-function mkdir() { uutils mkdir $args}
-function printenv() { uutils printenv $args}
+function mkdir() { uutils mkdir $args }
+function printenv() { uutils printenv $args }
 
 # パイプラインを受けつけるLinux標準コマンド
 Remove-Item alias:cat
-function cat() { $input | uutils cat $args}
-function head() { $input | uutils head $args}
-function tail() { $input | uutils tail $args}
-function wc() { $input | uutils wc $args}
-function tr() { $input | uutils tr $args}
+function cat() { $input | uutils cat $args }
+function head() { $input | uutils head $args }
+function tail() { $input | uutils tail $args }
+function wc() { $input | uutils wc $args }
+function tr() { $input | uutils tr $args }
 Remove-Item alias:pwd
-function pwd() { $input | uutils pwd $args}
-function cut() { $input | uutils cut $args}
-function uniq() { $input | uutils uniq $args}
+function pwd() { $input | uutils pwd $args }
+function cut() { $input | uutils cut $args }
+function uniq() { $input | uutils uniq $args }
 # ⚠ readonlyのaliasなので問題が発生するかも..
 Remove-Item alias:sort -Force
-function sort() { $input | uutils sort $args}
+function sort() { $input | uutils sort $args }
 
 # 代替コマンドを使用(exa未対応なので注意)
 Set-Alias grep rg
 function ls() { uutils ls $args }
-function tree() { exa --icons -T $args}
+function tree() { exa --icons -T $args }
 
 # Linuxコマンドのエイリアス
 #function ll() { uutils ls -l $args}
-function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args}
+function ll() { lsd -l --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
 
 #-----------------------------------------------------
 # Useful commands
@@ -130,27 +116,27 @@ function vimr() { fd -H -E .git -E node_modules | fzf | % { vim $_ } }
 function cpwd() { Convert-Path . | Set-Clipboard }
 
 # git flow
-function gf()  { git fetch --all }
-function gd()  { git diff $args }
-function gds()  { git diff --staged $args }
-function ga()  { git add $args }
+function gf() { git fetch --all }
+function gd() { git diff $args }
+function gds() { git diff --staged $args }
+function ga() { git add $args }
 function gaa() { git add --all }
 function gco() { git commit -m $args[0] }
 
 # git switch
-function gb()  { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf | % { git switch $_ } }
+function gb() { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf | % { git switch $_ } }
 function gbr() { git branch -rl | rg -v "HEAD|master" | % { $_ -replace "  origin/", "" } | fzf | % { git switch $_ } }
 function gbc() { git switch -c $args[0] }
-function gbm()  { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf | % { git merge --no-ff $_ } }
+function gbm() { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf | % { git merge --no-ff $_ } }
 
 # git log
-function gls()   { git log -3}
-function gll()   { git log -10 --oneline --all --graph --decorate }
-function glll()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
-function glls()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10}
+function gls() { git log -3 }
+function gll() { git log -10 --oneline --all --graph --decorate }
+function glll() { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
+function glls() { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10 }
 
 # git status
-function gs()  { git status --short }
+function gs() { git status --short }
 function gss() { git status -v }
 
 # explorer
@@ -166,20 +152,20 @@ function fffavicon() { $width = $args[1]; ffmpeg -i $args[0] -vf scale=$width":-
 # broot
 function bo() { broot -g --conf $env:USERPROFILE\broot.toml $args }
 function br() {
-    $outcmd = new-temporaryfile
-    bo --outcmd $outcmd $args
-    if (!$?) {
-        remove-item -force $outcmd
-        return $lastexitcode
-    }
-
-    $command = get-content $outcmd
-    if ($command) {
-        # workaround - paths have some garbage at the start
-        $command = $command.replace("\\?\", "", 1)
-        invoke-expression $command
-    }
+  $outcmd = new-temporaryfile
+  bo --outcmd $outcmd $args
+  if (!$?) {
     remove-item -force $outcmd
+    return $lastexitcode
+  }
+
+  $command = get-content $outcmd
+  if ($command) {
+    # workaround - paths have some garbage at the start
+    $command = $command.replace("\\?\", "", 1)
+    invoke-expression $command
+  }
+  remove-item -force $outcmd
 }
 
 #-----------------------------------------------------

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#2f2f2f",
+          "foreground": "#fafafa",
+          "properties": {
+            "enable_hyperlink": false,
+            "style": "full"
+          },
+          "style": "diamond",
+          "type": "path"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#96E072",
+          "properties": {
+            "ahead_color": "#c42ebd",
+            "behind_color": "#8A4FFF",
+            "branch_icon": "  ",
+            "color_background": false,
+            "display_stash_count": true,
+            "display_status": true,
+            "display_upstream_icon": true,
+            "local_changes_color": "#ffeb3b",
+            "prefix": "<#7a7a7a> </>",
+            "staging_color": "#ffeb3b",
+            "status_colors_enabled": true,
+            "working_color": "#E84855",
+            "local_staged_icon": " \uF6B9"
+          },
+          "style": "diamond",
+          "type": "git"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#6CA35E",
+          "properties": {
+            "postfix": "<#7a7a7a> </>",
+            "prefix": "  "
+          },
+          "style": "diamond",
+          "type": "node"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#96E072",
+          "properties": {
+            "postfix": "<#7a7a7a> </>",
+            "prefix": "  "
+          },
+          "style": "diamond",
+          "type": "python"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#3891A6",
+          "properties": {
+            "postfix": "<#7a7a7a> </>",
+            "prefix": "  "
+          },
+          "style": "diamond",
+          "type": "dotnet"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#7FD5EA",
+          "properties": {
+            "postfix": "<#7a7a7a> </>",
+            "prefix": " ﳑ"
+          },
+          "style": "diamond",
+          "type": "go"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#9FD356",
+          "properties": {
+            "always_numeric": true,
+            "color_background": false,
+            "display_exit_code": true,
+            "error_color": "#E84855",
+            "prefix": "  "
+          },
+          "style": "diamond",
+          "type": "exit"
+        },
+        {
+          "background": "#2f2f2f",
+          "foreground": "#fafafa",
+          "properties": {
+            "postfix": "",
+            "prefix": "",
+            "text": ""
+          },
+          "style": "diamond",
+          "trailing_diamond": "",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}",
+  "final_space": true
+}
