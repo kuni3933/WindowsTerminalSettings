@@ -98,6 +98,11 @@ call :******************** Windows Terminal Preview
 set TERMINAL_ORIGIN_DIR=%WINDOWS_MNT%\terminal
 call :link_file "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" "%TERMINAL_ORIGIN_DIR%\LocalState\settings.json"
 
+call :******************** winget
+
+set WINGET_ORIGIN_DIR=%WINDOWS_MNT%\winget
+call :link_file "%LOCALAPPDATA%\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json" "%WINGET_ORIGIN_DIR%\LocalState\settings.json"
+
 call :******************** Keypirinha
 
 set KEYPIRINHA_ORIGIN_DIR=%WINDOWS_MNT%\keypirinha
