@@ -4,11 +4,12 @@ function Write_Title($msg) {
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
 
-# Add versions bucket
+Write_Title "# Add versions bucket"
 scoop bucket add versions
-# Add extras
+Write_Title "# Add extras"
 scoop bucket add extras
-# CLI Tools
+
+Write_Title "# CLI Tools"
 scoop install `
   aria2 `
   streamlink `
@@ -42,7 +43,7 @@ scoop install `
   broot `
   zoxide
 
-# GUI Tools
+Write_Title "# GUI Tools"
 scoop install `
   dbeaver `
   postman `
@@ -50,11 +51,9 @@ scoop install `
   ditto `
   draw.io
 
-
-# Language / Framework / MiddleWare
+Write_Title "# Language / Framework / MiddleWare"
 scoop install `
   nodejs-lts `
-  gcc `
   docker `
   go `
   rustup `
@@ -68,10 +67,15 @@ scoop install `
 #python
 #scoop reset python
 
+Write_Title "# scoop install gcc "
+scoop install gcc
+scoop uninstall gcc
+
+Write_Title "# autohotkey-installer"
 scoop install autohotkey-installer
 # In the future..: scoop install volta
 
-
+Write_Title "# scoop update & scoop cleanup"
 scoop update *
 scoop cleanup *
 scoop status
