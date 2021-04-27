@@ -2,6 +2,7 @@
 
 tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 <li><a href="https://github.com/tadashi-aikawa/owl-playbook">tadashi-aikawa/owl-playbook: Playbook both Linux and Windows for me</a></li>
+
 ## 1.以下からMicrosoft.DesktopAppInstaller(winget)をインストール
 
 <ul>
