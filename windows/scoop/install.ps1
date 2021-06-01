@@ -53,7 +53,6 @@ scoop install `
 
 Write_Title "# Language / Framework / MiddleWare"
 scoop install `
-  nodejs-lts `
   docker `
   go `
   rustup `
@@ -64,6 +63,7 @@ scoop install `
 #scoop install `
 #python27 `
 #python37 `
+#python38
 #python
 #scoop reset python
 

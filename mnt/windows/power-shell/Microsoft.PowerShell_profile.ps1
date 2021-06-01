@@ -99,6 +99,7 @@ function tree() { lsd --tree $args }
 # Linuxコマンドのエイリアス
 #function ll() { uutils ls -al $args }
 function ll() { lsd -al --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
+#function ll() { exa --icons -l --git $args}
 
 #-----------------------------------------------------
 # Useful commands

@@ -3,12 +3,21 @@
 tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 <li><a href="https://github.com/tadashi-aikawa/owl-playbook">tadashi-aikawa/owl-playbook: Playbook both Linux and Windows for me</a></li>
 
-## 1.以下からMicrosoft.DesktopAppInstaller(winget)をインストール
+## 0.以下からMicrosoft.DesktopAppInstaller(winget)をインストール
 
 <ul>
   <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
 </ul>
 適切なバージョンをインストール
+
+## 1.以下からvoltaをインストール
+
+<ul>
+  <li><a href="https://github.com/volta-cli/volta/releases">Releases · volta-cli/volta</a></li>
+</ul>
+適切なバージョンをインストールして、<a href="https://qiita.com/naoyukik/items/d6a11808338a494238db">Nodeのバージョン管理ツールVOLTA⚡</a>を参考にnode-js等をインストール
+
+<code>volta install node@latest</code><br>
 
 ## 2.Gitのインストール・本リポジトリの配置
 
