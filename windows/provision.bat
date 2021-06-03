@@ -193,7 +193,8 @@ exit /b
 :copy_Common_MNT
 xcopy %owl-playbook_COMMON_MNT%\.vim-snippets %COMMON_MNT%\.vim-snippets /E /H /S /I
 xcopy %owl-playbook_COMMON_MNT%\IntelliJIdea %COMMON_MNT%\IntelliJIdea /E /H /S /I
-xcopy %owl-playbook_COMMON_MNT%\VSCode %COMMON_MNT%\VSCode /E /H /S /I
+xcopy %owl-playbook_COMMON_MNT%\VSCode\User\snippets %COMMON_MNT%\VSCode\User\snippets /E /H /S /I
+xcopy %owl-playbook_COMMON_MNT%\VSCode\User\keybindings.json %COMMON_MNT%\VSCode\User\keybindings.json
 exit /b
 
 
