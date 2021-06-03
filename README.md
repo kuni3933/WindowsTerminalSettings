@@ -97,14 +97,14 @@ pwsh上で以下のコマンドを管理者権限で実行
 ※既にインストール済みの物がないかinstall.ps1を要確認※
 ※インストール済みのものがあったら、install.ps1をエディターで開いて調節及びvscodeとgitはアンインストールしてから実行する※
 
-| ディレクトリ | 概要                         |
-| ------------ | ---------------------------- |
-| 1.winget     | wingetでインストールするもの |
-| 2.scoop      | Scoopでインストールするもの  |
-| 3.npm        | npmでインストールするもの    |
-| 4.go         | goでインストールするもの     |
-| 5.cargo      | rustでインストールするもの   |
-
+| ディレクトリ | 概要                                                            |
+| ------------ | --------------------------------------------------------------- |
+| 1.winget     | wingetでインストールするもの                                    |
+| 2.scoop      | Scoopでインストールするもの                                     |
+| 3.npm        | npmでインストールするもの                                       |
+| 4.go         | goでインストールするもの                                        |
+| 5.cargo      | rustでインストールするもの                                      |
+| 6.ubuntu     | WSL2-Ubuntu-20.04 LTSでインストールするもの(wsl2準備段階で使用) |
 初インストールの場合は、
 <ul>
 <li>Keypirinha</li>
@@ -130,12 +130,20 @@ pwsh上で以下のコマンドを管理者権限で実行
 1. windows/provision.batをコマンドラインから実行してアップデート
 2. 以下の項目は手動アップデート/手動マージ
     <ul>
+      <li>windows\cargo</li>
+      <li>windows\scoop</li>
+      <li>windows\winget</li>
+      <li>windows\provision.bat</li>
+      <li>windows\Pull_SubModule.bat</li>
+      <li>windows\xlaunch.exe - ショートカット.lnk</li>
+    </ul>
+    <ul>
+      <li>mnt\windows\pipes-rs</li>
+      <li>mnt\windows\power-shell</li>
+      <li>mnt\windows\terminal</li>
+      <li>mnt\windows\winget</li>
+      <li>mnt\windows\wsl</li>
       <li>mnt/common/settings.json</li>
-      <li>mnt/windows/power-shell/*</li>
-      <li>mnt/windows/terminal/*</li>
-      <li>mnt/windows/.bashrc</li>
-      <li>windows/scoop/install.ps1</li>
-      <li>windows/provision.bat</li>
       <!--<li></li>-->
     </ul>
 3. 各install.ps1を実行してパッケージアップデート

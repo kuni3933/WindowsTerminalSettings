@@ -1,5 +1,4 @@
 #export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'
-./pipes.sh -t 0
 alias su='iconv -f Shift-Jis -t utf-8'
 # for symlink in windows
 export MSYS=winsymlinks:nativestrict

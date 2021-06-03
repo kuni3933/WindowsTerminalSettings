@@ -43,7 +43,7 @@ call :copy_Common_MNT
 
 rem ------------------------------------------------------------------------------------------------------メイン処理
 :Main
-call :******************** pipes.sh/pipes.go/pipes-rs
+call :******************** pipes.sh/pipes-rs
 set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
 set pipes-rs="%~dp0..\mnt\windows\pipes-rs"
 call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
@@ -151,8 +151,8 @@ echo Clone...
 echo   * spinal-reflex-bindings-template
 echo Create a shortcut of Xlaunch in `Star Menu / Program` with a to-link as following.
 echo   * ex: %USERPROFILE%\scoop\apps\vcxsrv\current\xlaunch.exe -run %WindowsTerminalSettings%\windows\ubuntu\config.xlaunch
-set xlaunch_Shortcut="%WindowsTerminalSettings%\windows\ubuntu\xlaunch.exe - ショートカット.lnk"
-call :link_file "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\xlaunch.exe - ショートカット.lnk" "%xlaunch_Shortcut%"
+set xlaunch_Shortcut="%~dp0..\windows\xlaunch.exe.lnk"
+xcopy "%xlaunch_Shortcut%" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\xlaunch.exe.lnk"
 
 goto :end
 
@@ -179,9 +179,10 @@ exit /b
 
 :copy_Windows_MNT
 xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /E /H /S /I
-xcopy %owl-playbook_WINDOWS_MNT%\.oh-my-posh.json %WINDOWS_MNT%\.oh-my-posh.json
-xcopy %owl-playbook_WINDOWS_MNT%\wsl %WINDOWS_MNT%\wsl /E /H /S /I
+xcopy %owl-playbook_WINDOWS_MNT%.bashrc %WINDOWS_MNT%\.bashrc
 xcopy %owl-playbook_WINDOWS_MNT%\.minttyrc %WINDOWS_MNT%\.minttyrc
+xcopy %owl-playbook_WINDOWS_MNT%\.oh-my-posh.json %WINDOWS_MNT%\.oh-my-posh.json
+xcopy %owl-playbook_WINDOWS_MNT%\.vimrc %WINDOWS_MNT%\.vimrc
 xcopy %owl-playbook_WINDOWS_MNT%\broot.toml %WINDOWS_MNT%\broot.toml
 exit /b
 
