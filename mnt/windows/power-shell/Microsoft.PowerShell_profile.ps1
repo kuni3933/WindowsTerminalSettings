@@ -1,3 +1,4 @@
+pipes-rs
 winfetch.PS1
 # fish風のオートサジェスト機能を有効に
 Set-PSReadLineOption -PredictionSource History

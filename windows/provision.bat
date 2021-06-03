@@ -43,10 +43,11 @@ call :copy_Common_MNT
 
 rem ------------------------------------------------------------------------------------------------------ÉÅÉCÉìèàóù
 :Main
-call :******************** pipes.sh/pipes.go
+call :******************** pipes.sh/pipes.go/pipes-rs
 set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
-set pipes.go="%~dp0..\pipes.go"
-call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%""
+set pipes-rs="%~dp0..\mnt\windows\pipes-rs"
+call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
+call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes-rs%"
 
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%~dp0..\gitconfig"

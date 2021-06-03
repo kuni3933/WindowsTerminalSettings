@@ -28,17 +28,17 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 ## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insifersのインストール
 
-※インストール済みの場合は、アンインストールしておくか各ステップをスキップする。※
+※インストール済みの場合は、アンインストールしておくか各ステップをスキップする.※
 
 1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
 2. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
   を実行して、Git・WTP・pwsh・VSCode・VSCode-Insidersの5つをインストール
 
-  ※すでにインストール済みだった場合は、アンインストールしてから実行する事。
+  ※すでにインストール済みだった場合は、アンインストールしてから実行する.
 
   (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)
 
-※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
+※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する.
 
   <code>Get-ExecutionPolicy -l</code>
 
@@ -59,7 +59,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
     <code>cmd /c where git</code><br>
 
-   出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する。
+   出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する.
 
     <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
     <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
@@ -67,7 +67,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 ## 5.フォントのインストール
 
-1. 以下から好きなフォントをダウンロードしてWindows Compatible版だけは必ずインストールする。
+1. 以下から好きなフォントをダウンロードしてWindows Compatible版だけは必ずインストールする.
 
     * <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>
 
@@ -85,7 +85,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 4. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force</code>
 5. <code>iwr -useb get.scoop.sh | iex</code>
 
-※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する事。
+※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する.
 
 なっていなかった場合は、1番で使用したコマンドを修正入力して実行
 
@@ -93,15 +93,17 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 ## 7.依存packageインストール
 
-`windows`ディレクトリ配下の`install.ps1`をコマンドラインから管理者権限で実行してインストール。
+`windows`ディレクトリ配下の`install.ps1`をコマンドラインから管理者権限で実行してインストール.
 ※既にインストール済みの物がないかinstall.ps1を要確認※
-※インストール済みのものがあったら、install.ps1をエディターで開いて調節及びvscodeとgitはアンインストールしてから実行する事※
+※インストール済みのものがあったら、install.ps1をエディターで開いて調節及びvscodeとgitはアンインストールしてから実行する※
 
-| ディレクトリ | 概要                        |
-| ------------ | --------------------------- |
-| scoop        | Scoopでインストールするもの |
-| npm          | npmでインストールするもの   |
-| go           | goでインストールするもの    |
+| ディレクトリ | 概要                         |
+| ------------ | ---------------------------- |
+| 1.winget     | wingetでインストールするもの |
+| 2.scoop      | Scoopでインストールするもの  |
+| 3.npm        | npmでインストールするもの    |
+| 4.go         | goでインストールするもの     |
+| 5.cargo      | rustでインストールするもの   |
 
 初インストールの場合は、
 <ul>
@@ -109,15 +111,21 @@ pwsh上で以下のコマンドを管理者権限で実行
 <li>VScode</li>
 <li>pwsh</li>
 </ul>
-を一回起動してまた閉じておく。
+を一回起動してまた閉じておく.
+
+また、cargo/install.ps1の実行前に、
+<li><a href="https://yuqlid.sakura.ne.jp/dokuwiki/msys2">MSYS2 [yuqlid wiki]</a></li>
+<li><a href="https://qiita.com/ousttrue/items/ee617544ab737fc34c1d">WindowsでRust環境を作ってGtk3でOpenGLする - Qiita</a></li>
+<li><a href="https://gist.github.com/Hamayama/eb4b4824ada3ac71beee0c9bb5fa546d">MSYS2/MinGW-w64 (64bit/32bit) インストール手順 メモ</a></li>
+を参考にmsys2/mingwのUPDATEをしておく.
 
 ## 8.windows/provision.batをコマンドラインから管理者権限で実行
 
-※install.ps1にしたがわないでgitをインストールする場合は、windows/provision.batのgitconfigコピー処理を消してから実行する事※
+※install.ps1にしたがわないでgitをインストールする場合は、windows/provision.batのgitconfigコピー処理を消してから実行する※
 
 ## 9.定期アップデート
 
-インストール後に更新ファイルがあった場合は以下の作業をする必要があるので、定期的にチェックして実行する事。
+インストール後に更新ファイルがあった場合は以下の作業をする必要があるので、定期的にチェックして実行する.
 
 1. windows/provision.batをコマンドラインから実行してアップデート
 2. 以下の項目は手動アップデート/手動マージ

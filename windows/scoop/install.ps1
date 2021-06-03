@@ -20,6 +20,7 @@ scoop update
 Write_Title "# CLI Tools"
 scoop install `
   aria2 `
+  pipes-rs `
   streamlink `
   youtube-dl `
   cacert `
@@ -29,7 +30,6 @@ scoop install `
   innounp `
   neovim `
   winfetch `
-  sudo `
   gsudo `
   wget `
   bat `
@@ -50,7 +50,8 @@ scoop install `
   vim `
   uutils-coreutils `
   broot `
-  zoxide
+  zoxide `
+  roswell
 
 Write_Title "# GUI Tools"
 scoop install `
