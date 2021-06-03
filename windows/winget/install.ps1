@@ -144,31 +144,6 @@ ElseIf (-not(Test-Path $env:PROGRAMFILES/PowerToys/PowerToys.exe)) {
   br(2)
 }
 
-Write_Title " Visual Studio Build Tools 2019"
-If ((Test-Path "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC") -Or (Test-Path "C:/Program Files/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC")) {
-  Already_Installed_msg
-  winget show --id Microsoft.VisualStudio.2019.BuildTools
-  br(2)
-}
-ElseIf ((Test-Path "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools") -Or (Test-Path "C:/Program Files/Microsoft Visual Studio/2019/BuildTools")){
-  Write-Host "  Visual Studio Installerはインストール済みです."-ForegroundColor Yellow
-  Write-Host "  Installerを起動して変更ボタンからC++選択しオプションで上から9個にチェックを入れてツールをInstallしてください." -ForegroundColor Red
-  Write-Host "  The Visual Studio Installer is already installed." -ForegroundColor Yellow
-  Write-Host "  Launch the Installer, select C++ from the Change button, check the top 9 options, and install the tool." -ForegroundColor Red
-  Write-Host " "
-}
-ElseIf (-not((Test-Path "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools") -Or (Test-Path "C:/Program Files/Microsoft Visual Studio/2019/BuildTools"))) {
-  Install_msg
-  winget show --id Microsoft.VisualStudio.2019.BuildTools
-  br(1)
-  winget install -e --id Microsoft.VisualStudio.2019.BuildTools
-  br(1)
-  Write-Host "  Installerを起動して変更ボタンからC++選択しオプションで上から9個にチェックを入れてツールをInstallしてください." -ForegroundColor Red
-  Write-Host "  Launch the Installer, select C++ from the Change button, check the top 9 options, and install the tool." -ForegroundColor Red
-  Write-Host " "
-  br(2)
-}
-
 Write_Title " PowerShellCore (pwsh)"
 If (Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe) {
   Update_msg

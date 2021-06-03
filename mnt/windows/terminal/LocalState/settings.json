@@ -64,6 +64,26 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "backgroundImage": "%WindowsTerminalSettings%/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
         "backgroundImageOpacity": 0.09375
       },
+      {
+        "guid": "{8f57a5e2-287a-4620-8277-ca13b81f5a58}",
+        "icon": "%USERPROFILE%/scoop/apps/msys2/current/msys2.ico",
+        "name": "MSYS2",
+        "commandline": "cmd.exe /c \"set MSYSTEM=MSYS2&& set MSYS=winsymlinks:nativestrict&& %HOMEDRIVE%/%HOMEPATH%/scoop/apps/msys2/current/usr/bin/bash.exe --login\"",
+        "backgroundImage": "%USERPROFILE%/scoop/apps/msys2/current/msys2.ico",
+        "backgroundImageAlignment": "bottomRight",
+        "backgroundImageStretchMode": "none",
+        "backgroundImageOpacity": 0.75
+      },
+      {
+        "guid": "{01a9e3f1-5f80-457d-9047-128f24241665}",
+        "icon": "%USERPROFILE%/scoop/apps/msys2/current/mingw64.ico",
+        "name": "MSYS2-MinGW64",
+        "commandline": "cmd.exe /c \"set MSYSTEM=MINGW64&& set MSYS=winsymlinks:nativestrict&& %HOMEDRIVE%/%HOMEPATH%/scoop/apps/msys2/current/usr/bin/bash.exe --login\"",
+        "backgroundImage": "%USERPROFILE%/scoop/apps/msys2/current/mingw64.ico",
+        "backgroundImageAlignment": "bottomRight",
+        "backgroundImageStretchMode": "none",
+        "backgroundImageOpacity": 0.75
+      },
       { //%GIT_INSTALL_ROOT%
         "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
         "icon": "%GIT_INSTALL_ROOT%/mingw64/share/git/git-for-windows.ico",

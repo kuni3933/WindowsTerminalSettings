@@ -4,10 +4,18 @@ function Write_Title($msg) {
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
 
+Write_Title "# Add extras bucket"
+scoop bucket add extras
 Write_Title "# Add versions bucket"
 scoop bucket add versions
-Write_Title "# Add extras"
-scoop bucket add extras
+Write_Title "# Add nerd-fonts buvket"
+scoop bucket add nerd-fonts
+Write_Title "# Add Java bucket"
+scoop bucket add java
+Write_Title "# Add pleiades bucket"
+scoop bucket add pleiades
+Write_Title " scoop update"
+scoop update
 
 Write_Title "# CLI Tools"
 scoop install `
@@ -22,6 +30,7 @@ scoop install `
   neovim `
   winfetch `
   sudo `
+  gsudo `
   wget `
   bat `
   bind `
@@ -71,11 +80,19 @@ Write_Title "# scoop install gcc "
 scoop install gcc
 scoop uninstall gcc
 
+Write_Title "# scoop install msys2"
+scoop install msys2
+
+Write_Title "# scoop install nerd-fonts"
+scoop install `
+  SourceCodePro-NF-Mono `
+  SourceCodePro-NF
+
 Write_Title "# autohotkey-installer"
 scoop install autohotkey-installer
 # In the future..: scoop install volta
 
-Write_Title "# scoop update & scoop cleanup"
+Write_Title "# scoop update * & scoop cleanup *"
 scoop update *
 scoop cleanup *
 scoop status
