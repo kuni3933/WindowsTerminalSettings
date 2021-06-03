@@ -165,36 +165,64 @@ rem  ---------------------------------------------------------------------------
 
 rem ------------------------------------------------------------------------------------------------------çXêVèàóùÇÃä÷êî
 :copy_Linux
-xcopy %owl-playbook_LINUX% %LINUX% /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\check" "%LINUX%\ansible\roles\check" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\clitool" "%LINUX%\ansible\roles\clitool" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\core" "%LINUX%\ansible\roles\core" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\dependency" "%LINUX%\ansible\roles\dependency" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\editor" "%LINUX%\ansible\roles\editor" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\font" "%LINUX%\ansible\roles\font" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\language" "%LINUX%\ansible\roles\language" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\bash" "%LINUX%\ansible\roles\link\bash" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\bash_it" "%LINUX%\ansible\roles\link\bash_it" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\broot" "%LINUX%\ansible\roles\link\broot" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\idea" "%LINUX%\ansible\roles\link\idea" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\input" "%LINUX%\ansible\roles\link\input" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\tig" "%LINUX%\ansible\roles\link\tig" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\tmux" "%LINUX%\ansible\roles\link\tmux" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\link\vim" "%LINUX%\ansible\roles\link\vim" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\package_manager" "%LINUX%\ansible\roles\package_manager" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\roles\terminal" "%LINUX%\ansible\roles\terminal" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ansible\ansible.cfg" "%LINUX%\ansible\ansible.cfg"
+xcopy "%owl-playbook_LINUX%\ansible\local" "%LINUX%ansible\local"
+xcopy "%owl-playbook_LINUX%\ansible\Makefile" "%LINUX%ansible\Makefile"
+xcopy "%owl-playbook_LINUX%\lubuntu-base" "%LINUX%\lubuntu-base" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\lubuntu-jp" "%LINUX%\lubuntu-jp" /E /H /S /I
+xcopy "%owl-playbook_LINUX%\ubuntu" "%LINUX%\ubuntu" /E /H /S /I
 exit /b
 
 :copy_Windows
-xcopy %owl-playbook_WINDOWS%\go %WINDOWS%\go /E /H /S /I
-xcopy %owl-playbook_WINDOWS%\npm %WINDOWS%\npm /E /H /S /I
-xcopy %owl-playbook_WINDOWS%\ubuntu %WINDOWS%\ubuntu /E /H /S /I
-xcopy %owl-playbook_WINDOWS%\idea-files.txt %WINDOWS%\idea-files.txt
-xcopy %owl-playbook_WINDOWS%\vscode-extensions.txt %WINDOWS%\vscode-extensions.txt
-xcopy %owl-playbook_WINDOWS%\windows-home-dots.txt %WINDOWS%\windows-home-dots.txt
+xcopy "%owl-playbook_WINDOWS%\go" "%WINDOWS%\go" /E /H /S /I
+xcopy "%owl-playbook_WINDOWS%\npm" "%WINDOWS%\npm" /E /H /S /I
+xcopy "%owl-playbook_WINDOWS%\ubuntu" "%WINDOWS%\ubuntu" /E /H /S /I
+xcopy "%owl-playbook_WINDOWS%\idea-files.txt" "%WINDOWS%\idea-files.txt"
+xcopy "%owl-playbook_WINDOWS%\vscode-extensions.txt" "%WINDOWS%\vscode-extensions.txt"
+xcopy "%owl-playbook_WINDOWS%\windows-home-dots.txt" "%WINDOWS%\windows-home-dots.txt"
 exit /b
 
 :copy_Windows_MNT
-xcopy %owl-playbook_WINDOWS_MNT%\keypirinha %WINDOWS_MNT%\keypirinha /E /H /S /I
-xcopy %owl-playbook_WINDOWS_MNT%.bashrc %WINDOWS_MNT%\.bashrc
-xcopy %owl-playbook_WINDOWS_MNT%\.minttyrc %WINDOWS_MNT%\.minttyrc
-xcopy %owl-playbook_WINDOWS_MNT%\.oh-my-posh.json %WINDOWS_MNT%\.oh-my-posh.json
-xcopy %owl-playbook_WINDOWS_MNT%\.vimrc %WINDOWS_MNT%\.vimrc
-xcopy %owl-playbook_WINDOWS_MNT%\broot.toml %WINDOWS_MNT%\broot.toml
+xcopy "%owl-playbook_WINDOWS_MNT%\keypirinha" "%WINDOWS_MNT%\keypirinha" /E /H /S /I
+xcopy "%owl-playbook_WINDOWS_MNT%.bashrc" "%WINDOWS_MNT%\.bashrc"
+xcopy "%owl-playbook_WINDOWS_MNT%\.minttyrc" "%WINDOWS_MNT%\.minttyrc"
+xcopy "%owl-playbook_WINDOWS_MNT%\.oh-my-posh.json" "%WINDOWS_MNT%\.oh-my-posh.json"
+xcopy "%owl-playbook_WINDOWS_MNT%\.vimrc" "%WINDOWS_MNT%\.vimrc"
+xcopy "%owl-playbook_WINDOWS_MNT%\broot.toml" "%WINDOWS_MNT%\broot.toml"
 exit /b
 
 :copy_linux_MNT
-xcopy %owl-playbook_LINUX_MNT% %LINUX_MNT% /E /H /S /I
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.bash_it\themes\maman\maman.theme.bash" "%LINUX_MNT%\ubuntu\.bash_it\themes\maman\maman.theme.bash"
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.vim" "%LINUX_MNT%\ubuntu\.vim" /E /H /S /I
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.inputrc" "%LINUX_MNT%\ubuntu\.inputrc"
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tigrc" "%LINUX_MNT%\ubuntu\.tigrc"
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tmux.conf" "%LINUX_MNT%\ubuntu\.tmux.conf"
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.vimrc" "%LINUX_MNT%\ubuntu\.vimrc"
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\broot.toml" "%LINUX_MNT%\ubuntu\broot.toml"
 exit /b
 
 :copy_Common_MNT
-xcopy %owl-playbook_COMMON_MNT%\.vim-snippets %COMMON_MNT%\.vim-snippets /E /H /S /I
-xcopy %owl-playbook_COMMON_MNT%\IntelliJIdea %COMMON_MNT%\IntelliJIdea /E /H /S /I
-xcopy %owl-playbook_COMMON_MNT%\VSCode\User\snippets %COMMON_MNT%\VSCode\User\snippets /E /H /S /I
-xcopy %owl-playbook_COMMON_MNT%\VSCode\User\keybindings.json %COMMON_MNT%\VSCode\User\keybindings.json
+xcopy "%owl-playbook_COMMON_MNT%\.vim-snippets" "%COMMON_MNT%\.vim-snippets" /E /H /S /I
+xcopy "%owl-playbook_COMMON_MNT%\IntelliJIdea" "%COMMON_MNT%\IntelliJIdea" /E /H /S /I
+xcopy "%owl-playbook_COMMON_MNT%\VSCode\User\snippets" "%COMMON_MNT%\VSCode\User\snippets" /E /H /S /I
+xcopy "%owl-playbook_COMMON_MNT%\VSCode\User\keybindings.json" "%COMMON_MNT%\VSCode\User\keybindings.json"
 exit /b
 
 

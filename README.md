@@ -133,22 +133,29 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 1. windows/provision.batをコマンドラインから実行してアップデート
 2. 以下の項目は手動アップデート/手動マージ
+
+    <ul>
+      <li>linux/ansible/roles/link/vscode/tasks/main.yml</li>
+      <li>linux/ansible/wsl-ubuntu.yml</li>
+    </ul>
+    <ul>
+      <li>mnt/common/settings.json</li>
+      <li>mnt\common\VSCode\User\settings.json(運用上不要)</li>
+      <li>mnt\linux\ubuntu\.bashrc</li>
+      <li>mnt\windows\pipes-rs</li>
+      <li>mnt\windows\power-shell</li>
+      <li>mnt\windows\terminal</li>
+      <li>mnt\windows\winget</li>
+      <li>mnt\windows\wsl</li>
+      <!--<li></li>-->
+    </ul>
     <ul>
       <li>windows\cargo</li>
       <li>windows\scoop</li>
       <li>windows\winget</li>
       <li>windows\provision.bat</li>
       <li>windows\Pull_SubModule.bat</li>
-      <li>windows\xlaunch.exe - ショートカット.lnk</li>
-    </ul>
-    <ul>
-      <li>mnt\windows\pipes-rs</li>
-      <li>mnt\windows\power-shell</li>
-      <li>mnt\windows\terminal</li>
-      <li>mnt\windows\winget</li>
-      <li>mnt\windows\wsl</li>
-      <li>mnt/common/settings.json</li>
-      <!--<li></li>-->
+      <li>windows\xlaunch.exe.lnk</li>
     </ul>
 3. 各install.ps1を実行してパッケージアップデート
 4. 再度windows/provision.batを実行
