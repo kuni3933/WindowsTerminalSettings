@@ -81,9 +81,6 @@ Write_Title "# scoop install gcc "
 scoop install gcc
 scoop uninstall gcc
 
-Write_Title "# scoop install msys2"
-scoop install msys2
-
 Write_Title "# scoop install nerd-fonts"
 scoop install `
   SourceCodePro-NF-Mono `
