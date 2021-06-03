@@ -131,7 +131,7 @@ call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini
 call :******************** Broot
 
 call :link_file "%USERPROFILE%\broot.toml" "%WINDOWS_MNT%\broot.toml"
-
+xcopy "%WINDOWS_MNT%\broot.toml" "%USERPROFILE%\.config\broot\broot"
 
 call :******************** git config
 rem グローバル(ユーザー)設定
