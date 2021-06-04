@@ -131,7 +131,6 @@ call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini
 call :******************** Broot
 
 call :link_file "%USERPROFILE%\broot.toml" "%WINDOWS_MNT%\broot.toml"
-xcopy "%WINDOWS_MNT%\broot.toml" "%USERPROFILE%\.config\broot\broot"
 
 call :******************** git config
 rem グローバル(ユーザー)設定
@@ -183,8 +182,8 @@ xcopy "%owl-playbook_LINUX%\ansible\roles\link\vim" "%LINUX%\ansible\roles\link\
 xcopy "%owl-playbook_LINUX%\ansible\roles\package_manager" "%LINUX%\ansible\roles\package_manager" /E /H /S /I
 xcopy "%owl-playbook_LINUX%\ansible\roles\terminal" "%LINUX%\ansible\roles\terminal" /E /H /S /I
 xcopy "%owl-playbook_LINUX%\ansible\ansible.cfg" "%LINUX%\ansible\ansible.cfg"
-xcopy "%owl-playbook_LINUX%\ansible\local" "%LINUX%ansible\local"
-xcopy "%owl-playbook_LINUX%\ansible\Makefile" "%LINUX%ansible\Makefile"
+xcopy "%owl-playbook_LINUX%\ansible\local" "%LINUX%\ansible\local"
+xcopy "%owl-playbook_LINUX%\ansible\Makefile" "%LINUX%\ansible\Makefile"
 xcopy "%owl-playbook_LINUX%\lubuntu-base" "%LINUX%\lubuntu-base" /E /H /S /I
 xcopy "%owl-playbook_LINUX%\lubuntu-jp" "%LINUX%\lubuntu-jp" /E /H /S /I
 xcopy "%owl-playbook_LINUX%\ubuntu" "%LINUX%\ubuntu" /E /H /S /I

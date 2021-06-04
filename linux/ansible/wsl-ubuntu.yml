@@ -1,14 +1,11 @@
 ---
-
 - &base
   hosts: local
   connection: local
   vars:
-    ubuntu_mnt: ~/owl-playbook/mnt/linux/ubuntu
-    common_mnt: ~/owl-playbook/mnt/common
+    ubuntu_mnt: ~/WindowsTerminalSettings/mnt/linux/ubuntu
+    common_mnt: ~/WindowsTerminalSettings/mnt/common
     intellij_dir: ~/.config/JetBrains/IntelliJIdea2020.2
-
-
 
 - name: "=============== 1. Core setup ==============="
   <<: *base
@@ -86,4 +83,3 @@
   <<: *base
   roles:
     - role: font/nerd-fonts
-

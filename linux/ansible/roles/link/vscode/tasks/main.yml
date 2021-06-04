@@ -6,11 +6,11 @@
 
 - name: Create symlinks
   file:
-    src: '{{ common_mnt }}/VSCode/User/{{ item }}'
+    src: "{{ common_mnt }}/VSCode/User/{{ item }}"
     dest: ~/.config/Code/User/{{ item }}
     state: link
     force: yes
   with_items:
     - keybindings.json
-    - settings.json
     - snippets
+#- settings.json
