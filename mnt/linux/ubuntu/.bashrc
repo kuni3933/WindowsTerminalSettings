@@ -1,7 +1,5 @@
 # shellcheck disable=SC1090,SC2012
 export BASH_IT_THEME='maman'
-
-export BASH_IT_THEME='maman'
 export PATH="$PATH:/usr/local/go/bin:~/go/bin:~/.pyenv/bin:~/.local/share/umake/ide/idea/bin"
 export GOPATH="$HOME/go"
 
