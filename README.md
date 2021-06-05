@@ -10,7 +10,6 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
   <li><a href="https://github.com/volta-cli/volta/releases">Releases · volta-cli/volta</a></li>
 適切なバージョンをインストールして、<a href="https://qiita.com/naoyukik/items/d6a11808338a494238db">Nodeのバージョン管理ツールVOLTA⚡</a>を参考にnode-js等をインストール
 </ul>
-適切なバージョンをインストール
 
 ## 2.Gitのインストール・本リポジトリの配置
 
@@ -19,7 +18,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 1. <code>winget install -e --id Git.Git</>
 2. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code>
 
-## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insifersのインストール
+## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insidersのインストール
 
 ※インストール済みの場合は、アンインストールしておくか各ステップをスキップする.※
 
