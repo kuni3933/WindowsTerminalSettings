@@ -1,7 +1,7 @@
 bold = true
 color_mode = "ansi" # ansi, rgb or none
 palette = "pastel" # default, darker, pastel or matrix
-delay_ms = 15
+delay_ms = 10
 inherit_style = false
 kinds = ["heavy"] # heavy, light, curved, knobby, emoji, outline, dots
 num_pipes = 1
