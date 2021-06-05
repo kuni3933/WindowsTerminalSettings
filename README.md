@@ -16,7 +16,9 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 以下のコマンドを実行
 
 1. <code>winget install -e --id Git.Git</>
+
 2. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code>
+
 
 ## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insidersのインストール
 
