@@ -90,13 +90,6 @@ Write_Title "# autohotkey-installer"
 scoop install autohotkey-installer
 # In the future..: scoop install volta
 
-Write_Title "#  gpg & openssh"
-scoop install -g `
-win32-openssh `
-gpg
-
-
-
 Write_Title "# scoop update * & scoop cleanup *"
 scoop update *
 scoop cleanup *
