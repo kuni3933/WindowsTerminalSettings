@@ -8,7 +8,6 @@ source /home/kuni3933/.config/broot/launcher/bash/br
 set clipboard=unnamedplus
 alias lla='exa -al --icons --git'
 export LC_ALL=en_US.UTF8
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(pyenv init --path)"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -171,7 +170,6 @@ export SCM_CHECK=true
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 #----------------------------------------------------------------------------------------------------------------------------------------------
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
