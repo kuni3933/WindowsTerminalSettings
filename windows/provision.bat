@@ -191,7 +191,6 @@ exit /b
 
 :copy_Windows
 xcopy "%owl-playbook_WINDOWS%\go" "%WINDOWS%\go" /E /H /S /I
-xcopy "%owl-playbook_WINDOWS%\npm" "%WINDOWS%\npm" /E /H /S /I
 xcopy "%owl-playbook_WINDOWS%\ubuntu" "%WINDOWS%\ubuntu" /E /H /S /I
 xcopy "%owl-playbook_WINDOWS%\idea-files.txt" "%WINDOWS%\idea-files.txt"
 xcopy "%owl-playbook_WINDOWS%\vscode-extensions.txt" "%WINDOWS%\vscode-extensions.txt"
