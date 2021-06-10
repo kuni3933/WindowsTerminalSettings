@@ -5,6 +5,9 @@ export GOPATH="$HOME/go"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 export GPG_TTY=$(tty)
 alias lla='exa -al --icons --git'
 neofetch
@@ -83,8 +86,7 @@ alias vimz='vim $(grep "^>" ~/.viminfo | cut -c 3- | sed "s@~@$HOME@" | fzf)'
 
 
 # pyenv
-eval "$(pyenv init -)"
-
+#eval "$(pyenv init -)"
 #------------------------------------------------------------------------------------------------------------------------------------------------
 #bash_it
 # If not running interactively, don't do anything
@@ -169,5 +171,5 @@ export LC_ALL=en_US.UTF8
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
 source /home/kuni3933/.config/broot/launcher/bash/br
+
