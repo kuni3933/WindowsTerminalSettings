@@ -136,6 +136,8 @@ pwsh上で以下のコマンドを管理者権限で実行
       <li>mnt/common/settings.json</li>
       <li>mnt\common\VSCode\User\settings.json(運用上不要)</li>
       <li>mnt\linux\ubuntu\.bashrc</li>
+      <li>mnt/linux/ubuntu/.bash_logout</li>
+      <li>mnt/linux/ubuntu/.vimrc</li>
       <li>mnt\windows\pipes-rs</li>
       <li>mnt\windows\power-shell</li>
       <li>mnt\windows\terminal</li>
@@ -164,17 +166,19 @@ pwsh上で以下のコマンドを管理者権限で実行
 2. wsl側で<code>sudo apt update && sudo apt upgrade</code><br>
 3. wsl側で<code>sudo apt-get update && sudo apt-get upgrade</code><br>
 4. wsl側で<code>sudo apt-get install git-all</code><br>
-5. wsl側で<code>sudo apt-get install gnupg2</code>
-6. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code>
+5. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code><br>
+6. WindowserminalSettings/linux/upgrade.shを実行<br>
 7. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"以降を全て実行<br>
 8. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
 9. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行<br>
 10. pyenv initの設定<br>
-11. ".bashrc"をリポジトリの.bashrcｒに変更(必要な部分はマージしつつ、起動直後の内容等は削除)<br>
-12. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
-      <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事
-13. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-14. gpg/sshの情報を.gitconfigに設定
+11. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+12. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
+13. ".bashrc"をリポジトリの.bashrcに変更(必要な部分はマージしつつ、起動直後の内容等は削除)<br>
+14. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+      <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
+15. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+16. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 

@@ -1,12 +1,12 @@
 #WindowsTerminalSettings_Original
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export GPG_TTY=$(tty)
+
 eval "$(pyenv init --path)"
-echo "ssh-agent start"
-eval "$(ssh-agent -s)"
 
 alias lla='exa -al --icons --git'
-
+neofetch
 #--------------------------------
 
 # shellcheck disable=SC1090,SC2012
