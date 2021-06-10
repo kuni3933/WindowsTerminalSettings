@@ -174,7 +174,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 10. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
 11. pyenv initの設定<br>
 12. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-13. ".bashrc"をリポジトリの.bashrcに変更(必要な部分はマージしつつ、起動直後の内容等は削除)<br>
+13. ".bashrc"をリポジトリの.bashrcに変更(必要な部分はマージしつつ起動直後の内容等は削除して、&HOMEの.bashrcには". ~/.bashrc.org"書かれている状態にする)<br>
 14. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
 15. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
