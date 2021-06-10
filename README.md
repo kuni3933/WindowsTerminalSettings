@@ -155,7 +155,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 #WSL2-Ubuntu20.04の手順
 
-本家Tadashi Aikawa氏の資料を要参照
+本家Tadashi Aikawa氏の資料を要参照<br>
 01.<a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"までを実行<br>
 02.wsl側で<code>sudo apt update && sudo apt upgrade</code><br>
 03.ｗｓｌ側で<code>sudo apt-get update && sudo apt-get upgrade</code><br>
