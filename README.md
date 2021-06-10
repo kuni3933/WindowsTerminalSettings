@@ -165,7 +165,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 7.<a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行<br>
 8.pyenv initの設定<br>
 9.".bashrc"をリポジトリの.bashrcｒに変更(必要な部分はマージしつつ、起動直後の内容等は削除)<br>
-10.gpgの設定<br>
+10.<a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
 11.sshの設定<br>
 12.gpg/sshの情報を.gitconfigに設定
 
