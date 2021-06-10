@@ -163,8 +163,8 @@ pwsh上で以下のコマンドを管理者権限で実行
 5.<a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"以降を全て実行<br>
 6.<a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
 7.<a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行<br>
-8.pyenv initの設定
-9.".bashrc"をリポジトリの.bashrcｒに変更(必要な部分はマージ)<br>
+8.pyenv initの設定<br>
+9.".bashrc"をリポジトリの.bashrcｒに変更(必要な部分はマージしつつ、起動直後の内容等は削除)<br>
 10.gpgの設定<br>
 11.sshの設定<br>
 12.gpg/sshの情報を.gitconfigに設定
