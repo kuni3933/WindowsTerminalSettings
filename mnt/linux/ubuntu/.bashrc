@@ -1,18 +1,14 @@
+# shellcheck disable=SC1090,SC2012
+export PATH="$PATH:/usr/local/go/bin:~/go/bin:~/.pyenv/bin:~/.local/share/umake/ide/idea/bin"
+export GOPATH="$HOME/go"
 #WindowsTerminalSettings_Original
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export GPG_TTY=$(tty)
-
 eval "$(pyenv init --path)"
-
+export GPG_TTY=$(tty)
 alias lla='exa -al --icons --git'
 neofetch
-#--------------------------------
-
-# shellcheck disable=SC1090,SC2012
-
-export PATH="$PATH:/usr/local/go/bin:~/go/bin:~/.pyenv/bin:~/.local/share/umake/ide/idea/bin"
-export GOPATH="$HOME/go"
+#-----------------------------------------------------------------------------------------------------------------------------------------------
 
 # 日本語入力
 export QT_IM_MODULE=fcitx
@@ -90,7 +86,6 @@ alias vimz='vim $(grep "^>" ~/.viminfo | cut -c 3- | sed "s@~@$HOME@" | fzf)'
 eval "$(pyenv init -)"
 
 #------------------------------------------------------------------------------------------------------------------------------------------------
-
 #bash_it
 # If not running interactively, don't do anything
 case $- in
@@ -167,10 +162,7 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
-
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------
-
+#----------------------------------------------------------------------------------------------------------------------------------------------
 export LC_ALL=en_US.UTF8
 . ~/.bashrc.org
 

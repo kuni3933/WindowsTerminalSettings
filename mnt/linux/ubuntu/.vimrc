@@ -7,9 +7,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"call plug#begin('~/.vim/plugged')
-"Plug 'morhetz/gruvbox'
-"call plug#end()
+call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
+call plug#end()
 " ---------------------------------------------------
 "
 " vimとの互換性を外す
