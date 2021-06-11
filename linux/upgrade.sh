@@ -40,6 +40,11 @@ sudo apt show git-all
 sudo apt install -y git-all
 br
 
+title 'sudo apt install -y vim'
+sudo apt show vim
+sudo apt install -y vim
+br
+
 title 'sudo apt install -y gnupg2'
 sudo apt show gnupg2
 sudo apt install -y gnupg2
