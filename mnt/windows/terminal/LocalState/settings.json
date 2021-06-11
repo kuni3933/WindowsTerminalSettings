@@ -67,8 +67,9 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       {
         "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
         "name": "WSL2-Ubuntu-20.04 LTS",
+        "commandline": "wsl.exe ~",
         "source": "Windows.Terminal.Wsl",
-        "startingDirectory": "//wsl$/Ubuntu-20.04/home\kuni3933/",
+        //"startingDirectory": "//wsl$/Ubuntu-20.04/home/kuni3933",
         "backgroundImage": "%WindowsTerminalSettings%/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png",
         "backgroundImageOpacity": 0.09375
       },
