@@ -39,7 +39,8 @@ scoop install `
   7zip `
   fzf `
   jq `
-  fx `
+  jx `
+  jid `
   less `
   ripgrep `
   delta `
