@@ -130,6 +130,7 @@ pwsh上で以下のコマンドを管理者権限で実行
     <ul>
       <li>linux/ansible/roles/link/vscode/tasks/main.yml</li>
       <li>linux/ansible/wsl-ubuntu.yml</li>
+      <li>linux/upgrade.sh</li>
     </ul>
     <br>
     <ul>
@@ -167,21 +168,22 @@ pwsh上で以下のコマンドを管理者権限で実行
 3. wsl側で<code>sudo apt-get update && sudo apt-get upgrade</code><br>
 4. wsl側で<code>sudo apt-get install git-all</code><br>
 5. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code><br>
-6. WindowserminalSettings/linux/upgrade.shを実行<br>
-7. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"以降を全て実行<br>
-8. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
-9. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行<br>
-10. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
-11. pyenv initの設定<br>
-12. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-13. ".bashrc"をリポジトリの.bashrcに変更<br>
+6. <a href="https://docs.github.com/ja/github/getting-started-with-github/getting-started-with-git/managing-remote-repositories">モートリポジトリを管理する</a>リポジトリのリモートURL(ssh)への変更を実行<br>
+7. WindowserminalSettings/linux/upgrade.shを実行<br>
+8. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"以降を全て実行<br>
+9. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
+10. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行<br>
+11. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
+12. pyenv initの設定<br>
+13. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+14. ".bashrc"をリポジトリの.bashrcに変更<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>. ~/.bashrc.org↲</code><br>
     <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code>のみが記述されている状態にする<br>
-14. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+15. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-15. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-16. gpg/sshの情報を.gitconfigに設定<br>
+16. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+17. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 
