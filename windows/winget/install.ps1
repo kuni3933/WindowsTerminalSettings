@@ -52,11 +52,9 @@ If (Test-Path $env:PROGRAMFILES/Git/bin/git.exe) {
   br(1)
   winget show --id Git.Git
   br(1)
-  cmd /c gpg-connect-agent killagent /bye
+  &"$env:GIT_INSTALL_ROOT/git-bash.exe" "$env:WindowsTerminalSettings/windows/winget/kill_gpg-agent.sh"
   br(1)
   git update-git-for-windows
-  br(1)
-  cmd /c gpg-connect-agent /bye
   br(2)
 }
 ElseIf (-not(Test-Path $env:PROGRAMFILES/Git/bin/git.exe)) {
@@ -71,92 +69,77 @@ ElseIf (-not(Test-Path $env:PROGRAMFILES/Git/bin/git.exe)) {
 Write_Title " Windows Terminal Preview"
 If (Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe) {
   Already_Installed_msg
-  winget show --id Microsoft.WindowsTerminalPreview
+  winget show --id Microsoft.WindowsTerminalPreview --source winget
   br(2)
 }
 ElseIf (-not(Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe)) {
   Install_msg
-  winget show --id Microsoft.WindowsTerminalPreview
+  winget show --id Microsoft.WindowsTerminalPreview --source winget
   br(1)
-  winget install -e --id Microsoft.WindowsTerminalPreview
+  winget install -e --id Microsoft.WindowsTerminalPreview --source winget
   br(2)
 }
 
 
-Write_Title " Visual Studio Code (User Installer - $bit)"
+Write_Title " Visual Studio Code"
 If (Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) {
   Already_Installed_msg
   code --version
   br(1)
-  winget show --id Microsoft.VisualStudioCode.User-x64
+  winget show --id Microsoft.VisualStudioCode
   br(2)
 }
-ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x64") {
+ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe)) {
   Install_msg
-  winget show --id Microsoft.VisualStudioCode.User-x64
+  winget show --id Microsoft.VisualStudioCode --source winget
   br(1)
-  winget install -e --id Microsoft.VisualStudioCode.User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
-  br(2)
-}
-ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) -and $bit -eq "x86") {
-  Install_msg
-  winget show --id Microsoft.VisualStudioCode.User-x86
-  br(1)
-  winget install -e --id Microsoft.VisualStudioCode.User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  winget install -e --id Microsoft.VisualStudioCode --source winget --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
   br(2)
 }
 
-
-Write_Title " Visual Studio Code Insiders (User Installer - $bit)"
+Write_Title " Visual Studio Code Insiders"
 If (Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") {
   Already_Installed_msg
   code-insiders --version
   br(1)
-  winget show --id Microsoft.VisualStudioCodeInsiders.User-x64
+  winget show --id Microsoft.VisualStudioCode.Insiders --source winget
   br(2)
 }
-ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x64") {
+ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe")) {
   Install_msg
-  winget show --id Microsoft.VisualStudioCodeInsiders.User-x64
+  winget show --id Microsoft.VisualStudioCode.Insiders --source winget
   br(1)
-  winget install -e --id Microsoft.VisualStudioCodeInsiders.User-x64 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
-  br(2)
-}
-ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") -and $bit -eq "x86") {
-  Install_msg
-  winget show --id Microsoft.VisualStudioCodeInsiders.User-x86
-  br(1)
-  winget install -e --id Microsoft.VisualStudioCodeInsiders.User-x86 --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  winget install -e --id Microsoft.VisualStudioCode.Insiders --source winget --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
   br(2)
 }
 
 Write_Title " PowerToys"
 If (Test-Path $env:PROGRAMFILES/PowerToys/PowerToys.exe) {
   Already_Installed_msg
-  winget show --id Microsoft.PowerToys
+  winget show --id Microsoft.PowerToys --source winget
   br(2)
 }
 ElseIf (-not(Test-Path $env:PROGRAMFILES/PowerToys/PowerToys.exe)) {
   Install_msg
-  winget show --id Microsoft.PowerToys
+  winget show --id Microsoft.PowerToys --source winget
   br(1)
-  winget install -e --id Microsoft.PowerToys
+  winget install -e --id Microsoft.PowerToys --source winget
   br(2)
 }
 
 Write_Title " PowerShellCore (pwsh)"
 If (Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe) {
   Update_msg
-  winget show --id Microsoft.PowerShell
+  winget show --id Microsoft.PowerShell --source winget
   br(1)
-  winget install -e --id Microsoft.PowerShell
+  winget install -e --id Microsoft.PowerShell --source winget
   br(2)
 }
 ElseIf (-not(Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe)) {
   Install_msg
-  winget show --id Microsoft.PowerShell
+  winget show --id Microsoft.PowerShell --source winget
   br(1)
-  winget install -ei --id Microsoft.PowerShell
+  winget install -ei --id Microsoft.PowerShell --source winget
   br(2)
 }
 
