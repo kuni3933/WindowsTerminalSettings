@@ -8,12 +8,14 @@ source /home/kuni3933/.config/broot/launcher/bash/br
 set clipboard=unnamedplus
 alias lla='exa -al --icons --git'
 export LC_ALL=en_US.UTF8
+
+$HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
+neofetch 
 eval "$(pyenv init --path)"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-neofetch
 #ssh-agent
 SSH_AGENT_FILE=$HOME/.ssh-agent
 test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
