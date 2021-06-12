@@ -191,6 +191,13 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       },
       "keys": "alt+shift+d"
     },
+    //ペインクローズ
+    /*
+      "comannd":{
+        "action": "closePane"
+      }
+      "keys": "ctrl+shift+w"
+    */
     // ペイン移動
     {
       "command": {
