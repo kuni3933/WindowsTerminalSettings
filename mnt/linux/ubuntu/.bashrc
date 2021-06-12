@@ -12,7 +12,16 @@ eval "$(pyenv init --path)"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
 neofetch
+#ssh-agent
+SSH_AGENT_FILE=$HOME/.ssh-agent
+test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
+if ! ssh-add -l > /dev/null 2>&1; then
+    ssh-agent > $SSH_AGENT_FILE
+    source $SSH_AGENT_FILE
+    ssh-add $HOME/.ssh/id_rsa
+fi
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #bash_it
 # If not running interactively, don't do anything
