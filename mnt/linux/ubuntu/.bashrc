@@ -20,7 +20,7 @@ test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
 if ! ssh-add -l > /dev/null 2>&1; then
     ssh-agent > $SSH_AGENT_FILE
     source $SSH_AGENT_FILE
-    ssh-add $HOME/.ssh/id_rsa
+    ssh-add $HOME/.ssh/id_ed25519
 fi
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #bash_it
