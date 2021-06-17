@@ -152,6 +152,7 @@ pwsh上で以下のコマンドを管理者権限で実行
       <li>windows\volta-npm</li>
       <li>windows\scoop</li>
       <li>windows\winget</li>
+      <li>windows\ubuntu\config.xlaunch</li>
       <li>windows\provision.bat</li>
       <li>windows\Pull_SubModule.bat</li>
       <li>windows\xlaunch.exe.lnk</li>

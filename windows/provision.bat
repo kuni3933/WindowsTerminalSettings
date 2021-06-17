@@ -191,7 +191,8 @@ exit /b
 
 :copy_Windows
 xcopy "%owl-playbook_WINDOWS%\go" "%WINDOWS%\go" /E /H /S /I
-xcopy "%owl-playbook_WINDOWS%\ubuntu" "%WINDOWS%\ubuntu" /E /H /S /I
+xcopy "%owl-playbook_WINDOWS%\ubuntu\provision.ps1" "%WINDOWS%\ubuntu\provision.ps1"
+xcopy "%owl-playbook_WINDOWS%\ubuntu\provision.sh" "%WINDOWS%\ubuntu\provision.sh"
 xcopy "%owl-playbook_WINDOWS%\idea-files.txt" "%WINDOWS%\idea-files.txt"
 xcopy "%owl-playbook_WINDOWS%\vscode-extensions.txt" "%WINDOWS%\vscode-extensions.txt"
 xcopy "%owl-playbook_WINDOWS%\windows-home-dots.txt" "%WINDOWS%\windows-home-dots.txt"
@@ -212,7 +213,6 @@ xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.vim" "%LINUX_MNT%\ubuntu\.vim" /E /H /S 
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.inputrc" "%LINUX_MNT%\ubuntu\.inputrc"
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tigrc" "%LINUX_MNT%\ubuntu\.tigrc"
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tmux.conf" "%LINUX_MNT%\ubuntu\.tmux.conf"
-xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.vimrc" "%LINUX_MNT%\ubuntu\.vimrc"
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\broot.toml" "%LINUX_MNT%\ubuntu\broot.toml"
 exit /b
 
