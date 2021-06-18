@@ -52,7 +52,9 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "historySize": 9001,
       "padding": "0, 0, 0, 0",
       "snapOnInput": true,
-      "startingDirectory": "%USERPROFILE%"
+      "startingDirectory": "%USERPROFILE%",
+      "backgroundImageOpacity":0.09375,
+      "backgroundImageStretchMode": "none"
     },
     //実行するシェルの種類
     "list": [
@@ -62,7 +64,6 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "name": "PowerShell Core",
         "source": "Windows.Terminal.PowershellCore",
         "backgroundImage": "%WindowsTerminalSettings%/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
-        "backgroundImageOpacity": 0.09375
       },
       {
         "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
@@ -71,7 +72,6 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "source": "Windows.Terminal.Wsl",
         //"startingDirectory": "//wsl$/Ubuntu/home/kuni3933",
         "backgroundImage": "%WindowsTerminalSettings%/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png",
-        "backgroundImageOpacity": 0.09375
       },
       { //%GIT_INSTALL_ROOT%
         "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
@@ -79,9 +79,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "name": "Git Bash",
         "commandline": "%GIT_INSTALL_ROOT%/bin/bash.exe",
         "backgroundImage": "%GIT_INSTALL_ROOT%/mingw64/share/git/git-for-windows.ico",
-        "backgroundImageAlignment": "bottomRight",
-        "backgroundImageStretchMode": "none",
-        "backgroundImageOpacity": 0.75
+        "backgroundImageAlignment": "bottomRight"
       },
       {
         //https://qiita.com/ShortArrow/items/a50c6467bdb77548fd81
