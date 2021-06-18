@@ -153,6 +153,7 @@ pwsh上で以下のコマンドを管理者権限で実行
       <li>windows\scoop</li>
       <li>windows\winget</li>
       <li>windows\ubuntu\config.xlaunch</li>
+      <li>\windows\ubuntu\Ubuntu_provision.ps1</li>
       <li>windows\provision.bat</li>
       <li>windows\Pull_SubModule.bat</li>
       <li>windows\xlaunch.exe.lnk</li>
@@ -164,7 +165,8 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 本家Tadashi Aikawa氏の資料を要参照<br>
 
-1. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"までを実行<br>
+0. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"までを実行<br>
+1. <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>を参考に、wsl.confを設定<br>
 2. wsl側で<code>sudo apt update && sudo apt upgrade</code><br>
 3. wsl側で<code>sudo apt-get update && sudo apt-get upgrade</code><br>
 4. wsl側で<code>sudo apt-get install git-all</code><br>
