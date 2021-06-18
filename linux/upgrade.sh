@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eu
 title(){
   echo "-------------------------------------------------------------------------------------------"
   echo "     $1"
@@ -33,6 +34,40 @@ br
 title 'sudo apt-get autoremove -y && sudo apt-get autoclean -y'
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
+br
+
+title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
+sudo apt install -y $(check-language-support -l ja) language-pack-ja
+br
+
+title 'sudo apt install fonts-noto-color-emoji'
+sudo apt install -y fonts-noto-color-emoji
+br
+
+title 'sudo apt install fonts-symbola'
+sudo apt install -y fonts-symbola
+br
+
+title 'sudo update-locale LANG=ja_JP.UTF-8'
+sudo update-locale LANG=ja_JP.UTF-8
+br
+
+# Install ansible
+# https://docs.ansible.com/ansible/latest/user_guide/windows_faq.html#can-ansible-run-on-windows
+title 'sudo apt install -y  python3-pip'
+sudo apt install -y  python3-pip
+br
+
+title 'sudo apt install -y  libffi-dev'
+sudo apt install -y  libffi-dev
+br
+
+title 'sudo apt install -y  libssl-dev'
+sudo apt install -y  libssl-dev
+br
+
+title 'pip3 install ansible pywinrm'
+pip3 install ansible pywinrm
 br
 
 title 'sudo apt install -y git-all'
@@ -88,6 +123,16 @@ br
 
 title 'volta list all'
 volta list all
+br
+
+title 'sudo apt autoremove -y && sudo apt autoclean -y'
+sudo apt autoremove -y
+sudo apt autoclean -y
+br
+
+title 'sudo apt-get autoremove -y && sudo apt-get autoclean -y'
+sudo apt-get autoremove -y
+sudo apt-get autoclean -y
 br
 
 title 'upgrade.sh is Finished.'
