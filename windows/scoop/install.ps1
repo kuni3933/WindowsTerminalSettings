@@ -23,6 +23,8 @@ scoop install `
   pipes-rs `
   streamlink `
   youtube-dl `
+  busybox `
+  less `
   cacert `
   grep `
   hub `
@@ -41,7 +43,6 @@ scoop install `
   jq `
   jx `
   jid `
-  less `
   ripgrep `
   delta `
   lsd `
@@ -51,6 +52,7 @@ scoop install `
   vim `
   uutils-coreutils `
   broot `
+  xh `
   zoxide `
   roswell
 
