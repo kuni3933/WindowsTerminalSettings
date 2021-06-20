@@ -66,8 +66,12 @@ title 'sudo apt install -y  libssl-dev'
 sudo apt install -y  libssl-dev
 br
 
-title 'pip3 install ansible pywinrm'
-pip3 install ansible pywinrm
+title 'pip3 install ansible'
+pip3 install ansible
+br
+
+title 'pip3 install pywinrm'
+pip3 install pywinrm
 br
 
 title 'sudo apt install -y git-all'
