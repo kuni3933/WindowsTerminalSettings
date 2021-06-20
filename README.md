@@ -17,7 +17,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 1. <code>winget install -e --id Git.Git</code>
 
-2. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code>
+2. <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code>
 
 ## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insidersのインストール
 
@@ -171,7 +171,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 2. wsl側で<code>sudo apt update && sudo apt upgrade</code><br>
 3. wsl側で<code>sudo apt-get update && sudo apt-get upgrade</code><br>
 4. wsl側で<code>sudo apt-get install git-all</code><br>
-5. <code>git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive</code><br>
+5. <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
 6. <a href="https://docs.github.com/ja/github/getting-started-with-github/getting-started-with-git/managing-remote-repositories">モートリポジトリを管理する</a>リポジトリのリモートURL(ssh)への変更を実行<br>
 7. WindowserminalSettings/linux/upgrade.shを実行<br>
 8. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"以降を全て実行<br>
