@@ -106,7 +106,7 @@ br
 
 title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
-volta -v
+volta setup
 br
 
 title 'volta install node@latest'

@@ -184,7 +184,9 @@ pwsh上で以下のコマンドを管理者権限で実行
 15. ".bashrc"をリポジトリの.bashrcに変更<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>source ~/.bashrc.org↲</code><br>
-    <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code>のみが記述されている状態にする<br>
+    <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
+    <code><export VOLTA_HOME="$HOME/.volta"/code><br>
+    <code>export PATH="$VOLTA_HOME/bin:$PATH"</code>のみが記述されている状態にする<br>
 16. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
 17. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
