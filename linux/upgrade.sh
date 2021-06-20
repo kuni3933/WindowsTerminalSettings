@@ -74,6 +74,10 @@ title 'pip3 install pywinrm'
 pip3 install pywinrm
 br
 
+title 'sudo apt install yaru-theme-icon'
+sudo apt install -y yaru-theme-icon
+br
+
 title 'sudo apt install -y git-all'
 sudo apt show git-all
 sudo apt install -y git-all
