@@ -79,8 +79,20 @@ sudo apt install -y yaru-theme-icon
 br
 
 #https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
-title 'sudo apt-get purge fcitx-module-dbus'
-sudo apt-get purge fcitx-module-dbus
+#title 'sudo apt-get purge fcitx-module-dbus'
+#sudo apt-get purge fcitx-module-dbus
+#br
+
+title 'sudo apt install -y fcitx-mozc'
+sudo apt install -y fcitx-mozc
+br
+
+title 'sudo apt install -y fcitx-tools'
+sudo apt install -y fcitx-tools
+br
+
+title  'sudo apt install fcitx-module-dbus'
+sudo apt install fcitx-module-dbus
 br
 
 title 'sudo apt install -y git-all'
