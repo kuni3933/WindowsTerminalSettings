@@ -78,6 +78,11 @@ title 'sudo apt install yaru-theme-icon'
 sudo apt install -y yaru-theme-icon
 br
 
+#https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
+title 'sudo apt-get purge fcitx-module-dbus'
+sudo apt-get purge fcitx-module-dbus
+br
+
 title 'sudo apt install -y git-all'
 sudo apt show git-all
 sudo apt install -y git-all
