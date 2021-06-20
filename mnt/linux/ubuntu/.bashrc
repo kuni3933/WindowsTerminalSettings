@@ -9,7 +9,6 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 source /home/kuni3933/.config/broot/launcher/bash/br
 set clipboard=unnamedplus
 alias lla='exa -al --icons --git'
-export LC_ALL=en_US.UTF8
 
 $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
 neofetch 
