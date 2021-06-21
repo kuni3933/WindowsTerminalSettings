@@ -69,7 +69,6 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 2. 依存パッケージのscoop/install.ps1を実行した後、以下にアクセスすれば簡単
 
     * <li>%USERPROFILE%/scoop/apps/SourceCodePro-NF-Mono</li>
-
     * <li>%USERPROFILE%/scoop/apps/SourceCodePro-NF</li>
 
 ## 6.pwshのモジュールインストール・scoopの有効化(有効化済みの場合はスキップ)
