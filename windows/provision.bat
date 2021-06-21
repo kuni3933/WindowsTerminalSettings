@@ -151,7 +151,7 @@ echo Install Tablacus Explorer manually!
 echo Clone...
 echo   * spinal-reflex-bindings-template
 echo Create a shortcut of Xlaunch in `Star Menu / Program` with a to-link as following.
-echo   * ex: %USERPROFILE%\scoop\apps\vcxsrv\current\xlaunch.exe -run %WindowsTerminalSettings%\windows\ubuntu\config.xlaunch
+echo   * ex: %USERPROFILE%\scoop\apps\vcxsrv\current\xlaunch.exe -run %USERPROFILE%\WindowsTerminalSettings\windows\ubuntu\config.xlaunch
 set xlaunch_Shortcut="%~dp0..\windows\xlaunch.exe.lnk"
 copy "%xlaunch_Shortcut%" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\xlaunch.exe.lnk"
 

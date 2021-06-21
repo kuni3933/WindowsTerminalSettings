@@ -63,7 +63,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "commandline": "pwsh.exe",
         "name": "PowerShell Core",
         "source": "Windows.Terminal.PowershellCore",
-        "backgroundImage": "%WindowsTerminalSettings%/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
+        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
       },
       {
         "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
@@ -71,7 +71,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "commandline": "wsl.exe ~",
         "source": "Windows.Terminal.Wsl",
         //"startingDirectory": "//wsl$/Ubuntu/home/kuni3933",
-        "backgroundImage": "%WindowsTerminalSettings%/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png",
+        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png",
       },
       { //%GIT_INSTALL_ROOT%
         "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",

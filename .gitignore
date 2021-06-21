@@ -1,2 +1,3 @@
 linux/ansible/.secret/
-linux/package-lock.json
+package-lock.json
+#package.json

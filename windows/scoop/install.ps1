@@ -13,7 +13,7 @@ scoop bucket add nerd-fonts
 Write_Title "# Add Java bucket"
 scoop bucket add java
 Write_Title "# Add pleiades bucket"
-scoop bucket add pleiades
+scoop bucket add pleiades https://github.com/jfut/scoop-pleiades.git
 Write_Title " scoop update"
 scoop update
 

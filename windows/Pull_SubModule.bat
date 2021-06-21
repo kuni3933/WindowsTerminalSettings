@@ -1,14 +1,20 @@
 @echo off
 chcp 932
 
-IF NOT DEFINED WindowsTerminalSettings (
-    echo 環境変数:WindowsTerminalSettings が定義されていないためサブモジュールのpullが出来ません.
-    echo ユーザー環境変数:WindowsTerminalPreviewを設定してください.
-    echo SubModule cannot be pulled because the user environment variable: WindowsTerminalSettings is not defined.
-    echo Set the user environment variable: WindowsTerminalPreview.
+rem Repositoryの場所を指定
+SET WindowsTerminalSettings="%USERPROFILE%\WindowsTerminalSettings"
+
+rem Repositoryが存在しない場合
+IF NOT EXIST %WindowsTerminalSettings% (
+    echo Repository:WindowsTerminalSettings が%USERPROFILE%に存在しないないためサブモジュールのpullが出来ません.
+    echo Repository:WindowsTerminalSettings を%USERPROFILE%にgit cloneして配置してください.
+    echo Cannot pull submodules because Repository:WindowsTerminalSettings does not exist in %USERPROFILE%.
+    echo Git clone Repository:WindowsTerminalSettings to %USERPROFILE% and place it there.
+    echo Reference:https://github.com/kuni3933/WindowsTerminalSettings
     goto :end
 )
-IF  DEFINED WindowsTerminalSettings (
+rem Repositoryが存在する場合
+IF EXIST %WindowsTerminalSettings% (
     cd %WindowsTerminalSettings%
     call :******************** 現在のサブモジュールステータス / Current submodule status
     git submodule status

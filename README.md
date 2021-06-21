@@ -17,7 +17,11 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 1. <code>winget install -e --id Git.Git</code>
 
-2. <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code>
+2. <code>powershellを起動<code>
+
+3. <code>cd $env:USERPROFILE</code>
+
+4. <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code>
 
 ## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insidersのインストール
 
@@ -39,14 +43,8 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 ## 4.パス設定
 
-1. このリポジトリが配置されているパスを、ユーザー環境変数:WindowsTerminalSettings として登録
+1. Gitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
-    以下、「C:/Users/ユーザー名/WindowsTerminalSettings(このリポジトリ)」という配置状況での例
-
-    <code>ユーザー環境変数名:WindowsTerminalSettings</code><br>
-    <code>ユーザー環境変数値:C:/Users/ユーザー名/WindowsTerminalSettings</code><br>
-
-2. 今度はGitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
     まずは以下のコマンドを実行してgit.exeの位置を確認
 

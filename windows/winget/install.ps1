@@ -52,7 +52,7 @@ If (Test-Path $env:PROGRAMFILES/Git/bin/git.exe) {
   br(1)
   winget show --id Git.Git
   br(1)
-  &"$env:GIT_INSTALL_ROOT/git-bash.exe" "$env:WindowsTerminalSettings/windows/winget/kill_gpg-agent.sh"
+  &"$env:GIT_INSTALL_ROOT/git-bash.exe" "$env:USERPROFILE/WindowsTerminalSettings/windows/winget/kill_gpg-agent.sh"
   br(1)
   git update-git-for-windows
   br(2)
