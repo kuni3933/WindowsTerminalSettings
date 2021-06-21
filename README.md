@@ -17,7 +17,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 1. <code>winget install -e --id Git.Git</code>
 
-2. <code>powershellを起動<code>
+2. <code>powershellを起動</code>
 
 3. <code>cd $env:USERPROFILE</code>
 
