@@ -100,6 +100,7 @@ pwsh上で以下のコマンドを管理者権限で実行
 | 4.go         | goでインストールするもの                                        |
 | 5.cargo      | rustでインストールするもの                                      |
 | 6.ubuntu     | WSL2-Ubuntu-20.04 LTSでインストールするもの(wsl2準備段階で使用) |
+
 初インストールの場合は、
 <ul>
 <li>Keypirinha</li>
@@ -108,11 +109,12 @@ pwsh上で以下のコマンドを管理者権限で実行
 </ul>
 を一回起動してまた閉じておく.
 
-また、cargo/install.ps1の実行前に、
+<!-- また、cargo/install.ps1の実行前に、
 <li><a href="https://yuqlid.sakura.ne.jp/dokuwiki/msys2">MSYS2 [yuqlid wiki]</a></li>
 <li><a href="https://qiita.com/ousttrue/items/ee617544ab737fc34c1d">WindowsでRust環境を作ってGtk3でOpenGLする - Qiita</a></li>
 <li><a href="https://gist.github.com/Hamayama/eb4b4824ada3ac71beee0c9bb5fa546d">MSYS2/MinGW-w64 (64bit/32bit) インストール手順 メモ</a></li>
 を参考にmsys2/mingwのUPDATEをしておく.
+-->
 
 ## 8.windows/provision.batをコマンドラインから管理者権限で実行
 
