@@ -66,7 +66,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
     * <a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher - Sauce Code Pro Nerd Font</a>
 
-2.依存パッケージのscoop/install.ps1を実行した後、以下にアクセスすれば簡単
+2. 依存パッケージのscoop/install.ps1を実行した後、以下にアクセスすれば簡単
 
   <li>%USERPROFILE%/scoop/apps/SourceCodePro-NF-Mono</li>
 
