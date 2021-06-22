@@ -11,3 +11,9 @@ cp -r $home\.ssh \\wsl$\Ubuntu\tmp\
 wsl -- rm -rf ~/.ssh
 wsl -- mv /tmp/.ssh ~/
 wsl -- chmod 600 ~/.ssh/*
+
+# pathの変更が必要かも..
+cp -r $home\.gnupg \\wsl$\Ubuntu\tmp\
+wsl -- rm -rf ~/.gnupg
+wsl -- mv /tmp/.gnupg ~/
+wsl -- chmod 600 ~/.gnupg/*
