@@ -10,6 +10,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
 */
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
+  //"$schema": "https://aka.ms/terminal-profiles-schema",
   "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
   //ラップトップの場合
   //"initialCols": 75,
@@ -44,7 +45,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "useAcrylic": true,
       "acrylicOpacity": 0.1875,
       "closeOnExit": true,
-      "colorScheme": "Campbell",
+      //"colorScheme": "Campbell",
+      "colorScheme": "Iceberg",
       //"colorScheme": "Tango Dark",
       "cursorColor": "#FFFFFF",
       "cursorShape": "bar",
@@ -53,7 +55,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "padding": "0, 0, 0, 0",
       "snapOnInput": true,
       "startingDirectory": "%USERPROFILE%",
-      "backgroundImageOpacity":0.09375,
+      "backgroundImageOpacity": 0.09375,
       "backgroundImageStretchMode": "none"
     },
     //実行するシェルの種類
@@ -63,7 +65,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "commandline": "pwsh.exe",
         "name": "PowerShell Core",
         "source": "Windows.Terminal.PowershellCore",
-        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png",
+        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png"
       },
       {
         "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
@@ -71,7 +73,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "commandline": "wsl.exe ~",
         "source": "Windows.Terminal.Wsl",
         //"startingDirectory": "//wsl$/Ubuntu/home/kuni3933",
-        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png",
+        "colorScheme": "Campbell",
+        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png"
       },
       { //%GIT_INSTALL_ROOT%
         "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
@@ -113,7 +116,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
   // To unbind a key combination from your defaults.json, set the command to "unbound".
   // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
   // 👀 https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/color-schemes
-  "schemes": [],
+  //"schemes": [],
   // 👀 https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/key-bindings
   "keybindings": [
     // unbind
@@ -253,6 +256,118 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "direction": "up"
       },
       "keys": "alt+shift+k"
+    }
+  ],
+  "schemes": [
+    // Iceberg
+    {
+      "name": "Iceberg",
+      "foreground": "#9da3c6",
+      "background": "#161821",
+      "black": "#2e3244",
+      "blue": "#84a0c6",
+      "cyan": "#89b8c2",
+      "green": "#b4be82",
+      "purple": "#a093c7",
+      "red": "#e27878",
+      "white": "#89b8c2",
+      "yellow": "#e2a478",
+      "brightBlack": "#444b71",
+      "brightBlue": "#84a0c6",
+      "brightCyan": "#89b8c2",
+      "brightGreen": "#b4be82",
+      "brightPurple": "#a093c7",
+      "brightRed": "#e27878",
+      "brightWhite": "#d2d4de",
+      "brightYellow": "#e2a478"
+    },
+    // Gruvbox Dark
+    {
+      "name": "GruvboxDark",
+      "foreground": "#ebdbb2",
+      "background": "#282828",
+      "black": "#1d2021",
+      "red": "#fb4934",
+      "green": "#b8bb26",
+      "yellow": "#fe8019",
+      "blue": "#83a598",
+      "purple": "#d3869b",
+      "cyan": "#8ec07c",
+      "white": "#fbf1c7",
+      "brightBlack": "#665c54",
+      "brightRed": "#fb4934",
+      "brightGreen": "#b8bb26",
+      "brightYellow": "#fe8019",
+      "brightBlue": "#83a598",
+      "brightPurple": "#d3869b",
+      "brightCyan": "#8ec07c",
+      "brightWhite": "#fbf1c7"
+    },
+    // Gruvbox Light
+    {
+      "name": "GruvboxLight",
+      "foreground": "#3c3836",
+      "background": "#fbf1c7",
+      "black": "#f9f5d7",
+      "red": "#9d0006",
+      "green": "#79740e",
+      "yellow": "#af3a03",
+      "blue": "#076678",
+      "purple": "#8f3f71",
+      "cyan": "#427b58",
+      "white": "#3c3836",
+      "brightBlack": "#504945",
+      "brightRed": "#9d0006",
+      "brightGreen": "#79740e",
+      "brightYellow": "#af3a03",
+      "brightBlue": "#076678",
+      "brightPurple": "#8f3f71",
+      "brightCyan": "#427b58",
+      "brightWhite": "#282828"
+    },
+    // Solarized Dark
+    {
+      "name": "SolarizedDark",
+      "foreground": "#93a1a1",
+      "background": "#002b36",
+      "black": "#073642",
+      "red": "#dc322f",
+      "green": "#859900",
+      "yellow": "#b58900",
+      "blue": "#268bd2",
+      "purple": "#6c71c4",
+      "cyan": "#2aa198",
+      "white": "#93a1a1",
+      "brightBlack": "#586e75",
+      "brightRed": "#dc322f",
+      "brightGreen": "#859900",
+      "brightYellow": "#b58900",
+      "brightBlue": "#268bd2",
+      "brightPurple": "#6c71c4",
+      "brightCyan": "#2aa198",
+      "brightWhite": "#93a1a1"
+    },
+    // Solarized Lignt
+    {
+      "name": "SolarizedLight",
+      "foreground": "#002b36",
+      "background": "#eee8d5",
+      "black": "#073642",
+      "red": "#dc322f",
+      "green": "#859900",
+      "yellow": "#b58900",
+      "blue": "#268bd2",
+      "purple": "#6c71c4",
+      "cyan": "#2aa198",
+      "white": "#93a1a1",
+      "brightBlack": "#586e75",
+      "brightRed": "#dc322f",
+      "brightGreen": "#859900",
+      "brightYellow": "#b58900",
+      "brightBlue": "#268bd2",
+      "brightPurple": "#6c71c4",
+      "brightCyan": "#2aa198",
+      "brightWhite": "#93a1a1"
     }
   ]
 }
