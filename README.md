@@ -75,7 +75,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 pwsh上で以下のコマンドを管理者権限で実行
 
 1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
-2. <code>$env:USERPROFILE/WindowsTerminalSettings/windows/PSGallery/install.ps1</code>
+2. <code>windows/PSGallery/install.ps1 を実行</code>
 3. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
 4. <code>Get-ExecutionPolicy -l</code>
 
