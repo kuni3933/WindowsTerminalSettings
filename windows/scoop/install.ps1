@@ -4,18 +4,41 @@ function Write_Title($msg) {
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
 
+function br($times) {
+  $tmp = 1
+  while ($tmp -le $times) {
+    Write-Output " ";
+    $tmp += 1
+  }
+}
+
 Write_Title "# Add extras bucket"
 scoop bucket add extras
+br(1)
+
 Write_Title "# Add versions bucket"
 scoop bucket add versions
+br(1)
+
 Write_Title "# Add nerd-fonts buvket"
 scoop bucket add nerd-fonts
+br(1)
+
 Write_Title "# Add Java bucket"
 scoop bucket add java
+br(1)
+
 Write_Title "# Add pleiades bucket"
 scoop bucket add pleiades https://github.com/jfut/scoop-pleiades.git
+br(1)
+
+Write_Title "# Add scoop-completion bucket"
+scoop bucket add scoop-completion https://github.com/Moeologist/scoop-completion
+br(1)
+
 Write_Title " scoop update"
 scoop update
+br(1)
 
 Write_Title "# CLI Tools"
 scoop install `
@@ -23,6 +46,16 @@ scoop install `
   pipes-rs `
   streamlink `
   youtube-dl `
+  colortool `
+  cowsay `
+  gh `
+  gitignore `
+  ln `
+  nu `
+  onefetch `
+  pandoc `
+  scoop-completion `
+  touch `
   busybox `
   less `
   cacert `
@@ -55,22 +88,38 @@ scoop install `
   xh `
   zoxide `
   roswell
+br(1)
+
+Write_Title "pwsh tool"
+scoop install `
+  oh-my-posh3 `
+  posh-git `
+  starship
+br(1)
 
 Write_Title "# GUI Tools"
 scoop install `
+  alacritty `
+  bugn `
+  etcher `
+  typora `
   dbeaver `
   postman `
   keypirinha `
   ditto `
   draw.io
+br(1)
 
 Write_Title "# Language / Framework / MiddleWare"
 scoop install `
+  dotnet `
+  sed `
   docker `
   go `
   rustup `
   hugo-extended `
   vcxsrv
+br(1)
 
 # Python
 #scoop install `
@@ -83,19 +132,25 @@ scoop install `
 Write_Title "# scoop install gcc "
 scoop install gcc
 scoop uninstall gcc
+br(1)
 
-Write_Title "# scoop install nerd-fonts"
+Write_Title "# fonts "
 scoop install `
   SourceCodePro-NF-Mono `
-  SourceCodePro-NF
+  SourceCodePro-NF `
+  SarasaGothic-J
+br(1)
 
 Write_Title "# autohotkey-installer"
 scoop install autohotkey-installer
 # In the future..: scoop install volta
+br(1)
 
 Write_Title "# scoop update * & scoop cleanup *"
 scoop update *
+br(1)
 scoop cleanup *
+br(1)
 scoop status
 Pause
 Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."

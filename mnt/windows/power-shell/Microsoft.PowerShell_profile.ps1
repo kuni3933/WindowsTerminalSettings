@@ -2,15 +2,25 @@ pipes-rs
 winfetch.PS1
 # fish風のオートサジェスト機能を有効に
 Set-PSReadLineOption -PredictionSource History
-# (optional) Ctrl+f 入力で前方1単語進む : 補完の確定に使う用
-Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
-Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-#参考-https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
-#参考 https://docs.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.1
-
 Set-PSReadLineOption -HistoryNoDuplicates:$true
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 #参考https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1
+# (optional) Ctrl+f 入力で前方1単語進む : 補完の確定に使う用
+Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
+Set-PSReadLineKeyHandler -Key "UpArrow" -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key "Ctrl+o" -Function MenuComplete
+#参考-https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
+#参考 https://docs.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.1
+
+##############################
+# PSFzf
+# ##############################
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+
+##############################
+# Scoop completion
+# ##############################
+Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)/modules/scoop-completion"
 
 # Windowsベース
 Set-PSReadLineOption -EditMode Windows
@@ -40,13 +50,14 @@ Set-PSReadlineOption -BellStyle None
 #-----------------------------------------------------
 
 Import-Module posh-git
-Import-Module oh-my-posh
+#Import-Module oh-my-posh
+oh-my-posh --init --shell pwsh --config ~/.oh-my-posh.json | Invoke-Expression
 Invoke-Expression (& {
     $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
     (zoxide init --hook $hook powershell) -join "`n"
   })
 
-Set-PoshPrompt -Theme ~/.oh-my-posh.json
+#Set-PoshPrompt -Theme ~/.oh-my-posh.json
 
 #-----------------------------------------------------
 # fzf

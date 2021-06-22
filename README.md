@@ -75,16 +75,13 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 pwsh上で以下のコマンドを管理者権限で実行
 
 1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
-2. <code>Install-Module posh-git -Scope CurrentUser -Force</code>
-3. <code>Install-Module oh-my-posh -Scope CurrentUser -Force</code>
-4. <code>Install-Module -Name PSReadLine -Scope CurrentUser -Force</code>
-5. <code>iwr -useb get.scoop.sh | iex</code>
+2. <code>$env:USERPROFILE/WindowsTerminalSettings/windows/PSGallery/install.ps1</code>
+3. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
+4. <code>Get-ExecutionPolicy -l</code>
 
-※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する.
+セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認できるまで以下のコマンドを実行
 
-なっていなかった場合は、1番で使用したコマンドを修正入力して実行
-
-<code>Get-ExecutionPolicy -l</code>
+<code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
 
 ## 7.依存packageインストール
 
@@ -94,12 +91,13 @@ pwsh上で以下のコマンドを管理者権限で実行
 
 | ディレクトリ | 概要                                                            |
 | ------------ | --------------------------------------------------------------- |
-| 1.winget     | wingetでインストールするもの                                    |
-| 2.scoop      | Scoopでインストールするもの                                     |
-| 3.volta/npm  | volta/npmでインストールするもの                                 |
-| 4.go         | goでインストールするもの                                        |
-| 5.cargo      | rustでインストールするもの                                      |
-| 6.ubuntu     | WSL2-Ubuntu-20.04 LTSでインストールするもの(wsl2準備段階で使用) |
+| 1.PSGallery  | PSGalleryでインストールするもの                                 |
+| 2.winget     | wingetでインストールするもの                                    |
+| 3.scoop      | Scoopでインストールするもの                                     |
+| 4.volta/npm  | volta/npmでインストールするもの                                 |
+| 5.go         | goでインストールするもの                                        |
+| 6.cargo      | rustでインストールするもの                                      |
+| 7.ubuntu     | WSL2-Ubuntu-20.04 LTSでインストールするもの(wsl2準備段階で使用) |
 
 初インストールの場合は、
 <ul>
@@ -148,6 +146,7 @@ pwsh上で以下のコマンドを管理者権限で実行
     </ul>
     <br>
     <ul>
+      <li>windows\PSGallery</li>
       <li>windows\cargo</li>
       <li>windows\volta-npm</li>
       <li>windows\scoop</li>
