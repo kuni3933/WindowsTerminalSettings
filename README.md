@@ -168,9 +168,9 @@ pwsh上で以下のコマンドを管理者権限で実行
 1. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"までを実行<br>
 2. <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
    <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
-3. wsl側で<code>sudo apt update && sudo apt upgrade</code><br>
-4. wsl側で<code>sudo apt-get update && sudo apt-get upgrade</code><br>
-5. wsl側で<code>sudo apt-get install git-all</code><br>
+3. wsl側で<code>sudo apt update -y && sudo apt upgrade -y</code><br>
+4. wsl側で<code>sudo apt-get update -y && sudo apt-get upgrade -y</code><br>
+5. wsl側で<code>sudo apt install -y git-all</code><br>
 6. <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
 7. <a href="https://docs.github.com/ja/github/getting-started-with-github/getting-started-with-git/managing-remote-repositories">モートリポジトリを管理する</a>リポジトリのリモートURL(ssh)への変更を実行<br>
 8. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"以降を全て実行<br>
