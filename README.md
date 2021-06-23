@@ -181,7 +181,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
 15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
 16. ".bashrc"を修正<br>
-    必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
+    必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
     <code>#!/usr/bin/env bash</code><br>
     <code># Path to the bash it configuration</code><br>
     <code>export BASH_IT="/home/kuni3933/.bash_it"</code><br>
