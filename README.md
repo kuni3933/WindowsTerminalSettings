@@ -166,7 +166,8 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
    </ul>
   
 7. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git</code><br>
-   <code>~/.bash_it/install.sh</code>y/nの問いが出てくるのでyを選択<br>
+   <code>~/.bash_it/install.sh</code><br>
+   y/nの問いが出てくるのでyを選択<br>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
 8. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
 9. WindowserminalSettings/linux/upgrade.shを実行<br>
