@@ -182,13 +182,14 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
 16. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
-    <code>#!/usr/bin/env bash</code><br>
-    <code># Path to the bash it configuration</code><br>
-    <code>export BASH_IT="/home/ユーザー名/.bash_it"</code><br>
-    <code>. ~/.bashrc.org</code><br>
-    <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
-    <code>export VOLTA_HOME="$HOME/.volta"</code><br>
-    <code>export PATH="$VOLTA_HOME/bin:$PATH"</code><br>
+    <code>#!/usr/bin/env bash
+# Path to the bash it configuration
+export BASH_IT="/home/kuni3933/.bash_it"
+. ~/.bashrc.org
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /home/kuni3933/.config/broot/launcher/bash/br
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"</code>
     のみが記述されている状態にする<br>
 17. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
