@@ -24,7 +24,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 1. <code>pwshを管理者権限で開く</code>
 2. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
-3. <code>cd $env:USERPROFILE\WindowsTerminalSettings</code><br>
+3. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
 4. <code>windows/winget/install.ps1</code><br>
   を実行して、Git・WTP・pwsh・VSCode・VSCode-Insidersの5つをインストール
 
@@ -33,11 +33,9 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 1. Gitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
     まずは以下のコマンドを実行してgit.exeの位置を確認
-
     <code>cmd /c where git</code><br>
 
    出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する.
-
     <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
     <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
     <code>システム環境変数値:C:\Program Files\Git</code><br>
@@ -45,7 +43,7 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 ## 5.依存packageインストール
 
 1. <code>pwshを管理者権限で開く</code><br>
-2. <code>cd $env:USERPROFILE\WindowsTerminalSettings</code><br>
+2. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
 3. <code>windows/install.ps1</code>をpwshで管理者権限で実行.<br>
 
 | ディレクトリ | 概要                                                            |
@@ -68,13 +66,15 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 ## 6.windows/provision.batをコマンドラインから管理者権限で実行
 
-<code>windows/provision.bat</code>をpwshで管理者権限で実行
+1. <code>pwshを管理者権限で開く</code><br>
+2. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
+3. <code>sudo windows/provision.bat</code>をpwshで管理者権限で実行<br>
 
 ## 7.定期アップデート
 
 インストール後に更新ファイルがあった場合は以下の作業をする必要があるので、定期的にチェックして実行する.
 
-1. windows/provision.batをコマンドラインから実行してアップデート
+1. windows/provision.batを管理者権限でコマンドラインから実行してアップデート
 2. 以下の項目は手動アップデート/手動マージ
 
     <ul>
