@@ -175,21 +175,21 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <code>ansible_become_pass: your_password</code><br>
     ypur_passwordにlinuxユーザーのパスを入力して保存<br>
     <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考<br>
-9. 
-10. WindowserminalSettings/linux/upgrade.shを実行<br>
-11. pyenv initの設定（必要なら）<br>
-12. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-13. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-14. ".bashrc"を修正<br>
+11. 
+12. WindowserminalSettings/linux/upgrade.shを実行<br>
+13. pyenv initの設定（必要なら）<br>
+14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+16. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>source ~/.bashrc.org↲</code><br>
     <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
     <code>export VOLTA_HOME="$HOME/.volta"</code><br>
     <code>export PATH="$VOLTA_HOME/bin:$PATH"</code>のみが記述されている状態にする<br>
-14. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+17. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-15. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-16. gpg/sshの情報を.gitconfigに設定<br>
+18. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+19. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 
