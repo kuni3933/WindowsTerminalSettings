@@ -146,13 +146,13 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
 
-1. <code>Ubuntuで以下のコマンドを実行
+1. <code>Ubuntuで以下のコマンドを実行<br>
     <code>cd ~</code><br>
     <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code></code>
 2. <code>git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git</code><br>
     <code>~/nerd-fonts/install.sh</code><br>
     <code>rm -rf nerd-fonts/</code><br>
-3. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git ~/.bash_it</code>
+3. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git ~/.bash_it</code><br>
     <code>~/.bash_it/install.sh</code>y/nの問いが出てくるのでyを選択<br>
     <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
 4. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
