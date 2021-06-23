@@ -169,12 +169,18 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
    <code>~/.bash_it/install.sh</code><br>
    y/nの問いが出てくるのでyを選択<br>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-8. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
-9. WindowserminalSettings/linux/upgrade.shを実行<br>
-10. pyenv initの設定（必要なら）<br>
-11. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-12. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-13. ".bashrc"を修正<br>
+8. <code>cd ~/WindowsTerminalSetings</code><br>
+9. <code>mkdir linux/ansible/.secret</code><br>
+10. <code>vim linux/ansible/.secret/local.yaml</code><br>
+    <code>ansible_become_pass: your_password</code><br>
+    ypur_passwordにlinuxユーザーのパスを入力して保存<br>
+    <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考<br>
+9. 
+10. WindowserminalSettings/linux/upgrade.shを実行<br>
+11. pyenv initの設定（必要なら）<br>
+12. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+13. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+14. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>source ~/.bashrc.org↲</code><br>
     <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
