@@ -15,3 +15,5 @@ npm update *
 
 Write_Title("npm-upgrade")
 npm install -g npm-upgrade
+Pause
+Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."

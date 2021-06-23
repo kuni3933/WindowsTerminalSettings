@@ -20,8 +20,12 @@ Write_Title "# Add versions bucket"
 scoop bucket add versions
 br(1)
 
-Write_Title "# Add nerd-fonts buvket"
+Write_Title "# Add nerd-fonts bucket"
 scoop bucket add nerd-fonts
+br(1)
+
+Write_Title "# scoop-for-jp"
+scoop bucket add jp https://github.com/rkbk60/scoop-for-jp
 br(1)
 
 Write_Title "# Add Java bucket"
@@ -136,6 +140,7 @@ br(1)
 
 Write_Title "# fonts "
 scoop install `
+  source-han-code-jp `
   SourceCodePro-NF-Mono `
   SourceCodePro-NF `
   SarasaGothic-J

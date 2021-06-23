@@ -15,9 +15,9 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 以下のコマンドを実行
 
-1. <code>winget install -e --id Git.Git</code>
+1. <code>Windows Powershellを管理者権限で開く</code>
 
-2. <code>powershellを起動</code>
+2. <code>winget install -e --id Git.Git</code>
 
 3. <code>cd $env:USERPROFILE</code>
 
@@ -25,21 +25,11 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 ## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insidersのインストール
 
-※インストール済みの場合は、アンインストールしておくか各ステップをスキップする.※
-
-1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
-2. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
+1. <code>pwshを管理者権限で開く</code>
+2. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
+3. <code>WindowsTerminalSettings/windows/winget/install.ps1</code><br>
   を実行して、Git・WTP・pwsh・VSCode・VSCode-Insidersの5つをインストール
 
-  ※すでにインストール済みだった場合は、アンインストールしてから実行する.
-
-  (そうでないと同じものが２つインストールされて面倒な状況になってしまうので要注意)
-
-※以下のコマンドを実行して、セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認する.
-
-  <code>Get-ExecutionPolicy -l</code>
-
-  それ以外の場合は、1番で使用したコマンドを修正入力して実行
 
 ## 4.パス設定
 
@@ -56,38 +46,11 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
     <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
     <code>システム環境変数値:C:\Program Files\Git</code><br>
 
-## 5.フォントのインストール
+## 5.依存packageインストール
 
-1. 以下から好きなフォントをダウンロードしてWindows Compatible版だけは必ずインストールする.
 
-    * <a href="https://www.nerdfonts.com/#home">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher</a>
 
-    おすすめは「Source Code Pro」で、以下から直接ダウンロード可能
-
-    * <a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip">Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp; fonts patcher - Sauce Code Pro Nerd Font</a>
-
-2. 依存パッケージのscoop/install.ps1を実行した後、以下にアクセスすれば簡単
-    * <code>%USERPROFILE%/scoop/apps/SourceCodePro-NF-Mono</code>
-    * <code>%USERPROFILE%/scoop/apps/SourceCodePro-NF</code>
-
-## 6.pwshのモジュールインストール・scoopの有効化(有効化済みの場合はスキップ)
-
-pwsh上で以下のコマンドを管理者権限で実行
-
-1. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
-2. <code>windows/PSGallery/install.ps1 を実行</code>
-3. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
-4. <code>Get-ExecutionPolicy -l</code>
-
-セキュリティポリシーがCurrentUserのみRemoteSignedとなっていることを確認できるまで以下のコマンドを実行
-
-<code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code>
-
-## 7.依存packageインストール
-
-`windows`ディレクトリ配下の`install.ps1`をコマンドラインから管理者権限で実行してインストール.
-※既にインストール済みの物がないかinstall.ps1を要確認※
-※インストール済みのものがあったら、install.ps1をエディターで開いて調節及びvscodeとgitはアンインストールしてから実行する※
+<code>windows/install.ps1</code>を管理者権限で実行.
 
 | ディレクトリ | 概要                                                            |
 | ------------ | --------------------------------------------------------------- |
@@ -99,26 +62,19 @@ pwsh上で以下のコマンドを管理者権限で実行
 | 6.cargo      | rustでインストールするもの                                      |
 | 7.ubuntu     | WSL2-Ubuntu-20.04 LTSでインストールするもの(wsl2準備段階で使用) |
 
-初インストールの場合は、
+初インストールの場合は、install.ps1を実行後
 <ul>
 <li>Keypirinha</li>
 <li>VScode</li>
 <li>pwsh</li>
 </ul>
-を一回起動してまた閉じておく.
+を一回起動して閉じたあとに再度windows/install.ps1を実行.
 
-<!-- また、cargo/install.ps1の実行前に、
-<li><a href="https://yuqlid.sakura.ne.jp/dokuwiki/msys2">MSYS2 [yuqlid wiki]</a></li>
-<li><a href="https://qiita.com/ousttrue/items/ee617544ab737fc34c1d">WindowsでRust環境を作ってGtk3でOpenGLする - Qiita</a></li>
-<li><a href="https://gist.github.com/Hamayama/eb4b4824ada3ac71beee0c9bb5fa546d">MSYS2/MinGW-w64 (64bit/32bit) インストール手順 メモ</a></li>
-を参考にmsys2/mingwのUPDATEをしておく.
--->
-
-## 8.windows/provision.batをコマンドラインから管理者権限で実行
+## 6.windows/provision.batをコマンドラインから管理者権限で実行
 
 ※install.ps1にしたがわないでgitをインストールする場合は、windows/provision.batのgitconfigコピー処理を消してから実行する※
 
-## 9.定期アップデート
+## 7.定期アップデート
 
 インストール後に更新ファイルがあった場合は以下の作業をする必要があるので、定期的にチェックして実行する.
 
@@ -152,7 +108,8 @@ pwsh上で以下のコマンドを管理者権限で実行
       <li>windows\scoop</li>
       <li>windows\winget</li>
       <li>windows\ubuntu\config.xlaunch</li>
-      <li>\windows\ubuntu\Ubuntu_provision.ps1</li>
+      <li>windows\ubuntu\Ubuntu_provision.ps1</li>
+      <li>windows\install.ps1</li>
       <li>windows\provision.bat</li>
       <li>windows\Pull_SubModule.bat</li>
       <li>windows\xlaunch.exe.lnk</li>
