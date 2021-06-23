@@ -6,7 +6,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export GPG_TTY=$(tty)
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-source /home/kuni3933/.config/broot/launcher/bash/br
 set clipboard=unnamedplus
 alias lla='exa -al --icons --git'
 
@@ -34,7 +33,7 @@ case $- in
 esac
 
 # Path to the bash it configuration
-export BASH_IT="/home/kuni3933/.bash_it"
+# export BASH_IT="/home/kuni3933/.bash_it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
