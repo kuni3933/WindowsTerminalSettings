@@ -125,9 +125,9 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 <li><a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>を実行していく<br>
 
 1. pwshを開く
-2. 以下のコマンドでWSLを有効にする
+2. 以下のコマンドでWSLを有効にする<br>
     <code>sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br>
-3. VMを有効にする
+3. VMを有効にする<br>
     <code>sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br>
 4. <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ</a>から更新プログラムをダウンロードして実行
   参考 - <a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする</a><br>
