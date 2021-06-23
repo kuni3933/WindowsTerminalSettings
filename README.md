@@ -183,6 +183,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 16. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>#!/usr/bin/env bash</code><br>
+    <code># Path to the bash it configuration</code><br>
     <code>export BASH_IT="/home/ユーザー名/.bash_it"</code><br>
     <code>. ~/.bashrc.org</code><br>
     <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
