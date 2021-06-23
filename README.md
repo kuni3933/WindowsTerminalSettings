@@ -118,7 +118,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 本家Tadashi Aikawa氏の資料を要参照<br>
 <ul>
-  <li><a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>
+  <li><a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a></li>
   <li><a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a></li>
 </ul>
 
