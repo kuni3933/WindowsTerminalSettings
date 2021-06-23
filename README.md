@@ -84,73 +84,90 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <br>
     <ul>
       <li>mnt/common/settings.json</li>
-      <li>mnt\common\VSCode\User\settings.json(運用上不要)</li>
-      <li>mnt\linux\ubuntu\.bashrc</li>
+      <li>mnt/common/VSCode/User/settings.json(運用上不要)</li>
+      <li>mnt/linux/ubuntu/.bashrc</li>
       <li>mnt/linux/ubuntu/.bash_logout</li>
       <li>mnt/linux/ubuntu/.vimrc</li>
-      <li>mnt\windows\pipes-rs</li>
-      <li>mnt\windows\power-shell</li>
-      <li>mnt\windows\terminal</li>
-      <li>mnt\windows\winget</li>
-      <li>mnt\windows\wsl</li>
+      <li>mnt/windows/pipes-rs</li>
+      <li>mnt/windows/power-shell</li>
+      <li>mnt/windows/terminal</li>
+      <li>mnt/windows/winget</li>
+      <li>mnt/windows/wsl</li>
       <!--<li></li>-->
     </ul>
     <br>
     <ul>
-      <li>windows\PSGallery</li>
-      <li>windows\cargo</li>
-      <li>windows\volta-npm</li>
-      <li>windows\scoop</li>
-      <li>windows\winget</li>
-      <li>windows\ubuntu\config.xlaunch</li>
-      <li>windows\ubuntu\Ubuntu_provision.ps1</li>
-      <li>windows\install.ps1</li>
-      <li>windows\provision.bat</li>
-      <li>windows\Pull_SubModule.bat</li>
-      <li>windows\xlaunch.exe.lnk</li>
+      <li>windows/PSGallery</li>
+      <li>windows/cargo</li>
+      <li>windows/volta-npm</li>
+      <li>windows/scoop</li>
+      <li>windows/winget</li>
+      <li>windows/ubuntu/config.xlaunch</li>
+      <li>windows/ubuntu/Ubuntu_provision.ps1</li>
+      <li>windows/ubuntu/Ubuntu-20.04-LTS_Provision.ps1</li>
+      <li>windows/install.ps1</li>
+      <li>windows/provision.bat</li>
+      <li>windows/Pull_SubModule.bat</li>
+      <li>windows/xlaunch.exe.lnk</li>
     </ul>
 3. 各install.ps1を実行してパッケージアップデート
 4. 再度windows/provision.batを実行
 
-# WSL2-Ubuntu20.04の手順
+# WSL2-Ubuntuの手順
+
 
 本家Tadashi Aikawa氏の資料を要参照<br>
 <ul>
   <li><a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>
+  <li><a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a></li>
 </ul>
 
+<li><a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>を実行していく<br>
+
 1. pwshを開く
-2. <code>sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code># WSLを有効にする<br>
-3. <code>sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code># VMを有効にする<br>
-4. <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ</a>から更新プログラムをダウンロードして実行<br>
+2. 以下のコマンドでWSLを有効にする
+    <code>sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br>
+3. VMを有効にする
+    <code>sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br>
+4. <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ</a>から更新プログラムをダウンロードして実行
   参考 - <a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする</a><br>
-5. PC再起動<br>
-6. pwshを開いて、<code>sudo wsl --set-default-version 2</code>
-7. <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
-   <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
-3. wsl側で<code>sudo apt update -y && sudo apt upgrade -y</code><br>
-4. wsl側で<code>sudo apt-get update -y && sudo apt-get upgrade -y</code><br>
-5. wsl側で<code>sudo apt install -y git-all</code><br>
-6. <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
-7. <a href="https://docs.github.com/ja/github/getting-started-with-github/getting-started-with-git/managing-remote-repositories">モートリポジトリを管理する</a>リポジトリのリモートURL(ssh)への変更を実行<br>
-8. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"以降を全て実行<br>
-9. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
-10. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行<br>
-11. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
-12. WindowserminalSettings/linux/upgrade.shを実行<br>
-13. pyenv initの設定<br>
-14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-16. ".bashrc"をリポジトリの.bashrcに変更<br>
+5. PC再起動した後pwshを開く
+6. <code>sudo wsl --set-default-version 2</code>
+7. WindowsのMicrosoftStoreからUbuntuを検索してダウンロード
+8. Ubuntuを起動して、ユーザー名/パスを設定
+9. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code>pwshで実行
+10. <code>windows/ubuntu/Ubuntu_provision.ps1</code>（Ubuntuの場合）
+    <code>windows/ubuntu/Ubuntu-20.04-LTS_Provision.ps1</code>（Ubuntu20.011-LTSの場合）<br>
+    <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
+    <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
+11. <code>cd ~</code>Ubuntuで実行
+  <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>が完了<br>
+12. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
+
+<a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
+
+1. <code>cd ~<code>
+    <code>git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git</code><br>
+    <code>~/nerd-fonts/install.sh</code><br>
+    <code>rm -rf nerd-fonts/</code><br>
+2. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git ~/.bash_it</code>
+    <code>~/.bash_it/install.sh</code>y/nの問いが出てくるのでyを選択<br>
+    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
+3. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
+4. WindowserminalSettings/linux/upgrade.shを実行<br>
+5. pyenv initの設定（必要なら）<br>
+6. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+7. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+8. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>source ~/.bashrc.org↲</code><br>
     <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
     <code>export VOLTA_HOME="$HOME/.volta"</code><br>
     <code>export PATH="$VOLTA_HOME/bin:$PATH"</code>のみが記述されている状態にする<br>
-17. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+9. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-18. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-19. gpg/sshの情報を.gitconfigに設定<br>
+10. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+11. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 

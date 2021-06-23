@@ -72,9 +72,17 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "name": "WSL2-Ubuntu",
         "commandline": "wsl.exe ~",
         "source": "Windows.Terminal.Wsl",
-        //"startingDirectory": "//wsl$/Ubuntu/home/kuni3933",
         "colorScheme": "Campbell",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png"
+      },
+      {
+        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+        "name": "WSL2-Ubuntu-20.04 LTS",
+        "commandline": "wsl.exe ~",
+        "source": "Windows.Terminal.Wsl",
+        "colorScheme": "Campbell",
+        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png",
+        "backgroundImageOpacity": 0.09375
       },
       { //%GIT_INSTALL_ROOT%
         "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
