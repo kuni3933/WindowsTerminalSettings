@@ -146,7 +146,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
 
-1. <code>cd ~<code>
+1. <code>cd ~</code>
     <code>git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git</code><br>
     <code>~/nerd-fonts/install.sh</code><br>
     <code>rm -rf nerd-fonts/</code><br>
