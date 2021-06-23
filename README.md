@@ -135,39 +135,41 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 6. <code>sudo wsl --set-default-version 2</code>
 7. WindowsのMicrosoftStoreからUbuntuを検索してダウンロード
 8. Ubuntuを起動して、ユーザー名/パスを設定
-9. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code>pwshで実行
-10. <code>windows/ubuntu/Ubuntu_provision.ps1</code>（Ubuntuの場合）
+9. pwshで以下のコマンドを実行<br>
+    <code>cd $env:USERPROFILE/WindowsTerminalSettings</code>
+10. <code>windows/ubuntu/Ubuntu_provision.ps1</code>（Ubuntuの場合）<br>
     <code>windows/ubuntu/Ubuntu-20.04-LTS_Provision.ps1</code>（Ubuntu20.011-LTSの場合）<br>
     <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
     <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
-11. <code>cd ~</code>Ubuntuで実行
-  <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>が完了<br>
+    <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>が完了<br>
 12. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
 
 <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
 
-1. <code>cd ~</code>
-    <code>git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git</code><br>
+1. <code>Ubuntuで以下のコマンドを実行
+    <code>cd ~</code><br>
+    <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code></code>
+2. <code>git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git</code><br>
     <code>~/nerd-fonts/install.sh</code><br>
     <code>rm -rf nerd-fonts/</code><br>
-2. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git ~/.bash_it</code>
+3. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git ~/.bash_it</code>
     <code>~/.bash_it/install.sh</code>y/nの問いが出てくるのでyを選択<br>
     <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-3. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
-4. WindowserminalSettings/linux/upgrade.shを実行<br>
-5. pyenv initの設定（必要なら）<br>
-6. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-7. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-8. ".bashrc"を修正<br>
+4. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
+5. WindowserminalSettings/linux/upgrade.shを実行<br>
+6. pyenv initの設定（必要なら）<br>
+7. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+8. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+9. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>source ~/.bashrc.org↲</code><br>
     <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
     <code>export VOLTA_HOME="$HOME/.volta"</code><br>
     <code>export PATH="$VOLTA_HOME/bin:$PATH"</code>のみが記述されている状態にする<br>
-9. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+10. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-10. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-11. gpg/sshの情報を.gitconfigに設定<br>
+11. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+12. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 
