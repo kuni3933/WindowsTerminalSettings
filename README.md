@@ -153,7 +153,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 2. <code>git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git</code><br>
    <code>~/nerd-fonts/install.sh</code><br>
    <code>rm -rf nerd-fonts/</code><br>
-3. <code>im-config -n fcitx</code> 
+3. <code>im-config -n fcitx</code><br>
 4.pcを再起動した後に以下のコマンド<br>
   <code>fcitx-autostart</code><br>
   エラーが出ても、エンターを押す.<br>
@@ -166,21 +166,21 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 7. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git</code><br>
    <code>~/.bash_it/install.sh</code>y/nの問いが出てくるのでyを選択<br>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-4. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
-5. WindowserminalSettings/linux/upgrade.shを実行<br>
-6. pyenv initの設定（必要なら）<br>
-7. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-8. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-9. ".bashrc"を修正<br>
+8. <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考に、wsl側のWindowsTerminalSettings/linux/ansibleで<code>make wsl</code>を実行<br>
+9. WindowserminalSettings/linux/upgrade.shを実行<br>
+10. pyenv initの設定（必要なら）<br>
+11. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+12. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+13. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して&HOMEの.bashrcには<br>
     <code>source ~/.bashrc.org↲</code><br>
     <code>[ -f ~/.fzf.bash ] && source ~/.fzf.bash</code><br>
     <code>export VOLTA_HOME="$HOME/.volta"</code><br>
     <code>export PATH="$VOLTA_HOME/bin:$PATH"</code>のみが記述されている状態にする<br>
-10. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+14. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-11. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-12. gpg/sshの情報を.gitconfigに設定<br>
+15. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+16. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 
