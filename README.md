@@ -154,9 +154,9 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
    <code>~/nerd-fonts/install.sh</code><br>
    <code>rm -rf nerd-fonts/</code><br>
 3. <code>im-config -n fcitx</code><br>
-4.pcを再起動した後に以下のコマンド<br>
-  <code>fcitx-autostart</code><br>
-  エラーが出ても、エンターを押す.<br>
+4. pcを再起動した後に以下のコマンド<br>
+   <code>fcitx-autostart</code><br>
+   エラーが出ても、エンターを押す.<br>
 5. <code>fcitx-configtool</code><br>
 6. 以下のように設定してウィンドウを閉じる
    <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/a371c322.png</li>
