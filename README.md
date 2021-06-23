@@ -175,7 +175,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <code>ansible_become_pass: your_password</code><br>
     ypur_passwordにlinuxユーザーのパスを入力して保存<br>
     <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考<br>
-11. 
+11. <code>make wsl</code><br>
 12. WindowserminalSettings/linux/upgrade.shを実行<br>
 13. pyenv initの設定（必要なら）<br>
 14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
