@@ -169,9 +169,9 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
    <code>~/.bash_it/install.sh</code><br>
    y/nの問いが出てくるのでyを選択<br>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-8. <code>cd ~/WindowsTerminalSettings</code><br>
-9. <code>mkdir linux/ansible/.secret</code><br>
-10. <code>vim linux/ansible/.secret/local.yaml</code><br>
+8. <code>cd ~/WindowsTerminalSettings/linux/ansible</code><br>
+9. <code>mkdir .secret</code><br>
+10. <code>vim .secret/local.yaml</code><br>
     <code>ansible_become_pass: your_password</code><br>
     ypur_passwordにlinuxユーザーのパスを入力して保存<br>
     <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考<br>
