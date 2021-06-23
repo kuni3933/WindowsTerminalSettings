@@ -143,6 +143,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
     <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>が完了<br>
 12. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、wsl側の.gitconfigを修正<br>
+    <code>git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"</code><br>
 
 <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
 
