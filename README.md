@@ -43,7 +43,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 1. <code>pwshを管理者権限で開く</code><br>
 2. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
-3. <code>windows/install.ps1</code>をpwshで管理者権限で実行.<br>
+3. <code>windows/install.ps1</code><br>
 
 | ディレクトリ | 概要                                                            |
 | ------------ | --------------------------------------------------------------- |
@@ -67,7 +67,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 1. <code>pwshを管理者権限で開く</code><br>
 2. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
-3. <code>sudo windows/provision.bat</code>をpwshで管理者権限で実行<br>
+3. <code>sudo windows/provision.bat</code><br>
 
 ## 7.定期アップデート
 
