@@ -159,9 +159,9 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
    エラーが出ても、エンターを押す.<br>
 5. <code>fcitx-configtool</code><br>
 6. 以下のように設定してウィンドウを閉じる<br>
-   <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/a371c322.png</li>
-   <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
-   <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
+    <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/a371c322.png</li>
+    <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
+    <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
 
 7. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git</code><br>
    <code>~/.bash_it/install.sh</code>y/nの問いが出てくるのでyを選択<br>
