@@ -26,4 +26,5 @@ br(1)
 Write_Title "cargo install exa"
 cargo install exa
 br(1)
+Pause
 Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."

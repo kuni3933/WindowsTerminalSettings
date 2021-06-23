@@ -38,8 +38,4 @@ Write_Section "cargo \install.ps1"
 .\windows\cargo\install.ps1
 br(2)
 
-Write_Section "cargo \install.ps1"
-.\windows\cargo\install.ps1
-br(2)
-
 Write_Section "isntall.ps1 is Finished."
