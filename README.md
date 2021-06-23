@@ -32,9 +32,9 @@ tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 
 Gitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
-1. まずは以下のコマンドを実行してgit.exeの位置を確認
+1. まずは以下のコマンドを実行してgit.exeの位置を確認.<br>
     <code>cmd /c where git</code><br>
-2. 出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する.
+2. 出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する.<br>
     <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
     <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
     <code>システム環境変数値:C:\Program Files\Git</code><br>
