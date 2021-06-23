@@ -115,9 +115,18 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 # WSL2-Ubuntu20.04の手順
 
 本家Tadashi Aikawa氏の資料を要参照<br>
+<ul>
+  <li><a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>
+</ul>
 
-1. <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>の"Windows起動時に自動起動させる"までを実行<br>
-2. <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
+1. pwshを開く
+2. <code>sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code># WSLを有効にする<br>
+3. <code>sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code># VMを有効にする<br>
+4. <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ</a>から更新プログラムをダウンロードして実行<br>
+  参考 - <a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする</a><br>
+5. PC再起動<br>
+6. pwshを開いて、<code>sudo wsl --set-default-version 2</code>
+7. <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
    <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
 3. wsl側で<code>sudo apt update -y && sudo apt upgrade -y</code><br>
 4. wsl側で<code>sudo apt-get update -y && sudo apt-get upgrade -y</code><br>
