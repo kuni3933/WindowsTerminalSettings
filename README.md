@@ -122,7 +122,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
   <li><a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a></li>
 </ul>
 
-<li><a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>を実行していく<br>
+<a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>を実行していく<br>
 
 1. pwshを開く
 2. 以下のコマンドでWSLを有効にする<br>
