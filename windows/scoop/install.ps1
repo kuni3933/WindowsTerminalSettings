@@ -159,11 +159,15 @@ scoop install autohotkey-installer
 # In the future..: scoop install volta
 br(1)
 
-Write_Title "# scoop update * & scoop cleanup *"
+Write_Title "# scoop update *"
 scoop update *
 br(1)
+
+Write_Title "# scoop cleanup *"
 scoop cleanup *
 br(1)
+
+Write_Title "# scoop status"
 scoop status
 Pause
 Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
