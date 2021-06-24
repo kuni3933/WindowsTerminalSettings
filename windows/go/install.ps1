@@ -3,7 +3,6 @@ function Write_Title($msg) {
   Write-Host "┃$msg" -ForegroundColor Yellow
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
-
 function br($times) {
   $tmp = 1
   while ($tmp -le $times) {
@@ -12,6 +11,10 @@ function br($times) {
   }
 }
 
-#go get -u github.com/tadashi-aikawa/gowl
+Write_Title "# go get -u github.com/tadashi-aikawa/gowl"
+go get -u github.com/tadashi-aikawa/gowl
+br(1)
+
+Write_Title "# go get -u github.com/tcnksm/ghr"
 go get -u github.com/tcnksm/ghr
 Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
