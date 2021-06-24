@@ -40,7 +40,7 @@ Write_Title "# Add scoop-completion bucket"
 scoop bucket add scoop-completion https://github.com/Moeologist/scoop-completion
 br(1)
 
-Write_Title " scoop update"
+Write_Title "# scoop update"
 scoop update
 br(1)
 
@@ -94,7 +94,7 @@ scoop install `
   roswell
 br(1)
 
-Write_Title "pwsh tool"
+Write_Title "# pwsh tool"
 scoop install `
   oh-my-posh3 `
   posh-git `
@@ -125,13 +125,21 @@ scoop install `
   vcxsrv
 br(1)
 
+Write_Title "# Python"
 # Python
 #scoop install `
 #python27 `
 #python37 `
-#python38
+#python38 `
 #python
 #scoop reset python
+scoop uninstall `
+  python27 `
+  python37 `
+  python38
+scoop install python
+scoop reset python
+br(1)
 
 Write_Title "# scoop install gcc "
 scoop install gcc
@@ -158,4 +166,4 @@ scoop cleanup *
 br(1)
 scoop status
 Pause
-Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
+Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."

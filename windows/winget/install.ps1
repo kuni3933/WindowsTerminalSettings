@@ -37,7 +37,7 @@ If ($env:PROCESSOR_ARCHITECTURE -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
 ElseIf ($env:PROCESSOR_ARCHITECTURE -ceq "X86") {
   $bit = "x86"
 }
-$msg = " Install the $bit version."
+$msg = "# Install the $bit version."
 Write_Title $msg
 winget --Version
 winget --info
@@ -45,7 +45,7 @@ winget  source update
 br(2)
 
 
-Write_Title " Git"
+Write_Title "# Git"
 If (Test-Path $env:PROGRAMFILES/Git/bin/git.exe) {
   Update_msg
   git --version
@@ -66,7 +66,7 @@ ElseIf (-not(Test-Path $env:PROGRAMFILES/Git/bin/git.exe)) {
 }
 
 
-Write_Title " Windows Terminal Preview"
+Write_Title "# Windows Terminal Preview"
 If (Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe) {
   Already_Installed_msg
   winget show --id Microsoft.WindowsTerminalPreview --source winget
@@ -81,7 +81,7 @@ ElseIf (-not(Test-Path $env:LOCALAPPDATA/Microsoft/WindowsApps/Microsoft.Windows
 }
 
 
-Write_Title " Visual Studio Code"
+Write_Title "# Visual Studio Code"
 If (Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe) {
   Already_Installed_msg
   code --version
@@ -97,7 +97,7 @@ ElseIf (-not(Test-Path $env:LOCALAPPDATA/Programs/"Microsoft VS Code"/Code.exe))
   br(2)
 }
 
-Write_Title " Visual Studio Code Insiders"
+Write_Title "# Visual Studio Code Insiders"
 If (Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/Code - Insiders.exe") {
   Already_Installed_msg
   code-insiders --version
@@ -113,7 +113,7 @@ ElseIf (-not(Test-Path  $env:LOCALAPPDATA/Programs/"Microsoft VS Code Insiders/C
   br(2)
 }
 
-Write_Title " PowerToys"
+Write_Title "# PowerToys"
 If (Test-Path $env:PROGRAMFILES/PowerToys/PowerToys.exe) {
   Already_Installed_msg
   winget show --id Microsoft.PowerToys --source winget
@@ -127,7 +127,7 @@ ElseIf (-not(Test-Path $env:PROGRAMFILES/PowerToys/PowerToys.exe)) {
   br(2)
 }
 
-Write_Title " PowerShellCore (pwsh)"
+Write_Title "# PowerShellCore (pwsh)"
 If (Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe) {
   Update_msg
   winget show --id Microsoft.PowerShell --source winget
@@ -144,4 +144,4 @@ ElseIf (-not(Test-Path  $env:PROGRAMFILES/PowerShell/7/pwsh.exe)) {
 }
 
 Pause
-Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
+Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."

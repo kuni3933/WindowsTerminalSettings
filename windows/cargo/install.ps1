@@ -11,20 +11,20 @@ function br($times) {
   }
 }
 
-Write_Title "rustup show"
+Write_Title "# rustup show"
 rustup show
 br(1)
 
-Write_Title "rustup install nightly-x86_64-pc-windows-gnu"
+Write_Title "# rustup install nightly-x86_64-pc-windows-gnu"
 rustup install nightly-x86_64-pc-windows-gnu
 br(1)
 
-Write_Title "rustup default nightly-x86_64-pc-windows-gnu"
+Write_Title "# rustup default nightly-x86_64-pc-windows-gnu"
 rustup default nightly-x86_64-pc-windows-gnu
 br(1)
 
-Write_Title "cargo install exa"
+Write_Title "# cargo install exa"
 cargo install exa
 br(1)
 Pause
-Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
+Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
