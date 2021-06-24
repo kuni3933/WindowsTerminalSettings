@@ -14,4 +14,4 @@ function br($times) {
 
 #go get -u github.com/tadashi-aikawa/gowl
 go get -u github.com/tcnksm/ghr
-Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
+Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
