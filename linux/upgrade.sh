@@ -17,25 +17,6 @@ br(){
 
 
 #--------------------------------------------------------------------------------------------------"
-section "PPA Setup"
-#--------------------------------------------------------------------------------------------------"
-#regolith-i3
-title "sudo add-apt-repository -y ppa:regolith-linux/release"
-sudo add-apt-repository -ry ppa:regolith-linux/release
-br
-
-title "sudo add-apt-repository -y ppa:regolith-linux/stable"
-#regolith-i3
-sudo add-apt-repository -ry ppa:regolith-linux/stable
-br
-
-title "sudo add-apt-repository -y ppa:o2sh/onefetch"
-#onefetch
-sudo add-apt-repository -ry ppa:o2sh/onefetch
-br
-
-
-#--------------------------------------------------------------------------------------------------"
 section "Package Update"
 #--------------------------------------------------------------------------------------------------"
 title 'sudo apt update -y && sudo apt upgrade -y'
@@ -66,6 +47,39 @@ br
 
 
 #--------------------------------------------------------------------------------------------------"
+section "Core CLI tool Install"
+#--------------------------------------------------------------------------------------------------"
+title "sudo apt install -y apt-file"
+sudo apt install -y apt-file
+br
+
+title "sudo apt install -y software-properties-common"
+sudo apt install -y software-properties-common
+br
+
+
+<< COMMENTOUT
+#--------------------------------------------------------------------------------------------------"
+section "PPA Setup"
+#--------------------------------------------------------------------------------------------------"
+#regolith-i3
+#title "sudo add-apt-repository -y ppa:regolith-linux/release"
+#sudo add-apt-repository -ry ppa:regolith-linux/release
+#br
+
+title "sudo add-apt-repository -y ppa:regolith-linux/stable"
+#regolith-i3
+sudo add-apt-repository -ry ppa:regolith-linux/stable
+br
+
+title "sudo add-apt-repository -y ppa:o2sh/onefetch"
+#onefetch
+sudo add-apt-repository -ry ppa:o2sh/onefetch
+br
+COMMENTOUT
+
+
+#--------------------------------------------------------------------------------------------------"
 section "Font Install"
 #--------------------------------------------------------------------------------------------------"
 title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
@@ -85,6 +99,7 @@ sudo update-locale LANG=ja_JP.UTF-8
 br
 
 
+<< COMMENTOUT
 #--------------------------------------------------------------------------------------------------"
 section "i3 & i3-gaps"
 #--------------------------------------------------------------------------------------------------"
@@ -171,7 +186,7 @@ br
 title 'sudo apt install -y libxcb-xrm-dev'
 sudo apt install -y libxcb-xrm-dev
 br
-
+COMMENTOUT
 
 #--------------------------------------------------------------------------------------------------"
 section "fcitx Install"
@@ -225,11 +240,11 @@ title 'sudo apt install -y neofetch'
 sudo apt show neofetch
 sudo apt install -y neofetch
 br
-
+<< COMMENTOUT
 title "sudo apt install -y onefetch"
 sudo apt install -y onefetch
 br
-
+COMMENTOUT
 title "sudo apt install -y zoxide"
 sudo apt install -y zoxide
 br
@@ -239,6 +254,17 @@ sudo apt show wireless-tools
 sudo apt install -y wireless-tools
 br
 
+
+#--------------------------------------------------------------------------------------------------"
+section "C-build-essential Install"
+#--------------------------------------------------------------------------------------------------"
+title "sudo apt install -y build-essential"
+sudo apt install -y build-essential
+br
+
+title "sudo apt install -y gdb"
+sudo apt install -y gdb
+br
 
 #--------------------------------------------------------------------------------------------------"
 section "Python Install"
