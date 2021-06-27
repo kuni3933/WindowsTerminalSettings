@@ -245,8 +245,10 @@ title "sudo apt install -y onefetch"
 sudo apt install -y onefetch
 br
 COMMENTOUT
-title "sudo apt install -y zoxide"
-sudo apt install -y zoxide
+#title "sudo apt install -y zoxide"
+title "curl -sS https://webinstall.dev/zoxide | bash"
+#sudo apt install -y zoxide
+curl -sS https://webinstall.dev/zoxide | bash
 br
 
 title 'sudo apt install -y wireless-tools'
