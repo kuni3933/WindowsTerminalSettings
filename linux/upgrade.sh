@@ -2,7 +2,12 @@
 set -eu
 title(){
   echo "-------------------------------------------------------------------------------------------"
-  echo "  $1"
+  echo "# $1"
+  echo "-------------------------------------------------------------------------------------------"
+}
+section(){
+  echo "-------------------------------------------------------------------------------------------"
+  echo "     $1"
   echo "-------------------------------------------------------------------------------------------"
 }
 br(){
@@ -10,6 +15,23 @@ br(){
   echo ""
 }
 
+section "PPA Setup"
+#regolith-i3
+title "sudo add-apt-repository -y ppa:regolith-linux/release"
+sudo add-apt-repository -ry ppa:regolith-linux/release
+br
+
+title "sudo add-apt-repository -y ppa:regolith-linux/stable"
+#regolith-i3
+sudo add-apt-repository -ry ppa:regolith-linux/stable
+br
+
+title "sudo add-apt-repository -y ppa:o2sh/onefetch"
+#onefetch
+sudo add-apt-repository -ry ppa:o2sh/onefetch
+br
+
+section "Package Update"
 title 'sudo apt update -y && sudo apt upgrade -y'
 sudo apt update -y && sudo apt upgrade -y
 br
@@ -36,6 +58,8 @@ sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 br
 
+
+section "Font Install"
 title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
 sudo apt install -y $(check-language-support -l ja) language-pack-ja
 br
@@ -52,37 +76,94 @@ title 'sudo update-locale LANG=ja_JP.UTF-8'
 sudo update-locale LANG=ja_JP.UTF-8
 br
 
-# Install ansible
-# https://docs.ansible.com/ansible/latest/user_guide/windows_faq.html#can-ansible-run-on-windows
-title 'sudo apt install -y  python3-pip'
-sudo apt install -y  python3-pip
+
+section "i3 & i3-gaps"
+title "sudo apt install -y i3"
+sudo apt install -y i3
 br
 
-title 'sudo apt install -y  libffi-dev'
-sudo apt install -y  libffi-dev
+title "sudo apt install -y i3-gaps"
+sudo apt install -y i3-gaps
 br
 
-title 'sudo apt install -y  libssl-dev'
-sudo apt install -y  libssl-dev
+title 'sudo apt install -y libxcb1-dev'
+sudo apt install -y libxcb1-dev
 br
 
-title 'pip3 install ansible'
-pip3 install ansible
+title 'sudo apt install -y libxcb-keysyms1-dev'
+sudo apt install -y libxcb-keysyms1-dev
 br
 
-title 'pip3 install pywinrm'
-pip3 install pywinrm
+title 'sudo apt install -y libpango1.0-dev'
+sudo apt install -y libpango1.0-dev
 br
 
-title 'sudo apt install yaru-theme-icon'
-sudo apt install -y yaru-theme-icon
+title 'sudo apt install -y libxcb-util0-dev'
+sudo apt install -y libxcb-util0-dev
 br
 
-#https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
-#title 'sudo apt-get purge fcitx-module-dbus'
-#sudo apt-get purge fcitx-module-dbus
-#br
+title 'sudo apt install -y libxcb-icccm4-dev '
+sudo apt install -y libxcb-icccm4-dev 
+br
 
+title 'sudo apt install -y libyajl-dev'
+sudo apt install -y libyajl-dev
+br
+ 
+title 'sudo apt install -y libstartup-notification0-dev'
+sudo apt install -y libstartup-notification0-dev
+br
+
+title 'sudo apt install -y libxcb-randr0-dev'
+sudo apt install -y libxcb-randr0-dev
+br
+
+title 'sudo apt install -y libev-dev'
+sudo apt install -y libev-dev
+br
+
+title 'sudo apt install -y libxcb-cursor-dev'
+sudo apt install -y libxcb-cursor-dev
+br
+
+title 'sudo apt install -y libxcb-xinerama0-dev'
+sudo apt install -y libxcb-xinerama0-dev
+br
+
+title 'sudo apt install -y libxcb-xkb-dev'
+sudo apt install -y libxcb-xkb-dev
+br
+
+title 'sudo apt install -y libxkbcommon-dev'
+sudo apt install -y libxkbcommon-dev
+br
+
+title 'sudo apt install -y libxkbcommon-x11-dev'
+sudo apt install -y libxkbcommon-x11-dev
+br
+
+title 'sudo apt install -y autoconf libxcb-xrm0'
+sudo apt install -y autoconf libxcb-xrm0
+br
+
+title 'sudo apt install -y libxcb-xrm-dev'
+sudo apt install -y libxcb-xrm-dev
+br
+
+title 'sudo apt install -y automake'
+sudo apt install -y automake
+br
+
+title 'sudo apt install -y libxcb-shape0-dev'
+sudo apt install -y libxcb-shape0-dev
+br
+
+title 'sudo apt install -y libxcb-xrm-dev'
+sudo apt install -y libxcb-xrm-dev
+br
+
+
+section "fcitx Install"
 title 'sudo apt install -y fcitx-mozc'
 sudo apt install -y fcitx-mozc
 br
@@ -95,6 +176,17 @@ title  'sudo apt install fcitx-module-dbus'
 sudo apt install fcitx-module-dbus
 br
 
+title 'sudo apt install -y yaru-theme-icon'
+sudo apt install -y yaru-theme-icon
+br
+
+#https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
+#title 'sudo apt-get purge fcitx-module-dbus'
+#sudo apt-get purge fcitx-module-dbus
+#br
+
+
+section "CLI tool Install"
 title 'sudo apt install -y git-all'
 sudo apt show git-all
 sudo apt install -y git-all
@@ -120,11 +212,46 @@ sudo apt show neofetch
 sudo apt install -y neofetch
 br
 
+title "sudo apt install -y onefetch"
+sudo apt install -y onefetch
+br
+
+title "sudo apt install -y zoxide"
+sudo apt install -y zoxide
+br
+
 title 'sudo apt install -y wireless-tools'
 sudo apt show wireless-tools
 sudo apt install -y wireless-tools
 br
 
+
+section "Python Install"
+# Install ansible
+# https://docs.ansible.com/ansible/latest/user_guide/windows_faq.html#can-ansible-run-on-windows
+title 'sudo apt install -y  python3-pip'
+sudo apt install -y  python3-pip
+br
+
+title 'sudo apt install -y  libffi-dev'
+sudo apt install -y  libffi-dev
+br
+
+title 'sudo apt install -y  libssl-dev'
+sudo apt install -y  libssl-dev
+br
+
+title 'pip3 install ansible'
+pip3 install ansible
+br
+
+title 'pip3 install pywinrm'
+pip3 install pywinrm
+br
+
+
+
+section "volta/npm Install"
 title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
 volta setup
@@ -150,6 +277,8 @@ title 'volta list all'
 volta list all
 br
 
+
+section "Package autoremove"
 title 'sudo apt autoremove -y && sudo apt autoclean -y'
 sudo apt autoremove -y
 sudo apt autoclean -y
