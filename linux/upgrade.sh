@@ -15,7 +15,10 @@ br(){
   echo ""
 }
 
+
+#--------------------------------------------------------------------------------------------------"
 section "PPA Setup"
+#--------------------------------------------------------------------------------------------------"
 #regolith-i3
 title "sudo add-apt-repository -y ppa:regolith-linux/release"
 sudo add-apt-repository -ry ppa:regolith-linux/release
@@ -31,7 +34,10 @@ title "sudo add-apt-repository -y ppa:o2sh/onefetch"
 sudo add-apt-repository -ry ppa:o2sh/onefetch
 br
 
+
+#--------------------------------------------------------------------------------------------------"
 section "Package Update"
+#--------------------------------------------------------------------------------------------------"
 title 'sudo apt update -y && sudo apt upgrade -y'
 sudo apt update -y && sudo apt upgrade -y
 br
@@ -59,7 +65,9 @@ sudo apt-get autoclean -y
 br
 
 
+#--------------------------------------------------------------------------------------------------"
 section "Font Install"
+#--------------------------------------------------------------------------------------------------"
 title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
 sudo apt install -y $(check-language-support -l ja) language-pack-ja
 br
@@ -77,7 +85,9 @@ sudo update-locale LANG=ja_JP.UTF-8
 br
 
 
+#--------------------------------------------------------------------------------------------------"
 section "i3 & i3-gaps"
+#--------------------------------------------------------------------------------------------------"
 title "sudo apt install -y i3"
 sudo apt install -y i3
 br
@@ -163,7 +173,9 @@ sudo apt install -y libxcb-xrm-dev
 br
 
 
+#--------------------------------------------------------------------------------------------------"
 section "fcitx Install"
+#--------------------------------------------------------------------------------------------------"
 title 'sudo apt install -y fcitx-mozc'
 sudo apt install -y fcitx-mozc
 br
@@ -186,7 +198,9 @@ br
 #br
 
 
+#--------------------------------------------------------------------------------------------------"
 section "CLI tool Install"
+#--------------------------------------------------------------------------------------------------"
 title 'sudo apt install -y git-all'
 sudo apt show git-all
 sudo apt install -y git-all
@@ -226,7 +240,9 @@ sudo apt install -y wireless-tools
 br
 
 
+#--------------------------------------------------------------------------------------------------"
 section "Python Install"
+#--------------------------------------------------------------------------------------------------"
 # Install ansible
 # https://docs.ansible.com/ansible/latest/user_guide/windows_faq.html#can-ansible-run-on-windows
 title 'sudo apt install -y  python3-pip'
@@ -250,8 +266,9 @@ pip3 install pywinrm
 br
 
 
-
+#--------------------------------------------------------------------------------------------------"
 section "volta/npm Install"
+#--------------------------------------------------------------------------------------------------"
 title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
 volta setup
@@ -278,7 +295,9 @@ volta list all
 br
 
 
+#--------------------------------------------------------------------------------------------------"
 section "Package autoremove"
+#--------------------------------------------------------------------------------------------------"
 title 'sudo apt autoremove -y && sudo apt autoclean -y'
 sudo apt autoremove -y
 sudo apt autoclean -y
@@ -289,4 +308,7 @@ sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 br
 
+
+#--------------------------------------------------------------------------------------------------"
 title 'upgrade.sh is Finished.'
+#--------------------------------------------------------------------------------------------------"
