@@ -99,7 +99,7 @@ sudo update-locale LANG=ja_JP.UTF-8
 br
 
 
-<< COMMENTOUT
+
 #--------------------------------------------------------------------------------------------------"
 section "i3 & i3-gaps"
 #--------------------------------------------------------------------------------------------------"
@@ -107,9 +107,9 @@ title "sudo apt install -y i3"
 sudo apt install -y i3
 br
 
-title "sudo apt install -y i3-gaps"
-sudo apt install -y i3-gaps
-br
+#title "sudo apt install -y i3-gaps"
+#sudo apt install -y i3-gaps
+#br
 
 title 'sudo apt install -y libxcb1-dev'
 sudo apt install -y libxcb1-dev
@@ -186,7 +186,7 @@ br
 title 'sudo apt install -y libxcb-xrm-dev'
 sudo apt install -y libxcb-xrm-dev
 br
-COMMENTOUT
+
 
 #--------------------------------------------------------------------------------------------------"
 section "fcitx Install"
