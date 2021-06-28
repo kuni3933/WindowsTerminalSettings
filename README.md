@@ -88,6 +88,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
       <li>mnt/linux/ubuntu/.bashrc</li>
       <li>mnt/linux/ubuntu/.bash_logout</li>
       <li>mnt/linux/ubuntu/.vimrc</li>
+      <li>mnt/linux/ubuntu/.tmux.conf</li>
       <li>mnt/windows/pipes-rs</li>
       <li>mnt/windows/power-shell</li>
       <li>mnt/windows/terminal</li>
