@@ -222,6 +222,7 @@ xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.bash_it\themes\maman\maman.theme.bash" "
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.vim" "%LINUX_MNT%\ubuntu\.vim" /E /H /S /I
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.inputrc" "%LINUX_MNT%\ubuntu\.inputrc"
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tigrc" "%LINUX_MNT%\ubuntu\.tigrc"
+xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tmux.conf" "%LINUX_MNT%\ubuntu\.tmux.conf"
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\broot.toml" "%LINUX_MNT%\ubuntu\broot.toml"
 exit /b
 

@@ -1,16 +1,5 @@
 #WindowsTerminalSettings_Original
 #. ~/.bashrc.org
-
-#https://qiita.com/kiwi-bird/items/7f1a77faf6b0ab0df571
-alias tmux="tmux -u2"
-# tmuxの自動起動
-count=`ps aux | grep tmux | grep -v grep | wc -l`
-if test $count -eq 0; then
-  echo `tmux`
-elif test $count -eq 1; then
-  echo `tmux a`
-fi
-
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
