@@ -24,11 +24,6 @@ title "sudo add-apt-repository -y ppa:regolith-linux/unstable"
 sudo add-apt-repository -y ppa:regolith-linux/unstable
 br
 
-title "sudo add-apt-repository -y ppa:o2sh/onefetch"
-#https://github.com/o2sh/onefetch
-sudo add-apt-repository -y ppa:o2sh/onefetch
-br
-
 
 #--------------------------------------------------------------------------------------------------"
 section "Package Update"
