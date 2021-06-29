@@ -1,9 +1,9 @@
 #!/bin/bash
 set -eu
 title(){
-  echo "-------------------------------------------------------------------------------------------"
+  echo "------------------------------------------------------------------"
   echo "# $1"
-  echo "-------------------------------------------------------------------------------------------"
+  echo "------------------------------------------------------------------"
 }
 section(){
   echo "-------------------------------------------------------------------------------------------"
@@ -14,6 +14,20 @@ br(){
   echo ""
   echo ""
 }
+
+
+#--------------------------------------------------------------------------------------------------"
+section "PPA Setup"
+#--------------------------------------------------------------------------------------------------"
+title "sudo add-apt-repository -y ppa:regolith-linux/unstable"
+#https://github.com/regolith-linux/i3-gaps-wm
+sudo add-apt-repository -y ppa:regolith-linux/unstable
+br
+
+title "sudo add-apt-repository -y ppa:o2sh/onefetch"
+#https://github.com/o2sh/onefetch
+sudo add-apt-repository -y ppa:o2sh/onefetch
+br
 
 
 #--------------------------------------------------------------------------------------------------"
@@ -47,39 +61,6 @@ br
 
 
 #--------------------------------------------------------------------------------------------------"
-section "Core CLI tool Install"
-#--------------------------------------------------------------------------------------------------"
-title "sudo apt install -y apt-file"
-sudo apt install -y apt-file
-br
-
-title "sudo apt install -y software-properties-common"
-sudo apt install -y software-properties-common
-br
-
-
-<< COMMENTOUT
-#--------------------------------------------------------------------------------------------------"
-section "PPA Setup"
-#--------------------------------------------------------------------------------------------------"
-#regolith-i3
-#title "sudo add-apt-repository -y ppa:regolith-linux/release"
-#sudo add-apt-repository -ry ppa:regolith-linux/release
-#br
-
-title "sudo add-apt-repository -y ppa:regolith-linux/stable"
-#regolith-i3
-sudo add-apt-repository -ry ppa:regolith-linux/stable
-br
-
-title "sudo add-apt-repository -y ppa:o2sh/onefetch"
-#onefetch
-sudo add-apt-repository -ry ppa:o2sh/onefetch
-br
-COMMENTOUT
-
-
-#--------------------------------------------------------------------------------------------------"
 section "Font Install"
 #--------------------------------------------------------------------------------------------------"
 title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
@@ -103,13 +84,13 @@ br
 #--------------------------------------------------------------------------------------------------"
 section "i3 & i3-gaps"
 #--------------------------------------------------------------------------------------------------"
-title "sudo apt install -y i3"
-sudo apt install -y i3
-br
-
-#title "sudo apt install -y i3-gaps"
-#sudo apt install -y i3-gaps
+#title "sudo apt install -y i3"
+#sudo apt install -y i3
 #br
+
+title "sudo apt install -y i3-gaps"
+sudo apt install -y i3-gaps
+br
 
 title 'sudo apt install -y libxcb1-dev'
 sudo apt install -y libxcb1-dev
@@ -216,35 +197,38 @@ br
 #--------------------------------------------------------------------------------------------------"
 section "CLI tool Install"
 #--------------------------------------------------------------------------------------------------"
+title "sudo apt install -y apt-file"
+sudo apt install -y apt-file
+br
+
+title "sudo apt install -y software-properties-common"
+sudo apt install -y software-properties-common
+br
+
 title 'sudo apt install -y git-all'
-sudo apt show git-all
 sudo apt install -y git-all
 br
 
 title 'sudo apt install -y vim'
-sudo apt show vim
 sudo apt install -y vim
 br
 
 title 'sudo apt install -y gnupg2'
-sudo apt show gnupg2
 sudo apt install -y gnupg2
 br
 
 title 'sudo apt install -y xclip'
-sudo apt show xclip
 sudo apt install -y xclip
 br
 
 title 'sudo apt install -y neofetch'
-sudo apt show neofetch
 sudo apt install -y neofetch
 br
-<< COMMENTOUT
+
 title "sudo apt install -y onefetch"
-sudo apt install -y onefetch
+sudo apt-get install -y onefetch
 br
-COMMENTOUT
+
 #title "sudo apt install -y zoxide"
 title "curl -sS https://webinstall.dev/zoxide | bash"
 #sudo apt install -y zoxide
@@ -252,7 +236,6 @@ curl -sS https://webinstall.dev/zoxide | bash
 br
 
 title 'sudo apt install -y wireless-tools'
-sudo apt show wireless-tools
 sudo apt install -y wireless-tools
 br
 
@@ -266,6 +249,14 @@ br
 
 title "sudo apt install -y gdb"
 sudo apt install -y gdb
+br
+
+title "sudo apt install -y libc6"
+sudo apt install -y libc6
+br
+
+title "libc6-dev"
+sudo apt install -y libc6-dev
 br
 
 #--------------------------------------------------------------------------------------------------"
