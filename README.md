@@ -182,11 +182,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
 16. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
-    <code>#!/usr/bin/env bash</code><br>
-    <code># Path to the bash it configuration</code><br>
-    <code>export BASH_IT="/home/ユーザー名/.bash_it"</code><br>
     <code> . ~/.bashrc.org</code><br>
-    <code>source /home/ユーザー名/.config/broot/launcher/bash/br</code><br>
     のみが記述されている状態にする<br>
 17. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>

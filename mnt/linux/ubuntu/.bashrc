@@ -1,11 +1,11 @@
 #WindowsTerminalSettings_Original
 #. ~/.bashrc.org
+export LC_ALL="ja_JP.UTF-8"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export GPG_TTY=$(tty)
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 set clipboard=unnamedplus
 
@@ -14,6 +14,7 @@ set clipboard=unnamedplus
 . "$HOME/.cargo/env"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source ~/.config/broot/launcher/bash/br
 
 $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
 neofetch 
@@ -41,7 +42,7 @@ case $- in
 esac
 
 # Path to the bash it configuration
-# export BASH_IT="/home/kuni3933/.bash_it"
+export BASH_IT=~/.bash_it
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
