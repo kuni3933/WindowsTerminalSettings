@@ -79,6 +79,8 @@ br
 #--------------------------------------------------------------------------------------------------"
 section "i3 & i3-gaps"
 #--------------------------------------------------------------------------------------------------"
+#https://blog.benjames.io/2017/09/03/installing-i3-gaps-on-ubuntu-16-04/
+
 #title "sudo apt install -y i3"
 #sudo apt install -y i3
 #br
@@ -143,8 +145,16 @@ title 'sudo apt install -y libxkbcommon-x11-dev'
 sudo apt install -y libxkbcommon-x11-dev
 br
 
-title 'sudo apt install -y autoconf libxcb-xrm0'
-sudo apt install -y autoconf libxcb-xrm0
+title 'sudo apt install -y xutils-dev'
+sudo apt install -y xutils-dev 
+br
+
+title 'sudo apt install -y autoconf'
+sudo apt install -y autoconf 
+br
+
+title 'sudo apt install -y libxcb-xrm0'
+sudo apt install -y libxcb-xrm0
 br
 
 title 'sudo apt install -y libxcb-xrm-dev'
@@ -157,10 +167,6 @@ br
 
 title 'sudo apt install -y libxcb-shape0-dev'
 sudo apt install -y libxcb-shape0-dev
-br
-
-title 'sudo apt install -y libxcb-xrm-dev'
-sudo apt install -y libxcb-xrm-dev
 br
 
 
