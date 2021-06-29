@@ -9,9 +9,6 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 set clipboard=unnamedplus
 
-alias lla='exa -al --icons --git'
-alias llat='exa -alT --icons --git'
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 . "$HOME/.cargo/env"
@@ -275,6 +272,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+#-------WindowsTerminalSettings-------
+alias batr='bat $(fd -H | fzf)'      #
+#-------------------------------------
+
 alias cdr='cd $(fd -H -t d | fzf)'
 alias cdz='cd $(z -l | cut -c 12- | fzf)'
 alias cdg='cd $(gowl list | fzf)'
@@ -297,8 +298,12 @@ alias gbm='git merge --no-ff $(git branch -l | grep -vE "^\*" | tr -d " " | fzf)
 alias gs='git status --short'
 alias gss='git status -v'
 
-alias ll='exa -l --icons --git'
-alias tree='exa -lT --icons --git'
+#alias ll='exa -l --icons --git'
+#alias tree='exa -lT --icons --git'
+#-------WindowsTerminalSettings-------
+alias ll='exa -al --icons --git'     #
+alias tree='exa -alT --icons --git'  #
+#-------------------------------------
 
 alias pj='pipenv run python jumeaux/executor.py'
 
