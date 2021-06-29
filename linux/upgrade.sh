@@ -195,51 +195,8 @@ br
 
 
 #--------------------------------------------------------------------------------------------------"
-section "CLI tool Install"
+section "Language / Framework / MiddleWare"
 #--------------------------------------------------------------------------------------------------"
-title "sudo apt install -y apt-file"
-sudo apt install -y apt-file
-br
-
-title "sudo apt install -y software-properties-common"
-sudo apt install -y software-properties-common
-br
-
-title 'sudo apt install -y git-all'
-sudo apt install -y git-all
-br
-
-title 'sudo apt install -y vim'
-sudo apt install -y vim
-br
-
-title 'sudo apt install -y gnupg2'
-sudo apt install -y gnupg2
-br
-
-title 'sudo apt install -y xclip'
-sudo apt install -y xclip
-br
-
-title 'sudo apt install -y neofetch'
-sudo apt install -y neofetch
-br
-
-title "sudo apt install -y onefetch"
-sudo apt-get install -y onefetch
-br
-
-#title "sudo apt install -y zoxide"
-title "curl -sS https://webinstall.dev/zoxide | bash"
-#sudo apt install -y zoxide
-curl -sS https://webinstall.dev/zoxide | bash
-br
-
-title 'sudo apt install -y wireless-tools'
-sudo apt install -y wireless-tools
-br
-
-
 #--------------------------------------------------------------------------------------------------"
 section "C-build-essential Install"
 #--------------------------------------------------------------------------------------------------"
@@ -266,6 +223,7 @@ section "Python Install"
 # https://docs.ansible.com/ansible/latest/user_guide/windows_faq.html#can-ansible-run-on-windows
 title 'sudo apt install -y  python3-pip'
 sudo apt install -y  python3-pip
+/usr/bin/python3 -m pip install --upgrade pip
 br
 
 title 'sudo apt install -y  libffi-dev'
@@ -311,6 +269,59 @@ br
 
 title 'volta list all'
 volta list all
+br
+
+#--------------------------------------------------------------------------------------------------"
+section "rust"
+#--------------------------------------------------------------------------------------------------"
+title "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+br
+
+
+#--------------------------------------------------------------------------------------------------"
+section "CLI tool Install"
+#--------------------------------------------------------------------------------------------------"
+title "sudo apt install -y apt-file"
+sudo apt install -y apt-file
+br
+
+title "sudo apt install -y software-properties-common"
+sudo apt install -y software-properties-common
+br
+
+title 'sudo apt install -y git-all'
+sudo apt install -y git-all
+br
+
+title 'sudo apt install -y vim'
+sudo apt install -y vim
+br
+
+title 'sudo apt install -y gnupg2'
+sudo apt install -y gnupg2
+br
+
+title 'sudo apt install -y xclip'
+sudo apt install -y xclip
+br
+
+title 'sudo apt install -y neofetch'
+sudo apt install -y neofetch
+br
+
+title "cargo install onefetch --force"
+cargo install onefetch --force
+br
+
+#title "sudo apt install -y zoxide"
+title "curl -sS https://webinstall.dev/zoxide | bash"
+#sudo apt install -y zoxide
+curl -sS https://webinstall.dev/zoxide | bash
+br
+
+title 'sudo apt install -y wireless-tools'
+sudo apt install -y wireless-tools
 br
 
 
