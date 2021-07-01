@@ -7,7 +7,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export GPG_TTY=$(tty)
 
+
 set clipboard=unnamedplus
+
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -18,6 +20,10 @@ source ~/.config/broot/launcher/bash/br
 
 $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
 neofetch 
+sudo /etc/init.d/dbus start
+
+#gh
+eval "$(gh completion -s bash)"
 
 #pyenv
 eval "$(pyenv init --path)"

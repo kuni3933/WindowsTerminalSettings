@@ -19,61 +19,6 @@ readonly SRC_DIR="${CURRENT_DIR}/.config"
 readonly SRC_FILES=("$(find "${SRC_DIR}" -type f)")
 readonly DEST_DIR="${HOME}/.config"
 
-function _install_dein() {
-  readonly DEIN_CACHE_DIR="${HOME}/.cache/dein"
-  readonly DEIN_INSTALLER="/tmp/dein_installer.sh"
-  curl -sL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >"${DEIN_INSTALLER}"
-  chmod +x "${DEIN_INSTALLER}"
-  "${DEIN_INSTALLER}" "${DEIN_CACHE_DIR}"
-}
-function _set_symlinks() {
-  for src in ${SRC_FILES[@]}; do
-    dest="${src/${SRC_DIR}/${DEST_DIR}/}"
-
-    dest_dir="$(dirname "${dest}")"
-    _verbose "Create directory: ${dest_dir}"
-    mkdir -p "${dest_dir}"
-
-    _verbose "Create symlink:   ${src} --> ${dest}"
-    ln -sf "${src}" "${dest}"
-  done
-}
-function _main() {
-  _banner "Install packages"
-  _install_packages
-  _info "Finished packages installation!"
-
-  _banner "Install config files"
-  _set_symlinks
-  _info "Finished config files installation!"
-
-  _banner "Install dein.vim"
-  _install_dein
-  _info "Finished dein.vim installation!"
-}
-
-function _verbose() {
-  printf "[ \e[34;1mVERBOSE\e[m ] %s\n" "${*}"
-}
-
-function _info() {
-  printf "[ \e[36;1mINFO\e[m ] %s\n" "${*}"
-}
-
-function _err() {
-  printf "[ \e[31;1mERR\e[m ] %s\n" "${*}"
-}
-
-function _banner() {
-  echo -e "
-\e[1m#####################################\e[m
-\e[1m# ${*} \e[m
-\e[1m#####################################\e[m
-"
-}
-
-#_main "${@}"
-
 
 #--------------------------------------------------------------------------------------------------"
 section "1. PPA Setup"
@@ -82,6 +27,13 @@ title "sudo add-apt-repository -y ppa:regolith-linux/unstable"
 #https://github.com/regolith-linux/i3-gaps-wm
 sudo add-apt-repository -y ppa:regolith-linux/unstable
 br
+
+title ''
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh
+
 
 
 #--------------------------------------------------------------------------------------------------"
@@ -141,9 +93,49 @@ title 'sudo apt install -y git-all'
 sudo apt install -y git-all
 br
 
+title 'curl https://get.volta.sh | bash'
+curl https://get.volta.sh | bash
+volta setup
+br
+
 
 #--------------------------------------------------------------------------------------------------"
-section "4. Terminal Setup"
+section "4. Font Install"
+#--------------------------------------------------------------------------------------------------"
+title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
+sudo apt install -y $(check-language-support -l ja) language-pack-ja
+br
+
+title "manpages-ja"
+sudo apt install -y manpages-ja
+br
+
+title "manpages-ja-dev"
+sudo apt install -y  manpages-ja-dev
+br
+
+title 'sudo apt install fonts-noto-color-emoji'
+sudo apt install -y fonts-noto-color-emoji
+br
+
+title 'sudo apt install fonts-symbola'
+sudo apt install -y fonts-symbola
+br
+
+title 'git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git'
+cd ~/
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+~/nerd-fonts/install.sh
+rm -rf nerd-fonts/
+br
+
+title 'sudo update-locale LANG=ja_JP.UTF-8'
+sudo update-locale LANG=ja_JP.UTF-8
+br
+
+
+#--------------------------------------------------------------------------------------------------"
+section "5. Terminal Setup"
 #--------------------------------------------------------------------------------------------------"
 title 'git clone https://github.com/Bash-it/bash-it.git'
 if [ -e {~/.bash_it} ]; then
@@ -190,9 +182,9 @@ ln -sf "${CURRENT_DIR}/.tmux.conf" ~/.tmux.conf
 br
 
 
-#--------------------------------------------------------------------------------------------------"
+#-------------------------------------------------------------------------------------------------------"
 section "5. Language / Framework / MiddleWare"
-#--------------------------------------------------------------------------------------------------"
+#-------------------------------------------------------------------------------------------------------"
 #--------------------------------------------------------------------------------------------------"
 section "C-build-essential Install"
 #--------------------------------------------------------------------------------------------------"
@@ -215,6 +207,9 @@ br
 #--------------------------------------------------------------------------------------------------"
 section "Go"
 #--------------------------------------------------------------------------------------------------"
+title 'sudo ~/WindowsTerminalSettings/mnt/linux/ubuntu/update-golang/update-golang.sh'
+sudo ${CURRENT_DIR}/update-golang/update-golang.sh
+br
 
 #--------------------------------------------------------------------------------------------------"
 section "Python Install"
@@ -284,10 +279,10 @@ br
 #--------------------------------------------------------------------------------------------------"
 section "volta/npm Install"
 #--------------------------------------------------------------------------------------------------"
-title 'curl https://get.volta.sh | bash'
-curl https://get.volta.sh | bash
-volta setup
-br
+#title 'curl https://get.volta.sh | bash'
+#curl https://get.volta.sh | bash
+#volta setup
+#br
 
 title 'volta install node@latest'
 volta install node@latest
@@ -297,7 +292,11 @@ title 'volta install yarn@latest'
 volta install yarn@latest
 br
 
-title 'npm install -g npm-upgrade'
+title 'sudo npm -g install typescript'
+npm -g install typescript
+br
+
+title 'sudo npm install -g npm-upgrade'
 npm install -g npm-upgrade
 br
 
@@ -315,33 +314,29 @@ br
 
 
 #--------------------------------------------------------------------------------------------------"
-section ". Font Install"
+section "Editor/IDE"
 #--------------------------------------------------------------------------------------------------"
-title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
-sudo apt install -y $(check-language-support -l ja) language-pack-ja
+title 'sudo apt install -y vim'
+sudo apt install -y vim
 br
 
-title "manpages-ja"
-sudo apt install -y manpages-ja
+title 'git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git'
+if [ -e {~/.vim} ]; then
+    # 存在する場合
+    cd ~/.vim
+    git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git
+else
+    # 存在しない場合
+    cd ~/
+    mkdir .vim
+    git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git
+fi
 br
 
-title "manpages-ja-dev"
-sudo apt install -y  manpages-ja-dev
+title 'pip3 install neovim'
+pip3 install neovim
 br
-
-title 'sudo apt install fonts-noto-color-emoji'
-sudo apt install -y fonts-noto-color-emoji
-br
-
-title 'sudo apt install fonts-symbola'
-sudo apt install -y fonts-symbola
-br
-
-title 'sudo update-locale LANG=ja_JP.UTF-8'
-sudo update-locale LANG=ja_JP.UTF-8
-br
-
-
+#
 
 #--------------------------------------------------------------------------------------------------"
 section "i3 & i3-gaps"
@@ -471,10 +466,6 @@ br
 
 title "sudo apt install -y software-properties-common"
 sudo apt install -y software-properties-common
-br
-
-title 'sudo apt install -y vim'
-sudo apt install -y vim
 br
 
 title 'sudo apt install -y gnupg2'
