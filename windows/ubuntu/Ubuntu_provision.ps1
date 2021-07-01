@@ -26,6 +26,3 @@ wsl -- sudo chmod 600 /etc/wsl.conf
 cp $home\WindowsTerminalSettings\windows\ubuntu\.bashrc \\wsl$\Ubuntu\tmp\
 wsl -- sudo mv --force /tmp/.bashrc  ~/
 
-# Install類
-wsl -- sh ./linux/upgrade.sh
-wsl -- rm -rf ~/.volta
