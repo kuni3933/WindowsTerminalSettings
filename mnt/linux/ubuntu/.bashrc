@@ -1,15 +1,19 @@
 #WindowsTerminalSettings_Original
 #. ~/.bashrc.org
 export LC_ALL="ja_JP.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export TERM=xterm-256color
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export GPG_TTY=$(tty)
 
+##https://swfz.hatenablog.com/entry/2020/08/27/093110
+#https://secon.dev/entry/2020/09/28/124700-wsl2-browser-env/
+export BROWSER="pwsh.exe /c start"
 
 set clipboard=unnamedplus
-
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -20,7 +24,7 @@ source ~/.config/broot/launcher/bash/br
 
 $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
 neofetch 
-sudo /etc/init.d/dbus start
+#sudo /etc/init.d/dbus start
 
 #gh
 eval "$(gh completion -s bash)"
