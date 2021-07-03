@@ -120,9 +120,19 @@ scoop install `
   sed `
   docker `
   go `
-  rustup `
+  rustup-msvc `
+  python `
   hugo-extended `
   vcxsrv
+br(1)
+
+Write_Title "# rustup"
+#https://zenn.dev/suauiya/books/ef2d2c67c546361e4518/viewer/7ae9e51108e7b197120a
+rustup install nightly
+rustup default nightly
+rustup self update 
+rustup update 
+rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
 br(1)
 
 Write_Title "# Python"
@@ -132,12 +142,6 @@ Write_Title "# Python"
 #python37 `
 #python38 `
 #python
-#scoop reset python
-scoop uninstall `
-  python27 `
-  python37 `
-  python38
-scoop install python
 scoop reset python
 br(1)
 
