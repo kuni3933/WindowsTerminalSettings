@@ -129,7 +129,7 @@ title 'sudo apt install fonts-symbola'
 sudo apt install -y fonts-symbola
 
 title 'git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git'
-if [ -d /usr/share/fonts/truetype/source-code-pro-ttf ]; then
+if [ -e /usr/share/fonts/truetype/source-code-pro-ttf ]; then
   echo "Already installed."
 else
   git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
@@ -146,7 +146,7 @@ sudo update-locale LANG=ja_JP.UTF-8
 section '05. Terminal Setup'
 #--------------------------------------------------------------------------------------------------"
 title 'git clone https://github.com/Bash-it/bash-it.git'
-if [ -d ${USERPROFILE}/.bash_it ]; then
+if [ -e ${USERPROFILE}/.bash_it ]; then
     # 存在する場合
     echo 'Already Installed.'
 else
@@ -156,7 +156,7 @@ else
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.bash_it/themes/maman'
-if [ -d ${USERPROFILE}/.bash_it/themes/maman ]; then
+if [ -e ${USERPROFILE}/.bash_it/themes/maman ]; then
     # 存在する場合
     echo "Already Installed."
 else
@@ -165,7 +165,7 @@ else
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.bashrc ~/.bashrc.org'
-if [ -d ${USERPROFILE}/.bashrc.org ]; then
+if [ -e ${USERPROFILE}/.bashrc.org ]; then
   #既にある場合
   echo "Already Installed."
 else
@@ -183,7 +183,7 @@ title 'sudo apt install -y tmux'
 sudo apt install -y tmux
 
 title 'git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack'
-if [ -d ${USERPROFILE}/.tmux-themepack ]; then
+if [ -e ${USERPROFILE}/.tmux-themepack ]; then
   echo "Already Installed."
 else
   git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ${USERPROFILE}/.tmux-themepack
@@ -234,15 +234,18 @@ sudo apt install -y libbz2-dev
 title 'sudo apt install -y libdb-dev'
 sudo apt install -y libdb-dev
 
+title 'sudo apt install -y python3-distutils'
+sudo apt install -y python3-distutils
+
 title 'sudo apt install -y python3-venv'
 sudo apt install -y python3-venv
 
 title 'git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv'
-if [ -d ${USERPROFILE}/.pyenv ]; then
+if [ -e ${USERPROFILE}/.pyenv ]; then
     # 存在する場合
     sudo rm -rf ${USERPROFILE}/.pyenv
 fi
-if [ -f /usr/bin/python3 ]; then
+if [ -e /usr/bin/python3 ]; then
   # 存在する場合
      sudo apt remove -y python3
 fi
@@ -316,9 +319,9 @@ title 'sudo apt install -y vim'
 sudo apt install -y vim
 
 title 'git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git'
-if [ -d ${USERPROFILE}/.vim ]; then
+if [ -e ${USERPROFILE}/.vim ]; then
     # 存在する場合
-    if [ -d ${USERPROFILE}/.vim/Vundle.vim ]; then
+    if [ -e ${USERPROFILE}/.vim/Vundle.vim ]; then
       echo "Already Installed."↲
     else
       git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git
