@@ -337,7 +337,7 @@ title 'ln -sf ${CURRENT_DIR}/.vimrc ~/.vimrc'
 sudo ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/.vimrc
 
 title 'ln -sf /mnt/common/.vim-snippets ~/.vim-snippets'
-sudo ln -sf ${CURRENT_DIR}/../../common/.vim-snippets ${USERPROFILE}/.vim-snippets
+sudo ln -sf ${CURRENT_DIR}../../common/.vim-snippets ${USERPROFILE}/.vim-snippets
 cd ${CURRENT_DIR}
 
 title 'pip install neovim'
