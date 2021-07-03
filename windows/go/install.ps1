@@ -17,4 +17,7 @@ br(1)
 
 Write_Title "# go get -u github.com/tcnksm/ghr"
 go get -u github.com/tcnksm/ghr
-Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
+br(1)
+
+Write_Title "# go/install.ps1 has finished."
+br(2)

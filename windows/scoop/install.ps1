@@ -126,15 +126,6 @@ scoop install `
   vcxsrv
 br(1)
 
-Write_Title "# rustup"
-#https://zenn.dev/suauiya/books/ef2d2c67c546361e4518/viewer/7ae9e51108e7b197120a
-rustup install nightly
-rustup default nightly
-rustup self update 
-rustup update 
-rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
-br(1)
-
 Write_Title "# Python"
 # Python
 #scoop install `
@@ -173,5 +164,7 @@ br(1)
 
 Write_Title "# scoop status"
 scoop status
-Pause
-Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
+br(1)
+
+Write_Title "# scoop/install.ps1 has finished."
+br(2)

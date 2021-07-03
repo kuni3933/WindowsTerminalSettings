@@ -55,46 +55,40 @@ If (Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe") {
   &"$env:GIT_INSTALL_ROOT/git-bash.exe" "$env:USERPROFILE/WindowsTerminalSettings/windows/winget/kill_gpg-agent.sh"
   br(1)
   git update-git-for-windows
-  br(2)
 }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe")) {
   Install_msg
   winget show --id Git.Git
   br(1)
   winget install -e --id Git.Git
-  br(2)
 }
-
+br(2)
 
 Write_Title "# Windows Terminal Preview"
 If (Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe") {
   Already_Installed_msg
   winget show --id Microsoft.WindowsTerminalPreview --source winget
-  br(2)
 }
 ElseIf (-not(Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe")) {
   Install_msg
   winget show --id Microsoft.WindowsTerminalPreview --source winget
   br(1)
   winget install -e --id Microsoft.WindowsTerminalPreview --source winget
-  br(2)
 }
-
+br(2)
 
 Write_Title "# Microsoft VisualStudio 2019 BuildTools"
 If (Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools") {
   Already_Installed_msg
   winget show --id Microsoft.VisualStudio.2019.BuildTools --source winget
-  br(2)
 }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools")) {
   Install_msg
   winget show --id Microsoft.VisualStudio.2019.BuildTools --source winget
   br(1)
   winget install -e --id Microsoft.VisualStudio.2019.BuildTools --source winget
-  br(2)
 }
-
+br(2)
 
 Write_Title "# Visual Studio Code"
 If (Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe") {
@@ -102,16 +96,14 @@ If (Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe") {
   code --version
   br(1)
   winget show --id Microsoft.VisualStudioCode
-  br(2)
 }
 ElseIf (-not(Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe")) {
   Install_msg
   winget show --id Microsoft.VisualStudioCode --source winget
   br(1)
   winget install -e --id Microsoft.VisualStudioCode --source winget --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
-  br(2)
 }
-
+br(2)
 
 Write_Title "# Visual Studio Code Insiders"
 If (Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - Insiders.exe") {
@@ -119,31 +111,27 @@ If (Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - I
   code-insiders --version
   br(1)
   winget show --id Microsoft.VisualStudioCode.Insiders --source winget
-  br(2)
 }
 ElseIf (-not(Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - Insiders.exe")) {
   Install_msg
   winget show --id Microsoft.VisualStudioCode.Insiders --source winget
   br(1)
   winget install -e --id Microsoft.VisualStudioCode.Insiders --source winget --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
-  br(2)
 }
-
+br(2)
 
 Write_Title "# PowerToys"
 If (Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe") {
   Already_Installed_msg
   winget show --id Microsoft.PowerToys --source winget
-  br(2)
 }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe")) {
   Install_msg
   winget show --id Microsoft.PowerToys --source winget
   br(1)
   winget install -e --id Microsoft.PowerToys --source winget
-  br(2)
 }
-
+br(2)
 
 Write_Title "# PowerShellCore (pwsh)"
 If (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
@@ -151,16 +139,14 @@ If (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
   winget show --id Microsoft.PowerShell --source winget
   br(1)
   winget install -e --id Microsoft.PowerShell --source winget
-  br(2)
 }
 ElseIf (-not(Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe")) {
   Install_msg
   winget show --id Microsoft.PowerShell --source winget
   br(1)
   winget install -ei --id Microsoft.PowerShell --source winget
-  br(2)
 }
+br(2)
 
-
-Pause
-Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
+Write_Title "# winget/install.ps1 has finished."
+br(2)

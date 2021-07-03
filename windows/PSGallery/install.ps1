@@ -31,4 +31,7 @@ br(1)
 Write_Title "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 Get-ExecutionPolicy -l
-Write_Title " 'install.ps1'が終了しました. / 'install.ps1' has finished."
+br(1)
+
+Write_Title "# PSGallery/install.ps1 has finished."
+br(2)

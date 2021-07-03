@@ -15,16 +15,32 @@ Write_Title "# rustup show"
 rustup show
 br(1)
 
-Write_Title "# rustup install nightly-x86_64-pc-windows-gnu"
-rustup install nightly-x86_64-pc-windows-gnu
+Write_Title "# rustup update"
+rustup self update
+rustup update
 br(1)
 
-Write_Title "# rustup default nightly-x86_64-pc-windows-gnu"
-rustup default nightly-x86_64-pc-windows-gnu
+Write_Title "# rustup install nightly-x86_64-pc-windows-msvc"
+rustup install nightly-x86_64-pc-windows-msvc
+br(1)
+
+Write_Title "# rustup default nightly-x86_64-pc-windows-msvc"
+rustup default nightly-x86_64-pc-windows-msvc
+br(1)
+
+Write_title "# rustup component"
+rustup component add `
+  clippy `
+  rls `
+  rust-analysis `
+  rust-src `
+  rust-docs `
+  rustfmt
 br(1)
 
 Write_Title "# cargo install exa"
 cargo install exa
 br(1)
-Pause
-Write_Title "# 'install.ps1'が終了しました. / 'install.ps1' has finished."
+
+Write_Title "# cargo/install.ps1 has finished."
+br(2)
