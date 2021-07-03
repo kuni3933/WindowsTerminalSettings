@@ -1,3 +1,7 @@
 linux/ansible/.secret/
 package-lock.json
-#package.json
+package.json
+test.bat
+test.ps1
+test.sh
+
