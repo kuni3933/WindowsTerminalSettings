@@ -14,6 +14,26 @@ section() {
   echo "     $1"
   echo "-------------------------------------------------------------------------------------------"
 }
+saptin() {
+  if [ $# -ne 1 ]; then
+    echo "Error : Argument Error/引数エラー"
+    echo "       \"sudo apt install\" に必要な1個の引数が必要です。" 1>&2
+    echo "       One argument required for \"sudo apt install\"." 1>&2
+    exit 1
+  else
+    sudo apt install -y ${1}
+  fi
+}
+aptshow() {
+  if [ $# -ne 1 ]; then
+    echo "Error : Argument Error/引数エラー"
+    echo "       \"sudo apt install\" に必要な1個の引数が必要です。" 1>&2
+    echo "       One argument required for \"sudo apt install\"." 1>&2
+    exit 1
+  else
+    apt show ${1}
+  fi
+}
 # -------------------------------------------------------------------------------------------------
 #https://ytyaru.hatenablog.com/entry/2020/02/03/111111
 readonly USERPROFILE=${HOME}
@@ -25,7 +45,7 @@ readonly SRC_DIR="${CURRENT_DIR}/.config"
 readonly SRC_FILES=$(
   "$(find "${SRC_DIR}" -type f)"
 )
-readonly DEST_DIR="${HOME}/.config"
+readonly DEST_DIR="${USERPROFILE}/.config"
 readonly dotfile_DIR=$(cd ${CURRENT_DIR} && cd ../../../ && pwd)
 readonly Go_VER="1.16.5"
 readonly Py_VER="3.9.6"
@@ -74,41 +94,44 @@ sudo apt-get autoclean -y
 #--------------------------------------------------------------------------------------------------"
 section '02. Core Setup'
 #--------------------------------------------------------------------------------------------------"
-title 'sudo apt install -y ubuntu-wsl'
-sudo apt install -y ubuntu-wsl
-
 title 'sudo dpkg-reconfigure tzdata'
 sudo dpkg-reconfigure tzdata
 
+title 'sudo apt install -y aria2'
+saptin "aria2"
+
+title 'sudo apt install -y ubuntu-wsl'
+saptin "ubuntu-wsl"
+
 title 'sudo apt install -y curl'
-sudo apt install -y curl
+saptin "curl"
 
 title 'sudo apt install -y wget'
-sudo apt install -y wget
+saptin "wget"
 
 title 'sudo apt install -y make'
-sudo apt install -y make
+saptin "make"
 
 title 'sudo apt install -y autoconf'
-sudo apt install -y autoconf
+saptin "autoconf"
 
 title 'sudo apt install -y automake'
-sudo apt install -y automake
+saptin "automake"
 
 title 'sudo apt install -y ntp'
-sudo apt install -y ntp
+saptin "ntp"
 
 title 'sudo apt install -y apt-file'
-sudo apt install -y apt-file
+saptin "apt-file"
 
 title 'sudo apt install -y software-properties-common'
-sudo apt install -y software-properties-common
+saptin "software-properties-common"
 
 title 'sudo apt install -y git-all'
-sudo apt install -y git-all
+saptin "git-all"
 
 title 'sudo apt install -y gh'
-sudo apt install -y gh
+saptin "gh"
 
 title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
@@ -138,16 +161,16 @@ title 'sudo apt install -y $(check-language-support -l ja) language-pack-ja'
 sudo apt install -y $(check-language-support -l ja) language-pack-ja
 
 title 'sudo apt install -y manpages-ja'
-sudo apt install -y manpages-ja
+saptin "manpages-ja"
 
 title 'sudo apt install -y  manpages-ja-dev'
-sudo apt install -y manpages-ja-dev
+saptin "manpages-ja-dev"
 
 title 'sudo apt install fonts-noto-color-emoji'
-sudo apt install -y fonts-noto-color-emoji
+saptin "fonts-noto-color-emoji"
 
 title 'sudo apt install fonts-symbola'
-sudo apt install -y fonts-symbola
+saptin "fonts-symbola"
 
 title 'git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git'
 if [ -e ${USERPROFILE}/.local/share/fonts/NerdFonts/"Sauce Code Pro Nerd Font Complete.ttf" ]; then
@@ -174,7 +197,7 @@ else
   ${USERPROFILE}/.bash_it/install.sh
 fi
 
-title 'ln -sf ${CURRENT_DIR}/.bash_it/themes/maman'
+title "ln -sf ${CURRENT_DIR}/.bash_it/themes/maman ${USERPROFILE}/.bash_it/themes/"
 if [ -e ${USERPROFILE}/.bash_it/themes/maman ]; then
   # 存在する場合
   echo "Already Installed."
@@ -183,7 +206,7 @@ else
   sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
 fi
 
-title 'ln -sf ${CURRENT_DIR}/.bashrc ~/.bashrc.org'
+title "ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org"
 if [ -e ${USERPROFILE}/.bashrc.org ]; then
   #既にある場合
   echo "Already Installed."
@@ -194,14 +217,14 @@ else
   exit
 fi
 
-title 'ln -sf ${CURRENT_DIR}/.inputrc ~/.inputrc'
+title "ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/.inputrc"
 sudo ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/
 
 title 'sudo apt install -y fzf'
-sudo apt install -y fzf
+saptin "fzf"
 
 title 'sudo apt install -y tmux'
-sudo apt install -y tmux
+saptin "tmux"
 
 title 'git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack'
 if [ -e ${USERPROFILE}/.tmux-themepack ]; then
@@ -210,9 +233,19 @@ else
   git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ${USERPROFILE}/.tmux-themepack
 fi
 
-title 'ln -sf ${CURRENT_DIR}/.tmux.conf ~/.tmux.conf'
+title "ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/.tmux.conf"
 sudo ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/
 
+title 'cargo install alacritty'
+cargo install alacritty
+title "sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/"
+if [ -e ${DEST_DIR}/alacritty ]; then
+  :
+else
+  mkdir ${DEST_DIR}/alacritty
+  cd ${CURRENT_DIR}
+fi
+sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/
 #-------------------------------------------------------------------------------------------------------"
 section '06. Language / Framework / MiddleWare'
 #-------------------------------------------------------------------------------------------------------"
@@ -220,10 +253,29 @@ section '06. Language / Framework / MiddleWare'
 section '# C-build-essential Install'
 #--------------------------------------------------------------------------------------------------"
 title 'gcc Build Tools & Library'
-sudo apt install -y build-essential gdb libc6 libc6-dev
+saptin "
+build-essential 
+gdb 
+binutils 
+pkg-config 
+libc6 
+libc6-dev 
+libfreetype6-dev 
+libfontconfig1-dev 
+libjansson-dev 
+libseccomp-dev 
+libxcb-xfixes0-dev 
+libxml2-dev 
+libyaml-dev 
+"
 
 title 'Clang Build Tools & Library'
-sudo apt install -y clang llvm libclang-dev libboost-all-dev clang-format cmake
+saptin "clang 
+llvm 
+libclang-dev 
+libboost-all-dev 
+clang-format cmake 
+"
 
 #--------------------------------------------------------------------------------------------------"
 section '# Go'
@@ -243,13 +295,26 @@ section '# Python Install'
 # Install ansible
 # https://docs.ansible.com/ansible/latest/user_guide/windows_faq.html#can-ansible-run-on-windows
 title 'Build Tools & Library'
-sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libsqlite3-dev libssl-dev zlib1g-dev uuid-dev tk-dev
-
-title 'sudo apt install -y python3-distutils'
-sudo apt install -y python3-distutils
+saptin "
+build-essential 
+libbz2-dev 
+libdb-dev 
+libreadline-dev 
+libffi-dev 
+libgdbm-dev 
+liblzma-dev 
+libncursesw5-dev 
+libsqlite3-dev 
+libssl-dev 
+zlib1g-dev 
+uuid-dev 
+tk-dev 
+python3-distutils 
+python3-docutils 
+"
 
 title 'sudo apt install -y python3-venv'
-sudo apt install -y python3-venv
+saptin "python3-venv"
 
 title 'git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv'
 if [ -e ${USERPROFILE}/.pyenv ]; then
@@ -268,6 +333,7 @@ else
   pyenv install ${Py_VER}
   pyenv global ${Py_VER}
 fi
+
 title 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -'
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 
@@ -330,10 +396,10 @@ volta list all
 section '07. Editor/IDE'
 #--------------------------------------------------------------------------------------------------"
 title 'sudo apt install -y vim'
-sudo apt install -y vim
+saptin "vim"
 
 title 'sudo apt install -y vim-gtk'
-sudo apt install -y vim-gtk
+saptin "vim-gtk"
 
 title 'git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 if [ -e ${USERPROFILE}/.vim ]; then
@@ -358,12 +424,11 @@ else
   git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ${USERPROFILE}/.vim/bundle/"Vundle.vim"
 fi
 
-title 'ln -sf ${CURRENT_DIR}/.vimrc ~/.vimrc'
+title "ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/.vimrc"
 sudo ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
 
-title 'ln -sf /mnt/common/.vim-snippets ~/.vim-snippets'
+title "ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets ${USERPROFILE}/.vim-snippets"
 sudo ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
-
 title 'pip install neovim'
 pip install neovim
 pip install -U neovim
@@ -374,28 +439,48 @@ section '08. i3 & i3-gaps'
 #https://blog.benjames.io/2017/09/03/installing-i3-gaps-on-ubuntu-16-04/
 
 #title 'sudo apt install -y i3'
-#sudo apt install -y i3
+#saptin "i3"
 
 title 'sudo apt install -y i3-gaps'
-sudo apt install -y i3-gaps
+saptin "i3-gaps"
 
 title 'Library'
-sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev
+saptin "
+arandr
+libxcb1-dev 
+libxcb-keysyms1-dev 
+libpango1.0-dev 
+libxcb-util0-dev 
+libxcb-icccm4-dev 
+libyajl-dev 
+libstartup-notification0-dev 
+libxcb-randr0-dev 
+libev-dev 
+libxcb-cursor-dev 
+libxcb-xinerama0-dev 
+libxcb-xkb-dev 
+libxkbcommon-dev 
+libxkbcommon-x11-dev 
+xutils-dev 
+libxcb-xrm0 
+libxcb-xrm-dev 
+libxcb-shape0-dev 
+"
 
 #--------------------------------------------------------------------------------------------------"
 section '09.  fcitx Install'
 #--------------------------------------------------------------------------------------------------"
 title 'sudo apt install -y fcitx-mozc'
-sudo apt install -y fcitx-mozc
+saptin "fcitx-mozc"
 
 title 'sudo apt install -y fcitx-tools'
-sudo apt install -y fcitx-tools
+saptin "fcitx-tools"
 
 title 'sudo apt install fcitx-module-dbus'
-sudo apt install -y fcitx-module-dbus
+saptin "fcitx-module-dbus"
 
 title 'sudo apt install -y yaru-theme-icon'
-sudo apt install -y yaru-theme-icon
+saptin "yaru-theme-icon"
 
 #https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
 #title 'sudo apt-get purge fcitx-module-dbus'
@@ -417,7 +502,7 @@ pip install ansible
 pip install -U ansible
 
 title 'curl -s https://sh.rustup.rs | bat'
-curl -s https://sh.rustup.rs | bat
+cargo install --locked bat
 
 title 'git clone https://github.com/sstephenson/bats.git /tmp/bats'
 git clone https://github.com/sstephenson/bats.git /tmp/bats
@@ -428,13 +513,14 @@ title 'cargo install broot'
 cargo install broot
 broot
 broot --help
+title "sudo ln -sf ${SRC_DIR}/broot/conf.toml ${DEST_DIR}/broot/"
 if [ -e ${DEST_DIR}/broot ]; then
-  sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/conf.toml
+  :
 else
   mkdir ${DEST_DIR}/broot
-  sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/
   cd ${CURRENT_DIR}
 fi
+sudo ln -sf ${SRC_DIR}/broot/conf.toml ${DEST_DIR}/broot/
 
 title 'git clone --depth 1 https://github.com/universal-ctags/ctags.git /tmp/ctags'
 git clone https://github.com/universal-ctags/ctags.git /tmp/ctags
@@ -479,13 +565,13 @@ title 'go get -u github.com/tadashi-aikawa/gowl'
 go get -u github.com/tadashi-aikawa/gowl
 
 title 'sudo apt install jq'
-sudo apt install -y jq
+saptin "jq"
 
 title 'sudo apt install ncdu'
-sudo apt install -y ncdu
+saptin "ncdu"
 
 title 'sudo apt install nkf'
-sudo apt install -y nkf
+saptin "nkf"
 
 title 'cargo install ripgrep'
 cargo install ripgrep
@@ -500,6 +586,7 @@ sudo make
 sudo make install
 cd ${CURRENT_DIR}
 sudo rm -rf /tmp/tig
+title "sudo ln -sf ${CURRENT_DIR}/.tigrc ${USERPROFILE}/"
 sudo ln -sf ${CURRENT_DIR}/.tigrc ${USERPROFILE}/
 
 title 'git clone https://github.com/facebook/zstd.git ~/zstd'
@@ -517,19 +604,19 @@ else
 fi
 
 title 'sudo apt install -y gnupg2'
-sudo apt install -y gnupg2
+saptin "gnupg2"
 
 title 'sudo apt install -y xclip'
-sudo apt install -y xclip
+saptin "xclip"
 
 title 'sudo apt install -y neofetch'
-sudo apt install -y neofetch
+saptin "neofetch"
 
 title 'sudo apt install -y shellcheck'
-sudo apt install -y shellcheck
+saptin "shellcheck"
 
 title 'sudo apt install -y wireless-tools'
-sudo apt install -y wireless-tools
+saptin "wireless-tools"
 
 #title 'sudo apt install -y zoxide'
 title 'curl -sS https://webinstall.dev/zoxide | bash'
