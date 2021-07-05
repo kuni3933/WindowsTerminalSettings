@@ -38,6 +38,10 @@ rustup component add `
   rustfmt
 br(1)
 
+Write_Title "cargo install rusty-rain"
+cargo install rusty-rain
+br(1)
+
 Write_Title "# cargo install exa"
 cargo install exa
 br(1)

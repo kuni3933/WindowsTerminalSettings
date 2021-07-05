@@ -1,4 +1,14 @@
-pipes-rs
+if(Test-Path $env:USERPROFILE/scoop/apps/rustup-msvc/current/.cargo/bin/rusty-rain.exe){
+  if((Get-Random 2) -eq 0){
+    pipes-rs
+  }
+  else{
+    rusty-rain -C 0,139,139 -H 255,255,255 -s
+  }
+}
+else{
+  pipes-rs
+}
 winfetch.PS1
 # fish風のオートサジェスト機能を有効に
 Set-PSReadLineOption -PredictionSource History

@@ -81,7 +81,9 @@ Write_Title "# Microsoft VisualStudio 2019 BuildTools"
 If (Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools") {
   Already_Installed_msg
   winget show --id Microsoft.VisualStudio.2019.BuildTools --source winget
-}
+  Write_Title "Visual Studio Installerから'C++ Build Tools'をダウンロードしてください."
+  Write_Title "Download the 'C++ Build Tools' from Visual Studio Installer."
+  }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools")) {
   Install_msg
   winget show --id Microsoft.VisualStudio.2019.BuildTools --source winget
