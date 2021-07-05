@@ -8,6 +8,7 @@ readonly SRC_FILES=$(
 	"$(find "${SRC_DIR}" -type f)"
 )
 readonly DEST_DIR="${HOME}/.config"
+readonly dotfile_DIR=${CURRENT_DIR}/../../
 readonly pyver="3.9.6"
 
 title(){
@@ -30,6 +31,8 @@ echo "CURRENT_DIR : ${CURRENT_DIR}"
 echo "SRC_DIR     : ${SRC_DIR}"
 echo "SRC_FILES   : ${SRC_FILES}"
 echo "DEST_DIR    : ${DEST_DIR}"
+echo ""
+echo "py_version  : ${pyver}"
 #--------------------------------------------------------------------------------------------------"
 section '01. Package Update'
 #--------------------------------------------------------------------------------------------------"
@@ -160,7 +163,7 @@ if [ -e ${USERPROFILE}/.bash_it/themes/maman ]; then
     echo "Already Installed."
 else
     # 存在しない場合
-    sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/maman.theme.bash ${USERPROFILE}/.bash_it/themes/maman/maman.theme.bash
+    sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.bashrc ~/.bashrc.org'
@@ -174,7 +177,7 @@ else
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.inputrc ~/.inputrc'
-sudo ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/.inputrc
+sudo ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/
 
 title 'sudo apt install -y fzf'
 sudo apt install -y fzf
@@ -190,7 +193,7 @@ else
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.tmux.conf ~/.tmux.conf'
-sudo ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/.tmux.conf
+sudo ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/
 
 
 #-------------------------------------------------------------------------------------------------------"
@@ -234,7 +237,7 @@ else
 fi
 
 title "pyenv install ${pyver}"
-if [ -e ${USERPROFILE}/.pyenv/${pyver} ]; then
+if [ -e ${USERPROFILE}/.pyenv/versions/${pyver} ]; then
   echo "Already Installed."
   title 'pip install -U pip'
   pip install -U pip
@@ -301,6 +304,9 @@ section '07. Editor/IDE'
 title 'sudo apt install -y vim'
 sudo apt install -y vim
 
+title 'sudo apt install -y vim-gtk'
+sudo apt install -y vim-gtk
+
 title 'git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git'
 if [ -e ${USERPROFILE}/.vim ]; then
     # 存在する場合
@@ -317,11 +323,10 @@ else
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.vimrc ~/.vimrc'
-sudo ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/.vimrc
+sudo ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
 
 title 'ln -sf /mnt/common/.vim-snippets ~/.vim-snippets'
-sudo ln -sf ${CURRENT_DIR}../../common/.vim-snippets ${USERPROFILE}/.vim-snippets
-cd ${CURRENT_DIR}
+sudo ln -s ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
 
 title 'pip install neovim'
 pip install neovim
@@ -445,7 +450,14 @@ sudo rm -rf /tmp/bats
 title 'cargo install broot'
 cargo install broot
 broot --help
-sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/conf.toml
+if [ -e ${SRC_DIR}/broot ]; then
+  sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/conf.toml
+else
+  cd ${SRC_DIR}
+  mkdir broot
+  sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/conf.toml
+  cd ${CURRENT_DIR}
+fi
 
 title 'git clone --depth 1 https://github.com/universal-ctags/ctags.git /tmp/ctags'
 git clone https://github.com/universal-ctags/ctags.git /tmp/ctags
@@ -511,7 +523,7 @@ sudo make
 sudo make install
 cd ${CURRENT_DIR}
 sudo rm -rf /tmp/tig
-sudo ln -sf ${CURRENT_DIR}/.tigrc ${USERPROFILE}/.tigrc
+sudo ln -sf ${CURRENT_DIR}/.tigrc ${USERPROFILE}/
 
 title 'git clone https://github.com/facebook/zstd.git ~/zstd'
 git clone https://github.com/facebook/zstd.git ${USERPROFILE}/zstd
