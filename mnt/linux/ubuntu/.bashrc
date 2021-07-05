@@ -27,10 +27,14 @@ source ~/.config/broot/launcher/bash/br
   . /usr/share/bash-completion/bash_completion
 
 if type cmatrix >/dev/null 2>&1; then
-  if [ $(($RANDOM % 10)) -eq 0 ]; then
+  if [ $(($RANDOM % 2)) -eq 0 ]; then
     $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
   else
-    cmatrix
+    if [ $(($RANDOM % 2)) -eq 0 ]; then
+      cmatrix -s -C green
+    else
+      cmatrix -s -C yellow
+    fi
   fi
 else
   $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
