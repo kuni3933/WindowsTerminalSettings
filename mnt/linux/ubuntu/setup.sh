@@ -8,7 +8,7 @@ readonly SRC_FILES=$(
 	"$(find "${SRC_DIR}" -type f)"
 )
 readonly DEST_DIR="${HOME}/.config"
-
+readonly pyver="3.9.6"
 
 title(){
   echo ""
@@ -24,7 +24,7 @@ section(){
   echo "-------------------------------------------------------------------------------------------"
 }
 
-
+cd ${CURRENT_DIR}
 echo "USERPROFILE : ${USERPROFILE}"
 echo "CURRENT_DIR : ${CURRENT_DIR}"
 echo "SRC_DIR     : ${SRC_DIR}"
@@ -135,7 +135,6 @@ else
   git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
   /tmp/nerd-fonts/install.sh SourceCodePro
   sudo rm -rf /tmp/nerd-fonts/
-  cd ${CURRENT_DIR}
 fi
 
 title 'sudo update-locale LANG=ja_JP.UTF-8'
@@ -171,6 +170,7 @@ if [ -e ${USERPROFILE}/.bashrc.org ]; then
 else
   sudo ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org
   echo '. ~/.bashrc.org' >> ${USERPROFILE}/.bashrc
+  section 'Restart the shell'
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.inputrc ~/.inputrc'
@@ -199,17 +199,11 @@ section '06. Language / Framework / MiddleWare'
 #--------------------------------------------------------------------------------------------------"
 section '# C-build-essential Install'
 #--------------------------------------------------------------------------------------------------"
-title 'sudo apt install -y build-essential'
-sudo apt install -y build-essential
+title 'Build Tools & Library'
+sudo apt install -y build-essential libc6 libc6-dev
 
 title 'sudo apt install -y gdb'
 sudo apt install -y gdb
-
-title 'sudo apt install -y libc6'
-sudo apt install -y libc6
-
-title 'libc6-dev'
-sudo apt install -y libc6-dev
 
 #--------------------------------------------------------------------------------------------------"
 section '# Go'
@@ -222,17 +216,8 @@ section '# Python Install'
 #--------------------------------------------------------------------------------------------------"
 # Install ansible
 # https://docs.ansible.com/ansible/latest/user_guide/windows_faq.html#can-ansible-run-on-windows
-title 'sudo apt install -y  libffi-dev'
-sudo apt install -y  libffi-dev
-
-title 'sudo apt install -y  libssl-dev'
-sudo apt install -y  libssl-dev
-
-title 'sudo apt install -y libbz2-dev'
-sudo apt install -y libbz2-dev
-
-title 'sudo apt install -y libdb-dev'
-sudo apt install -y libdb-dev
+title 'Build Tools & Library'
+sudo apt install -y build-essential libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-dev liblzma-dev libncursesw5-dev libsqlite3-dev libssl-dev zlib1g-dev uuid-dev tk-dev
 
 title 'sudo apt install -y python3-distutils'
 sudo apt install -y python3-distutils
@@ -243,24 +228,22 @@ sudo apt install -y python3-venv
 title 'git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv'
 if [ -e ${USERPROFILE}/.pyenv ]; then
     # 存在する場合
-    sudo rm -rf ${USERPROFILE}/.pyenv
+    pyenv update
+else
+  git clone --depth 1 https://github.com/pyenv/pyenv.git ${USERPROFILE}/.pyenv
 fi
-if [ -e /usr/bin/python3 ]; then
-  # 存在する場合
-     sudo apt remove -y python3
+
+title "pyenv install ${pyver}"
+if [ -e ${USERPROFILE}/.pyenv/${pyver} ]; then
+  echo "Already Installed."
+  title 'pip install -U pip'
+  pip install -U pip
+else
+  pyenv install ${pyver}
+  pyenv global ${pyver}
 fi
-title 'git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv'
-git clone --depth 1 https://github.com/pyenv/pyenv.git ${USERPROFILE}/.pyenv
-sudo ln -sf /usr/bin/python3 /usr/bin/python
-
-title 'pyenv install 3.9.5'
-pyenv install 3.9.5
-
 title 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -'
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
-
-title 'pip install -U pip'
-pip install -U pip
 
 #--------------------------------------------------------------------------------------------------"
 section '# rust'
