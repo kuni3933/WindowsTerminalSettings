@@ -11,6 +11,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 call plug#end()
 " ---------------------------------------------------
+"  owl-playbook
+" ---------------------------------------------------
 "
 " vimとの互換性を外す
 set nocompatible

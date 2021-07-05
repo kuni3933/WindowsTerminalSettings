@@ -266,8 +266,14 @@ rustup self update
 title 'rustup update'
 rustup update
 
+title 'cargo install cargo-update'
+cargo install cargo-update
+
 title 'rustup component add'
 rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
+
+title 'cargo install-update --all'
+cargo install-update -a
 
 #--------------------------------------------------------------------------------------------------"
 section '# volta/npm Install'
@@ -559,8 +565,8 @@ title 'curl -sS https://webinstall.dev/zoxide | bash'
 #sudo apt install -y zoxide
 curl -sS https://webinstall.dev/zoxide | bash
 
-title 'cargo install onefetch --force'
-cargo install onefetch --force
+title 'cargo install onefetch'
+cargo install onefetch
 
 #--------------------------------------------------------------------------------------------------"
 section '11. Package autoremove'
