@@ -145,7 +145,8 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 1. Ubuntuで以下のコマンドを実行<br>
    <code>cd ~</code><br>
    <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
-   <code>sh WindowsTer</code>
+   <code>sh WindowsTerminalSettings/mnt/linux/ubuntu/setup.sh</code><br>
+          Finisheの表示が出るまで何回か実行<br>
    <code>im-config -n fcitx</code><br>
 4. pcを再起動した後に以下のコマンド<br>
    <code>fcitx-autostart</code><br>
@@ -158,18 +159,17 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
    </ul>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-12. WindowserminalSettings/mnt/linux/ubuntu/setup.shを実行<br>
-13. pyenv initの設定（必要なら）<br>
-14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-16. ".bashrc"を修正<br>
+7. pyenv initの設定（必要なら）<br>
+8. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+9. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+10. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
     <code> . ~/.bashrc.org</code><br>
     のみが記述されている状態にする<br>
-17. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+11. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-18. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-19. gpg/sshの情報を.gitconfigに設定<br>
+12. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+13. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 
