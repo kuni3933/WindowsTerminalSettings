@@ -176,7 +176,7 @@ title 'git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git'
 if [ -e ${USERPROFILE}/.local/share/fonts/NerdFonts/"Sauce Code Pro Nerd Font Complete.ttf" ]; then
   echo "Already installed."
 else
-  git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
+  sudo git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
   /tmp/nerd-fonts/install.sh SourceCodePro
   sudo rm -rf /tmp/nerd-fonts/
 fi
@@ -198,13 +198,7 @@ else
 fi
 
 title "ln -sf ${CURRENT_DIR}/.bash_it/themes/maman ${USERPROFILE}/.bash_it/themes/"
-if [ -e ${USERPROFILE}/.bash_it/themes/maman ]; then
-  # 存在する場合
-  echo "Already Installed."
-else
-  # 存在しない場合
-  sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
-fi
+sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
 
 title "ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org"
 if [ -e ${USERPROFILE}/.bashrc.org ]; then
@@ -216,6 +210,9 @@ else
   section 'Restart the shell'
   exit
 fi
+
+title 'sudo apt install cmatrix'
+saptin "cmatrix"
 
 title "ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/.inputrc"
 sudo ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/
@@ -235,6 +232,9 @@ fi
 
 title "ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/.tmux.conf"
 sudo ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/
+
+title 'git clone https://github.com/scop/bash-completion.git /usr/share/bash-completion'
+sudo git clone https://github.com/scop/bash-completion.git /usr/share/bash-completion
 
 title 'cargo install alacritty'
 cargo install alacritty
@@ -257,6 +257,8 @@ saptin "
 build-essential 
 gdb 
 binutils 
+bc 
+bison 
 pkg-config 
 libc6 
 libc6-dev 
@@ -270,7 +272,8 @@ libyaml-dev
 "
 
 title 'Clang Build Tools & Library'
-saptin "clang 
+saptin "
+clang 
 llvm 
 libclang-dev 
 libboost-all-dev 
@@ -505,7 +508,7 @@ title 'curl -s https://sh.rustup.rs | bat'
 cargo install --locked bat
 
 title 'git clone https://github.com/sstephenson/bats.git /tmp/bats'
-git clone https://github.com/sstephenson/bats.git /tmp/bats
+sudo git clone https://github.com/sstephenson/bats.git /tmp/bats
 sudo /tmp/bats/install.sh /usr/local
 sudo rm -rf /tmp/bats
 
@@ -523,7 +526,7 @@ fi
 sudo ln -sf ${SRC_DIR}/broot/conf.toml ${DEST_DIR}/broot/
 
 title 'git clone --depth 1 https://github.com/universal-ctags/ctags.git /tmp/ctags'
-git clone https://github.com/universal-ctags/ctags.git /tmp/ctags
+sudo git clone https://github.com/universal-ctags/ctags.git /tmp/ctags
 cd /tmp/ctags
 sudo ./autogen.sh && ./configure --prefix=/usr/local && make && make install
 cd ${CURRENT_DIR}
@@ -580,7 +583,7 @@ title 'GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt'
 GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 
 title 'git clone https://github.com/jonas/tig.git /tmp/tig'
-git clone https://github.com/jonas/tig.git /tmp/tig
+sudo git clone https://github.com/jonas/tig.git /tmp/tig
 cd /tmp/tig
 sudo make
 sudo make install
@@ -625,6 +628,9 @@ curl -sS https://webinstall.dev/zoxide | bash
 
 title 'cargo install onefetch'
 cargo install onefetch
+
+title 'sudo apt install ccze'
+saptin "ccze"
 
 #--------------------------------------------------------------------------------------------------"
 section '11. Package autoremove'

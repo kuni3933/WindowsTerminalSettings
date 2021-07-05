@@ -22,9 +22,20 @@ set clipboard=unnamedplus
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source ~/.config/broot/launcher/bash/br
 
-$HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] &&
+  . /usr/share/bash-completion/bash_completion
+
+if type cmatrix >/dev/null 2>&1; then
+  if [ $(($RANDOM % 10)) -eq 0 ]; then
+    $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
+  else
+    cmatrix
+  fi
+else
+  $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
+fi
 neofetch
-#sudo /etc/init.d/dbus start
 
 #gh
 eval "$(gh completion -s bash)"
