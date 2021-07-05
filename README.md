@@ -146,30 +146,31 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
    <code>cd ~</code><br>
    <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
    <code>sh WindowsTerminalSettings/mnt/linux/ubuntu/setup.sh</code><br>
-          Finisheの表示が出るまで何回か実行<br>
+          Finishedの表示が出るまで何回か実行<br>
+2. Ubuntuで以下のコマンドを実行<br>
    <code>im-config -n fcitx</code><br>
-4. pcを再起動した後に以下のコマンド<br>
+3. pcを再起動した後に以下のコマンド<br>
    <code>fcitx-autostart</code><br>
    エラーが出ても、エンターを押す.<br>
-5. <code>fcitx-configtool</code><br>
-6. 以下のように設定してウィンドウを閉じる<br>
+4. <code>fcitx-configtool</code><br>
+5. 以下のように設定してウィンドウを閉じる<br>
    <ul>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/a371c322.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
    </ul>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-7. pyenv initの設定（必要なら）<br>
-8. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-9. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-10. ".bashrc"を修正<br>
+6. pyenv initの設定（必要なら）<br>
+7. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+8. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+9. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
     <code> . ~/.bashrc.org</code><br>
     のみが記述されている状態にする<br>
-11. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+10. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-12. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-13. gpg/sshの情報を.gitconfigに設定<br>
+11. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+12. gpg/sshの情報を.gitconfigに設定<br>
 
 ## 以下参考
 
