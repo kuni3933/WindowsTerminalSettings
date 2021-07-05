@@ -23,7 +23,7 @@ set clipboard=unnamedplus
 source ~/.config/broot/launcher/bash/br
 
 $HOME/WindowsTerminalSettings/pipes.sh/pipes.sh
-neofetch 
+neofetch
 #sudo /etc/init.d/dbus start
 
 #gh
@@ -38,17 +38,17 @@ fi
 #ssh-agent
 SSH_AGENT_FILE=$HOME/.ssh-agent
 test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
-if ! ssh-add -l > /dev/null 2>&1; then
-    ssh-agent > $SSH_AGENT_FILE
-    source $SSH_AGENT_FILE
-    ssh-add $HOME/.ssh/id_ed25519
+if ! ssh-add -l >/dev/null 2>&1; then
+  ssh-agent >$SSH_AGENT_FILE
+  source $SSH_AGENT_FILE
+  ssh-add $HOME/.ssh/id_ed25519
 fi
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #bash_it
 # If not running interactively, don't do anything
 case $- in
-  *i*) ;;
-    *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # Path to the bash it configuration
@@ -127,8 +127,8 @@ source "$BASH_IT"/bash_it.sh
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -155,12 +155,12 @@ shopt -s checkwinsize
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+  debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -169,41 +169,41 @@ esac
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+  else
+    color_prompt=
+  fi
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+xterm* | rxvt*)
+  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
+*) ;;
+
 esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -224,7 +224,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 #if [ -f ~/.bash_aliases ]; then
-    #. ~/.bash_aliases
+#. ~/.bash_aliases
 #fi
 
 # enable programmable completion features (you don't need to enable
@@ -257,8 +257,8 @@ export DISPLAY=$LOCAL_IP:0
 stty stop undef
 
 # z
-. /usr/bin/z
-
+#. /usr/bin/z
+. /usr/bin/z/z.sh
 # [fzf] 設定
 export FZF_DEFAULT_OPTS="--reverse --border --height 50%"
 # デフォルトコマンドfd
@@ -284,7 +284,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 #-------WindowsTerminalSettings-------
-alias batr='bat $(fd -H | fzf)'      #
+alias batr='bat $(fd -H | fzf)' #
 #-------------------------------------
 
 alias cdr='cd $(fd -H -t d | fzf)'
@@ -309,12 +309,8 @@ alias gbm='git merge --no-ff $(git branch -l | grep -vE "^\*" | tr -d " " | fzf)
 alias gs='git status --short'
 alias gss='git status -v'
 
-#alias ll='exa -l --icons --git'
-#alias tree='exa -lT --icons --git'
-#-------WindowsTerminalSettings-------
-alias ll='exa -al --icons --git'     #
-alias tree='exa -alT --icons --git'  #
-#-------------------------------------
+alias ll='exa -l --icons --git'
+alias tree='exa -lT --icons --git'
 
 alias pj='pipenv run python jumeaux/executor.py'
 
@@ -322,7 +318,6 @@ alias vimn='vim -u NONE -N'
 alias vimr='vim $(fd -H | fzf)'
 alias vimz='vim $(grep "^>" ~/.viminfo | cut -c 3- | sed "s@~@$HOME@" | fzf)'
 
-
 # pyenv
-#eval "$(pyenv init -)"
+eval "$(pyenv init -)"
 #------------------------------------------------------------------------------------------------------------------------------------------------

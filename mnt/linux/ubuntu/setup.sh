@@ -1,38 +1,53 @@
 #!/bin/bash
 #set -eu
-#https://ytyaru.hatenablog.com/entry/2020/02/03/111111
-readonly USERPROFILE=${HOME}
-readonly CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE:-0}")"; pwd)"
-readonly SRC_DIR="${CURRENT_DIR}/.config"
-readonly SRC_FILES=$(
-	"$(find "${SRC_DIR}" -type f)"
-)
-readonly DEST_DIR="${HOME}/.config"
-readonly dotfile_DIR=${CURRENT_DIR}/../../
-readonly pyver="3.9.6"
-
-title(){
+title() {
   echo ""
   echo "------------------------------------------------------------------"
   echo "# $1"
   echo "------------------------------------------------------------------"
 }
-section(){
+section() {
+  echo ""
   echo ""
   echo ""
   echo "-------------------------------------------------------------------------------------------"
   echo "     $1"
   echo "-------------------------------------------------------------------------------------------"
 }
+# -------------------------------------------------------------------------------------------------
+#https://ytyaru.hatenablog.com/entry/2020/02/03/111111
+readonly USERPROFILE=${HOME}
+readonly CURRENT_DIR="$(
+  cd "$(dirname "${BASH_SOURCE:-0}")"
+  pwd
+)"
+readonly SRC_DIR="${CURRENT_DIR}/.config"
+readonly SRC_FILES=$(
+  "$(find "${SRC_DIR}" -type f)"
+)
+readonly DEST_DIR="${HOME}/.config"
+readonly dotfile_DIR=$(cd ${CURRENT_DIR} && cd ../../../ && pwd)
+readonly Go_VER="1.16.5"
+readonly Py_VER="3.9.6"
+# -------------------------------------------------------------------------------------------------
 
+if [ -e ${USERPROFILE}/.config ]; then
+  :
+else
+  cd ${USERPROFILE}
+  mkdir .config
+  cd ${CURRENT_DIR}
+fi
 cd ${CURRENT_DIR}
 echo "USERPROFILE : ${USERPROFILE}"
+echo "dotfile_DIR : ${dotfile_DIR}"
 echo "CURRENT_DIR : ${CURRENT_DIR}"
 echo "SRC_DIR     : ${SRC_DIR}"
 echo "SRC_FILES   : ${SRC_FILES}"
 echo "DEST_DIR    : ${DEST_DIR}"
-echo ""
-echo "py_version  : ${pyver}"
+echo "Go_VERSION  : ${Go_VER}"
+echo "Py_VERSION  : ${Py_VER}"
+
 #--------------------------------------------------------------------------------------------------"
 section '01. Package Update'
 #--------------------------------------------------------------------------------------------------"
@@ -56,7 +71,6 @@ title 'sudo apt-get autoremove -y && sudo apt-get autoclean -y'
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 
-
 #--------------------------------------------------------------------------------------------------"
 section '02. Core Setup'
 #--------------------------------------------------------------------------------------------------"
@@ -74,6 +88,12 @@ sudo apt install -y wget
 
 title 'sudo apt install -y make'
 sudo apt install -y make
+
+title 'sudo apt install -y autoconf'
+sudo apt install -y autoconf
+
+title 'sudo apt install -y automake'
+sudo apt install -y automake
 
 title 'sudo apt install -y ntp'
 sudo apt install -y ntp
@@ -94,7 +114,6 @@ title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
 volta setup
 
-
 #--------------------------------------------------------------------------------------------------"
 section '03. PPA Setup'
 #--------------------------------------------------------------------------------------------------"
@@ -104,14 +123,13 @@ sudo add-apt-repository -y ppa:regolith-linux/unstable
 
 title 'sudo add-apt-repository -y github/gh'
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
 
 title 'sudo apt update -y && sudo apt upgrade -y'
 sudo apt update -y && sudo apt upgrade -y
 
 title 'sudo apt-get update -y && sudo apt-get upgrade -y'
 sudo apt-get update -y && sudo apt-get upgrade -y
-
 
 #--------------------------------------------------------------------------------------------------"
 section '04. Font Install'
@@ -123,7 +141,7 @@ title 'sudo apt install -y manpages-ja'
 sudo apt install -y manpages-ja
 
 title 'sudo apt install -y  manpages-ja-dev'
-sudo apt install -y  manpages-ja-dev
+sudo apt install -y manpages-ja-dev
 
 title 'sudo apt install fonts-noto-color-emoji'
 sudo apt install -y fonts-noto-color-emoji
@@ -132,7 +150,7 @@ title 'sudo apt install fonts-symbola'
 sudo apt install -y fonts-symbola
 
 title 'git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git'
-if [ -e /usr/share/fonts/truetype/source-code-pro-ttf ]; then
+if [ -e ${USERPROFILE}/.local/share/fonts/NerdFonts/"Sauce Code Pro Nerd Font Complete.ttf" ]; then
   echo "Already installed."
 else
   git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
@@ -143,27 +161,26 @@ fi
 title 'sudo update-locale LANG=ja_JP.UTF-8'
 sudo update-locale LANG=ja_JP.UTF-8
 
-
 #--------------------------------------------------------------------------------------------------"
 section '05. Terminal Setup'
 #--------------------------------------------------------------------------------------------------"
-title 'git clone https://github.com/Bash-it/bash-it.git'
+title 'git clone https://github.com/Bash-it/bash-it.git ~/.bash_it'
 if [ -e ${USERPROFILE}/.bash_it ]; then
-    # 存在する場合
-    echo 'Already Installed.'
+  # 存在する場合
+  echo 'Already Installed.'
 else
-    # 存在しない場合
-    git clone https://github.com/Bash-it/bash-it.git ${USERPROFILE}/.bash-it
-    ${USERPROFILE}/.bash_it/install.sh
+  # 存在しない場合
+  git clone https://github.com/Bash-it/bash-it.git ${USERPROFILE}/.bash_it
+  ${USERPROFILE}/.bash_it/install.sh
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.bash_it/themes/maman'
 if [ -e ${USERPROFILE}/.bash_it/themes/maman ]; then
-    # 存在する場合
-    echo "Already Installed."
+  # 存在する場合
+  echo "Already Installed."
 else
-    # 存在しない場合
-    sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
+  # 存在しない場合
+  sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.bashrc ~/.bashrc.org'
@@ -172,8 +189,9 @@ if [ -e ${USERPROFILE}/.bashrc.org ]; then
   echo "Already Installed."
 else
   sudo ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org
-  echo '. ~/.bashrc.org' >> ${USERPROFILE}/.bashrc
+  echo '. ~/.bashrc.org' >>${USERPROFILE}/.bashrc
   section 'Restart the shell'
+  exit
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.inputrc ~/.inputrc'
@@ -195,24 +213,29 @@ fi
 title 'ln -sf ${CURRENT_DIR}/.tmux.conf ~/.tmux.conf'
 sudo ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/
 
-
 #-------------------------------------------------------------------------------------------------------"
 section '06. Language / Framework / MiddleWare'
 #-------------------------------------------------------------------------------------------------------"
 #--------------------------------------------------------------------------------------------------"
 section '# C-build-essential Install'
 #--------------------------------------------------------------------------------------------------"
-title 'Build Tools & Library'
-sudo apt install -y build-essential libc6 libc6-dev
+title 'gcc Build Tools & Library'
+sudo apt install -y build-essential gdb libc6 libc6-dev
 
-title 'sudo apt install -y gdb'
-sudo apt install -y gdb
+title 'Clang Build Tools & Library'
+sudo apt install -y clang llvm libclang-dev libboost-all-dev clang-format cmake
 
 #--------------------------------------------------------------------------------------------------"
 section '# Go'
 #--------------------------------------------------------------------------------------------------"
-title 'sudo ./mnt/linux/ubuntu/update-golang/update-golang.sh'
-#sudo ${CURRENT_DIR}/update-golang/update-golang.sh
+title 'sudo rm -rf /usr/local/go'
+sudo rm -rf /usr/local/go
+
+title "sudo wget -O /tmp/go${Go_VER}.linux-amd64.tar.gz https://dl.google.com/go/go${Go_VER}.linux-amd64.tar.gz"
+sudo wget -O /tmp/go${Go_VER}.linux-amd64.tar.gz https://dl.google.com/go/go${Go_VER}.linux-amd64.tar.gz
+
+title "sudo tar -C /usr/local -xzf /tmp/go${Go_VER}.linux-amd64.tar.gz"
+sudo tar -C /usr/local -xzf /tmp/go${Go_VER}.linux-amd64.tar.gz
 
 #--------------------------------------------------------------------------------------------------"
 section '# Python Install'
@@ -230,20 +253,20 @@ sudo apt install -y python3-venv
 
 title 'git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv'
 if [ -e ${USERPROFILE}/.pyenv ]; then
-    # 存在する場合
-    pyenv update
+  # 存在する場合
+  pyenv update
 else
   git clone --depth 1 https://github.com/pyenv/pyenv.git ${USERPROFILE}/.pyenv
 fi
 
-title "pyenv install ${pyver}"
-if [ -e ${USERPROFILE}/.pyenv/versions/${pyver} ]; then
+title "pyenv install ${Py_VER}"
+if [ -e ${USERPROFILE}/.pyenv/versions/${Py_VER} ]; then
   echo "Already Installed."
   title 'pip install -U pip'
   pip install -U pip
 else
-  pyenv install ${pyver}
-  pyenv global ${pyver}
+  pyenv install ${Py_VER}
+  pyenv global ${Py_VER}
 fi
 title 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -'
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
@@ -303,7 +326,6 @@ npm update *
 title 'volta list all'
 volta list all
 
-
 #--------------------------------------------------------------------------------------------------"
 section '07. Editor/IDE'
 #--------------------------------------------------------------------------------------------------"
@@ -313,26 +335,34 @@ sudo apt install -y vim
 title 'sudo apt install -y vim-gtk'
 sudo apt install -y vim-gtk
 
-title 'git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git'
+title 'git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 if [ -e ${USERPROFILE}/.vim ]; then
-    # 存在する場合
-    if [ -e ${USERPROFILE}/.vim/Vundle.vim ]; then
-      echo "Already Installed."↲
+  # 存在する場合
+  if [ -e ${USERPROFILE}/.vim/bundle ]; then
+    if [ -e ${USERPROFILE}/.vim/bundle/Vundle.vim ]; then
+      echo "Already Installed."
     else
-      git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git
+      git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ${USERPROFILE}/.vim/bundle/"Vundle.vim"
     fi
+  else
+    cd ${USERPROFILE}/.vim
+    mkdir bundle
+    git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ${USERPROFILE}/.vim/bundle/"Vundle.vim"
+  fi
 else
-    # 存在しない場合
-    cd ${USERPROFILE}/
-    mkdir .vim
-    git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git
+  # 存在しない場合
+  cd ${USERPROFILE}
+  mkdir .vim
+  cd .vim
+  mkdir bundle
+  git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ${USERPROFILE}/.vim/bundle/"Vundle.vim"
 fi
 
 title 'ln -sf ${CURRENT_DIR}/.vimrc ~/.vimrc'
 sudo ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
 
 title 'ln -sf /mnt/common/.vim-snippets ~/.vim-snippets'
-sudo ln -s ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
+sudo ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
 
 title 'pip install neovim'
 pip install neovim
@@ -349,66 +379,8 @@ section '08. i3 & i3-gaps'
 title 'sudo apt install -y i3-gaps'
 sudo apt install -y i3-gaps
 
-title 'sudo apt install -y libxcb1-dev'
-sudo apt install -y libxcb1-dev
-
-title 'sudo apt install -y libxcb-keysyms1-dev'
-sudo apt install -y libxcb-keysyms1-dev
-
-title 'sudo apt install -y libpango1.0-dev'
-sudo apt install -y libpango1.0-dev
-
-title 'sudo apt install -y libxcb-util0-dev'
-sudo apt install -y libxcb-util0-dev
-
-title 'sudo apt install -y libxcb-icccm4-dev '
-sudo apt install -y libxcb-icccm4-dev
-
-title 'sudo apt install -y libyajl-dev'
-sudo apt install -y libyajl-dev
- 
-title 'sudo apt install -y libstartup-notification0-dev'
-sudo apt install -y libstartup-notification0-dev
-
-title 'sudo apt install -y libxcb-randr0-dev'
-sudo apt install -y libxcb-randr0-dev
-
-title 'sudo apt install -y libev-dev'
-sudo apt install -y libev-dev
-
-title 'sudo apt install -y libxcb-cursor-dev'
-sudo apt install -y libxcb-cursor-dev
-
-title 'sudo apt install -y libxcb-xinerama0-dev'
-sudo apt install -y libxcb-xinerama0-dev
-
-title 'sudo apt install -y libxcb-xkb-dev'
-sudo apt install -y libxcb-xkb-dev
-
-title 'sudo apt install -y libxkbcommon-dev'
-sudo apt install -y libxkbcommon-dev
-
-title 'sudo apt install -y libxkbcommon-x11-dev'
-sudo apt install -y libxkbcommon-x11-dev
-
-title 'sudo apt install -y xutils-dev'
-sudo apt install -y xutils-dev
-
-title 'sudo apt install -y autoconf'
-sudo apt install -y autoconf
-
-title 'sudo apt install -y libxcb-xrm0'
-sudo apt install -y libxcb-xrm0
-
-title 'sudo apt install -y libxcb-xrm-dev'
-sudo apt install -y libxcb-xrm-dev
-
-title 'sudo apt install -y automake'
-sudo apt install -y automake
-
-title 'sudo apt install -y libxcb-shape0-dev'
-sudo apt install -y libxcb-shape0-dev
-
+title 'Library'
+sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev
 
 #--------------------------------------------------------------------------------------------------"
 section '09.  fcitx Install'
@@ -419,7 +391,7 @@ sudo apt install -y fcitx-mozc
 title 'sudo apt install -y fcitx-tools'
 sudo apt install -y fcitx-tools
 
-title  'sudo apt install fcitx-module-dbus'
+title 'sudo apt install fcitx-module-dbus'
 sudo apt install -y fcitx-module-dbus
 
 title 'sudo apt install -y yaru-theme-icon'
@@ -428,7 +400,6 @@ sudo apt install -y yaru-theme-icon
 #https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
 #title 'sudo apt-get purge fcitx-module-dbus'
 #sudo apt-get purge fcitx-module-dbus
-
 
 #--------------------------------------------------------------------------------------------------"
 section '10. CLI tool Install'
@@ -445,8 +416,8 @@ title 'pip install ansible'
 pip install ansible
 pip install -U ansible
 
-title 'cargo install --locked bat'
-cargo install --locked bat
+title 'curl -s https://sh.rustup.rs | bat'
+curl -s https://sh.rustup.rs | bat
 
 title 'git clone https://github.com/sstephenson/bats.git /tmp/bats'
 git clone https://github.com/sstephenson/bats.git /tmp/bats
@@ -455,20 +426,20 @@ sudo rm -rf /tmp/bats
 
 title 'cargo install broot'
 cargo install broot
+broot
 broot --help
-if [ -e ${SRC_DIR}/broot ]; then
+if [ -e ${DEST_DIR}/broot ]; then
   sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/conf.toml
 else
-  cd ${SRC_DIR}
-  mkdir broot
-  sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/conf.toml
+  mkdir ${DEST_DIR}/broot
+  sudo ln -sf ${CURRENT_DIR}/.config/broot/conf.toml ${USERPROFILE}/.config/broot/
   cd ${CURRENT_DIR}
 fi
 
 title 'git clone --depth 1 https://github.com/universal-ctags/ctags.git /tmp/ctags'
 git clone https://github.com/universal-ctags/ctags.git /tmp/ctags
 cd /tmp/ctags
-sudo ./autogen.sh && ./configure --prefix=/usr/local && sudo make && sudo make install
+sudo ./autogen.sh && ./configure --prefix=/usr/local && make && make install
 cd ${CURRENT_DIR}
 sudo rm -rf /tmp/ctags
 
@@ -538,12 +509,12 @@ sudo make install
 cd ${USERPROFILE}/zstd/contrib/pzstd
 sudo make install
 
-title 'git clone git@github.com:rupa/z.git ~/z'
-git clone git@github.com:rupa/z.git ${USERPROFILE}/z
-cd ${USERPROFILE}/z
-sudo make
-cd ${CURRENT_DIR}
-sudo rm -rf ${USERPROFILE}/z
+title 'git clone git@github.com:rupa/z.git /usr/bin/z'
+if [ -e /usr/bin/z ]; then
+  echo 'Already installed.'
+else
+  sudo git clone https://github.com/rupa/z.git /usr/bin/z
+fi
 
 title 'sudo apt install -y gnupg2'
 sudo apt install -y gnupg2
@@ -578,7 +549,6 @@ sudo apt autoclean -y
 title 'sudo apt-get autoremove -y && sudo apt-get autoclean -y'
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
-
 
 #--------------------------------------------------------------------------------------------------"
 title 'upgrade.sh is Finished.'

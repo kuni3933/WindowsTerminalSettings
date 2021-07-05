@@ -144,7 +144,8 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 1. Ubuntuで以下のコマンドを実行<br>
    <code>cd ~</code><br>
-   <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code></code>
+   <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
+   <code>sh WindowsTer</code>
    <code>im-config -n fcitx</code><br>
 4. pcを再起動した後に以下のコマンド<br>
    <code>fcitx-autostart</code><br>
