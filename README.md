@@ -145,10 +145,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 1. Ubuntuで以下のコマンドを実行<br>
    <code>cd ~</code><br>
    <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code></code>
-2. <code>git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git</code><br>
-   <code>~/nerd-fonts/install.sh</code><br>
-   <code>rm -rf nerd-fonts/</code><br>
-3. <code>im-config -n fcitx</code><br>
+   <code>im-config -n fcitx</code><br>
 4. pcを再起動した後に以下のコマンド<br>
    <code>fcitx-autostart</code><br>
    エラーが出ても、エンターを押す.<br>
@@ -159,19 +156,8 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
    </ul>
-
-7. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git</code><br>
-   <code>~/.bash_it/install.sh</code><br>
-   y/nの問いが出てくるのでyを選択<br>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-8. <code>cd ~/WindowsTerminalSettings/linux/ansible</code><br>
-9. <code>mkdir .secret</code><br>
-10. <code>vim .secret/local.yaml</code><br>
-    <code>ansible_become_pass: your_password</code><br>
-    ypur_passwordにlinuxユーザーのパスを入力して保存<br>
-    <a href="https://github.com/tadashi-aikawa/owl-playbook">本家-tadashi-aikawa/owl-playbook</a>を参考<br>
-11. <code>make wsl</code><br>
-12. WindowserminalSettings/linux/upgrade.shを実行<br>
+12. WindowserminalSettings/mnt/linux/ubuntu/setup.shを実行<br>
 13. pyenv initの設定（必要なら）<br>
 14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
 15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>

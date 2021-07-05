@@ -212,7 +212,7 @@ sudo apt install -y gdb
 section '# Go'
 #--------------------------------------------------------------------------------------------------"
 title 'sudo ./mnt/linux/ubuntu/update-golang/update-golang.sh'
-sudo ${CURRENT_DIR}/update-golang/update-golang.sh
+#sudo ${CURRENT_DIR}/update-golang/update-golang.sh
 
 #--------------------------------------------------------------------------------------------------"
 section '# Python Install'
