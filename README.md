@@ -77,17 +77,11 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 2. 以下の項目は手動アップデート/手動マージ
 
     <ul>
-      <li>linux/ansible/roles/link/vscode/tasks/main.yml</li>
-      <li>linux/ansible/wsl-ubuntu.yml</li>
-      <li>linux/upgrade.sh</li>
-    </ul>
-    <br>
-    <ul>
       <li>mnt/common/settings.json</li>
       <li>mnt/common/VSCode/User/settings.json(運用上不要)</li>
       <li>mnt/linux/ubuntu/.bashrc</li>
-      <li>mnt/linux/ubuntu/.bash_logout</li>
       <li>mnt/linux/ubuntu/.vimrc</li>
+      <li>mnt/linux/ubuntu/setup.sh</li>
       <li>mnt/windows/pipes-rs</li>
       <li>mnt/windows/power-shell</li>
       <li>mnt/windows/terminal</li>
@@ -99,6 +93,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <ul>
       <li>windows/PSGallery</li>
       <li>windows/cargo</li>
+      <li>windows/go</li>
       <li>windows/volta-npm</li>
       <li>windows/scoop</li>
       <li>windows/winget</li>
@@ -164,7 +159,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
    </ul>
-  
+
 7. <code>git clone --depth 1 https://github.com/Bash-it/bash-it.git</code><br>
    <code>~/.bash_it/install.sh</code><br>
    y/nの問いが出てくるのでyを選択<br>
