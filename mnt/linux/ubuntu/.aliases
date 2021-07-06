@@ -1,0 +1,153 @@
+# Basic commands
+alias c='clear'
+alias cls='clear'
+alias mkd='mkdir -pv'
+mkcd() { mkdir -p "$1" && cd "$1"; }
+newfile() { mkdir -p "$(dirname "$1")" && touch "$1"; }
+
+# Python
+alias py3='python3'
+alias ipy='ipython'
+
+# Setting files
+alias rebash='source ~/.bashrc'
+alias bashrc='$EDITOR ~/.bashrc'
+alias profile='$EDITOR ~/.profile'
+alias reprofile='source ~/.profile' 
+alias vimrc='$EDITOR ~/.vimrc'
+alias path='echo $PATH | tr ":" "\n"'
+
+# Vim
+if command -v nvim &>/dev/null
+then
+    alias vim='nvim'
+    alias gvim='nvim-qt'
+fi
+
+alias v="$EDITOR"
+
+# Vim as filter command
+# http://auewe.hatenablog.com/entry/2016/12/03/001000
+vipe () {
+  COMMAND=$(echo "$*")
+  # コロン':'でESC入力を代替する場合はコメントを外す。^[はCtrl+vしてESC押して入力
+  # COMMAND=$(echo "$*" |sed -e 's/:/^[/g')
+  vim - -es +":norm gg" +":norm $COMMAND" +:%p +:q! | sed '1d'
+}
+
+# manpager wrapper with color
+man() {
+    LESS_TERMCAP_md=$'\e[01;34m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;30m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;35m' \
+    command man "$@"
+}
+
+# Git
+alias g='git'
+alias ga='git add'
+alias gl='git log --decorate --oneline'
+alias glg='git log --decorate --oneline --graph'
+alias gcom='git commit'
+alias gdf='git diff'
+clone() {
+    git clone https://github.com/"$1"/"$2".git
+}
+
+# W3m
+if command -v w3m &>/dev/null
+then
+    alias w3mg='w3m www.google.com'
+    alias w3md='w3m www.duckduckgo.com'
+fi
+
+# Ranger (TUI file manager)
+if command -v ranger &>/dev/null
+then
+    alias r='ranger'
+fi
+
+# archive extractor
+extract()
+{
+    if [ -f $1 ]; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1   ;;
+            *.tar.gz)    tar xzf $1   ;;
+            *.bz2)       bunzip2 $1   ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1    ;;
+            *.tar)       tar xf $1    ;;
+            *.tbz2)      tar xjf $1   ;;
+            *.tgz)       tar xzf $1   ;;
+            *.zip)       unzip $1     ;;
+            *.Z)         uncompress $1;;
+            *.7z)        7z x $1      ;;
+            *)           echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+
+# translate-shell (trans)
+if command -v trans &>/dev/null
+then
+    alias en2ja='trans en:ja -brief -shell -e google'
+    alias ja2en='trans ja:en -brief -shell -e google'
+    alias eiwa='trans en:ja -dictionary -e google'
+    alias waei='trans ja:en -dictionary -e google'
+fi
+
+# bat - cat with syntax highlight
+if command -v bat &>/dev/null
+then
+    alias rebat='bat cache --build'
+    alias cat='bat --wrap auto'
+fi
+
+# exa - ls alternative
+if command -v exa &>/dev/null
+then
+    alias l='exa --all --icons --classify'
+    alias la='exa --all --icons --classify'
+    alias ls='exa --icons'
+    alias ll='exa --long --all --git --icons'
+    alias lt='exa --long --all --git --icons --tree'
+else
+    alias l='ls -hF --color=auto'
+    alias ls='ls -hF --color=auto'
+    alias la='ls -ahF --color=auto'
+    alias ll='ls -alhF --color=auto'
+fi
+#alias l='exa --classify'
+#alias la='exa --all --classify'
+#alias ll='exa --long --all --git --classify'
+#alias lt='exa --long --all --git --tree --classify'
+
+# gomi - cli trash
+command -v gomi &>/dev/null && alias rm='gomi'
+
+# xdg-open
+alias open='xdg-open'
+
+# pacman
+if command -v pacman &>/dev/null && command -v fzf &>/dev/null
+then
+    # Show package info with preview
+    pacpreview() {
+        pacman -Qq | fzf --preview 'pacman -Qil {}' \
+            --layout=reverse \
+            --bind 'enter:execute(pacman -Qil {} | less)'
+    }
+
+    # Show installed size
+    pacshowdisc() {
+        LANG=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h | fzf
+    }
+fi
+

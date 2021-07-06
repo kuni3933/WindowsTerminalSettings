@@ -1,7 +1,10 @@
-linux/ansible/.secret/
 package-lock.json
 package.json
 test.bat
 test.ps1
 test.sh
 
+#mnt/linux/ubuntu/
+mnt/linux/ubuntu/.config/fish/functions/*
+mnt/linux/ubuntu/.config/fish/completions/*
+mnt/linux/ubuntu/.config/fish/conf.d/*

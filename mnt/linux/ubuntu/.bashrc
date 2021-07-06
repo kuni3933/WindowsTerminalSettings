@@ -1,12 +1,82 @@
 #WindowsTerminalSettings_Original
 #. ~/.bashrc.org
+#LC
 export LC_ALL="ja_JP.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
+
+#PATH
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin/
+export PATH=$PATH:$HOME/relma/bin/
+
+#xterm
 export TERM=xterm-256color
+
+#go
+export GO111MODULE=auto
+
+#volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+#pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+#grep
+export GREP_COLOR="1;32"
+
+# less
+#export LESS='-R'
+#export LESSOPEN='| $HOME/.local/bin/src-hilite-lesspipe.sh %s'
+
+# editor
+command -v nvim &>/dev/null && {
+  export EDITOR=nvim
+} || command -v vim &>/dev/null && {
+  export EDITOR=vim
+}
+
+# ddgr
+#export BROWSER=w3m ddgr query
+export DDGR_COLORS=dEfdxY
+
+# tldr
+export TLDR_HEADER='blue bold'
+export TLDR_QUOTE='green'
+export TLDR_DESCRIPTION='normal'
+export TLDR_CODE='yellow'
+export TLDR_PARAM='magenta'
+
+# bat
+export BAT_THEME="base16"
+
+# exa
+export EXA_COLORS='ur=1;34:'\
+  'uw=1;36:'\
+  'ux=1;32:'\
+  'ue=1;;32:'\
+  'gr=1;37:'\
+  'gw=1;37:'\
+  'gx=1;37:'\
+  'tr=1;37:'\
+  'tw=1;37:'\
+  'tx=1;37:'\
+  'su=1;37:'\
+  'sf=1;37:'\
+  'xa=1;32:'\
+  'uu=1;34:'\
+  'un=37:'\
+  'gu=1;34:'\
+  'gn=37:'\
+  'da=37'
+
+# fzf colors
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color fg:#c6c8d1,bg:#161821,hl:#84a0c6,fg+:#c6c8d1,bg+:#1e2132,hl+:#84a0c6
+--color pointer:#e27878,info:#e2a478,spinner:#89b8c2,header:#b4be82,prompt:#84a0c6,marker:#b4be82'
+
+#gpg
 export GPG_TTY=$(tty)
 
 ##https://swfz.hatenablog.com/entry/2020/08/27/093110
@@ -298,9 +368,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-#-------WindowsTerminalSettings-------
-alias batr='bat $(fd -H | fzf)' #
-#-------------------------------------
+alias batr='bat $(fd -H | fzf)' #kuni3933
 
 alias cdr='cd $(fd -H -t d | fzf)'
 alias cdz='cd $(z -l | cut -c 12- | fzf)'
@@ -325,8 +393,8 @@ alias gs='git status --short'
 alias gss='git status -v'
 
 alias ll='exa -l --icons --git'
-alias tree='exa -lT --icons --git'
-
+#alias tree='exa -lT --icons --git'
+alias tree='exa --long --all --git --icons --tree' #kuni3933
 alias pj='pipenv run python jumeaux/executor.py'
 
 alias vimn='vim -u NONE -N'

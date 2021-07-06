@@ -210,6 +210,17 @@ else
   exit
 fi
 
+title "ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases.org"
+if [ -e ${USERPROFILE}/.aliases.org ]; then
+  #既にある場合
+  echo "Already Installed."
+else
+  sudo ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases.org
+  echo '. ~/.aliases.org' >>${USERPROFILE}/.bashrc
+  section 'Restart the shell'
+  exit
+fi
+
 title 'sudo apt install cmatrix'
 saptin "cmatrix"
 
@@ -567,14 +578,20 @@ pip install glances glances[docker,ip,web]
 title 'go get -u github.com/tadashi-aikawa/gowl'
 go get -u github.com/tadashi-aikawa/gowl
 
-title 'sudo apt install jq'
+title 'sudo apt install -y jq'
 saptin "jq"
 
-title 'sudo apt install ncdu'
+title 'sudo apt install -y ncdu'
 saptin "ncdu"
 
-title 'sudo apt install nkf'
+title 'sudo apt install -y nkf'
 saptin "nkf"
+
+title 'sudo apt install -y translate-shell'
+saptin "translate-shell"
+
+title 'sudo apt install -y w3m'
+aptin "w3m"
 
 title 'cargo install ripgrep'
 cargo install ripgrep
@@ -644,5 +661,5 @@ sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 
 #--------------------------------------------------------------------------------------------------"
-title 'upgrade.sh is Finished.'
+section 'upgrade.sh is Finished.'
 #--------------------------------------------------------------------------------------------------"
