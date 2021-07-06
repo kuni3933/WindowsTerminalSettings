@@ -11,8 +11,8 @@ export GPG_TTY=$(tty)
 
 ##https://swfz.hatenablog.com/entry/2020/08/27/093110
 #https://secon.dev/entry/2020/09/28/124700-wsl2-browser-env/
-export BROWSER="pwsh.exe /c start"
-
+#https://superuser.com/questions/1262977/open-browser-in-host-system-from-windows-subsystem-for-linux
+export BROWSER='/mnt/c/Windows/explorer.exe'
 set clipboard=unnamedplus
 
 # Generated for envman. Do not edit.
