@@ -268,12 +268,12 @@ else
 fi
 
 _title "ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases.org"
-if [ -e ${USERPROFILE}/.aliases.org ]; then
+if [ -e ${USERPROFILE}/.aliases ]; then
   #既にある場合
   echo "Already Installed."
 else
-  sudo ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases.org
-  echo '. ~/.aliases.org' >>${USERPROFILE}/.bashrc
+  sudo ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases
+  echo '. ~/.aliases' >>${USERPROFILE}/.bashrc
   _section 'Restart the shell'
   exit
 fi
