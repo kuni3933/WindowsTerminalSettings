@@ -18,6 +18,10 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
   //メインPCの場合
   //"initialCols": 130, //幅16
   //"initialRows": 30, //縦9
+  "experimental.rendering.software":true,
+  "experimental.rendering.forceFullRepaint":true,
+  "antialiasingMode":"cleartype",
+  "launchMode":"default",
   "theme": "dark",
   "wordDelimiters": " ",
   // You can add more global application settings here.
@@ -75,7 +79,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "colorScheme": "Campbell",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png"
       },
-      {
+      /*{
         "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
         "name": "WSL2-Ubuntu-20.04 LTS",
         "commandline": "wsl.exe ~",
@@ -83,7 +87,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "colorScheme": "Campbell",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png",
         "backgroundImageOpacity": 0.09375
-      },
+      },*/
       { //%GIT_INSTALL_ROOT%
         "guid": "{10a6ee16-ef74-414b-8680-0c698c4c97eb}",
         "icon": "%GIT_INSTALL_ROOT%/mingw64/share/git/git-for-windows.ico",
@@ -91,15 +95,6 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "commandline": "%GIT_INSTALL_ROOT%/bin/bash.exe",
         "backgroundImage": "%GIT_INSTALL_ROOT%/mingw64/share/git/git-for-windows.ico",
         "backgroundImageAlignment": "bottomRight"
-      },
-      {
-        //https://qiita.com/ShortArrow/items/a50c6467bdb77548fd81
-        //https://blog.sgry.jp/entry/2018/10/09/000000
-        "commandline": "%windir%/System32/WindowsPowerShell/v1.0/powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'C:/ProgramData/Anaconda3/shell/condabin/conda-hook.ps1' ; conda activate 'C:/ProgramData/Anaconda3' \"",
-        "guid": "{0de34aef-8c97-42f7-873f-a11a31a7c1c7}",
-        "name": "Anaconda Powershell Prompt (Anaconda3)",
-        "tabTitle": "Anaconda",
-        "icon": "%SystemDrive%/ProgramData/Anaconda3/Menu/Iconleak-Atrous-PSConsole.ico"
       },
       {
         // Make changes here to the powershell.exe profile.
