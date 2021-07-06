@@ -50,7 +50,6 @@ readonly dotfile_DIR=$(cd ${CURRENT_DIR} && cd ../../../ && pwd)
 readonly Go_VER="1.16.5"
 readonly Py_VER="3.9.6"
 # -------------------------------------------------------------------------------------------------
-
 if [ -e ${USERPROFILE}/.config ]; then
   :
 else
@@ -246,6 +245,7 @@ else
   cd ${CURRENT_DIR}
 fi
 sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/
+
 #-------------------------------------------------------------------------------------------------------"
 section '06. Language / Framework / MiddleWare'
 #-------------------------------------------------------------------------------------------------------"
