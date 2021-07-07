@@ -8,7 +8,7 @@ ${Ubuntu} = "Ubuntu"
 #${Ubuntu} = "Ubuntu-20.04"
 ${USERNAME} = wsl -- whoami
 Write_Title "Ubuntu_USERNAME : ${USERNAME}"
-wsl --terminate Ubuntu
+wsl --terminate "${Ubuntu}"
 
 # Ubuntu
 # 等性はないので注意
