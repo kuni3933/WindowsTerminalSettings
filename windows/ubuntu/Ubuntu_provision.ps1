@@ -47,4 +47,14 @@ wsl -- sudo chmod 600 /etc/wsl.conf
 Write_Title 'sudo apt install -y git-all'
 wsl -- sudo apt update -y
 wsl -- sudo apt upgrade -y
+wsl -- sudo apt full-upgrade -y
+wsl -- sudo apt autoremove -y
+wsl -- sudo apt autoclean -y
+
+wsl -- sudo apt-get update -y
+wsl -- sudo apt-get upgrade -y
+wsl -- sudo apt-get full-upgrade -y
+wsl -- sudo apt-get autoremove -y
+wsl -- sudo apt-get autoclean -y
+
 wsl -- sudo apt install -y git-all
