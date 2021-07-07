@@ -8,8 +8,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+"lsp-https://github.com/mattn/vim-lsp-settings
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'Shougo/deoplete.nvim'
+Plug 'lighttiger2505/deoplete-vim-lsp'
+
 Plug 'morhetz/gruvbox'
 call plug#end()
 " ---------------------------------------------------
