@@ -103,3 +103,4 @@ wsl -- sudo apt install -y git-all
 Write-Host "Installation is complete." -ForegroundColor Green
 
 Write_Title "Installation is complete."
+wsl --terminate "${Ubuntu}"
