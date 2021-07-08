@@ -190,7 +190,11 @@ _title 'sudo apt install -y gh'
 _saptin "gh"
 
 #_title 'ghq'
-
+sudo rm -rf /tmp/ghq
+git clone https://github.com/x-motemen/ghq /tmp/ghq
+cd /tmp/ghq
+make install
+sudo rm -rf /tmp/ghq
 
 _title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
