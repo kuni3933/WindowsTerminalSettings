@@ -533,6 +533,8 @@ i3xrocks-time
 
 _title 'Library'
 _saptin "
+dbus
+dmenu
 arandr
 libxcb1-dev 
 libxcb-keysyms1-dev 
@@ -552,23 +554,21 @@ xutils-dev
 libxcb-xrm0 
 libxcb-xrm-dev 
 libxcb-shape0-dev 
+yaru-theme-icon 
 "
 
 #------------------------------------------------------------------------#
 _section '09.  fcitx Install'
 #------------------------------------------------------------------------#
 _title 'sudo apt install -y fcitx-mozc'
-_saptin "fcitx-mozc"
-
-_title 'sudo apt install -y fcitx-tools'
-_saptin "fcitx-tools"
-
-_title 'sudo apt install fcitx-module-dbus'
-_saptin "fcitx-module-dbus"
-
-_title 'sudo apt install -y yaru-theme-icon'
-_saptin "yaru-theme-icon"
-
+_saptin "fcitx-mozc 
+fcitx-tools 
+fcitx-module-dbus 
+ibus-mozc 
+ibus-gtk 
+ibus-gtk3 
+ibus-qt4
+"
 #https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
 #_title 'sudo apt-get purge fcitx-module-dbus'
 #sudo apt-get purge fcitx-module-dbus
