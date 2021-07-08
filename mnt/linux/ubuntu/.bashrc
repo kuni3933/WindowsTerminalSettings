@@ -4,6 +4,9 @@
 export LC_ALL="ja_JP.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
+#X_SERVER
+export LIBGL_ALWAYS_INDIRECT=1
+
 #PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin/

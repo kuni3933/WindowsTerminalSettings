@@ -523,6 +523,15 @@ _section '08. i3 & i3-gaps'
 _title 'sudo apt install -y i3-gaps'
 _saptin "i3-gaps"
 
+_title 'regolith-desktop-complete'
+#https://l-o-o-s-e-d.net/wsl2
+_saptin "
+regolith-desktop-complete 
+i3xrocks-net-traffic 
+i3xrocks-cpu-usage 
+i3xrocks-time
+"
+
 _title 'Library'
 _saptin "
 arandr
