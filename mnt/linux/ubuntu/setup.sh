@@ -70,7 +70,7 @@ _set_symlinks() {
     mkdir -p "${dest_dir}"
 
     _verbose "Create symlink:   ${src} --> ${dest}"
-    ln -sf "${src}" "${dest}"
+    sudo ln -sf "${src}" "${dest}"
   done
 }
 _main() {
@@ -519,17 +519,22 @@ _section '08. i3 & i3-gaps'
 #_title 'sudo apt install -y i3'
 #_saptin "i3"
 
-_title 'sudo apt install -y i3-gaps'
-_saptin "i3-gaps"
-
-_title 'regolith-desktop-complete'
 #https://l-o-o-s-e-d.net/wsl2
-_saptin "
-regolith-desktop-complete 
+#regolith-desktop-complete
+_title 'sudo apt install -y i3-gaps'
+_saptin "i3-gaps 
 i3xrocks-net-traffic 
 i3xrocks-cpu-usage 
-i3xrocks-time
+i3xrocks-time 
 "
+
+_title 'git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.bumblebee-status'
+if [-e ${USERPROFILE}/.local/share/bumblebee-status ]; then
+  :
+else
+  git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.local/share/bumblebee-status
+fi
+sudo ln -sf ${CURRENT_DIR}/.local/share/bumblebee-status/themes/iceberg-darker-powerline.json ${USERPROFILE}/.local/share/bumblebee-status/themes/iceberg-darker-powerline.json
 
 _title 'Library'
 _saptin "
@@ -678,7 +683,7 @@ _title 'sudo apt install -y translate-shell'
 _saptin "translate-shell"
 
 _title 'sudo apt install -y w3m'
-aptin "w3m"
+_saptin "w3m"
 
 _title 'cargo install ripgrep'
 cargo install ripgrep
