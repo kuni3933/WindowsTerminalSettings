@@ -608,7 +608,11 @@ sudo rm -rf /tmp/bats
 
 _title 'cargo install broot'
 cargo install broot
-broot
+if [ -e ${DEST_DIR}/broot/launcher ]; then
+  :
+else
+  broot
+fi
 broot --help
 _title "sudo ln -sf ${SRC_DIR}/broot/conf.toml ${DEST_DIR}/broot/"
 if [ -e ${DEST_DIR}/broot ]; then
