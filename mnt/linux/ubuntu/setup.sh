@@ -497,6 +497,7 @@ else
   mkdir bundle
   git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ${USERPROFILE}/.vim/bundle/"Vundle.vim"
 fi
+cd ${CURRENT_DIR}
 
 _title "ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/.vimrc"
 sudo ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
@@ -696,6 +697,7 @@ cd ${USERPROFILE}/zstd
 sudo make install
 cd ${USERPROFILE}/zstd/contrib/pzstd
 sudo make install
+cd ${CURRENT_DIR}
 
 _title 'git clone git@github.com:rupa/z.git /usr/bin/z'
 if [ -e /usr/bin/z ]; then
