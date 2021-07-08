@@ -580,8 +580,8 @@ sudo rm -rf /tmp/ghq
 git clone https://github.com/x-motemen/ghq /tmp/ghq
 cd /tmp/ghq
 make install
-sudo rm -rf /tmp/ghq
 cd ${CURRENT_DIR}
+sudo rm -rf /tmp/ghq
 
 _title 'pip install pywinrm'
 pip install pywinrm
