@@ -601,6 +601,7 @@ cargo install --locked bat
 _title 'git clone https://github.com/sstephenson/bats.git /tmp/bats'
 sudo git clone https://github.com/sstephenson/bats.git /tmp/bats
 sudo /tmp/bats/install.sh /usr/local
+cd ${CURRENT_DIR}
 sudo rm -rf /tmp/bats
 
 _title 'cargo install broot'
