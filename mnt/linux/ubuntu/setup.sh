@@ -341,8 +341,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 _title 'rustup install nightly-x86_64-unknown-linux-gnu'
 rustup install nightly-x86_64-unknown-linux-gnu
 
-_title 'rustup default nightly-x86_64-unknown-linux-gnu'
-rustup default nightly-x86_64-unknown-linux-gnu
+_title 'rustup install beta-x86_64-unknown-linux-gnu'
+rustup install beta-x86_64-unknown-linux-gnu
 
 _title 'rustup self update'
 rustup self update
@@ -353,11 +353,14 @@ rustup update
 _title 'cargo install cargo-update'
 cargo install cargo-update
 
+_title 'cargo install-update --all'
+cargo install-update -a
+
 _title 'rustup component add'
 rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
 
-_title 'cargo install-update --all'
-cargo install-update -a
+_title 'rustup default nightly-x86_64-unknown-linux-gnu'
+rustup default nightly-x86_64-unknown-linux-gnu
 
 #------------------------------------------------------------------------#
 _section '# volta/npm Install'
