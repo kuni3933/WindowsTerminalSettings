@@ -186,16 +186,6 @@ _saptin "software-properties-common"
 _title 'sudo apt install -y git-all'
 _saptin "git-all"
 
-_title 'sudo apt install -y gh'
-_saptin "gh"
-
-#_title 'ghq'
-sudo rm -rf /tmp/ghq
-git clone https://github.com/x-motemen/ghq /tmp/ghq
-cd /tmp/ghq
-make install
-sudo rm -rf /tmp/ghq
-
 _title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
 volta setup
@@ -247,82 +237,8 @@ fi
 _title 'sudo update-locale LANG=ja_JP.UTF-8'
 sudo update-locale LANG=ja_JP.UTF-8
 
-#------------------------------------------------------------------------#
-_section '05. Terminal Setup'
-#------------------------------------------------------------------------#
-_title 'git clone https://github.com/Bash-it/bash-it.git ~/.bash_it'
-if [ -e ${USERPROFILE}/.bash_it ]; then
-  # 存在する場合
-  echo 'Already Installed.'
-else
-  # 存在しない場合
-  git clone https://github.com/Bash-it/bash-it.git ${USERPROFILE}/.bash_it
-  ${USERPROFILE}/.bash_it/install.sh
-fi
-
-_title "ln -sf ${CURRENT_DIR}/.bash_it/themes/maman ${USERPROFILE}/.bash_it/themes/"
-sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
-
-_title "ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org"
-if [ -e ${USERPROFILE}/.bashrc.org ]; then
-  #既にある場合
-  echo "Already Installed."
-else
-  sudo ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org
-  echo '. ~/.bashrc.org' >>${USERPROFILE}/.bashrc
-  _section 'Restart the shell'
-  exit
-fi
-
-_title "ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases.org"
-if [ -e ${USERPROFILE}/.aliases ]; then
-  #既にある場合
-  echo "Already Installed."
-else
-  sudo ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases
-  echo '. ~/.aliases' >>${USERPROFILE}/.bashrc
-  _section 'Restart the shell'
-  exit
-fi
-
-_title 'sudo apt install cmatrix'
-_saptin "cmatrix"
-
-_title "ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/.inputrc"
-sudo ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/
-
-_title 'sudo apt install -y fzf'
-_saptin "fzf"
-
-_title 'sudo apt install -y tmux'
-_saptin "tmux"
-
-_title 'git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack'
-if [ -e ${USERPROFILE}/.tmux-themepack ]; then
-  echo "Already Installed."
-else
-  git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ${USERPROFILE}/.tmux-themepack
-fi
-
-_title "ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/.tmux.conf"
-sudo ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/
-
-_title 'git clone https://github.com/scop/bash-completion.git /usr/share/bash-completion'
-sudo git clone https://github.com/scop/bash-completion.git /usr/share/bash-completion
-
-_title 'cargo install alacritty'
-cargo install alacritty
-_title "sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/"
-if [ -e ${DEST_DIR}/alacritty ]; then
-  :
-else
-  mkdir ${DEST_DIR}/alacritty
-  cd ${CURRENT_DIR}
-fi
-sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/
-
 #---------------------------------------------------------------------------------------#
-_section '06. Language / Framework / MiddleWare'
+_section '05. Language / Framework / MiddleWare'
 #---------------------------------------------------------------------------------------#
 #------------------------------------------------------------------------#
 _section '# C-build-essential Install'
@@ -471,6 +387,82 @@ npm update *
 _title 'volta list all'
 volta list all
 
+
+#------------------------------------------------------------------------#
+_section '06. Terminal Setup'
+#------------------------------------------------------------------------#
+_title 'git clone https://github.com/Bash-it/bash-it.git ~/.bash_it'
+if [ -e ${USERPROFILE}/.bash_it ]; then
+  # 存在する場合
+  echo 'Already Installed.'
+else
+  # 存在しない場合
+  git clone https://github.com/Bash-it/bash-it.git ${USERPROFILE}/.bash_it
+  ${USERPROFILE}/.bash_it/install.sh
+fi
+
+_title "ln -sf ${CURRENT_DIR}/.bash_it/themes/maman ${USERPROFILE}/.bash_it/themes/"
+sudo ln -sf ${CURRENT_DIR}/.bash_it/themes/maman/ ${USERPROFILE}/.bash_it/themes/
+
+_title "ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org"
+if [ -e ${USERPROFILE}/.bashrc.org ]; then
+  #既にある場合
+  echo "Already Installed."
+else
+  sudo ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org
+  echo '. ~/.bashrc.org' >>${USERPROFILE}/.bashrc
+  _section 'Restart the shell'
+  exit
+fi
+
+_title "ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases.org"
+if [ -e ${USERPROFILE}/.aliases ]; then
+  #既にある場合
+  echo "Already Installed."
+else
+  sudo ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/.aliases
+  echo '. ~/.aliases' >>${USERPROFILE}/.bashrc
+  _section 'Restart the shell'
+  exit
+fi
+
+_title 'sudo apt install cmatrix'
+_saptin "cmatrix"
+
+_title "ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/.inputrc"
+sudo ln -sf ${CURRENT_DIR}/.inputrc ${USERPROFILE}/
+
+_title 'sudo apt install -y fzf'
+_saptin "fzf"
+
+_title 'sudo apt install -y tmux'
+_saptin "tmux"
+
+_title 'git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack'
+if [ -e ${USERPROFILE}/.tmux-themepack ]; then
+  echo "Already Installed."
+else
+  git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ${USERPROFILE}/.tmux-themepack
+fi
+
+_title "ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/.tmux.conf"
+sudo ln -sf ${CURRENT_DIR}/.tmux.conf ${USERPROFILE}/
+
+_title 'git clone https://github.com/scop/bash-completion.git /usr/share/bash-completion'
+sudo git clone https://github.com/scop/bash-completion.git /usr/share/bash-completion
+
+_title 'cargo install alacritty'
+cargo install alacritty
+_title "sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/"
+if [ -e ${DEST_DIR}/alacritty ]; then
+  :
+else
+  mkdir ${DEST_DIR}/alacritty
+  cd ${CURRENT_DIR}
+fi
+sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/
+
+
 #------------------------------------------------------------------------#
 _section '07. Editor/IDE'
 #------------------------------------------------------------------------#
@@ -577,6 +569,16 @@ _saptin "yaru-theme-icon"
 #------------------------------------------------------------------------#
 _section '10. CLI tool Install'
 #------------------------------------------------------------------------#
+_title 'sudo apt install -y gh'
+_saptin "gh"
+
+#_title 'ghq'
+sudo rm -rf /tmp/ghq
+git clone https://github.com/x-motemen/ghq /tmp/ghq
+cd /tmp/ghq
+make install
+sudo rm -rf /tmp/ghq
+
 _title 'pip install pywinrm'
 pip install pywinrm
 pip install -U pywinrm
