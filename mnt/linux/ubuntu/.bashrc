@@ -83,7 +83,6 @@ export GPG_TTY=$(tty)
 #https://secon.dev/entry/2020/09/28/124700-wsl2-browser-env/
 #https://superuser.com/questions/1262977/open-browser-in-host-system-from-windows-subsystem-for-linux
 export BROWSER='/mnt/c/Windows/explorer.exe'
-set clipboard=unnamedplus
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -95,6 +94,11 @@ source ~/.config/broot/launcher/bash/br
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] &&
   . /usr/share/bash-completion/bash_completion
+
+if [ $SHLVL = 1 ] ; then
+  xset -r 49  > /dev/null 2&>1
+  (fcitx-autostart > /dev/null 2&>1 &)
+fi
 
 if type cmatrix >/dev/null 2>&1; then
   if [ $(($RANDOM % 2)) -eq 0 ]; then

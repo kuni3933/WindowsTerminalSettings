@@ -189,6 +189,9 @@ _saptin "git-all"
 _title 'sudo apt install -y gh'
 _saptin "gh"
 
+#_title 'ghq'
+
+
 _title 'curl https://get.volta.sh | bash'
 curl https://get.volta.sh | bash
 volta setup
@@ -349,7 +352,7 @@ clang-format cmake
 "
 
 #------------------------------------------------------------------------#
-_section '# Go'
+_section '# Golang'
 #------------------------------------------------------------------------#
 _title 'sudo rm -rf /usr/local/go'
 sudo rm -rf /usr/local/go
@@ -359,6 +362,7 @@ sudo wget -O /tmp/go${Go_VER}.linux-amd64.tar.gz https://dl.google.com/go/go${Go
 
 _title "sudo tar -C /usr/local -xzf /tmp/go${Go_VER}.linux-amd64.tar.gz"
 sudo tar -C /usr/local -xzf /tmp/go${Go_VER}.linux-amd64.tar.gz
+sudo rm -rf "/tmp/go${Go_VER}.linux-amd64.tar.gz"
 
 #------------------------------------------------------------------------#
 _section '# Python Install'
