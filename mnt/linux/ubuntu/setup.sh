@@ -576,8 +576,7 @@ _section '10. CLI tool Install'
 _title 'sudo apt install -y gh'
 _saptin "gh"
 
-#_title 'ghq'
-sudo rm -rf /tmp/ghq
+_title 'git clone https://github.com/x-motemen/ghq /tmp/ghq'
 git clone https://github.com/x-motemen/ghq /tmp/ghq
 cd /tmp/ghq
 make install
@@ -602,7 +601,6 @@ cargo install --locked bat
 _title 'git clone https://github.com/sstephenson/bats.git /tmp/bats'
 sudo git clone https://github.com/sstephenson/bats.git /tmp/bats
 sudo /tmp/bats/install.sh /usr/local
-cd ${CURRENT_DIR}
 sudo rm -rf /tmp/bats
 
 _title 'cargo install broot'
@@ -658,7 +656,7 @@ _title 'pip install glances glances[docker,ip,web]'
 pip install glances glances[docker,ip,web]
 
 _title 'go get -u github.com/tadashi-aikawa/gowl'
-go get -u github.com/tadashi-aikawa/gowl
+GO111MODULE=on go get -u github.com/tadashi-aikawa/gowl
 
 _title 'sudo apt install -y jq'
 _saptin "jq"
