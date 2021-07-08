@@ -397,6 +397,10 @@ volta list all
 #------------------------------------------------------------------------#
 _section '06. Terminal Setup'
 #------------------------------------------------------------------------#
+_title "sh -c "$(curl -fsSL https://starship.rs/install.sh)""
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+sudo ln -sf ${CURRENT_DIR}/.config/starship.toml ${DEST_DIR}/
+
 _title 'git clone https://github.com/Bash-it/bash-it.git ~/.bash_it'
 if [ -e ${USERPROFILE}/.bash_it ]; then
   # 存在する場合
@@ -522,7 +526,8 @@ _section '08. i3 & i3-gaps'
 #https://l-o-o-s-e-d.net/wsl2
 #regolith-desktop-complete
 _title 'sudo apt install -y i3-gaps'
-_saptin "i3-gaps 
+_saptin "
+i3-gaps 
 i3xrocks-net-traffic 
 i3xrocks-cpu-usage 
 i3xrocks-time 
@@ -572,7 +577,6 @@ fcitx-module-dbus
 ibus-mozc 
 ibus-gtk 
 ibus-gtk3 
-ibus-qt4
 "
 #https://unix.stackexchange.com/questions/490871/lubuntu-g-is-dbus-connection
 #_title 'sudo apt-get purge fcitx-module-dbus'

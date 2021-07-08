@@ -118,6 +118,9 @@ else
 fi
 neofetch
 
+#starship
+eval "$(starship init bash)"
+
 #gh
 eval "$(gh completion -s bash)"
 
@@ -211,7 +214,7 @@ export SCM_CHECK=true
 # export BASH_IT_RELOAD_LEGACY=1
 
 # Load Bash It
-source "$BASH_IT"/bash_it.sh
+#source "$BASH_IT"/bash_it.sh
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
