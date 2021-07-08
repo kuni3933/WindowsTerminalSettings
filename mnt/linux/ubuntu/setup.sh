@@ -118,7 +118,8 @@ echo "USERPROFILE : ${USERPROFILE}"
 echo "dotfile_DIR : ${dotfile_DIR}"
 echo "CURRENT_DIR : ${CURRENT_DIR}"
 echo "SRC_DIR     : ${SRC_DIR}"
-echo "SRC_FILES   : ${SRC_FILES}"
+echo "SRC_FILES   : "
+echo ${SRC_FILES}
 echo "DEST_DIR    : ${DEST_DIR}"
 echo "Go_VERSION  : ${Go_VER}"
 echo "Py_VERSION  : ${Py_VER}"
@@ -533,8 +534,19 @@ i3xrocks-cpu-usage
 i3xrocks-time 
 "
 
+_title "ln -sf ${SRC_DIR}/i3/ ${DEST_DIR}/i3"
+if [ -e ${DEST_DIR}/i3 ]; then
+  :
+else
+  mkdir ${DEST_DIR}/i3
+fi
+ln -sf ${SRC_DIR}/i3/autostart.sh ${DEST_DIR}/i3/
+ln -sf ${SRC_DIR}/i3/config ${DEST_DIR}/i3/
+
+  
+
 _title 'git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.bumblebee-status'
-if [-e ${USERPROFILE}/.local/share/bumblebee-status ]; then
+if [ -e ${USERPROFILE}/.local/share/bumblebee-status ]; then
   :
 else
   git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.local/share/bumblebee-status
