@@ -344,6 +344,9 @@ rustup install nightly-x86_64-unknown-linux-gnu
 _title 'rustup install beta-x86_64-unknown-linux-gnu'
 rustup install beta-x86_64-unknown-linux-gnu
 
+_title 'rustup default beta-x86_64-unknown-linux-gnu'
+rustup default beta-x86_64-unknown-linux-gnu
+
 _title 'rustup self update'
 rustup self update
 
@@ -359,8 +362,8 @@ cargo install-update -a
 _title 'rustup component add'
 rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
 
-_title 'rustup default beta-x86_64-unknown-linux-gnu'
-rustup default beta-x86_64-unknown-linux-gnu
+_title 'rustup default nightly-x86_64-unknown-linux-gnu'
+rustup default nightly-x86_64-unknown-linux-gnu
 
 #------------------------------------------------------------------------#
 _section '# volta/npm Install'
@@ -596,7 +599,7 @@ pip install ansible
 pip install -U ansible
 
 _title 'curl -s https://sh.rustup.rs | bat'
-cargo install --locked bat
+cargo install bat
 
 _title 'git clone https://github.com/sstephenson/bats.git /tmp/bats'
 sudo git clone https://github.com/sstephenson/bats.git /tmp/bats
