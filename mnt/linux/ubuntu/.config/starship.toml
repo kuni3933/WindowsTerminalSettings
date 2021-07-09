@@ -22,7 +22,8 @@ style = "bold blue"
 read_only_style = "blue"
 fish_style_pwd_dir_length = 3
 format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
-truncation_length = 8 
+# truncation_length = 8 
+truncation_length = 0
 truncation_symbol = ".../"
 
 [git_status]
