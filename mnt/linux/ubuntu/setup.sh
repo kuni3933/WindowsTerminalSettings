@@ -477,9 +477,6 @@ sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/
 #------------------------------------------------------------------------#
 _section '07. Editor/IDE'
 #------------------------------------------------------------------------#
-_title 'sudo apt install -y vim'
-_saptin "vim"
-
 _title 'sudo apt install -y vim-gtk'
 _saptin "vim-gtk"
 
@@ -533,7 +530,6 @@ i3xrocks-net-traffic
 i3xrocks-cpu-usage 
 i3xrocks-time 
 "
-
 _title "ln -sf ${SRC_DIR}/i3/ ${DEST_DIR}/i3"
 if [ -e ${DEST_DIR}/i3 ]; then
   :
@@ -543,8 +539,6 @@ fi
 ln -sf ${SRC_DIR}/i3/autostart.sh ${DEST_DIR}/i3/
 ln -sf ${SRC_DIR}/i3/config ${DEST_DIR}/i3/
 
-  
-
 _title 'git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.bumblebee-status'
 if [ -e ${USERPROFILE}/.local/share/bumblebee-status ]; then
   :
@@ -552,6 +546,27 @@ else
   git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.local/share/bumblebee-status
 fi
 sudo ln -sf ${CURRENT_DIR}/.local/share/bumblebee-status/themes/iceberg-darker-powerline.json ${USERPROFILE}/.local/share/bumblebee-status/themes/iceberg-darker-powerline.json
+
+_title 'sudo apt install -y rofi'
+_saptin "
+rofi 
+rofi-dev 
+qalc 
+libtool
+"
+
+_title 'rofi -modi calc'
+git clone https://github.com/svenstaro/rofi-calc /tmp/rofi-calc
+cd /tmp/rofi-calc
+autoreconf -i
+mkdir build
+cd build/
+../configure
+sudo make
+sudo make install
+cd ${CURRENT_DIR}
+sudo rm -rf /tmp/rofi-calc
+
 
 _title 'Library'
 _saptin "
