@@ -544,6 +544,7 @@ rofi
 rofi-dev 
 qalc 
 libtool
+libtool-bin
 "
 
 _title 'rofi -modi calc'
@@ -563,6 +564,8 @@ sudo rm -rf /tmp/rofi-calc
 _title 'Library'
 _saptin "
 dbus
+dbus-x11 
+x11-xserver-utils
 dmenu
 arandr
 libxcb1-dev 

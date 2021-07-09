@@ -20,7 +20,8 @@ alias path='echo $PATH | tr ":" "\n"'
 # Vim
 if command -v nvim &>/dev/null
 then
-    alias vim='nvim'
+    alias vim='vim'
+    alias nvim='nvim'
     alias gvim='nvim-qt'
 fi
 
