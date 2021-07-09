@@ -199,6 +199,9 @@ _title 'sudo add-apt-repository -y ppa:regolith-linux/unstable'
 #https://github.com/regolith-linux/i3-gaps-wm
 sudo add-apt-repository -y ppa:regolith-linux/unstable
 
+_title 'sudo add-apt-repository ppa:neovim-ppa/unstable'
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+
 _title 'sudo add-apt-repository -y github/gh'
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
@@ -308,6 +311,8 @@ uuid-dev
 tk-dev 
 python3-distutils 
 python3-docutils 
+python3-wheel 
+ninja-build 
 "
 
 _title 'sudo apt install -y python3-venv'
@@ -502,9 +507,10 @@ sudo ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
 
 _title "ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets ${USERPROFILE}/.vim-snippets"
 sudo ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
-_title 'pip install neovim'
-pip install neovim
-pip install -U neovim
+
+_title 'sudo apt install -y neovim'
+_saptin "neovim"
+
 
 #------------------------------------------------------------------------#
 _section '08. i3 & i3-gaps'
@@ -515,10 +521,10 @@ _section '08. i3 & i3-gaps'
 #_saptin "i3"
 
 #https://l-o-o-s-e-d.net/wsl2
-#regolith-desktop-complete
 _title 'sudo apt install -y i3-gaps'
 _saptin "
 i3-gaps 
+regolith-desktop-complete 
 i3xrocks-net-traffic 
 i3xrocks-cpu-usage 
 i3xrocks-time 
@@ -550,6 +556,7 @@ cd build/
 sudo make
 sudo make install
 cd ${CURRENT_DIR}
+libtool --finish /usr/lib/x86_64-linux-gnu/rofi//
 sudo rm -rf /tmp/rofi-calc
 
 
@@ -597,6 +604,9 @@ ibus-gtk3
 #------------------------------------------------------------------------#
 _section '10. CLI tool Install'
 #------------------------------------------------------------------------#
+_title 'pip3 install meson'
+pip3 install meson
+
 _title 'sudo apt install -y gh'
 _saptin "gh"
 
