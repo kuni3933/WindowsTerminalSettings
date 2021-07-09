@@ -402,9 +402,9 @@ alias gbm='git merge --no-ff $(git branch -l | grep -vE "^\*" | tr -d " " | fzf)
 alias gs='git status --short'
 alias gss='git status -v'
 
-alias ll='exa -l --icons --git'
+alias ll='exa -l --icons --git --header'
 #alias tree='exa -lT --icons --git'
-alias tree='exa --long --all --git --icons --tree' #kuni3933
+alias tree='exa --long --all --git --icons --tree --header' #kuni3933
 alias pj='pipenv run python jumeaux/executor.py'
 
 alias vimn='vim -u NONE -N'

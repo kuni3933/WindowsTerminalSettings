@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -eu
+
 # -----------------------------------------------------------------------#
 #https://ytyaru.hatenablog.com/entry/2020/02/03/111111
 readonly USERPROFILE=${HOME}
@@ -8,8 +8,8 @@ readonly CURRENT_DIR="$(
   pwd
 )"
 readonly SRC_DIR="${CURRENT_DIR}/.config"
-readonly SRC_FILES=$(
-  "$(find "${SRC_DIR}" -type f)"
+readonly SRC_FILES=(
+	"$(find "${SRC_DIR}" -type f)"
 )
 readonly DEST_DIR="${USERPROFILE}/.config"
 readonly dotfile_DIR=$(cd ${CURRENT_DIR} && cd ../../../ && pwd)
@@ -74,9 +74,9 @@ _set_symlinks() {
   done
 }
 _main() {
-  _banner "Install packages"
-  _install_packages
-  _info "Finished packages installation!"
+  #_banner "Install packages"
+  #_install_packages
+  #_info "Finished packages installation!"
 
   _banner "Install config files"
   _set_symlinks
@@ -123,7 +123,8 @@ echo ${SRC_FILES}
 echo "DEST_DIR    : ${DEST_DIR}"
 echo "Go_VERSION  : ${Go_VER}"
 echo "Py_VERSION  : ${Py_VER}"
-#_main "${@}"
+
+_main "${@}"
 
 #------------------------------------------------------------------------#
 _section '01. Package Update'
@@ -464,14 +465,14 @@ sudo git clone https://github.com/scop/bash-completion.git /usr/share/bash-compl
 
 _title 'cargo install alacritty'
 cargo install alacritty
-_title "sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/"
-if [ -e ${DEST_DIR}/alacritty ]; then
-  :
-else
-  mkdir ${DEST_DIR}/alacritty
-  cd ${CURRENT_DIR}
-fi
-sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/
+#_title "sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/"
+#if [ -e ${DEST_DIR}/alacritty ]; then
+#  :
+#else
+#  mkdir ${DEST_DIR}/alacritty
+#  cd ${CURRENT_DIR}
+#fi
+#sudo ln -sf ${SRC_DIR}/alacritty/alacritty.yml ${DEST_DIR}/alacritty/
 
 
 #------------------------------------------------------------------------#
@@ -530,14 +531,14 @@ i3xrocks-net-traffic
 i3xrocks-cpu-usage 
 i3xrocks-time 
 "
-_title "ln -sf ${SRC_DIR}/i3/ ${DEST_DIR}/i3"
-if [ -e ${DEST_DIR}/i3 ]; then
-  :
-else
-  mkdir ${DEST_DIR}/i3
-fi
-ln -sf ${SRC_DIR}/i3/autostart.sh ${DEST_DIR}/i3/
-ln -sf ${SRC_DIR}/i3/config ${DEST_DIR}/i3/
+#_title "ln -sf ${SRC_DIR}/i3/ ${DEST_DIR}/i3"
+#if [ -e ${DEST_DIR}/i3 ]; then
+#  :
+#else
+#  mkdir ${DEST_DIR}/i3
+#fi
+#ln -sf ${SRC_DIR}/i3/autostart.sh ${DEST_DIR}/i3/
+#ln -sf ${SRC_DIR}/i3/config ${DEST_DIR}/i3/
 
 _title 'git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.bumblebee-status'
 if [ -e ${USERPROFILE}/.local/share/bumblebee-status ]; then
@@ -650,14 +651,6 @@ else
   broot
 fi
 broot --help
-_title "sudo ln -sf ${SRC_DIR}/broot/conf.toml ${DEST_DIR}/broot/"
-if [ -e ${DEST_DIR}/broot ]; then
-  :
-else
-  mkdir ${DEST_DIR}/broot
-  cd ${CURRENT_DIR}
-fi
-sudo ln -sf ${SRC_DIR}/broot/conf.toml ${DEST_DIR}/broot/
 
 _title 'git clone --depth 1 https://github.com/universal-ctags/ctags.git /tmp/ctags'
 sudo git clone https://github.com/universal-ctags/ctags.git /tmp/ctags
