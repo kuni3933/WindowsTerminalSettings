@@ -184,7 +184,6 @@ function _set_symlinks() {
 }
 
 function _main() {
-    <<COMMENT
     _banner "Update packages"
     _update_packages
     _info "The package has been updated."
@@ -203,8 +202,7 @@ function _main() {
 
     _banner "Install init_files"
     _set_init_files_symlinks
-    _info "Finished init files installation!"↲
-COMMENT
+    _info "Finished init files installation!"
     _banner "Install config files"
 	_set_symlinks
 	_info "Finished config files installation!"
