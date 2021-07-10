@@ -1,12 +1,9 @@
 @echo off
 chcp 932
 rem ------------------------------------------------------------------------------------------------------変数/パスのセット処理
-set LINUX="%~dp0..\linux"
 set WINDOWS="%~dp0..\windows"
 
-set owl-playbook_LINUX="%~dp0..\owl-playbook\linux"
 set owl-playbook_WINDOWS="%~dp0..\owl-playbook\windows"
-
 
 set WINDOWS_MNT="%~dp0..\mnt\windows"
 set LINUX_MNT="%~dp0..\mnt\linux"
