@@ -43,8 +43,8 @@ floating_modifier $mod
 
 # Terminal
 #set $terminal "urxvtc; if [ $? -eq 2 ]; then urxvtd --quiet --opendisplay --fork; urxvtc; fi"
-#set $terminal "alacritty"
-set $terminal "i3-sensible-terminal"
+set $terminal "alacritty"
+
 bindsym $mod+Return       split h exec --no-startup-id $terminal
 bindsym $mod+Shift+Return split v exec --no-startup-id $terminal
 #bindsym $mod+Ctrl+Return  exec --no-startup-id $terminal -e ranger
@@ -240,7 +240,7 @@ bar {
     #     bumblebee-status -m <modules...> -p <params...> -t <theme>
 	status_command bumblebee-status \
         -m title spacer cmus cpu memory battery date time\
-        -p time.format="%H:%M" date.format="%m/%d" memory.format="{percent:05.02f}%" title.max=50 title.scroll=True spacer.text="I use rch BTW."\
+        -p time.format="%H:%M" date.format="%m/%d" memory.format="{percent:05.02f}%" title.max=50 title.scroll=True spacer.text="I use Ubuntu-WSL2."\
         -t iceberg-darker-powerline
 
 # }}}

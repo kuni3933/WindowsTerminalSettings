@@ -530,12 +530,9 @@ i3xrocks-cpu-usage
 i3xrocks-time 
 "
 
-_title 'git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.bumblebee-status'
-if [ -e ${USERPROFILE}/.local/share/bumblebee-status ]; then
-  :
-else
-  git clone https://github.com/tobi-wan-kenobi/bumblebee-status ~/.local/share/bumblebee-status
-fi
+_title 'pip install bumblebee-status'
+pip install --user bumblebee-status
+pip install i3ipc
 sudo ln -sf ${CURRENT_DIR}/.local/share/bumblebee-status/themes/iceberg-darker-powerline.json ${USERPROFILE}/.local/share/bumblebee-status/themes/iceberg-darker-powerline.json
 
 _title 'sudo apt install -y rofi'
