@@ -70,7 +70,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "name": "PowerShell Core",
         "source": "Windows.Terminal.PowershellCore",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/power-shell/BxV2pw7CAAAjeSf.png"
-      },
+      },/*
       {
         "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
         "name": "WSL2-Ubuntu",
@@ -78,9 +78,10 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "source": "Windows.Terminal.Wsl",
         "colorScheme": "Campbell",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Ubuntu.png"
-      },
+      },*/
       {
         "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+        "icon": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/favicon.ico",
         "name": "WSL2-Arch",
         "commandline": "Arch.exe",
         "source": "Windows.Terminal.Wsl",
