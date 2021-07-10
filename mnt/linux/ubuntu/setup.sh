@@ -568,6 +568,7 @@ dbus-x11
 x11-xserver-utils
 dmenu
 arandr
+feh 
 libxcb1-dev 
 libxcb-keysyms1-dev 
 libpango1.0-dev 
