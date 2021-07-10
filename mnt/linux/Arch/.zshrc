@@ -216,7 +216,7 @@ command -v z &>/dev/null && source $(which z)
 stty -ixon
 
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 source /home/kuni3933/.config/broot/launcher/bash/br
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

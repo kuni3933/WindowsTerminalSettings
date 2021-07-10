@@ -12,15 +12,13 @@ readonly SRC_FILES=(
 readonly DEST_DIR="${USERPROFILE}/.config"
 readonly dotfile_DIR=$(cd ${CURRENT_DIR} && cd ../../../ && pwd)
 readonly genie_VER="1.42"
-readonly Go_VER="1.16.5"
-readonly Py_VER="3.9.6"
 
 function _update_packages(){
     sudo pacman -g
     sudo pacman -Syy
     sudo pacman -Syyu  
     sudo pacman -Sc
-    sudo pacman -S aria2c curl wget make autoconf automake ntp git gnupg2 ssh
+    sudo pacman -S aria2 curl wget make autoconf automake ntp git gnupg openssh
 
     #yay
     pacman -S --Needed git base-devel
@@ -29,6 +27,10 @@ function _update_packages(){
     makepkg -si
     cd ${CURRENT_DIR}
     sudo rm -rf /tmp/yay
+
+    #yay_update
+    yay -Syu
+    yay -Yc
 
     #volta
     curl https://get.volta.sh | bash
@@ -52,12 +54,23 @@ function _other_packages(){
         git config --global delta.side-by-side true
         git config --global interactive.diffFilter delta --color-only
         
+        #clipboard
+        curl -sLo /tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+        unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+        chmod +x /tmp/win32yank.exe
+        mv /tmp/win32yank.exe ~/.local/bin
+        sudo rm -rf /tmp/win32yank.zip
+
         #symbola
-        yay symbola
+        yay -S font-symbola
         #NerdFont
-        sudo git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
-        /tmp/nerd-fonts/install.sh SourceCodePro
-        sudo rm -rf /tmp/nerd-fonts/
+        if [ -e ${USERPROFILE}/.local/share/fonts/NerdFonts/"Sauce Code Pro Nerd Font Complete.ttf" ]; then
+            echo "Already installed."
+        else
+            sudo git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
+            /tmp/nerd-fonts/install.sh SourceCodePro
+            sudo rm -rf /tmp/nerd-fonts/
+        fi
         
         #gcc clang
         sudo pacman -S base-devel gdb binutils bc bison pkgconf clang llvm cmake 
@@ -106,11 +119,16 @@ function _other_packages(){
         fi
         sudo ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
 
+        if [ -e /usr/bin/z ]; then
+            echo 'Already installed.'
+        else
+            sudo git clone https://github.com/rupa/z.git /usr/bin/z
+        fi
+
         sudo git clone https://github.com/sstephenson/bats.git /tmp/bats
         sudo /tmp/bats/install.sh /usr/local
         sudo rm -rf /tmp/bats
 
-        yay zoxide-bin
         sudo pacman -S broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch
         
         if [ -e ${DEST_DIR}/broot/launcher ]; then
@@ -166,6 +184,7 @@ function _set_symlinks() {
 }
 
 function _main() {
+    <<COMMENT
     _banner "Update packages"
     _update_packages
     _info "The package has been updated."
@@ -185,7 +204,7 @@ function _main() {
     _banner "Install init_files"
     _set_init_files_symlinks
     _info "Finished init files installation!"↲
-
+COMMENT
     _banner "Install config files"
 	_set_symlinks
 	_info "Finished config files installation!"

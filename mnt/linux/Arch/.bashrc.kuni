@@ -74,7 +74,7 @@ export DISPLAY=$LOCAL_IP:0
 stty stop undef
 
 # z
-. /usr/bin/z
+. /usr/bin/z/z.sh
 
 # [fzf] 設定
 export FZF_DEFAULT_OPTS="--reverse --border --height 50%"

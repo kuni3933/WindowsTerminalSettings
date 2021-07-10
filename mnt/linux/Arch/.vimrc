@@ -6,6 +6,14 @@
 "        /____/                               
 " ////////////////////////////////////////////////////////////////////////
 
+" Clipboard magic?
+if system('uname -a | grep -i microsoft') != ''
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif
+
 " Encoding 
 set encoding=utf-8 
 scriptencoding utf-8
