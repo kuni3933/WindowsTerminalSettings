@@ -205,49 +205,47 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 3. mirrorlstの設定<br>
 <code>vim /etc/pacman.d/mirrorlist</code><br>
 
-3. 鍵の初期化<br>
+4. 鍵の初期化<br>
 <code>pacman-key --init</code><br>
 
-4. 鍵の更新<br>
+5. 鍵の更新<br>
 <code>pacman-key --populate archlinux</code><br>
 <code>pacman -Syy archlinux-keyring</code><br>
 
-5. パッケージの更新<br>
+6. パッケージの更新<br>
 <code>pacman -Syu</code><br>
 
-6. 必要なPackageのインストール<br>
+7. 必要なPackageのインストール<br>
 <code>pacman -S vi vim sudo git</code><br> 
 <code>pacman -Syyu base base-devel</code><br>
 
-7. root-pass<br>
+8. root-pass<br>
 <code>passwd</code><br>
 
-8. useradd<br>
+9. useradd<br>
 <code>useradd -m -g wheel -s /bin/bash {username}</code><br>
 -m オプションはホームディレクトリを作成、 -G はグループリストを指定する。 ({username}=ユーザー名) を特権コマンドも実行できる wheel ユーザグループに指定。 -s はログインシェルを指定するオプション。<br>
 
-9. user-pass<br>
+10. user-pass<br>
 <code>passwd {username}</code><br>
 ({username}=ユーザー名)<br>
 
-10. user add wheel group<br>
+11. user add wheel group<br>
 <code>gpasswd -a {username} wheel</code><br>
 ({username}=ユーザー名)<br>
 
-11. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
+12. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
 <code>nano /etc/sudoers</code><br>
 キーバインド:M = meta key = Alt<br>
 
-12. 以下の行を探してアンコメントする。<br>
+13. 以下の行を探してアンコメントする。<br>
 <code>%wheel ALL=(ALL) ALL</code><br>
 
-13. close nano<br>
+14. close nano<br>
 以下のコマンドでnanoを閉じて保存終了<br>
 <code>ctrl + x</code><br> 
 <code>y</code><br>
 <code>ENTER</code><br>
-
-14. exit
 <code>exit</code><br>
 
 15. powershellで規定ユーザーセット<br>
