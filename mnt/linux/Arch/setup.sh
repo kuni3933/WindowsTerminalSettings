@@ -166,7 +166,6 @@ function _install_packages() {
     :
 	sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST"
     yay -S --needed - < "${CURRENT_DIR}/PKGLIST_AUR.fix"
-done
 }
 
 function _set_symlinks() {
