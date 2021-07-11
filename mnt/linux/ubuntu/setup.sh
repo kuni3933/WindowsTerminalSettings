@@ -61,17 +61,17 @@ _install_packages() {
   :
   #sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST"
 }
-_set_symlinks() {
-  for src in ${SRC_FILES[@]}; do
-    dest="${src/${SRC_DIR}/${DEST_DIR}/}"
+function _set_symlinks() {
+	for src in ${SRC_FILES[@]}; do
+		dest="${src/${SRC_DIR}/${DEST_DIR}/}"
 
-    dest_dir="$(dirname "${dest}")"
-    _verbose "Create directory: ${dest_dir}"
-    mkdir -p "${dest_dir}"
+		dest_dir="$(dirname "${dest}")"
+		_verbose "Create directory: ${dest_dir}"
+		mkdir -p "${dest_dir}"
 
-    _verbose "Create symlink:   ${src} --> ${dest}"
-    sudo ln -sf "${src}" "${dest}"
-  done
+		_verbose "Create symlink:   ${src} --> ${dest}"
+		ln -sf "${src}" "${dest}"
+	done
 }
 _main() {
   #_banner "Install packages"
