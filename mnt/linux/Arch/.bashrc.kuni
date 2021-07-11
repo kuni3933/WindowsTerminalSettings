@@ -17,8 +17,6 @@ export GPG_TTY=$(tty)
 #https://superuser.com/questions/1262977/open-browser-in-host-system-from-windows-subsystem-for-linux
 export BROWSER='/mnt/c/Windows/explorer.exe'
 
-. "$HOME/.cargo/env"
-
 source ~/.config/broot/launcher/bash/br
 
 if [ $SHLVL = 1 ] ; then

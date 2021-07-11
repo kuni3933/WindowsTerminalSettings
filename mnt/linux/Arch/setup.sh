@@ -141,7 +141,7 @@ function _other_packages(){
 
 function _set_init_files_symlinks() {
     ln -sf ${CURRENT_DIR}/.Xresources ${USERPROFILE}/
-    ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/
+    ln -sf ${CURRENT_DIR}/.alias ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org
     ln -sf ${CURRENT_DIR}/.bashrc.kuni ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.gtkrc-2.0 ${USERPROFILE}/
