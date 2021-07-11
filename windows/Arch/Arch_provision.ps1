@@ -89,13 +89,13 @@ wsl -- sudo mv /tmp/wsl.conf  /etc
 wsl -- sudo chmod 600 /etc/wsl.conf
 Write-Host "Installation is complete." -ForegroundColor Green
 
-Write_Title 'sudo apt install -y git-all'
+Write_Title 'sudo pacman -S git gnupg openssh'
 wsl -- sudo pacman -g
 wsl -- sudo pacman -Syy
 wsl -- sudo pacman -Syyu
 wsl -- sudo pacman -Sc
 #------------------------------------------------------------------------#
-wsl -- sudo pacman -S git
+wsl -- sudo pacman -S git gnupg openssh
 Write-Host "Installation is complete." -ForegroundColor Green
 
 Write_Title "Installation is complete."

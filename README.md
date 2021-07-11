@@ -131,52 +131,68 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 5. PC再起動した後pwshを開く
 6. <code>sudo wsl --set-default-version 2</code>
 
-#Ubuntuの手順
+# Ubuntuの手順
 
 1. WindowsのMicrosoftStoreからUbuntuを検索してダウンロード
+
 2. Ubuntuを起動して、ユーザー名/パスを設定
+
 3. pwshで以下のコマンドを実行<br>
    <code>cd $env:USERPROFILE/WindowsTerminalSettings</code>
+
 4. <code>windows/ubuntu/Ubuntu_provision.ps1</code>（Ubuntuの場合）<br>
     <code>windows/ubuntu/Ubuntu-20.04-LTS_Provision.ps1</code>（Ubuntu20.011-LTSの場合）<br>
     <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
     <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
     <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>が完了<br>
+
 5. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、以下のコマンドでwsl側の.gitconfigを修正<br>
     <code>git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"</code><br>
 
-<a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
+6. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
 
-6. Ubuntuで以下のコマンドを実行<br>
+7. Ubuntuで以下のコマンドを実行<br>
    <code>cd ~</code><br>
    <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
    <code>sh WindowsTerminalSettings/mnt/linux/ubuntu/setup.sh</code><br>
           Finishedの表示が出るまで何回か実行<br>
-7. Ubuntuで以下のコマンドを実行<br>
+
+8. Ubuntuで以下のコマンドを実行<br>
    <code>im-config -n fcitx</code><br>
-8. pcを再起動した後に以下のコマンド<br>
+
+9. pcを再起動した後に以下のコマンド<br>
    <code>fcitx-autostart</code><br>
    エラーが出ても、エンターを押す.<br>
-9. <code>fcitx-configtool</code><br>
-10. 以下のように設定してウィンドウを閉じる<br>
+
+10. <code>fcitx-configtool</code><br>
+
+11. 以下のように設定してウィンドウを閉じる<br>
    <ul>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/a371c322.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
    </ul>
-   <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-11. pyenv initの設定（必要なら）<br>
-12. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-13. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-14. ".bashrc"を修正<br>
+
+12. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
+
+13. pyenv initの設定（必要なら）<br>
+
+14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+
+15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+
+16. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
     <code>. ~/.bashrc.org</code><br>
     <code>. ~/.aliases.org</code><br>
     のみが記述されている状態にする<br>
-15. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
-      <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-16. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-17. gpg/sshの情報を.gitconfigに設定<br>
+
+17. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+            <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
+
+18. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+
+19. gpg/sshの情報を.gitconfigに設定<br>
 
 # Archの手順
 
@@ -237,6 +253,12 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 15. powershellで規定ユーザーセット<br>
 <code>arch.exe config --default-user {username}</code><br>
 ({username}=ユーザー名)<br>
+
+16. setup
+<code>WindowsTerminaからArch実行</code><br>
+<code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
+<code>cd ~/WindowsTerminalSettings/mnt/linux/Arch</code><br>
+<code>./setup.sh</code><br>
 
 ## 以下参考
 
