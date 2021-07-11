@@ -73,7 +73,7 @@ function _other_packages(){
         fi
         
         #gcc clang
-        sudo pacman -S base-devel gdb binutils bc bison pkgconf clang llvm cmake 
+        sudo pacman -S base-devel gdb binutils bc bison pkgconf clang llvm lldb cmake 
         
         #Golang
         sudo pacman -S go 

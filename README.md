@@ -254,7 +254,11 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 <code>arch.exe config --default-user {username}</code><br>
 ({username}=ユーザー名)<br>
 
-16. setup
+16. Setup wsl.conf with powershell<br>
+<code>cd $env:USERPROFILE/WindowsTerminalSettings/windows/Arch</code><br>
+<code>.\Arch_provision.ps1</code><br>
+
+17. setup
 <code>WindowsTerminaからArch実行</code><br>
 <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
 <code>cd ~/WindowsTerminalSettings/mnt/linux/Arch</code><br>
