@@ -3,7 +3,7 @@ bash-pipes
 bottom-bin
 c-lolcat
 cava-git
-cbonsai-git
+cbonsai
 cpufetch-git
 ddgr
 duf-bin
@@ -14,11 +14,11 @@ fisher
 fontpreview-ueberzug-git
 fzf-extras
 ghq-bin
-git-delta-bin
+git-delta
 globe-cli-bin
 gotop-bin
 i3-scrot
-kosugi-regular
+ttf-jf-openhuninn
 kvantum-theme-qogir-git
 lazygit-bin
 lightdm-mini-greeter

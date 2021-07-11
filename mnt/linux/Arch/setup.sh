@@ -28,9 +28,10 @@ function _update_packages(){
     cd ${CURRENT_DIR}
     sudo rm -rf /tmp/yay
 
-    #yay_update
-    yay -Syu
-    yay -Yc
+    #yay_update https://furuya7.hatenablog.com/entry/2020/05/06/180426
+    yay -Sy
+    yay
+    yay -Qdtq
 
     #volta
     curl https://get.volta.sh | bash
@@ -164,10 +165,8 @@ function _install_dein() {
 function _install_packages() {
     :
 	sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST"
-}
-
-function _other_install_packages() {
-    :
+    yay -S --needed - < "${CURRENT_DIR}/PKGLIST_AUR.fix"
+done
 }
 
 function _set_symlinks() {
@@ -210,6 +209,10 @@ function _main() {
     _banner "Install dein.vim"
 	_install_dein
 	_info "Finished dein.vim installation!"
+
+    _banner "Update packages"
+    _update_packages
+    _info "The package has been updated."
 }
 
 function _verbose() {
