@@ -313,7 +313,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('mboughaba/i3config.vim')
 
     " LSP
-    call dein#add('prabishrestha/vim-lsp')
+    call dein#add('prabirshrestha/vim-lsp')
     call dein#add('mattn/vim-lsp-settings')
 
     " Python
@@ -321,9 +321,9 @@ if dein#load_state('$HOME/.cache/dein')
 
     " Go
     "call dein#add('fatih/vim-go')
-    call dein#add('prabishrestha/async.vim')
-    call dein#add('prabishrestha/asyncomplete.vim')
-    call dein#add('prabishrestha/asyncomplete-lsp.vim')
+    call dein#add('prabirshrestha/async.vim')
+    call dein#add('prabirshrestha/asyncomplete.vim')
+    call dein#add('prabirshrestha/asyncomplete-lsp.vim')
     call dein#add('mattn/vim-goimports')
 
     " bash
