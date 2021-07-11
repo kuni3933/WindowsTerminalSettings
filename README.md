@@ -1,7 +1,8 @@
 # WindowsTerminalSettings
 
-tadashi-aikawa様のowl-playbookをベースに個人的に改造したもの
 <li><a href="https://github.com/tadashi-aikawa/owl-playbook">tadashi-aikawa/owl-playbook: Playbook both Linux and Windows for me</a></li>
+<li><a href="https://github.com/sheepla/dotfiles">sheepla/dotfiles</a></li>
+をベースに個人的に改造したもの
 
 ## 1.以下からMicrosoft.DesktopAppInstaller(winget)とvoltaをインストール
 
@@ -82,6 +83,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
       <li>mnt/linux/ubuntu/.bashrc</li>
       <li>mnt/linux/ubuntu/.vimrc</li>
       <li>mnt/linux/ubuntu/setup.sh</li>
+      <li>mnt/linux/Arch/* (<a href="https://github.com/sheepla/dotfiles">sheepla/dotfiles</a>を参考)</li>
       <li>mnt/windows/pipes-rs</li>
       <li>mnt/windows/power-shell</li>
       <li>mnt/windows/terminal</li>
@@ -108,7 +110,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 3. 各install.ps1を実行してパッケージアップデート
 4. 再度windows/provision.batを実行
 
-# WSL2-Ubuntuの手順
+# WSL2の手順
 
 
 本家Tadashi Aikawa氏の資料を要参照<br>
@@ -128,56 +130,119 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
   参考 - <a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする</a><br>
 5. PC再起動した後pwshを開く
 6. <code>sudo wsl --set-default-version 2</code>
-7. WindowsのMicrosoftStoreからUbuntuを検索してダウンロード
-8. Ubuntuを起動して、ユーザー名/パスを設定
-9. pwshで以下のコマンドを実行<br>
+
+#Ubuntuの手順
+
+1. WindowsのMicrosoftStoreからUbuntuを検索してダウンロード
+2. Ubuntuを起動して、ユーザー名/パスを設定
+3. pwshで以下のコマンドを実行<br>
    <code>cd $env:USERPROFILE/WindowsTerminalSettings</code>
-10. <code>windows/ubuntu/Ubuntu_provision.ps1</code>（Ubuntuの場合）<br>
+4. <code>windows/ubuntu/Ubuntu_provision.ps1</code>（Ubuntuの場合）<br>
     <code>windows/ubuntu/Ubuntu-20.04-LTS_Provision.ps1</code>（Ubuntu20.011-LTSの場合）<br>
     <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
     <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
     <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>が完了<br>
-12. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、以下のコマンドでwsl側の.gitconfigを修正<br>
+5. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、以下のコマンドでwsl側の.gitconfigを修正<br>
     <code>git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"</code><br>
 
 <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
 
-1. Ubuntuで以下のコマンドを実行<br>
+6. Ubuntuで以下のコマンドを実行<br>
    <code>cd ~</code><br>
    <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
    <code>sh WindowsTerminalSettings/mnt/linux/ubuntu/setup.sh</code><br>
           Finishedの表示が出るまで何回か実行<br>
-2. Ubuntuで以下のコマンドを実行<br>
+7. Ubuntuで以下のコマンドを実行<br>
    <code>im-config -n fcitx</code><br>
-3. pcを再起動した後に以下のコマンド<br>
+8. pcを再起動した後に以下のコマンド<br>
    <code>fcitx-autostart</code><br>
    エラーが出ても、エンターを押す.<br>
-4. <code>fcitx-configtool</code><br>
-5. 以下のように設定してウィンドウを閉じる<br>
+9. <code>fcitx-configtool</code><br>
+10. 以下のように設定してウィンドウを閉じる<br>
    <ul>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/a371c322.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
     <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
    </ul>
    <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-6. pyenv initの設定（必要なら）<br>
-7. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-8. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-9. ".bashrc"を修正<br>
+11. pyenv initの設定（必要なら）<br>
+12. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
+13. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
+14. ".bashrc"を修正<br>
     必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
     <code>. ~/.bashrc.org</code><br>
     <code>. ~/.aliases.org</code><br>
     のみが記述されている状態にする<br>
-10. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
+15. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
       <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-11. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-12. gpg/sshの情報を.gitconfigに設定<br>
+16. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
+17. gpg/sshの情報を.gitconfigに設定<br>
+
+# Archの手順
+
+1. pwshで以下のコマンド<br>
+<code>scoop install archwsl</code><br>
+
+2. Archの起動<br>
+<code>wsl -d Arch</code><br>
+
+3. mirrorlstの設定<br>
+<code>vim /etc/pacman.d/mirrorlist</code><br>
+
+3. 鍵の初期化<br>
+<code>pacman-key --init</code><br>
+
+4. 鍵の更新<br>
+<code>pacman-key --populate archlinux</code><br>
+<code>pacman -Syy archlinux-keyring</code><br>
+
+5. パッケージの更新<br>
+<code>pacman -Syu</code><br>
+
+6. 必要なPackageのインストール<br>
+<code>pacman -S vi vim sudo git</code><br> 
+<code>pacman -Syyu base base-devel</code><br>
+
+7. root-pass<br>
+<code>passwd</code><br>
+
+8. useradd<br>
+<code>useradd -m -g wheel -s /bin/bash {username}</code><br>
+-m オプションはホームディレクトリを作成、 -G はグループリストを指定する。 ({username}=ユーザー名) を特権コマンドも実行できる wheel ユーザグループに指定。 -s はログインシェルを指定するオプション。<br>
+
+9. user-pass<br>
+<code>passwd {username}</code><br>
+({username}=ユーザー名)<br>
+
+10. user add wheel group<br>
+<code>gpasswd -a {username} wheel</code><br>
+({username}=ユーザー名)<br>
+
+11. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
+<code>nano /etc/sudoers</code><br>
+キーバインド:M = meta key = Alt<br>
+
+12. 以下の行を探してアンコメントする。<br>
+<code>%wheel ALL=(ALL) ALL</code><br>
+
+13. close nano<br>
+以下のコマンドでnanoを閉じて保存終了<br>
+<code>ctrl + x</code><br> 
+<code>y</code><br>
+<code>ENTER</code><br>
+
+14. exit
+<code>exit</code><br>
+
+15. powershellで規定ユーザーセット<br>
+<code>arch.exe config --default-user {username}</code><br>
+({username}=ユーザー名)<br>
 
 ## 以下参考
 
 <ul>
   <li><a href="https://blog.mamansoft.net/2020/05/31/windows-terminal-and-power-shell-makes-beautiful">Windows TerminalとPowerShellでクールなターミナル環境をつくってみた</a></li>
-  <li><a href="https://github.com/tadashi-aikawa/owl-playbook">tadashi-aikawa/owl-playbook: Playbook both Linux and Windows for me</a></li>
+  <li><a href="https://wiki.archlinux.jp/index.php/WSL_%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">WSL にインストール - ArchWiki</a></li>
   <li><a href="https://mikazuki.hatenablog.jp/entry/2020/08/01/173459">Windows の Terminal 環境を整えたい - みかづきメモ</a></li>
   <li><a href="https://secon.dev/entry/2020/08/17/070735/">MacOS ユーザが WSL では無い Windows のコンソール環境を整える - A Day in the Life</a></li>
   <li><a href="https://qiita.com/momomo_rimoto/items/30a95e457724746521c2#--%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%92%E6%9C%80%E6%96%B0%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E3%81%99%E3%82%8B%E5%85%A8%E3%81%A6git-pull%E3%81%99%E3%82%8B">[git] 複数のリモートリポジトリを扱う&amp;サブモジュール&amp;複数のリモートリポジトリのサブモジュール - Qiita</a></li>
