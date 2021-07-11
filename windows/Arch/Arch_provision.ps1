@@ -6,6 +6,10 @@ function Write_Title($msg) {
 }
 ${Arch} = "Arch"
 ${USERNAME} = wsl -- whoami
+if (${USERNAME} -eq "root"){
+    Write_Title "既定ユーザーをroot以外にしてから実行してください. / Set the default user to something other than root, and then run it."
+    exit
+}
 Write_Title "Arch_USERNAME : ${USERNAME}"
 wsl --terminate "${Arch}"
 
