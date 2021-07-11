@@ -7,12 +7,7 @@
 " ////////////////////////////////////////////////////////////////////////
 
 " Clipboard magic?
-if system('uname -a | grep -i microsoft') != ''
-  augroup myYank
-    autocmd!
-    autocmd TextYankPost * :call system('clip.exe', @")
-  augroup END
-endif
+set clipboard=unnamedplus
 
 " Encoding 
 set encoding=utf-8 
