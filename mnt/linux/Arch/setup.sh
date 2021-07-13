@@ -15,7 +15,6 @@ readonly genie_VER="1.42"
 
 function _update_packages(){
     sudo pacman -Syyu
-    sudo pacman -Rs
     sudo pacman -S --needed aria2 curl wget make autoconf automake ntp git gnupg openssh base-devel
 
     #yay 
