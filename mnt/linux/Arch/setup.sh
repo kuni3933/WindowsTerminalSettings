@@ -119,12 +119,20 @@ function _other_packages(){
             sudo git clone https://github.com/rupa/z.git /usr/bin/z
         fi
 
-        sudo git clone https://github.com/sstephenson/bats.git /tmp/bats
-        sudo /tmp/bats/install.sh /usr/local
-        sudo rm -rf /tmp/bats
+        git clone https://github.com/sheepla/fzpac /tmp/fzpac
+        cd /tmp/fzpac
+        sudo make install
+        cd ${CURRENT_DIR}
+        sudo rm -rf /tmp/fzpac
+
+        git clone https://github.com/sheepla/fzman /tmp/fzman
+        cd /tmp/fzman
+        sudo make install
+        cd ${CURRENT_DIR}
+        sudo rm -rf /tmp/fzman
 
         yay -S docui-bin
-        sudo pacman -S broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch 
+        sudo pacman -S broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch bash-bats bash-bats-assert
         
         if [ -e ${DEST_DIR}/broot/launcher ]; then
             :
