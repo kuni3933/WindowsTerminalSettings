@@ -14,10 +14,9 @@ readonly dotfile_DIR=$(cd ${CURRENT_DIR} && cd ../../../ && pwd)
 readonly genie_VER="1.42"
 
 function _update_packages(){
-    sudo pacman -g
-    sudo pacman -Syy
-    sudo pacman -Syyu  
-    sudo pacman -Sc
+    sudo pacman -Syyu
+    sudo pacman -Scc
+    sudo pacman -Rs
     sudo pacman -S --needed aria2 curl wget make autoconf automake ntp git gnupg openssh base-devel
 
     #yay 
@@ -28,9 +27,9 @@ function _update_packages(){
     sudo rm -rf /tmp/yay-bin
 
     #yay_update https://furuya7.hatenablog.com/entry/2020/05/06/180426
-    yay -Sy
-    yay
-    yay -Qdtq
+    yay -Syyu
+    yay -Scc
+
 
     #volta
     yay -S volta
@@ -212,15 +211,9 @@ function _main() {
 	_info "Finished dein.vim installation!"
 
     #pacman_update
-    sudo pacman -g
-    sudo pacman -Syy
-    sudo pacman -Syyu  
-    sudo pacman -Sc
-    #yay_update https://furuya7.hatenablog.com/entry/2020/05/06/180426
-    yay -Sy
-    yay
-    yay -Qdtq
-
+    _banner "Update packages"
+    _update_packages
+    _info "The package has been updated."
 }
 
 function _verbose() {
