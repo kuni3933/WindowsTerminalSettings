@@ -37,7 +37,7 @@ function _update_packages(){
 }
 
 function _genie(){
-    yay -S daemonize
+    yay -S --needed daemonize
     wget -O "/tmp/genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst" "https://github.com/arkane-systems/genie/releases/download/v${genie_VER}/genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst"
     cd /tmp
     sudo pacman -U "./genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst"
@@ -61,7 +61,7 @@ function _other_packages(){
         sudo rm -rf /tmp/win32yank.zip
 
         #symbola
-        yay -S font-symbola
+        yay -S --needed font-symbola
         #NerdFont
         if [ -e ${USERPROFILE}/.local/share/fonts/NerdFonts/"Sauce Code Pro Nerd Font Complete.ttf" ]; then
             echo "Already installed."
@@ -72,19 +72,19 @@ function _other_packages(){
         fi
         
         #gcc clang
-        sudo pacman -S base-devel gdb binutils bc bison pkgconf clang llvm lldb cmake 
+        sudo pacman -S --needed base-devel gdb binutils bc bison pkgconf clang llvm lldb cmake 
         
         #Golang
-        sudo pacman -S go 
+        sudo pacman -S --needed go 
         GO111MODULE=on go get -u github.com/tadashi-aikawa/gowl
         GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 
         #Python
-        sudo pacman -S python ninja
+        sudo pacman -S --needed python ninja
         pip3 install meson pywinrm awscli ansible glances glances[docker,ip,web]
 
         #rustup / rust
-        sudo pacman -S rustup
+        sudo pacman -S --needed rustup
         rustup install nightly-x86_64-unknown-linux-gnu
         rustup install beta-x86_64-unknown-linux-gnu
         rustup default beta-x86_64-unknown-linux-gnu
@@ -130,8 +130,8 @@ function _other_packages(){
         cd ${CURRENT_DIR}
         sudo rm -rf /tmp/fzman
 
-        yay -S docui-bin
-        sudo pacman -S broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch bash-bats bash-bats-assert
+        yay -S --needed docui-bin
+        sudo pacman -S --needed broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch bash-bats bash-bats-assert
         
         if [ -e ${DEST_DIR}/broot/launcher ]; then
             :
@@ -165,8 +165,8 @@ function _install_dein() {
 
 function _install_packages() {
     :
-	sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST"
-    yay -S --needed - < "${CURRENT_DIR}/PKGLIST_AUR.fix"
+	sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST.fix"
+    yay -S --needed - <"${CURRENT_DIR}/PKGLIST_AUR.fix"
 }
 
 function _set_symlinks() {

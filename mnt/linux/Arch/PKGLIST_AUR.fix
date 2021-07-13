@@ -14,7 +14,6 @@ fisher
 fontpreview-ueberzug-git
 fzf-extras
 ghq-bin
-git-delta
 globe-cli-bin
 gotop-bin
 i3-scrot
@@ -40,7 +39,6 @@ rofi-greenclip
 shell-color-scripts
 shellcheck-bin
 slack-desktop
-starship-bin
 super_unko-git
 textimg
 tmux-nord-theme
