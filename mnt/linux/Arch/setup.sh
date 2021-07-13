@@ -18,15 +18,14 @@ function _update_packages(){
     sudo pacman -Syy
     sudo pacman -Syyu  
     sudo pacman -Sc
-    sudo pacman -S aria2 curl wget make autoconf automake ntp git gnupg openssh
+    sudo pacman -S --needed aria2 curl wget make autoconf automake ntp git gnupg openssh base-devel
 
-    #yay
-    pacman -S --Needed git base-devel
-    git clone https://aur.archlinux.org/yay.git /tmp/yay
-    cd /tmp/yay
+    #yay 
+    git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin
+    cd /tmp/yay-bin
     makepkg -si
     cd ${CURRENT_DIR}
-    sudo rm -rf /tmp/yay
+    sudo rm -rf /tmp/yay-bin
 
     #yay_update https://furuya7.hatenablog.com/entry/2020/05/06/180426
     yay -Sy
@@ -34,7 +33,7 @@ function _update_packages(){
     yay -Qdtq
 
     #volta
-    curl https://get.volta.sh | bash
+    yay -S volta
     volta setup
 }
 
@@ -80,24 +79,18 @@ function _other_packages(){
         sudo pacman -S go 
         GO111MODULE=on go get -u github.com/tadashi-aikawa/gowl
         GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
-        
-        go get -d github.com/skanehira/docui
-        cd $GOPATH/src/github.com/skanehira/docui
-        GO111MODULE=on go install
-        cd ${CURRENT_DIR}
 
         #Python
         sudo pacman -S python ninja
-        pip3 install meson pywinrm awscli ansible
-        pip3 install glances glances[docker,ip,web]
+        pip3 install meson pywinrm awscli ansible glances glances[docker,ip,web]
 
         #rustup / rust
         sudo pacman -S rustup
         rustup install nightly-x86_64-unknown-linux-gnu
         rustup install beta-x86_64-unknown-linux-gnu
         rustup default beta-x86_64-unknown-linux-gnu
-        rustup self update
         rustup update
+        cargo install-update -a
         cargo install cargo-update
         cargo install-update -a
         rustup component add clippy rls rust-analysis rust-src rust-docs rustfmt
@@ -130,7 +123,8 @@ function _other_packages(){
         sudo /tmp/bats/install.sh /usr/local
         sudo rm -rf /tmp/bats
 
-        sudo pacman -S broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch
+        yay -S docui-bin
+        sudo pacman -S broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch 
         
         if [ -e ${DEST_DIR}/broot/launcher ]; then
             :
