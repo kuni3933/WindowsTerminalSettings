@@ -77,7 +77,8 @@ function _other_packages(){
 
         #Python
         sudo pacman -S --needed python ninja
-        pip3 install meson pywinrm awscli ansible glances glances[docker,ip,web]
+        pip3 install meson pywinrm awscli ansible
+        pip3 install glances glances[docker,ip,web]
 
         #rustup / rust
         sudo pacman -S --needed rustup
