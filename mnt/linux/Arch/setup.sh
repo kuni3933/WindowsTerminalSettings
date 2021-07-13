@@ -203,9 +203,16 @@ function _main() {
 	_install_dein
 	_info "Finished dein.vim installation!"
 
-    _banner "Update packages"
-    _update_packages
-    _info "The package has been updated."
+    #pacman_update
+    sudo pacman -g
+    sudo pacman -Syy
+    sudo pacman -Syyu  
+    sudo pacman -Sc
+    #yay_update https://furuya7.hatenablog.com/entry/2020/05/06/180426
+    yay -Sy
+    yay
+    yay -Qdtq
+
 }
 
 function _verbose() {

@@ -262,6 +262,11 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 <code>cd ~/WindowsTerminalSettings/mnt/linux/Arch</code><br>
 <code>./setup.sh</code><br>
 
+18. setup .bashrc<br>
+必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
+    <code>. ~/.bashrc.org</code><br>
+    のみが記述されている状態にする<br>
+
 ## 以下参考
 
 <ul>
