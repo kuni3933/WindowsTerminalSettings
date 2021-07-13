@@ -15,7 +15,6 @@ readonly genie_VER="1.42"
 
 function _update_packages(){
     sudo pacman -Syyu
-    sudo pacman -Scc
     sudo pacman -Rs
     sudo pacman -S --needed aria2 curl wget make autoconf automake ntp git gnupg openssh base-devel
 
@@ -28,8 +27,6 @@ function _update_packages(){
 
     #yay_update https://furuya7.hatenablog.com/entry/2020/05/06/180426
     yay -Syyu
-    yay -Scc
-
 
     #volta
     yay -S volta
