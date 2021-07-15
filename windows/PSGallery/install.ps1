@@ -25,13 +25,28 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force
 br(1)
 
 Write_Title "iwr -useb get.scoop.sh | iex"
-iwr -useb get.scoop.sh | iex
+if (Test-Path ~/scoop/shims/scoop.cmd) {
+  Write-Host "Already installed." -ForegroundColor Yellow
+}
+else{
+  iwr -useb get.scoop.sh | iex
+}
+br(1)
+
+Write_Title "Invoke-WebRequest dein.vim/master/bin/installer.ps1 -OutFile ~/installer.ps1"
+Invoke-WebRequest https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.ps1 -OutFile ~/installer.ps1
+# Allow to run third-party script
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# For example, we just use `~/.cache/dein` as installation directory
+~/installer.ps1 ~/.cache/dein
+rm ~/installer.ps1
 br(1)
 
 Write_Title "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force"
+Set-ExecutionPolicy Undefined -Force
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-Get-ExecutionPolicy -l
 br(1)
 
 Write_Title "# PSGallery/install.ps1 has finished."
+Get-ExecutionPolicy -List  
 br(2)
