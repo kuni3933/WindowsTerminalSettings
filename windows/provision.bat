@@ -15,7 +15,7 @@ set owl-playbook_COMMON_MNT="%~dp0..\owl-playbook\mnt\common"
 
 set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
 set pipes-rs="%~dp0..\mnt\windows\pipes-rs"
-set windotfiles ="%~dp0..\windotfiles"
+set windotfiles="%~dp0..\windotfiles"
 set windows-terminal-colorscheme ="%~dp0..\windows-terminal-colorscheme"
 
 
@@ -47,14 +47,17 @@ call :******************** pipes.sh/pipes-rs
 call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
 call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes-rs%"
 
+call :******************** neovim/init.vim
+call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\init.vim" 
+
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%~dp0..\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** windotfiles
-call :link_file "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\main.ahk" "%windotfiles%\ahk\main.ahk"
-call :link_file "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\muhenkan-vim.ahk" "%windotfiles%\ahk\muhenkan-vim.ahk"
-call :link_dir "%AppData%\Alacritty" "%windotfiles%\alacritty"
+call :link_file "%ROAMING%\Microsoft\Windows\Start Menu\Programs\Startup\main.ahk" "%windotfiles%\ahk\main.ahk"
+call :link_file "%ROAMING%\Microsoft\Windows\Start Menu\Programs\Startup\muhenkan-vim.ahk" "%windotfiles%\ahk\muhenkan-vim.ahk"
+call :link_dir "%ROAMING%\Alacritty" "%windotfiles%\alacritty"
 
 call :******************** IntelliJ IDEA
 
@@ -78,7 +81,7 @@ set VSCODE_ORIGIN_USER_DIR=%COMMON_MNT%\VSCode\User
 set VSCODE_USER_DIR=%ROAMING%\Code\User
 
 call :link_vscode_file keybindings.json
-REM call :link_vscode_file settings.json
+rem call :link_vscode_file settings.json
 call :link_vscode_dir snippets
 rem See https://blog.mamansoft.net/2018/09/17/vscode-satisfies-vimmer/
 call :each vscode_extension_install vscode-extensions.txt
