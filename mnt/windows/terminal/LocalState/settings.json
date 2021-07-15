@@ -83,7 +83,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
         "icon": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/favicon.ico",
         "name": "WSL2-Arch",
-        "commandline": "Arch.exe",
+        "commandline": "Arch.exe ~",
         "source": "Windows.Terminal.Wsl",
         "colorScheme": "Campbell",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/windows/wsl/BxV2pw7CAAAjeSf_Arch .png"
