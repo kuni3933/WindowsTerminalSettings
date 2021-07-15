@@ -90,12 +90,9 @@ wsl -- sudo chmod 600 /etc/wsl.conf
 Write-Host "Installation is complete." -ForegroundColor Green
 
 Write_Title 'sudo pacman -S git gnupg openssh'
-wsl -- sudo pacman -g
-wsl -- sudo pacman -Syy
 wsl -- sudo pacman -Syyu
-wsl -- sudo pacman -Sc
 #------------------------------------------------------------------------#
-wsl -- sudo pacman -S git gnupg openssh
+wsl -- sudo pacman -Syyu --needed aria2 curl wget make autoconf automake ntp git gnupg openssh base base-devel vi vim neovim
 Write-Host "Installation is complete." -ForegroundColor Green
 
 Write_Title "Installation is complete."
