@@ -6,6 +6,9 @@
 "        /____/                               
 " ////////////////////////////////////////////////////////////////////////
 
+" Clipboard magic?
+set clipboard+=unnamed
+
 " Encoding 
 set encoding=utf-8 
 scriptencoding utf-8
