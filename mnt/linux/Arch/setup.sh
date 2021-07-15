@@ -76,11 +76,8 @@ function _other_packages(){
         GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 
         #Python
-        sudo pacman -S --needed python ninja
-        pip3 install meson 
-        pip install pywinrm 
-        pip install awscli 
-        pip install ansible
+        sudo pacman -S --needed python ninja 
+        pip3 install awscli --upgrade --user
         pip3 install glances glances[docker,ip,web]
 
         #rustup / rust

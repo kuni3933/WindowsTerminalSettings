@@ -1,3 +1,7 @@
+ansible
+git-delta
+starship
+vim-ansible
 alacritty
 arandr
 aria2
@@ -44,7 +48,6 @@ gcolor2
 gettext
 git
 github-cli
-git-delta
 grc
 grep
 groff
@@ -70,6 +73,7 @@ m4
 make
 man-db
 man-pages
+meson
 most
 mpv
 namcap
@@ -93,6 +97,7 @@ pulseaudio-equalizer
 pulsemixer
 python-pastel
 python-pip
+python-pywinrm
 qt5ct
 qtile
 ranger
@@ -104,7 +109,6 @@ sed
 shfmt
 simplescreenrecorder
 sl
-starship
 sudo
 sxiv
 systemd-ui
