@@ -77,8 +77,7 @@ function _other_packages(){
 
         #Python
         sudo pacman -S --needed python ninja 
-        pip3 install awscli --upgrade --user
-        pip3 install glances glances[docker,ip,web]
+        sudo pip3 install --upgrade awscli glances glances[docker,ip,web]
 
         #rustup / rust
         sudo pacman -S --needed rustup
