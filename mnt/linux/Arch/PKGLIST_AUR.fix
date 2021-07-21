@@ -1,6 +1,5 @@
 2048.c
 bash-pipes
-bottom-bin
 c-lolcat
 cava-git
 cbonsai
@@ -30,7 +29,6 @@ pacman4console
 pacwatch
 pandoc-bin
 paru-bin
-peco-bin
 picom-jonaburg-git
 powershell-bin
 qogir-gtk-theme
