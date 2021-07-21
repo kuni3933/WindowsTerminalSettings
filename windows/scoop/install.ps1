@@ -48,6 +48,7 @@ Write_Title "# CLI Tools"
 scoop install `
   aria2 `
   pipes-rs `
+  bottom `
   streamlink `
   youtube-dl `
   colortool `
