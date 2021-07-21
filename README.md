@@ -264,8 +264,11 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 18. setup .bashrc<br>
 必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
-    <code>. ~/.bashrc.org</code><br>
-    のみが記述されている状態にする<br>
+<code>. ~/.bashrc.org</code><br>
+<code>export PATH=$PATH:'/mnt/c/Users/{Windows_username}/AppData/Local/Programs/Microsoft VS Code/bin'</code><br>
+のみが記述されている状態にする<br>
+({Windows_username}=Windowsのユーザー名)<br>
+
 
 ## 以下参考
 
