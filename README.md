@@ -216,8 +216,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 <code>pacman -Syu</code><br>
 
 7. 必要なPackageのインストール<br>
-<code>pacman -S vi vim sudo git</code><br> 
-<code>pacman -Syyu base base-devel</code><br>
+<code>pacman -Syyu vi vim sudo git base base-devel</code><br>
 
 8. root-pass<br>
 <code>passwd</code><br>
