@@ -12,6 +12,8 @@ else{
 winfetch.PS1
 # vim => nvim
 Set-Alias vim nvim
+# clear => c
+Set-Alias clear c
 # fish風のオートサジェスト機能を有効に
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -HistoryNoDuplicates:$true
