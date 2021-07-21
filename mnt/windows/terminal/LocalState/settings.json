@@ -47,7 +47,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "fontFace": "SauceCodePro NF",
       "fontSize": 11,
       "useAcrylic": true,
-      "acrylicOpacity": 0.1875,
+      "acrylicOpacity": 0.5,
       "closeOnExit": true,
       //"colorScheme": "Campbell",
       "colorScheme": "Iceberg",
@@ -59,7 +59,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "padding": "0, 0, 0, 0",
       "snapOnInput": true,
       "startingDirectory": "%USERPROFILE%",
-      "backgroundImageOpacity": 0.09375,
+      "backgroundImageOpacity": 0.125,
       "backgroundImageStretchMode": "none"
     },
     //実行するシェルの種類
