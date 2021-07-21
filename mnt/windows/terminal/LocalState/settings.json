@@ -5,7 +5,7 @@
 // To view the default settings, hold "alt" while clicking on the "Settings" button.
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 /*設定
-本来の配置場所:C:\Users\nakano.kuni\AppData\Local\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json
+本来の配置場所:%USERPROFILE%\AppData\Local\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json
 https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
 */
 {
