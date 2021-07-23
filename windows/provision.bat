@@ -127,7 +127,13 @@ git config --global merge.ff false
 git config --global pull.ff only
 rem “ú–{ŒêƒpƒX‚Ì•¶š‰»‚¯–h~‘Îô
 git config --global core.quotepath false
-
+rem git-delta
+git config --global core.pager delta
+git config --global core.whitespace cr-at-eol
+git config --global delta.syntax-theme Monokai Extended
+git config --global delta.line-number true
+git config --global delta.side-by-side true
+git config --global interactive.diffFilter delta --color-only
 
 call :******************** To be continued.. (Not administrator
 
