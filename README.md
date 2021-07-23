@@ -204,6 +204,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 3. mirrorlstの設定<br>
 <code>vim /etc/pacman.d/mirrorlist</code><br>
+<code>必要ならこちらもhttps://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA#Linux_.E3.81.AB.E3.81.8A.E3.81.91.E3.82.8B_DNS</code><br>
 
 4. 鍵の初期化<br>
 <code>pacman-key --init</code><br>
