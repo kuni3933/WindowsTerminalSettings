@@ -39,12 +39,6 @@ else
 fi
 neofetch
 
-#starship
-eval "$(starship init bash)"
-
-#gh
-eval "$(gh completion -s bash)"
-
 #ssh-agent
 SSH_AGENT_FILE=$HOME/.ssh-agent
 test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
