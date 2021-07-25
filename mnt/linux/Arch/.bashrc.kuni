@@ -39,6 +39,8 @@ else
 fi
 neofetch
 
+#zoxide
+command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 #ssh-agent
 SSH_AGENT_FILE=$HOME/.ssh-agent
 test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
