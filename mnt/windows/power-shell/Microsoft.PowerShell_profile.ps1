@@ -1,3 +1,10 @@
+$scriptPath = $MyInvocation.MyCommand.Path
+$SplitDirPath = Split-Path -Parent $scriptPath
+$IsSet = "$SplitDirPath/IsSet.ps1"
+# Example of "IsSet" usage
+# if((powershell $IsSet command_name -eq $true){alias...function...}
+# command_name...exa/cat/...etc
+
 if(Test-Path $env:USERPROFILE/scoop/apps/rustup-msvc/current/.cargo/bin/rusty-rain.exe){
   if((Get-Random 2) -eq 0){
     pipes-rs
@@ -10,10 +17,15 @@ else{
   pipes-rs
 }
 winfetch.PS1
+
 # vim => nvim
-Set-Alias vim nvim
+if(gcm nvim -ea SilentlyContinue){
+    Set-Alias vim nvim
+}
+
 # c => clear
 Set-Alias c clear
+
 # bat - cat with syntax highlight
 if(gcm bat -ea SilentlyContinue){
     remove-item alias:cat
@@ -23,6 +35,7 @@ if(gcm bat -ea SilentlyContinue){
 else {
     Set-Alias cat Get-Content
 }
+
 # fish風のオートサジェスト機能を有効に
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -HistoryNoDuplicates:$true
@@ -125,14 +138,21 @@ function sort() { $input | uutils sort $args }
 
 # 代替コマンドを使用(exa未対応なので注意)
 Set-Alias grep rg
-function ls() { uutils ls -a $args }
-#function tree() { exa --icons -T $args }
-function tree() { lsd --tree $args }
-# Linuxコマンドのエイリアス
-#function ll() { uutils ls -al $args }
-function ll() { lsd -al --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
-#function ll() { exa --icons -l --git $args}
-
+if(!(gcm exa -ea SilentlyContinue)){
+    function ls() { uutils ls -a $args }
+    function tree() { lsd --tree $args }
+    # Linuxコマンドのエイリアス
+    #function ll() { uutils ls -al $args }
+    function ll() { lsd -al --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
+}
+elseif(gcm exa -ea SilentlyContinue){
+    function tree() { exa --long --all --git --icons --tree --header }
+    function l() { exa --all --icons --classify }
+    function la() { exa --all --icons --classify }
+    function ls() { exa --icons }
+    function ll() { exa --long --all --git --icons --header }
+    function lt() { exa --long --all --git --icons --tree --header }
+}
 #-----------------------------------------------------
 # Useful commands
 #-----------------------------------------------------
