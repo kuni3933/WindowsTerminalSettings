@@ -3,12 +3,22 @@ function Write_Title($msg) {
   Write-Host "┃$msg" -ForegroundColor Yellow
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
+function Write_Section($msg) {
+  Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+  Write-Host "  $msg" -ForegroundColor Green
+  Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+}
 function br($times) {
   $tmp = 1
   while ($tmp -le $times) {
     Write-Output " ";
     $tmp += 1
   }
+}
+function pull($module,$branch){
+    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/$module"
+    git pull origin $branch
+    br(1)
 }
 
 # Repositoryの場所を指定
@@ -31,30 +41,23 @@ if(Test-Path $WindowsTerminalSettings){
     Write_Title "現在のサブモジュールステータス / Current submodule status"
     git submodule status
     br(2)
+
     Write_Title "Pull後のサブモジュールステータス / Submodule status after Pull"
-    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/owl-playbook"
-    git pull origin master
-    br(1)
-    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/pipes.sh"
-    git pull origin master
-    br(1)
-    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/windotfiles"
-    git pull origin main
-    br(1)
-    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/windows-terminal-colorscheme"
-    git pull master
-    br(1)
+    pull "owl-playbook" "master"
+    pull "pipes.sh" "master"
+    pull "windotfiles" "main"
+    pull "windows-terminal-colorscheme" "master"
     Set-Location "$env:USERPROFILE/WindowsTerminalSettings"
-    br(1)
+    br(2)
+
     git submodule status
     br(1)
     Write-Host  Pull is complete.
-    br(1)
+    br(2)
 }
 
-br(1)
-Write_Title "このPull_SubModule.batが終了した後にprovision.batを実行してください."
-Write_Title "After this Pull_SubModule.bat is finished, please run provision.bat."
+Write_Section "このPull_SubModule.batが終了した後にprovision.batを実行してください."
+Write_Section "After this Pull_SubModule.bat is finished, please run provision.bat."
 pause
 Write-Host  'Pull_SubModule.bat' has finished.
 
