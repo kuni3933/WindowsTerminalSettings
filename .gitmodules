@@ -1,16 +1,16 @@
 [submodule "owl-playbook"]
-	path = owl-playbook
-	url = https://github.com/tadashi-aikawa/owl-playbook
-	branch = master
+    path = owl-playbook
+    url = https://github.com/tadashi-aikawa/owl-playbook
+    branch = master
 [submodule "pipes.sh"]
-	path = pipes.sh
-	url = https://github.com/pipeseroni/pipes.sh
-	branch = master
+    path = pipes.sh
+    url = https://github.com/pipeseroni/pipes.sh
+    branch = master
 [submodule "windotfiles"]
-	path = windotfiles
-  url = https://github.com/sheepla/windotfiles
-  branch = main
+    path = windotfiles
+    url = https://github.com/sheepla/windotfiles
+    branch = main
 [submodule "windows-terminal-colorscheme"]
-	path = windows-terminal-colorscheme
-  url = https://github.com/sheepla/windows-terminal-colorscheme
-  branch = master
+    path = windows-terminal-colorscheme
+    url = https://github.com/sheepla/windows-terminal-colorscheme
+    branch = master

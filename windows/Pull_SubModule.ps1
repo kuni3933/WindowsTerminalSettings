@@ -32,10 +32,19 @@ if(Test-Path $WindowsTerminalSettings){
     git submodule status
     br(2)
     Write_Title "Pull後のサブモジュールステータス / Submodule status after Pull"
-    git pull owl-playbook origin master
-    git pull pipes.sh origin master
-    git pull windotfiles origin main
-    git pull windows-terminal-colorscheme origin master
+    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/owl-playbook"
+    git pull origin master
+    br(1)
+    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/pipes.sh"
+    git pull origin master
+    br(1)
+    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/windotfiles"
+    git pull origin main
+    br(1)
+    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/windows-terminal-colorscheme"
+    git pull master
+    br(1)
+    Set-Location "$env:USERPROFILE/WindowsTerminalSettings"
     br(1)
     git submodule status
     br(1)
