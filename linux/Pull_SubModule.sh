@@ -11,28 +11,41 @@ section(){
   echo "-------------------------------------------------------------------------------------------"
 }
 br(){
-  echo ""
-  echo ""
+    for i in `seq $1`
+    do  
+        echo ""
+    done
+}
+pull(){
+    cd "/home/${USERNAME}/WindowsTerminalSettings/$1"
+    git pull origin "$2"
+    br 1
 }
 
 # 参考 - https://devconnected.com/how-to-check-if-file-or-directory-exists-in-bash/
-if [ -e ~/WindowsTerminalSettings ]; then
-    cd ~/WindowsTerminalSettings/
+USERNAME=$(whoami)
+if [ -e "/home/${USERNAME}/WindowsTerminalSettings" ]; then
+    echo true
+    cd "/home/${USERNAME}/WindowsTerminalSettings"
     title "現在のサブモジュールステータス / Current submodule status"
     git submodule status
-    br
+    br 2
 
     title "git submodule foreach git fetch"
     git submodule foreach git fetch
-    br
+    br 2
 
     title "git submodule foreach git pull origin master"
-    git submodule foreach git pull origin master
-    br
+    pull "owl-playbook" "master"
+    pull "pipes.sh" "master"
+    pull "windotfiles" "main"
+    pull "windows-terminal-colorscheme" "master"
+    cd "/home/${USERNAME}/WindowsTerminalSettings"
+    br 2
 
     title "Pull後のサブモジュールステータス / Submodule status after Pull"
     git submodule status
-    br
+    br 2
 
     section "Pull_SubModule.sh is complete."
 else
