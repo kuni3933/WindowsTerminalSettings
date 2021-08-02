@@ -38,13 +38,14 @@ rustup component add `
   rustfmt
 br(1)
 
-Write_Title "cargo install rusty-rain"
+Write_Title " cargo install rusty-rain"
 cargo install rusty-rain
 br(1)
 
-Write_Title "# cargo install exa"
-cargo install exa
+Write_Title "# cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support"
+cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support
 br(1)
+
 
 Write_Title "# cargo/install.ps1 has finished."
 br(2)
