@@ -3,7 +3,11 @@ function Write_Title($msg) {
   Write-Host "┃$msg" -ForegroundColor Yellow
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
-
+function Write_Section($msg) {
+    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+    Write-Host "     $msg" -ForegroundColor Green
+    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+}
 function br($times) {
   $tmp = 1
   while ($tmp -le $times) {
@@ -12,39 +16,39 @@ function br($times) {
   }
 }
 
-Write_Title "# Add extras bucket"
+Write_Title("# Add extras bucket")
 scoop bucket add extras
 br(1)
 
-Write_Title "# Add versions bucket"
+Write_Title("# Add versions bucket")
 scoop bucket add versions
 br(1)
 
-Write_Title "# Add nerd-fonts bucket"
+Write_Title("# Add nerd-fonts bucket")
 scoop bucket add nerd-fonts
 br(1)
 
-Write_Title "# scoop-for-jp"
+Write_Title("# scoop-for-jp")
 scoop bucket add jp https://github.com/rkbk60/scoop-for-jp
 br(1)
 
-Write_Title "# Add Java bucket"
+Write_Title("# Add Java bucket")
 scoop bucket add java
 br(1)
 
-Write_Title "# Add pleiades bucket"
+Write_Title("# Add pleiades bucket")
 scoop bucket add pleiades https://github.com/jfut/scoop-pleiades.git
 br(1)
 
-Write_Title "# Add scoop-completion bucket"
+Write_Title("# Add scoop-completion bucket")
 scoop bucket add scoop-completion https://github.com/Moeologist/scoop-completion
 br(1)
 
-Write_Title "# scoop update"
+Write_Title("# scoop update")
 scoop update
 br(1)
 
-Write_Title "# CLI Tools"
+Write_Title("# CLI Tools")
 scoop install `
   aria2 `
   pipes-rs `
@@ -95,14 +99,14 @@ scoop install `
   roswell
 br(1)
 
-Write_Title "# pwsh tool"
+Write_Title("# pwsh tool")
 scoop install `
   oh-my-posh3 `
   posh-git `
   starship
 br(1)
 
-Write_Title "# GUI Tools"
+Write_Title("# GUI Tools")
 scoop install `
   alacritty `
   bugn `
@@ -115,7 +119,7 @@ scoop install `
   draw.io
 br(1)
 
-Write_Title "# Language / Framework / MiddleWare"
+Write_Title("# Language / Framework / MiddleWare")
 scoop install `
   dotnet `
   sed `
@@ -127,7 +131,7 @@ scoop install `
   vcxsrv
 br(1)
 
-Write_Title "# Python"
+Write_Title("# Python")
 # Python
 #scoop install `
 #python27 `
@@ -137,12 +141,12 @@ Write_Title "# Python"
 scoop reset python
 br(1)
 
-Write_Title "# scoop install gcc "
+Write_Title("# scoop install gcc")
 scoop install gcc
 scoop uninstall gcc
 br(1)
 
-Write_Title "# fonts "
+Write_Title("# fonts")
 scoop install `
   source-han-code-jp `
   SourceCodePro-NF-Mono `
@@ -150,22 +154,22 @@ scoop install `
   SarasaGothic-J
 br(1)
 
-Write_Title "# autohotkey-installer"
+Write_Title("# autohotkey-installer")
 scoop install autohotkey-installer
 # In the future..: scoop install volta
 br(1)
 
-Write_Title "# scoop update *"
+Write_Title("# scoop update *")
 scoop update *
 br(1)
 
-Write_Title "# scoop cleanup *"
+Write_Title("# scoop cleanup *")
 scoop cleanup *
 br(1)
 
-Write_Title "# scoop status"
+Write_Title("# scoop status")
 scoop status
 br(1)
 
-Write_Title "# scoop/install.ps1 has finished."
+Write_Section("# scoop/install.ps1 has finished.")
 br(2)

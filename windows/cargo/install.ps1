@@ -3,6 +3,11 @@ function Write_Title($msg) {
   Write-Host "┃$msg" -ForegroundColor Yellow
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
+function Write_Section($msg) {
+    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+    Write-Host "     $msg" -ForegroundColor Green
+    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+}
 function br($times) {
   $tmp = 1
   while ($tmp -le $times) {
@@ -11,24 +16,24 @@ function br($times) {
   }
 }
 
-Write_Title "# rustup show"
+Write_Title("# rustup show")
 rustup show
 br(1)
 
-Write_Title "# rustup update"
+Write_Title("# rustup update")
 rustup self update
 rustup update
 br(1)
 
-Write_Title "# rustup install nightly-x86_64-pc-windows-msvc"
+Write_Title("# rustup install nightly-x86_64-pc-windows-msvc")
 rustup install nightly-x86_64-pc-windows-msvc
 br(1)
 
-Write_Title "# rustup default nightly-x86_64-pc-windows-msvc"
+Write_Title("# rustup default nightly-x86_64-pc-windows-msvc")
 rustup default nightly-x86_64-pc-windows-msvc
 br(1)
 
-Write_title "# rustup component"
+Write_Title("# rustup component")
 rustup component add `
   clippy `
   rls `
@@ -38,14 +43,14 @@ rustup component add `
   rustfmt
 br(1)
 
-Write_Title " cargo install rusty-rain"
+Write_Title(" cargo install rusty-rain")
 cargo install rusty-rain
 br(1)
 
-Write_Title "# cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support"
+Write_Title("# cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support")
 cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support
 br(1)
 
 
-Write_Title "# cargo/install.ps1 has finished."
+Write_Section("# cargo/install.ps1 has finished.")
 br(2)

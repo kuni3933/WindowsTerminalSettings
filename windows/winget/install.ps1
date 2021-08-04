@@ -3,6 +3,11 @@ function Write_Title($msg) {
   Write-Host "┃$msg" -ForegroundColor Yellow
   Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
+function Write_Section($msg) {
+    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+    Write-Host "     $msg" -ForegroundColor Green
+    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+}
 
 function Install_msg {
   Write-Host "  インストールを開始します." -ForegroundColor Yellow
@@ -38,14 +43,14 @@ ElseIf (${env:PROCESSOR_ARCHITECTURE} -ceq "X86") {
   $bit = "x86"
 }
 $msg = "# Install the $bit version."
-Write_Title $msg
+Write_Title($msg)
 winget --Version
 winget --info
 winget  source update
 br(2)
 
 
-Write_Title "# Git"
+Write_Title("# Git")
 If (Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe") {
   Update_msg
   git --version
@@ -64,7 +69,7 @@ ElseIf (-not(Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe")) {
 }
 br(2)
 
-Write_Title "# Windows Terminal Preview"
+Write_Title("# Windows Terminal Preview")
 If (Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe") {
   Already_Installed_msg
   winget show --id Microsoft.WindowsTerminalPreview --source winget
@@ -77,12 +82,12 @@ ElseIf (-not(Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.Wind
 }
 br(2)
 
-Write_Title "# Microsoft VisualStudio 2019 BuildTools"
+Write_Title("# Microsoft VisualStudio 2019 BuildTools")
 If (Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools") {
   Already_Installed_msg
   winget show --id Microsoft.VisualStudio.2019.BuildTools --source winget
-  Write_Title "Visual Studio Installerから'C++ Build Tools'をダウンロードしてください."
-  Write_Title "Download the 'C++ Build Tools' from Visual Studio Installer."
+  Write_Title("Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.")
+  Write_Title("Download the 'C++ Build Tools' from Visual Studio Installer.")
   }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools")) {
   Install_msg
@@ -92,7 +97,7 @@ ElseIf (-not(Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/Bu
 }
 br(2)
 
-Write_Title "# Visual Studio Code"
+Write_Title("# Visual Studio Code")
 If (Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe") {
   Already_Installed_msg
   code --version
@@ -107,7 +112,7 @@ ElseIf (-not(Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe"
 }
 br(2)
 
-Write_Title "# Visual Studio Code Insiders"
+Write_Title("# Visual Studio Code Insiders")
 If (Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - Insiders.exe") {
   Already_Installed_msg
   code-insiders --version
@@ -122,7 +127,7 @@ ElseIf (-not(Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders
 }
 br(2)
 
-Write_Title "# PowerToys"
+Write_Title("# PowerToys")
 If (Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe") {
   Already_Installed_msg
   winget show --id Microsoft.PowerToys --source winget
@@ -135,7 +140,7 @@ ElseIf (-not(Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe")) {
 }
 br(2)
 
-Write_Title "# PowerShellCore (pwsh)"
+Write_Title("# PowerShellCore (pwsh)")
 If (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
   Update_msg
   winget show --id Microsoft.PowerShell --source winget
@@ -150,5 +155,5 @@ ElseIf (-not(Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe")) {
 }
 br(2)
 
-Write_Title "# winget/install.ps1 has finished."
+Write_Section("# winget/install.ps1 has finished.")
 br(2)
