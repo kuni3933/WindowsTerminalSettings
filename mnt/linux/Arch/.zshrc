@@ -263,3 +263,5 @@ for src in "${HOME}/ghq/github.com/lincheney/fzf-tab-completion/zsh/fzf-zsh-comp
         break
     fi
 done
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

@@ -67,3 +67,5 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 
 # enhancd
 ENHANCD_DOT_ARG="_"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

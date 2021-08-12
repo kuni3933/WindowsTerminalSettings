@@ -34,3 +34,5 @@ set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=50%"
 if which enhancd &>/dev/null
     alisa cd enhancd
 end
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH

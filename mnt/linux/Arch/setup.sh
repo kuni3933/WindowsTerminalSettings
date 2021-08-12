@@ -28,12 +28,12 @@ function _update_packages(){
     yay -Syyu
 
     #volta
-    yay -S volta
+    yay -S volta-bin
     volta setup
 }
 
 function _genie(){
-    yay -S --needed daemonize
+    yay -S --needed daemonize python-markdown
     wget -O "/tmp/genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst" "https://github.com/arkane-systems/genie/releases/download/v${genie_VER}/genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst"
     cd /tmp
     sudo pacman -U "./genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst"
@@ -139,7 +139,7 @@ function _other_packages(){
 
 function _set_init_files_symlinks() {
     ln -sf ${CURRENT_DIR}/.Xresources ${USERPROFILE}/
-    ln -sf ${CURRENT_DIR}/.alias ${USERPROFILE}/
+    ln -sf ${CURRENT_DIR}/.aliases ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.bashrc ${USERPROFILE}/.bashrc.org
     ln -sf ${CURRENT_DIR}/.bashrc.kuni ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.gtkrc-2.0 ${USERPROFILE}/
@@ -250,7 +250,5 @@ echo "SRC_DIR     : ${SRC_DIR}"
 echo "SRC_FILES   : "
 echo ${SRC_FILES}
 echo "DEST_DIR    : ${DEST_DIR}"
-echo "Go_VERSION  : ${Go_VER}"
-echo "Py_VERSION  : ${Py_VER}"
 
 _main "${@}"
