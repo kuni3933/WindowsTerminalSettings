@@ -31,15 +31,16 @@ if [ -e "/home/${USERNAME}/WindowsTerminalSettings" ]; then
     git submodule status
     br 2
 
-    title "git submodule foreach git fetch"
-    git submodule foreach git fetch
-    br 2
+    #title "git submodule foreach git fetch"
+    #git submodule foreach git fetch
+    #br 2
 
     title "git submodule foreach git pull origin master"
+    pull "dotfiles" "master"
     pull "owl-playbook" "master"
     pull "pipes.sh" "master"
-    pull "windotfiles" "main"
-    pull "windows-terminal-colorscheme" "master"
+    #pull "windotfiles" "main"
+    #pull "windows-terminal-colorscheme" "master"
     cd "/home/${USERNAME}/WindowsTerminalSettings"
     br 2
 

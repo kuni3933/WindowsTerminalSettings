@@ -6,11 +6,6 @@
     path = pipes.sh
     url = https://github.com/pipeseroni/pipes.sh
     branch = master
-[submodule "windotfiles"]
-    path = windotfiles
-    url = https://github.com/sheepla/windotfiles
-    branch = main
-[submodule "windows-terminal-colorscheme"]
-    path = windows-terminal-colorscheme
-    url = https://github.com/sheepla/windows-terminal-colorscheme
-    branch = master
+[submodule "dotfiles"]
+	path = dotfiles
+	url = https://github.com/sheepla/dotfiles
