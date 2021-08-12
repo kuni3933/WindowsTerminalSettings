@@ -1,5 +1,5 @@
 format = """
-[┌── ](bold white)$shlvl$status$username$directory$git_branch$git_status$git_commit$go$python$cmd_duration$memory_usage$battery$time
+[┌── ](bold white)$shlvl$status$username$directory$git_branch$git_status$git_commit$golang$python$cmd_duration$memory_usage$battery$time
 [└─](bold white)$character"""
 
 scan_timeout = 10
@@ -82,6 +82,6 @@ style = "bold red"
 [python]
 style = "bold green"
 
-[go]
+[golang]
 style = "bold green"
 
