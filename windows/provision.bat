@@ -15,8 +15,6 @@ set owl-playbook_COMMON_MNT="%~dp0..\owl-playbook\mnt\common"
 
 set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
 set pipes-rs="%~dp0..\mnt\windows\pipes-rs"
-set windotfiles="%~dp0..\windotfiles"
-set windows-terminal-colorscheme ="%~dp0..\windows-terminal-colorscheme"
 
 
 set ROAMING="%USERPROFILE%\AppData\Roaming"
@@ -48,16 +46,11 @@ call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
 call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes-rs%"
 
 call :******************** neovim/init.vim
-call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\init.vim" 
+call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\init.vim"
 
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%~dp0..\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
-
-call :******************** windotfiles
-call :link_file "%ROAMING%\Microsoft\Windows\Start Menu\Programs\Startup\main.ahk" "%windotfiles%\ahk\main.ahk"
-call :link_file "%ROAMING%\Microsoft\Windows\Start Menu\Programs\Startup\muhenkan-vim.ahk" "%windotfiles%\ahk\muhenkan-vim.ahk"
-call :link_dir "%ROAMING%\Alacritty" "%windotfiles%\alacritty"
 
 call :******************** IntelliJ IDEA
 

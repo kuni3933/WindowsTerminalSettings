@@ -43,10 +43,9 @@ if(Test-Path $WindowsTerminalSettings){
     br(2)
 
     Write_Title "Pull後のサブモジュールステータス / Submodule status after Pull"
+    pull "dotfiles" "master"
     pull "owl-playbook" "master"
     pull "pipes.sh" "master"
-    pull "windotfiles" "main"
-    pull "windows-terminal-colorscheme" "master"
     Set-Location "$env:USERPROFILE/WindowsTerminalSettings"
     br(2)
 
