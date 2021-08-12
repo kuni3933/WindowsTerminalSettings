@@ -1,9 +1,4 @@
-#genie
-if [[ ! -v INSIDE_GENIE ]]; then
-    exec /usr/bin/genie -s
-fi
-. ~/.bashrc.kuni
-. ~/.alias
+source ~/.bashrc.kuni
 #
 # ~/.bashrc
 #
