@@ -9,21 +9,25 @@ function Write_Section($msg) {
     Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
 }
 
-function Install_msg {
+function Install_msg($ID){
   Write-Host "  インストールを開始します." -ForegroundColor Yellow
   Write-Host "  Start the installation of this application." -ForegroundColor Yellow
   Write-Host " "
-}
-function Already_Installed_msg {
-  Write-Host "  インストール済みです." -ForegroundColor Green
-  Write-Host "  This application is already installed." -ForegroundColor Green
+  Write-Host " "
+  winget show --id "$ID" --source winget
+  Write-Host " "
   Write-Host " "
 }
 
-function  Update_msg {
+function  Update_msg($ID) {
   Write-Host "  インストール済みです. アップデートを行います." -ForegroundColor Cyan
   Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
   Write-Host " "
+  Write-Host " "
+  winget show --id "$ID" --source winget
+  Write-Host " "
+  Write-Host " "
+  winget upgrade -e --id "$ID" --source winget
 }
 function br($times) {
   $tmp = 1
@@ -51,109 +55,109 @@ br(2)
 
 
 Write_Title("# Git")
+$ID = "Git.Git"
 If (Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe") {
-  Update_msg
   git --version
-  br(1)
-  winget show --id Git.Git
-  br(1)
   &"$env:GIT_INSTALL_ROOT/git-bash.exe" "$env:USERPROFILE/WindowsTerminalSettings/windows/winget/kill_gpg-agent.sh"
   br(1)
+  Update_msg("$ID")
   git update-git-for-windows
 }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe")) {
-  Install_msg
-  winget show --id Git.Git
-  br(1)
-  winget install -e --id Git.Git
+  Install_msg("$ID")
+  winget install -e --id "$ID" --source winget
 }
 br(2)
+
 
 Write_Title("# Windows Terminal Preview")
+$ID = "Microsoft.WindowsTerminalPreview"
 If (Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe") {
-  Already_Installed_msg
-  winget show --id Microsoft.WindowsTerminalPreview --source winget
+  Update_msg("$ID")
 }
 ElseIf (-not(Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe")) {
-  Install_msg
-  winget show --id Microsoft.WindowsTerminalPreview --source winget
-  br(1)
-  winget install -e --id Microsoft.WindowsTerminalPreview --source winget
+  Install_msg("$ID")
+  winget install -e --id "$ID" --source winget
 }
 br(2)
+
 
 Write_Title("# Microsoft VisualStudio 2019 BuildTools")
+$ID = "Microsoft.VisualStudio.2019.BuildTools"
 If (Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools") {
-  Already_Installed_msg
-  winget show --id Microsoft.VisualStudio.2019.BuildTools --source winget
-  Write_Title("Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.")
-  Write_Title("Download the 'C++ Build Tools' from Visual Studio Installer.")
-  }
-ElseIf (-not(Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools")) {
-  Install_msg
-  winget show --id Microsoft.VisualStudio.2019.BuildTools --source winget
-  br(1)
-  winget install -e --id Microsoft.VisualStudio.2019.BuildTools --source winget
+  Update_msg("$ID")
 }
+ElseIf (-not(Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools")) {
+  Install_msg("$ID")
+}
+winget install -e --id "$ID" --source winget
+Write_Title("Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.")
+Write_Title("Download the 'C++ Build Tools' from Visual Studio Installer.")
 br(2)
+
 
 Write_Title("# Visual Studio Code")
+$ID = "Microsoft.VisualStudioCode"
 If (Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe") {
-  Already_Installed_msg
   code --version
-  br(1)
-  winget show --id Microsoft.VisualStudioCode
+  Update_msg("$ID")
 }
 ElseIf (-not(Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe")) {
-  Install_msg
-  winget show --id Microsoft.VisualStudioCode --source winget
-  br(1)
-  winget install -e --id Microsoft.VisualStudioCode --source winget --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  Install_msg("$ID")
+  winget install -e --id "$ID" --source winget  --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
 }
 br(2)
+
 
 Write_Title("# Visual Studio Code Insiders")
+$ID = "Microsoft.VisualStudioCode.Insiders"
 If (Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - Insiders.exe") {
-  Already_Installed_msg
   code-insiders --version
-  br(1)
-  winget show --id Microsoft.VisualStudioCode.Insiders --source winget
+  Update_msg("$ID")
 }
 ElseIf (-not(Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - Insiders.exe")) {
-  Install_msg
-  winget show --id Microsoft.VisualStudioCode.Insiders --source winget
-  br(1)
-  winget install -e --id Microsoft.VisualStudioCode.Insiders --source winget --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+  Install_msg("$ID")
+  winget install -e --id "$ID" --source winget --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
 }
 br(2)
+
 
 Write_Title("# PowerToys")
+$ID = "Microsoft.PowerToys"
 If (Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe") {
-  Already_Installed_msg
-  winget show --id Microsoft.PowerToys --source winget
+  Update_msg("$ID")
 }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe")) {
-  Install_msg
-  winget show --id Microsoft.PowerToys --source winget
-  br(1)
-  winget install -e --id Microsoft.PowerToys --source winget
+  Install_msg("$ID")
+  winget install -e --id "$ID" --source winget
 }
 br(2)
 
-Write_Title("# PowerShellCore (pwsh)")
-If (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
-  Update_msg
-  winget show --id Microsoft.PowerShell --source winget
-  br(1)
-  winget install -e --id Microsoft.PowerShell --source winget
+
+<#
+Write_Title("# Kite")
+$ID = "kite.kite"
+If (Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe") {
+  Update_msg("$ID")
 }
-ElseIf (-not(Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe")) {
-  Install_msg
-  winget show --id Microsoft.PowerShell --source winget
-  br(1)
-  winget install -ei --id Microsoft.PowerShell --source winget
+ElseIf (-not(Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe")) {
+  Install_msg("$ID")
+  winget install -e --id "$ID" --source winget
 }
 br(2)
+#>
+
+Write_Title("# PowerShellCore (pwsh)")
+$ID = "Microsoft.PowerShell"
+If (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
+  Update_msg("$ID")
+}
+ElseIf (-not(Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe")) {
+  Install_msg("$ID")
+winget install -ei --id "$ID" --source winget
+}
+br(2)
+
 
 Write_Section("# winget/install.ps1 has finished.")
 br(2)
