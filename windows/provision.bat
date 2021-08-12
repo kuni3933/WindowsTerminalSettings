@@ -9,6 +9,8 @@ set WINDOWS_MNT="%~dp0..\mnt\windows"
 set LINUX_MNT="%~dp0..\mnt\linux"
 set COMMON_MNT="%~dp0..\mnt\common"
 
+set dotfiles="%~dp0..\dotfiles"
+
 set owl-playbook_WINDOWS_MNT="%~dp0..\owl-playbook\mnt\windows"
 set owl-playbook_LINUX_MNT="%~dp0..\owl-playbook\mnt\linux"
 set owl-playbook_COMMON_MNT="%~dp0..\owl-playbook\mnt\common"
@@ -166,6 +168,25 @@ xcopy "%owl-playbook_WINDOWS_MNT%\broot.toml" "%WINDOWS_MNT%\broot.toml"
 exit /b
 
 :copy_linux_MNT
+rem sheepla
+cd %LINUX_MNT%\Arch"
+xcopy "%dotfiles%\.config" "%LINUX_MNT%\Arch\.config" /E /H /S /I
+git checkout .config\nvim\
+xcopy "%dotfiles%\.local" "%LINUX_MNT%\Arch\.local" /E /H /S /I
+xcopy "%dotfiles%\.w3m" "%LINUX_MNT%\Arch\.w3m" /E /H /S /I
+xcopy "%dotfiles%\bin" "%LINUX_MNT%\Arch\bin" /E /H /S /I
+xcopy "%dotfiles%\st" "%LINUX_MNT%\Arch\st" /E /H /S /I
+xcopy "%dotfiles%\.bashrc" "%LINUX_MNT%\Arch\.bashrc"
+xcopy "%dotfiles%\.gtkrc-2.0" "%LINUX_MNT%\Arch\.gtkrc-2.0"
+xcopy "%dotfiles%\.gtkrc-2.0.mine" "%LINUX_MNT%\Arch\.gtkrc-2.0.mine"
+xcopy "%dotfiles%\.profile" "%LINUX_MNT%\Arch\.profile"
+xcopy "%dotfiles%\.xprofile" "%LINUX_MNT%\Arch\.xprofile"
+xcopy "%dotfiles%\.Xresources" "%LINUX_MNT%\Arch\.Xresources"
+xcopy "%dotfiles%\.zshrc" "%LINUX_MNT%\Arch\.zshrc"
+xcopy "%dotfiles%\PKGLIST" "%LINUX_MNT%\Arch\PKGLIST"
+xcopy "%dotfiles%\PKGLIST_AUR" "%LINUX_MNT%\Arch\PKGLIST_AUR"
+rem xcopy "%dotfiles%\" "%LINUX_MNT%\Arch\"
+rem owl-playbook
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.bash_it\themes\maman\maman.theme.bash" "%LINUX_MNT%\ubuntu\.bash_it\themes\maman\maman.theme.bash"
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.vim" "%LINUX_MNT%\ubuntu\.vim" /E /H /S /I
 xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.inputrc" "%LINUX_MNT%\ubuntu\.inputrc"
