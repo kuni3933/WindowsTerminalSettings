@@ -68,7 +68,7 @@ call :link_idea_dir codestyles
 call :link_idea_dir inspection
 call :link_file "%USERPROFILE%\.ideavimrc" "%COMMON_MNT%\IntelliJIdea\.ideavimrc"
 
-call :each link_idea_file idea-files.txt
+call :each link_idea_file %WINDOWS%\idea-files.txt
 
 call :******************** VS Code
 
@@ -79,11 +79,11 @@ call :link_vscode_file keybindings.json
 rem call :link_vscode_file settings.json
 call :link_vscode_dir snippets
 rem See https://blog.mamansoft.net/2018/09/17/vscode-satisfies-vimmer/
-call :each vscode_extension_install vscode-extensions.txt
+call :each vscode_extension_install %WINDOWS%\vscode-extensions.txt
 
 
 call :******************** Homedir
-call :each link_windows_home windows-home-dots.txt
+call :each link_windows_home %WINDOWS%\windows-home-dots.txt
 
 call :******************** PowerShell Core
 
