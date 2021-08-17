@@ -1,6 +1,10 @@
 ansible
 bottom
 feh
+freetype2
+fontconfig
+libxcb
+xclip
 git-delta
 peco
 procs
