@@ -89,8 +89,8 @@ If (Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools"
 }
 ElseIf (-not(Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools")) {
   Install_msg("$ID")
+  winget install -e --id "$ID" --source winget
 }
-winget install -e --id "$ID" --source winget
 Write_Title("Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.")
 Write_Title("Download the 'C++ Build Tools' from Visual Studio Installer.")
 br(2)
@@ -147,6 +147,7 @@ ElseIf (-not(Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe")) {
 br(2)
 #>
 
+
 Write_Title("# PowerShellCore (pwsh)")
 $ID = "Microsoft.PowerShell"
 If (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
@@ -154,7 +155,7 @@ If (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
 }
 ElseIf (-not(Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe")) {
   Install_msg("$ID")
-winget install -ei --id "$ID" --source winget
+  winget install -ei --id "$ID" --source winget
 }
 br(2)
 
