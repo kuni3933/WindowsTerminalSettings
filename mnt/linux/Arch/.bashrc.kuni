@@ -23,6 +23,10 @@ export BROWSER='/mnt/c/Windows/explorer.exe'
 
 source ~/.config/broot/launcher/bash/br
 
+if [ -e /mnt/c/Windows/explorer.exe ]; then
+    alias explorer='/mnt/c/Windows/explorer.exe'
+fi
+
 if [ $SHLVL = 1 ] ; then
   xset -r 49  > /dev/null 2&>1
   (fcitx-autostart > /dev/null 2&>1 &)
