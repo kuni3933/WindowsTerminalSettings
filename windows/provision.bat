@@ -28,19 +28,6 @@ set SCOOP="%USERPROFILE%\scoop"
 rem :tmpを動かすことで実行開始箇所を制御. デバッグや動作確認用
 goto :tmp
 :tmp
-rem ------------------------------------------------------------------------------------------------------更新処理
-:Update_Repository
-call :******************** copy_Windows
-call :copy_Windows
-
-call :******************** copy_Windows_MNT
-call :copy_Windows_MNT
-call :******************** copy_linux_MNT
-call :copy_linux_MNT
-call :******************** copy_Common_MNT
-call :copy_Common_MNT
-
-
 rem ------------------------------------------------------------------------------------------------------メイン処理
 :Main
 call :******************** pipes.sh/pipes-rs
@@ -49,6 +36,7 @@ call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes-rs%"
 
 call :******************** neovim/init.vim
 call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\init.vim"
+call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\init.vim"
 
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%~dp0..\gitconfig"
@@ -147,61 +135,6 @@ goto :end
 rem  ------------------------------------------------------------------------------------------------------
 rem  --------------------------------以下使用する関数----------------------------------------------------
 rem  ------------------------------------------------------------------------------------------------------
-
-
-rem ------------------------------------------------------------------------------------------------------更新処理の関数
-:copy_Windows
-xcopy "%owl-playbook_WINDOWS%\ubuntu\provision.ps1" "%WINDOWS%\ubuntu\provision.ps1"
-xcopy "%owl-playbook_WINDOWS%\ubuntu\provision.sh" "%WINDOWS%\ubuntu\provision.sh"
-xcopy "%owl-playbook_WINDOWS%\idea-files.txt" "%WINDOWS%\idea-files.txt"
-xcopy "%owl-playbook_WINDOWS%\vscode-extensions.txt" "%WINDOWS%\vscode-extensions.txt"
-xcopy "%owl-playbook_WINDOWS%\windows-home-dots.txt" "%WINDOWS%\windows-home-dots.txt"
-exit /b
-
-:copy_Windows_MNT
-xcopy "%owl-playbook_WINDOWS_MNT%\keypirinha" "%WINDOWS_MNT%\keypirinha" /E /H /S /I
-xcopy "%owl-playbook_WINDOWS_MNT%\.bashrc" "%WINDOWS_MNT%\.bashrc"
-xcopy "%owl-playbook_WINDOWS_MNT%\.minttyrc" "%WINDOWS_MNT%\.minttyrc"
-xcopy "%owl-playbook_WINDOWS_MNT%\.oh-my-posh.json" "%WINDOWS_MNT%\.oh-my-posh.json"
-xcopy "%owl-playbook_WINDOWS_MNT%\.vimrc" "%WINDOWS_MNT%\.vimrc"
-xcopy "%owl-playbook_WINDOWS_MNT%\broot.toml" "%WINDOWS_MNT%\broot.toml"
-exit /b
-
-:copy_linux_MNT
-rem sheepla
-cd %LINUX_MNT%\Arch"
-xcopy "%dotfiles%\.config" "%LINUX_MNT%\Arch\.config" /E /H /S /I
-git checkout .config\nvim\
-xcopy "%dotfiles%\.local" "%LINUX_MNT%\Arch\.local" /E /H /S /I
-xcopy "%dotfiles%\.w3m" "%LINUX_MNT%\Arch\.w3m" /E /H /S /I
-xcopy "%dotfiles%\bin" "%LINUX_MNT%\Arch\bin" /E /H /S /I
-xcopy "%dotfiles%\st" "%LINUX_MNT%\Arch\st" /E /H /S /I
-xcopy "%dotfiles%\.bashrc" "%LINUX_MNT%\Arch\.bashrc"
-xcopy "%dotfiles%\.gtkrc-2.0" "%LINUX_MNT%\Arch\.gtkrc-2.0"
-xcopy "%dotfiles%\.gtkrc-2.0.mine" "%LINUX_MNT%\Arch\.gtkrc-2.0.mine"
-xcopy "%dotfiles%\.profile" "%LINUX_MNT%\Arch\.profile"
-xcopy "%dotfiles%\.xprofile" "%LINUX_MNT%\Arch\.xprofile"
-xcopy "%dotfiles%\.Xresources" "%LINUX_MNT%\Arch\.Xresources"
-xcopy "%dotfiles%\.zshrc" "%LINUX_MNT%\Arch\.zshrc"
-xcopy "%dotfiles%\PKGLIST" "%LINUX_MNT%\Arch\PKGLIST"
-xcopy "%dotfiles%\PKGLIST_AUR" "%LINUX_MNT%\Arch\PKGLIST_AUR"
-rem xcopy "%dotfiles%\" "%LINUX_MNT%\Arch\"
-rem owl-playbook
-xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.bash_it\themes\maman\maman.theme.bash" "%LINUX_MNT%\ubuntu\.bash_it\themes\maman\maman.theme.bash"
-xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.vim" "%LINUX_MNT%\ubuntu\.vim" /E /H /S /I
-xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.inputrc" "%LINUX_MNT%\ubuntu\.inputrc"
-xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tigrc" "%LINUX_MNT%\ubuntu\.tigrc"
-xcopy "%owl-playbook_LINUX_MNT%\ubuntu\.tmux.conf" "%LINUX_MNT%\ubuntu\.tmux.conf"
-xcopy "%owl-playbook_LINUX_MNT%\ubuntu\broot.toml" "%LINUX_MNT%\ubuntu\.config\broot\broot.toml"
-exit /b
-
-:copy_Common_MNT
-xcopy "%owl-playbook_COMMON_MNT%\.vim-snippets" "%COMMON_MNT%\.vim-snippets" /E /H /S /I
-xcopy "%owl-playbook_COMMON_MNT%\IntelliJIdea" "%COMMON_MNT%\IntelliJIdea" /E /H /S /I
-xcopy "%owl-playbook_COMMON_MNT%\VSCode\User\snippets" "%COMMON_MNT%\VSCode\User\snippets" /E /H /S /I
-xcopy "%owl-playbook_COMMON_MNT%\VSCode\User\keybindings.json" "%COMMON_MNT%\VSCode\User\keybindings.json"
-exit /b
-
 
 rem ------------------------------------------------------------------------------------------------------メイン処理の関数
 :link_windows_home
