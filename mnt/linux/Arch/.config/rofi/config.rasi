@@ -5,4 +5,4 @@ configuration {
 	kb-mode-next: "Control+o";
 	kb-mode-previous: "Control+i";
 }
-@import "/home/sheepla/.config/rofi/themes/iceberg.rasi"
+@import "/home/kuni3933/.config/rofi/themes/iceberg.rasi"
