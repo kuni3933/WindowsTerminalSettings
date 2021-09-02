@@ -23,6 +23,7 @@ function pull($module,$branch){
 
 
 # Path
+$now = Get-Location
 $WindowsTerminalSettings = "$env:USERPROFILE/WindowsTerminalSettings"
 $MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 $WINDOWS="$MyPath/../windows"
@@ -53,6 +54,7 @@ function copy_Windows_MNT(){
   Copy-Item "$owl_playbook_WINDOWS_MNT/.minttyrc"                "$WINDOWS_MNT/" -Force
   Copy-Item "$owl_playbook_WINDOWS_MNT/.oh-my-posh.json"   "$WINDOWS_MNT/" -Force
   Copy-Item "$owl_playbook_WINDOWS_MNT/broot.toml"              "$WINDOWS_MNT/" -Force
+  Copy-Item "$dotfiles/.vimrc"                                                       "$WINDOWS_MNT/" -Force
 }
 
 function copy_linux_MNT(){
@@ -115,6 +117,8 @@ if(Test-Path $WindowsTerminalSettings){
     git submodule status
     br(1)
     Write-Host  Pull is complete.
+
+    Set-Location $now
     br(2)
 
     # ------------------------------------------------------------------------------------------------------更新処理

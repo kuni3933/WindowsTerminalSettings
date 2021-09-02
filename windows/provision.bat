@@ -35,8 +35,8 @@ call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
 call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes-rs%"
 
 call :******************** neovim/init.vim
-call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\init.vim"
-call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\init.vim"
+call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\.vimrc"
+call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
 
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%~dp0..\gitconfig"
