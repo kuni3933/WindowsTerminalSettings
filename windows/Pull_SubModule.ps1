@@ -21,8 +21,71 @@ function pull($module,$branch){
     br(1)
 }
 
-# Repositoryの場所を指定
+
+# Path
 $WindowsTerminalSettings = "$env:USERPROFILE/WindowsTerminalSettings"
+$MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$WINDOWS="$MyPath/../windows"
+
+$owl_playbook_WINDOWS="$MyPath/../owl-playbook/windows"
+
+$WINDOWS_MNT="$MyPath/../mnt/windows"
+$LINUX_MNT="$MyPath/../mnt/linux"
+$COMMON_MNT="$MyPath/../mnt/common"
+
+$dotfiles="$MyPath/../dotfiles"
+
+$owl_playbook_WINDOWS_MNT="$MyPath/../owl-playbook/mnt/windows"
+$owl_playbook_LINUX_MNT="$MyPath/../owl-playbook/mnt/linux"
+$owl_playbook_COMMON_MNT="$MyPath/../owl-playbook/mnt/common"
+
+
+# Update_Function
+function copy_Windows(){
+  Copy-Item "$owl_playbook_WINDOWS/idea-files.txt"                 "$WINDOWS/" -Force
+  Copy-Item "$owl_playbook_WINDOWS/vscode-extensions.txt"    "$WINDOWS/" -Force
+  Copy-Item "$owl_playbook_WINDOWS/windows-home-dots.txt" "$WINDOWS/" -Force
+}
+
+function copy_Windows_MNT(){
+  Copy-Item "$owl_playbook_WINDOWS_MNT/keypirinha" -Recurse "$WINDOWS_MNT/" -Force
+  Copy-Item "$owl_playbook_WINDOWS_MNT/.bashrc"                   "$WINDOWS_MNT/" -Force
+  Copy-Item "$owl_playbook_WINDOWS_MNT/.minttyrc"                "$WINDOWS_MNT/" -Force
+  Copy-Item "$owl_playbook_WINDOWS_MNT/.oh-my-posh.json"   "$WINDOWS_MNT/" -Force
+  Copy-Item "$owl_playbook_WINDOWS_MNT/broot.toml"              "$WINDOWS_MNT/" -Force
+}
+
+function copy_linux_MNT(){
+# Copy-Item "dotfiles/" "LINUX_MNT/Arch/"
+  Copy-Item "$dotfiles/.config"   -Recurse "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.local"     -Recurse "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.w3m"    -Recurse "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/bin"        -Recurse "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/st"         -Recurse "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.aliases"               "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.bashrc"               "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.gtkrc-2.0"            "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.gtkrc-2.0.mine"    "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.profile"                "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.vimrc"                  "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.xinitrc"                 "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.xprofile"               "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.Xresources"         "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/.zshrc"                 "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/PKGLIST"             "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/PKGLIST_AUR"     "$LINUX_MNT/Arch/" -Force
+  Copy-Item "$dotfiles/update-pkglist.sh" "$LINUX_MNT/Arch/" -Force
+}
+
+function copy_Common_MNT(){
+  Copy-Item "$owl_playbook_COMMON_MNT/.vim-snippets"                          -Recurse "$COMMON_MNT/" -Force
+  Copy-Item "$owl_playbook_COMMON_MNT/IntelliJIdea"                              -Recurse "$COMMON_MNT/" -Force
+  Copy-Item "$owl_playbook_COMMON_MNT/VSCode/User/snippets"              -Recurse "$COMMON_MNT/VSCode/User/" -Force
+  Copy-Item "$owl_playbook_COMMON_MNT/VSCode/User/keybindings.json"                "$COMMON_MNT/VSCode/User/" -Force
+}
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------------
 # submodule_list
 $module = git config --file .gitmodules --get-regexp path | awk '{print $ 2}'
 Write-Host $module
@@ -53,7 +116,23 @@ if(Test-Path $WindowsTerminalSettings){
     br(1)
     Write-Host  Pull is complete.
     br(2)
+
+    # ------------------------------------------------------------------------------------------------------更新処理
+    Write_Section("copy_Windows")
+    copy_Windows
+
+    Write_Section("copy_Windows_MNT")
+    copy_Windows_MNT
+
+    Write_Section("copy_linux_MNT")
+    copy_linux_MNT
+
+    Write_Section("copy_Common_MNT")
+    copy_Common_MNT
+
+    br(2)
 }
+
 
 Write_Section "このPull_SubModule.batが終了した後にprovision.batを実行してください."
 Write_Section "After this Pull_SubModule.bat is finished, please run provision.bat."
