@@ -1,4 +1,4 @@
-#!/bin/bash
+#!n/bash
 
 readonly USERPROFILE=${HOME}
 readonly CURRENT_DIR="$(
@@ -55,9 +55,7 @@ function _other_packages(){
         chmod +x /tmp/win32yank.exe
         mv /tmp/win32yank.exe ~/.local/bin
         sudo rm -rf /tmp/win32yank.zip
-
-        #symbola
-        yay -S --needed font-symbola
+ 
         #NerdFont
         if [ -e ${USERPROFILE}/.local/share/fonts/NerdFonts/"Sauce Code Pro Nerd Font Complete.ttf" ]; then
             echo "Already installed."
@@ -125,9 +123,8 @@ function _other_packages(){
         sudo make install
         cd ${CURRENT_DIR}
         sudo rm -rf /tmp/fzman
-
-        yay -S --needed docui-bin
-        sudo pacman -S --needed broot ctags docker-compose jq ncdu ripgrep zstd z wireless_tools onefetch bash-bats bash-bats-assert
+ 
+        sudo pacman -S --needed jq zstd z 
         
         if [ -e ${DEST_DIR}/broot/launcher ]; then
             :

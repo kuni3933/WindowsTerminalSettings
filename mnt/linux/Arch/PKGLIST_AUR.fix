@@ -4,7 +4,9 @@ c-lolcat
 cava-git
 cbonsai
 cpufetch-git
+daemonize
 ddgr
+docui-bin
 duf-bin
 figlet-fonts
 figlet-fonts-extra
@@ -12,11 +14,11 @@ fish-fzf
 fisher
 fontpreview-ueberzug-git
 fzf-extras
+genie-systemd
 ghq-bin
 globe-cli-bin
 gotop-bin
 i3-scrot
-ttf-jf-openhuninn
 kvantum-theme-qogir-git
 lazygit-bin
 lightdm-mini-greeter
@@ -24,6 +26,7 @@ makefontpkg
 matcha-gtk-theme
 matcha-kde-git
 nkf
+otf-symbola
 otf-takaoex
 pacman4console
 pacwatch
@@ -42,6 +45,7 @@ textimg
 tmux-nord-theme
 toilet
 ttf-cica
+ttf-jf-openhuninn
 ttf-roboto-slab
 tty-clock
 typora
@@ -49,5 +53,7 @@ uwufetch
 vimix-gtk-themes
 vimix-icon-theme
 vimix-theme-kde-git
+volta-bin
+yay-bin
 ytfzf
 zoxide-bin
