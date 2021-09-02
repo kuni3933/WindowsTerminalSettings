@@ -1,5 +1,4 @@
-#!n/bash
-
+#!/bin/bash
 readonly USERPROFILE=${HOME}
 readonly CURRENT_DIR="$(
   cd "$(dirname "${BASH_SOURCE:-0}")"
