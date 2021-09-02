@@ -96,6 +96,7 @@ scoop install `
   broot `
   xh `
   zoxide `
+  task `
   roswell
 br(1)
 
