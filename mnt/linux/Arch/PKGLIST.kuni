@@ -1,7 +1,9 @@
 freetype2
 fontconfig
 jq
+lazygit
 libxcb
 xclip
 z
 zstd
+zoxide
