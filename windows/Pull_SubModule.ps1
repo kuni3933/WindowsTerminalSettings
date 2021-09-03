@@ -102,6 +102,7 @@ if(!(Test-Path $WindowsTerminalSettings)){
 }
 # Repositoryが存在する場合
 if(Test-Path $WindowsTerminalSettings){
+    # -------------------------------------------------------------------------git submodule foreach git pull
     Set-Location "$env:USERPROFILE/WindowsTerminalSettings"
     Write_Title "現在のサブモジュールステータス / Current submodule status"
     git submodule status
@@ -121,26 +122,30 @@ if(Test-Path $WindowsTerminalSettings){
     Set-Location $now
     br(2)
 
-    # ------------------------------------------------------------------------------------------------------更新処理
-    Write_Section("copy_Windows")
-    copy_Windows
 
-    Write_Section("copy_Windows_MNT")
-    copy_Windows_MNT
+    $input = Read-Host "Do you want to perform Update & Overwrite? (Y/n)"
+    if(($input -eq "Y") -or ($input -eq "y") -or ($input -eq "Yes") -or ($input -eq "yes")){
+        # ---------------------------------------------------------------------Update&Overwrite
+        Write_Section("copy_Windows")
+        copy_Windows
 
-    Write_Section("copy_linux_MNT")
-    copy_linux_MNT
+        Write_Section("copy_Windows_MNT")
+        copy_Windows_MNT
 
-    Write_Section("copy_Common_MNT")
-    copy_Common_MNT
+        Write_Section("copy_linux_MNT")
+        copy_linux_MNT
 
-    br(2)
+        Write_Section("copy_Common_MNT")
+        copy_Common_MNT
+
+        br(2)
+    }
+    else{}
 }
 
 
 Write_Section "このPull_SubModule.batが終了した後にprovision.batを実行してください."
 Write_Section "After this Pull_SubModule.bat is finished, please run provision.bat."
-pause
-Write-Host  'Pull_SubModule.bat' has finished.
+Write_Section "'Pull_SubModule.ps1' has finished."
 
 
