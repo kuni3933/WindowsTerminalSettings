@@ -103,7 +103,7 @@ function _other_packages(){
         else
             git clone --depth 1 https://github.com/jimeh/tmux-themepack.git ${USERPROFILE}/.tmux-themepack
         fi
-        sudo ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
+        ln -sf ${dotfile_DIR}/mnt/common/.vim-snippets/ ${USERPROFILE}/
 
         if [ -e /usr/bin/z ]; then
             echo 'Already installed.'
@@ -157,8 +157,10 @@ function _install_dein() {
 
 function _install_packages() {
     :
-	sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST.fix"
-    yay -S --needed - <"${CURRENT_DIR}/PKGLIST_AUR.fix"
+    sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST"
+	sudo pacman -S --needed - <"${CURRENT_DIR}/PKGLIST.kuni"
+    yay -S --needed - <"${CURRENT_DIR}/PKGLIST_AUR"
+    yay -S --needed - <"${CURRENT_DIR}/PKGLIST_AUR.kuni"
 }
 
 function _set_symlinks() {
