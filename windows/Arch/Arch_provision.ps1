@@ -10,6 +10,11 @@ if (${USERNAME} -eq "root"){
     Write_Title "既定ユーザーをroot以外にしてから実行してください. / Set the default user to something other than root, and then run it."
     exit
 }
+$now = Get-Location
+$MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+Set-Location "$MyPath/../../"
+$WindowsTerminalSettings = Get-Location
+Set-Location ${now}
 Write_Title "Arch_USERNAME : ${USERNAME}"
 wsl --terminate "${Arch}"
 
@@ -22,7 +27,7 @@ if (Test-Path $home/.gitconfig) {
     Write-Host "Already installed." -ForegroundColor Yellow
   }
   else {
-    cp "$home\.gitconfig" "\\wsl$\${Arch}\tmp\"
+    Copy-Item "$home\.gitconfig" "\\wsl$\${Arch}\tmp\"
     wsl -- mv /tmp/.gitconfig ~/
     Write-Host "Installation is complete." -ForegroundColor Green
   }
@@ -38,7 +43,7 @@ if (Test-Path $home/.gowlconfig) {
     Write-Host "Already installed." -ForegroundColor Yellow
   }
   else {
-    cp "$home\.gowlconfig" "\\wsl$\${Arch}\tmp"
+    Copy-Item "$home\.gowlconfig" "\\wsl$\${Arch}\tmp"
     wsl -- mv /tmp/.gowlconfig ~/
     Write-Host "Installation is complete." -ForegroundColor Green
   }
@@ -54,7 +59,7 @@ if (Test-Path $home/.ssh) {
     Write-Host "Already installed." -ForegroundColor Yellow
   }
   else {
-    cp -r "$home\.ssh" "\\wsl$\${Arch}\tmp\"
+    Copy-Item -r "$home\.ssh" "\\wsl$\${Arch}\tmp\"
     wsl -- rm -rf ~/.ssh
     wsl -- mv /tmp/.ssh ~/
     wsl -- chmod 600 ~/.ssh/*
@@ -72,7 +77,7 @@ if (Test-Path $home/.gnupg) {
     Write-Host "Already installed." -ForegroundColor Yellow
   }
   else {
-    cp -r "$home\.gnupg" "\\wsl$\${Arch}\tmp\"
+    Copy-Item -r "$home\.gnupg" "\\wsl$\${Arch}\tmp\"
     wsl -- rm -rf ~/.gnupg
     wsl -- mv /tmp/.gnupg ~/
     wsl -- chmod 600 ~/.gnupg/*
@@ -83,8 +88,8 @@ else {
   Write-Host "$home/.gnupg IS NOT FOUND." -ForegroundColor Red
 }
 
-Write_Title "cp $USERPROFILE\WindowsTerminalSettings\windows\Arch\wsl.conf \\wsl$\${Arch}\etc\"
-cp "$home\WindowsTerminalSettings\windows\Arch\wsl.conf" "\\wsl$\${Arch}\tmp\"
+Write_Title "cp $WindowsTerminalSettings/windows\Arch\wsl.conf \\wsl$\${Arch}\etc\"
+Copy-Item "$WindowsTerminalSettings\windows\Arch\wsl.conf" "\\wsl$\${Arch}\tmp\"
 wsl -- sudo mv /tmp/wsl.conf  /etc
 wsl -- sudo chmod 600 /etc/wsl.conf
 Write-Host "Installation is complete." -ForegroundColor Green
