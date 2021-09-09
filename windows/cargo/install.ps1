@@ -55,5 +55,9 @@ Write_Title("# cargo install silicon")
 cargo install silicon
 br(1)
 
+Write_Title("# cargo install hexyl")
+cargo install hexyl
+br(1)
+
 Write_Section("# cargo/install.ps1 has finished.")
 br(2)

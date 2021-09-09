@@ -19,7 +19,7 @@ else{
 winfetch.PS1
 
 # vim => nvim
-if(gcm nvim -ea SilentlyContinue){
+if(Get-Command nvim -ea SilentlyContinue){
     Set-Alias vim nvim
 }
 
@@ -27,7 +27,7 @@ if(gcm nvim -ea SilentlyContinue){
 Set-Alias c clear
 
 # bat - cat with syntax highlight
-if(gcm bat -ea SilentlyContinue){
+if(Get-Command bat -ea SilentlyContinue){
     remove-item alias:cat
     function rebat() { bat cache --build $args}
     function cat() { bat --wrap auto $args}
@@ -35,18 +35,6 @@ if(gcm bat -ea SilentlyContinue){
 else {
     Set-Alias cat Get-Content
 }
-
-# fish風のオートサジェスト機能を有効に
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -HistoryNoDuplicates:$true
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
-#参考https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1
-# (optional) Ctrl+f 入力で前方1単語進む : 補完の確定に使う用
-Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
-Set-PSReadLineKeyHandler -Key "UpArrow" -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key "Ctrl+o" -Function MenuComplete
-#参考-https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
-#参考 https://docs.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.1
 
 ##############################
 # PSFzf
@@ -73,6 +61,18 @@ $env:LESSCHARSET = "utf-8"
 
 # 音を消す
 Set-PSReadlineOption -BellStyle None
+
+# 予測インテリセンス
+Set-PSReadLineOption -PredictionSource History
+#参考https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1
+#参考-https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
+#参考 https://docs.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.1
+Set-PSReadLineOption -HistoryNoDuplicates:$true
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
+# (optional) Ctrl+f 入力で前方1単語進む : 補完の確定に使う用
+Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
+Set-PSReadLineKeyHandler -Key "UpArrow" -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key "Ctrl+o" -Function MenuComplete
 
 #-----------------------------------------------------
 # Key binding
@@ -138,14 +138,14 @@ function sort() { $input | uutils sort $args }
 
 # 代替コマンドを使用(exa未対応なので注意)
 Set-Alias grep rg
-if(!(gcm exa -ea SilentlyContinue)){
+if(!(Get-Command exa -ea SilentlyContinue)){
     function ls() { uutils ls -a $args }
     function tree() { lsd --tree $args }
     # Linuxコマンドのエイリアス
     #function ll() { uutils ls -al $args }
     function ll() { lsd -al --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
 }
-elseif(gcm exa -ea SilentlyContinue){
+elseif(Get-Command exa -ea SilentlyContinue){
     function tree() { exa --long --all --git --icons --tree --header }
     function l() { exa --all --icons --classify }
     function la() { exa --all --icons --classify }
@@ -158,17 +158,17 @@ elseif(gcm exa -ea SilentlyContinue){
 #-----------------------------------------------------
 
 # cd
-function ..() { cd ../ }
-function ...() { cd ../../ }
-function ....() { cd ../../../ }
-function cdg() { gowl list | fzf | cd }
-function cdr() { fd -H -t d -E .git -E node_modules | fzf | cd }
+function ..() { Set-Location ../ }
+function ...() { Set-Location ../../ }
+function ....() { Set-Location ../../../ }
+function cdg() { gowl list | fzf | Set-Location }
+function cdr() { fd -H -t d -E .git -E node_modules | fzf | Set-Location }
 Set-Alias cdz zi
-function buscdd() { ls -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | % { cd C:\\Work\\treng\\Bus\\data\\$_ } }
-function buscdw() { ls -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | % { cd C:\\Work\\treng\\Bus\\work\\$_ } }
+function buscdd() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\data\\$_ } }
+function buscdw() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\work\\$_ } }
 
 # vim
-function vimr() { fd -H -E .git -E node_modules | fzf | % { vim $_ } }
+function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { vim $_ } }
 
 # Copy current path
 function cpwd() { Convert-Path . | Set-Clipboard }
@@ -182,10 +182,10 @@ function gaa() { git add --all }
 function gco() { git commit -m $args[0] }
 
 # git switch
-function gb() { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf | % { git switch $_ } }
-function gbr() { git branch -rl | rg -v "HEAD|master" | % { $_ -replace "  origin/", "" } | fzf | % { git switch $_ } }
+function gb() { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git switch $_ } }
+function gbr() { git branch -rl | rg -v "HEAD|master" | ForEach-Object { $_ -replace "  origin/", "" } | fzf | ForEach-Object { git switch $_ } }
 function gbc() { git switch -c $args[0] }
-function gbm() { git branch -l | rg -v '^\* ' | % { $_ -replace " ", "" } | fzf | % { git merge --no-ff $_ } }
+function gbm() { git branch -l | rg -v '^\* ' | ForEach-ObjectorEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git merge --no-ff $_ } }
 
 # git log
 function gls() { git log -3 }

@@ -16,7 +16,7 @@ function br($times) {
   }
 }
 function pull($module,$branch){
-    Set-Location "$env:USERPROFILE/WindowsTerminalSettings/$module"
+    Set-Location "$WindowsTerminalSettings/$module"
     git pull origin $branch
     br(1)
 }
@@ -24,21 +24,20 @@ function pull($module,$branch){
 
 # Path
 $now = Get-Location
-$WindowsTerminalSettings = "$env:USERPROFILE/WindowsTerminalSettings"
 $MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
-$WINDOWS="$MyPath/../windows"
+Set-Location "$MyPath/../"
+$WindowsTerminalSettings = Get-Location
 
-$owl_playbook_WINDOWS="$MyPath/../owl-playbook/windows"
+$WINDOWS="$WindowsTerminalSettings/windows"
+$WINDOWS_MNT="$WindowsTerminalSettings/mnt/windows"
+$LINUX_MNT="$WindowsTerminalSettings/mnt/linux"
+$COMMON_MNT="$WindowsTerminalSettings/mnt/common"
 
-$WINDOWS_MNT="$MyPath/../mnt/windows"
-$LINUX_MNT="$MyPath/../mnt/linux"
-$COMMON_MNT="$MyPath/../mnt/common"
+$owl_playbook_WINDOWS="$WindowsTerminalSettings/owl-playbook/windows"
+$owl_playbook_WINDOWS_MNT="$WindowsTerminalSettings/owl-playbook/mnt/windows"
+$owl_playbook_COMMON_MNT="$WindowsTerminalSettings/owl-playbook/mnt/common"
 
-$dotfiles="$MyPath/../dotfiles"
-
-$owl_playbook_WINDOWS_MNT="$MyPath/../owl-playbook/mnt/windows"
-$owl_playbook_LINUX_MNT="$MyPath/../owl-playbook/mnt/linux"
-$owl_playbook_COMMON_MNT="$MyPath/../owl-playbook/mnt/common"
+$dotfiles="$WindowsTerminalSettings/dotfiles"
 
 
 # Update_Function
@@ -103,7 +102,7 @@ if(!(Test-Path $WindowsTerminalSettings)){
 # Repositoryが存在する場合
 if(Test-Path $WindowsTerminalSettings){
     # -------------------------------------------------------------------------git submodule foreach git pull
-    Set-Location "$env:USERPROFILE/WindowsTerminalSettings"
+    Set-Location "$WindowsTerminalSettings"
     Write_Title "現在のサブモジュールステータス / Current submodule status"
     git submodule status
     br(2)
@@ -112,7 +111,7 @@ if(Test-Path $WindowsTerminalSettings){
     pull "dotfiles" "master"
     pull "owl-playbook" "master"
     pull "pipes.sh" "master"
-    Set-Location "$env:USERPROFILE/WindowsTerminalSettings"
+    Set-Location "$WindowsTerminalSettings"
     br(2)
 
     git submodule status

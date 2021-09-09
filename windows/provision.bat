@@ -1,27 +1,27 @@
 @echo off
 chcp 932
 rem ------------------------------------------------------------------------------------------------------変数/パスのセット処理
-set WINDOWS="%~dp0..\windows"
+cd "%~dp0../"
+set WindowsTerminalSettings=%CD%
+set WINDOWS=%WindowsTerminalSettings%\windows
+set WINDOWS_MNT=%WindowsTerminalSettings%\mnt\windows
+set LINUX_MNT=%WindowsTerminalSettings%\mnt\linux
+set COMMON_MNT=%WindowsTerminalSettings%\mnt\common
 
-set owl-playbook_WINDOWS="%~dp0..\owl-playbook\windows"
+set owl-playbook_WINDOWS=%WindowsTerminalSettings%\owl-playbook\windows
+set owl-playbook_WINDOWS_MNT=%WindowsTerminalSettings%\owl-playbook\mnt\windows
+set owl-playbook_LINUX_MNT=%WindowsTerminalSettings%\owl-playbook\mnt\linux
+set owl-playbook_COMMON_MNT=%WindowsTerminalSettings%\owl-playbook\mnt\common
 
-set WINDOWS_MNT="%~dp0..\mnt\windows"
-set LINUX_MNT="%~dp0..\mnt\linux"
-set COMMON_MNT="%~dp0..\mnt\common"
+set dotfiles=%WindowsTerminalSettings%\dotfiles
 
-set dotfiles="%~dp0..\dotfiles"
-
-set owl-playbook_WINDOWS_MNT="%~dp0..\owl-playbook\mnt\windows"
-set owl-playbook_LINUX_MNT="%~dp0..\owl-playbook\mnt\linux"
-set owl-playbook_COMMON_MNT="%~dp0..\owl-playbook\mnt\common"
-
-set pipes.sh="%~dp0..\pipes.sh\pipes.sh"
-set pipes-rs="%~dp0..\mnt\windows\pipes-rs"
+set pipes.sh=%WindowsTerminalSettings%\pipes.sh\pipes.sh
+set pipes-rs=%WindowsTerminalSettings%\mnt\windows\pipes-rs
 
 
-set ROAMING="%USERPROFILE%\AppData\Roaming"
-set LOCAL="%USERPROFILE%\AppData\Local"
-set SCOOP="%USERPROFILE%\scoop"
+set ROAMING=%USERPROFILE%\AppData\Roaming
+set LOCAL=%USERPROFILE%\AppData\Local
+set SCOOP=%USERPROFILE%\scoop
 
 
 
@@ -39,7 +39,7 @@ call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\.vimrc"
 call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
 
 call :******************** Copying_gitconfig
-set ORIGIN_gitconfig="%~dp0..\gitconfig"
+set ORIGIN_gitconfig="%WindowsTerminalSettings%\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** IntelliJ IDEA
@@ -124,8 +124,8 @@ echo Install Tablacus Explorer manually!
 echo Clone...
 echo   * spinal-reflex-bindings-template
 echo Create a shortcut of Xlaunch in `Star Menu / Program` with a to-link as following.
-echo   * ex: %USERPROFILE%\scoop\apps\vcxsrv\current\xlaunch.exe -run %USERPROFILE%\WindowsTerminalSettings\windows\ubuntu\config.xlaunch
-set xlaunch_Shortcut="%~dp0..\windows\xlaunch.exe.lnk"
+echo   * ex: %USERPROFILE%\scoop\apps\vcxsrv\current\xlaunch.exe -run %WindowsTerminalSettings%\windows\config.xlaunch
+set xlaunch_Shortcut="%WindowsTerminalSettings%\windows\xlaunch.exe.lnk"
 copy "%xlaunch_Shortcut%" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\xlaunch.exe.lnk"
 
 goto :end

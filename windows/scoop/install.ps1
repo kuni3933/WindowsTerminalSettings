@@ -48,10 +48,15 @@ Write_Title("# scoop update")
 scoop update
 br(1)
 
-Write_Title("# CLI Tools")
+Write_Title("# aria2 busybox")
 scoop install `
   aria2 `
+  busybox
+
+Write_Title("# CLI Tools")
+scoop install `
   pipes-rs `
+  procs `
   bottom `
   streamlink `
   youtube-dl `
@@ -65,7 +70,6 @@ scoop install `
   pandoc `
   scoop-completion `
   touch `
-  busybox `
   less `
   cacert `
   grep `
@@ -140,11 +144,6 @@ Write_Title("# Python")
 #python38 `
 #python
 scoop reset python
-br(1)
-
-Write_Title("# scoop install gcc")
-scoop install gcc
-scoop uninstall gcc
 br(1)
 
 Write_Title("# fonts")

@@ -38,7 +38,7 @@ function br($times) {
 }
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+$MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 $bit = "null"
 If (${env:PROCESSOR_ARCHITECTURE} -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
   $bit = "x64"
@@ -58,7 +58,7 @@ Write_Title("# Git")
 $ID = "Git.Git"
 If (Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe") {
   git --version
-  &"$env:GIT_INSTALL_ROOT/git-bash.exe" "$env:USERPROFILE/WindowsTerminalSettings/windows/winget/kill_gpg-agent.sh"
+  &"$env:GIT_INSTALL_ROOT/git-bash.exe" "$MyPath/kill_gpg-agent.sh"
   br(1)
   Update_msg("$ID")
   git update-git-for-windows
