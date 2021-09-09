@@ -17,16 +17,23 @@ br(){
     done
 }
 pull(){
-    cd "/home/${USERNAME}/WindowsTerminalSettings/$1"
+    cd "${WindowsTerminalSettings}/$1"
     git pull origin "$2"
     br 1
 }
 
 # 参考 - https://devconnected.com/how-to-check-if-file-or-directory-exists-in-bash/
 USERNAME=$(whoami)
-if [ -e "/home/${USERNAME}/WindowsTerminalSettings" ]; then
-    echo true
-    cd "/home/${USERNAME}/WindowsTerminalSettings"
+now=$(pwd)
+MyPath=$(cd $(dirname $0); pwd)
+cd "${MyPath}/../"
+WindowsTerminalSettings=$(pwd)
+echo "USERNAME                : ${USERNAME}"
+echo "Current_DIR             : ${now}"
+echo "WindowsTerminalSettings : ${WindowsTerminalSettings}"
+if [ -e "${WindowsTerminalSettings}/../WindowsTerminalSettings" ]; then
+    section "Start"
+    cd "${WindowsTerminalSettings}"
     title "現在のサブモジュールステータス / Current submodule status"
     git submodule status
     br 2
@@ -39,13 +46,14 @@ if [ -e "/home/${USERNAME}/WindowsTerminalSettings" ]; then
     pull "dotfiles" "master"
     pull "owl-playbook" "master"
     pull "pipes.sh" "master"
-    cd "/home/${USERNAME}/WindowsTerminalSettings"
+    cd "${WindowsTerminalSettings}"
     br 2
 
     title "Pull後のサブモジュールステータス / Submodule status after Pull"
     git submodule status
     br 2
 
+    cd $now
     section "Pull_SubModule.sh is complete."
 else
     section "Error"
