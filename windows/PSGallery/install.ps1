@@ -34,12 +34,6 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Remove-Item ./installer.ps1
 br(1)
 
-Write_Title("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force")
-Set-ExecutionPolicy Undefined -Force
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-Get-ExecutionPolicy -List
-br(1)
-
 
 Write_Section("# PSGallery/install.ps1 has finished.")
 br(2)
