@@ -46,8 +46,6 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory
 # ##############################
 Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)/modules/scoop-completion"
 
-# Windowsベース
-Set-PSReadLineOption -EditMode Windows
 #-----------------------------------------------------
 # General
 #-----------------------------------------------------
@@ -80,28 +78,29 @@ Set-PSReadlineKeyHandler -Key "Ctrl+o" -Function MenuComplete
 
 # Emacsベース
 #Set-PSReadLineOption -EditMode Emacs
+# Windowsベース
+Set-PSReadLineOption -EditMode Windows
 
 #-----------------------------------------------------
 # Powerline
 #-----------------------------------------------------
 
 Import-Module posh-git
-#Import-Module oh-my-posh
-oh-my-posh --init --shell pwsh --config ~/.oh-my-posh.json | Invoke-Expression
 Invoke-Expression (& {
     $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
     (zoxide init --hook $hook powershell) -join "`n"
-  })
+})
 
-#Set-PoshPrompt -Theme ~/.oh-my-posh.json
+#Set-PoshPrompt -Theme  ~/.oh-my-posh.json
+oh-my-posh --init --shell pwsh --config ~/.oh-my-posh.json | Invoke-Expression
 
 #-----------------------------------------------------
 # fzf
 #-----------------------------------------------------
 
 # fzf
-$env:FZF_DEFAULT_OPTS = "--reverse --border --height 50%"
-$env:FZF_DEFAULT_COMMAND = 'fd -HL --exclude ".git" .'
+$env:FZF_DEFAULT_OPTS="--reverse --border --height 50%"
+$env:FZF_DEFAULT_COMMAND='fd -HL --exclude ".git" .'
 function _fzf_compgen_path() {
   fd -HL --exclude ".git" . "$1"
 }
@@ -115,7 +114,7 @@ function _fzf_compgen_dir() {
 
 # https://secon.dev/entry/2020/08/17/070735/
 @"
-  arch, base32, base64, basename, cksum, comm, cp, cut, date, df, dircolors, dirname,
+  arch, base32, base64, basename, cat, cksum, comm, cp, cut, date, df, dircolors, dirname,
   echo, env, expand, expr, factor, false, fmt, fold, hashsum, head, hostname, join, link, ln,
   ls, md5sum, mkdir, mktemp, more, mv, nl, nproc, od, paste, printenv, printf, ptx, pwd,
   readlink, realpath, relpath, rm, rmdir, seq, sha1sum, sha224sum, sha256sum, sha3-224sum,
@@ -134,25 +133,19 @@ ForEach-Object {
 
 # ⚠ readonlyのaliasなので問題が発生するかも..
 Remove-Item alias:sort -Force
-function sort() { $input | uutils sort $args }
+function sort() { $input | uutils sort $args}
 
-# 代替コマンドを使用(exa未対応なので注意)
+# 代替コマンドを使用
 Set-Alias grep rg
-if(!(Get-Command exa -ea SilentlyContinue)){
-    function ls() { uutils ls -a $args }
-    function tree() { lsd --tree $args }
-    # Linuxコマンドのエイリアス
-    #function ll() { uutils ls -al $args }
-    function ll() { lsd -al --blocks permission --blocks size --blocks date --blocks name --blocks inode $args }
-}
-elseif(Get-Command exa -ea SilentlyContinue){
-    function tree() { exa --long --all --git --icons --tree --header }
-    function l() { exa --all --icons --classify }
-    function la() { exa --all --icons --classify }
-    function ls() { exa --icons }
-    function ll() { exa --long --all --git --icons --header }
-    function lt() { exa --long --all --git --icons --tree --header }
-}
+function ls() { uutils ls $args }
+function tree() { exa --long --all --git --icons --tree --header }
+
+# Linuxコマンドのエイリアス
+function l() { exa --all --icons --classify }
+function la() { exa --all --icons --classify }
+function ls() { exa --icons }
+function ll() { exa --long --all --git --icons --header }
+function lt() { exa --long --all --git --icons --tree --header }
 #-----------------------------------------------------
 # Useful commands
 #-----------------------------------------------------
@@ -174,27 +167,27 @@ function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { vim $_ 
 function cpwd() { Convert-Path . | Set-Clipboard }
 
 # git flow
-function gf() { git fetch --all }
-function gd() { git diff $args }
-function gds() { git diff --staged $args }
-function ga() { git add $args }
+function gf()  { git fetch --all }
+function gd()  { git diff $args }
+function gds()  { git diff --staged $args }
+function ga()  { git add $args }
 function gaa() { git add --all }
 function gco() { git commit -m $args[0] }
 
 # git switch
-function gb() { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git switch $_ } }
+function gb()  { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git switch $_ } }
 function gbr() { git branch -rl | rg -v "HEAD|master" | ForEach-Object { $_ -replace "  origin/", "" } | fzf | ForEach-Object { git switch $_ } }
 function gbc() { git switch -c $args[0] }
-function gbm() { git branch -l | rg -v '^\* ' | ForEach-ObjectorEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git merge --no-ff $_ } }
+function gbm()  { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git merge --no-ff $_ } }
 
 # git log
-function gls() { git log -3 }
-function gll() { git log -10 --oneline --all --graph --decorate }
-function glll() { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
-function glls() { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10 }
+function gls()   { git log -3}
+function gll()   { git log -10 --oneline --all --graph --decorate }
+function glll()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
+function glls()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10}
 
 # git status
-function gs() { git status --short }
+function gs()  { git status --short }
 function gss() { git status -v }
 
 # explorer
