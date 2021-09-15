@@ -1,9 +1,5 @@
-function Write_Title($msg) {
-  Write-Host ""
-  Write-Host "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-  Write-Host "┃$msg" -ForegroundColor White
-  Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-}
+. "./../Function.ps1"
+
 ${Arch} = "Arch"
 ${USERNAME} = wsl -- whoami
 if (${USERNAME} -eq "root"){
@@ -18,6 +14,7 @@ Set-Location ${now}
 Write_Title "Arch_USERNAME : ${USERNAME}"
 wsl --terminate "${Arch}"
 
+#--------------------------------------------------------------------------------------------------
 # Arch
 # 等性はないので注意
 # 実行後に編集が必要なファイルもある

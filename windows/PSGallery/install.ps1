@@ -1,20 +1,7 @@
-function Write_Title($msg) {
-  Write-Host "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-  Write-Host "┃$msg" -ForegroundColor Yellow
-  Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-}
-function Write_Section($msg) {
-    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
-    Write-Host "     $msg" -ForegroundColor Green
-    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
-}
-function br($times) {
-  $tmp = 1
-  while ($tmp -le $times) {
-    Write-Output " ";
-    $tmp += 1
-  }
-}
+. "./../Function.ps1"
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Write_Section("PSGallery/install.ps1")
 
 
 Write_Title("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force")
@@ -34,7 +21,7 @@ if (Test-Path ~/scoop/shims/scoop.cmd) {
   Write-Host "Already installed." -ForegroundColor Yellow
 }
 else{
-  iwr -useb get.scoop.sh | iex
+  Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
 }
 br(1)
 
@@ -44,14 +31,15 @@ Invoke-WebRequest https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/i
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # For example, we just use `~/.cache/dein` as installation directory
 ./installer.ps1 ~/.cache/dein
-rm ./installer.ps1
+Remove-Item ./installer.ps1
 br(1)
 
 Write_Title("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force")
 Set-ExecutionPolicy Undefined -Force
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Get-ExecutionPolicy -List
 br(1)
 
+
 Write_Section("# PSGallery/install.ps1 has finished.")
-Get-ExecutionPolicy -List
 br(2)

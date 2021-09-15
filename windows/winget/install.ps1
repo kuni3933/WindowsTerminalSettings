@@ -1,13 +1,4 @@
-function Write_Title($msg) {
-  Write-Host "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-  Write-Host "┃$msg" -ForegroundColor Yellow
-  Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-}
-function Write_Section($msg) {
-    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
-    Write-Host "     $msg" -ForegroundColor Green
-    Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
-}
+. "./../Function.ps1"
 
 function Install_msg($ID){
   Write-Host "  インストールを開始します." -ForegroundColor Yellow
@@ -29,15 +20,11 @@ function  Update_msg($ID) {
   Write-Host " "
   winget upgrade -e --id "$ID" --source winget
 }
-function br($times) {
-  $tmp = 1
-  while ($tmp -le $times) {
-    Write-Output " ";
-    $tmp += 1
-  }
-}
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Write_Section("winget/install.ps1")
+
+
 $MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 $bit = "null"
 If (${env:PROCESSOR_ARCHITECTURE} -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
@@ -157,7 +144,7 @@ ElseIf (-not(Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe")) {
   Install_msg("$ID")
   winget install -ei --id "$ID" --source winget
 }
-br(2)
+br(1)
 
 
 Write_Section("# winget/install.ps1 has finished.")

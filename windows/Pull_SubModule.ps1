@@ -1,27 +1,12 @@
-function Write_Title($msg) {
-  Write-Host "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-  Write-Host "┃$msg" -ForegroundColor Yellow
-  Write-Host "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-}
-function Write_Section($msg) {
-  Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
-  Write-Host "  $msg" -ForegroundColor Green
-  Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
-}
-function br($times) {
-  $tmp = 1
-  while ($tmp -le $times) {
-    Write-Output " ";
-    $tmp += 1
-  }
-}
+. "./Function.ps1"
+
 function pull($module,$branch){
     Set-Location "$WindowsTerminalSettings/$module"
     git pull origin $branch
     br(1)
 }
 
-
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Path
 $now = Get-Location
 $MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -87,6 +72,9 @@ function copy_Common_MNT(){
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------------
+Write_Section("Pull_SubModule.ps1")
+
+
 # submodule_list
 $module = git config --file .gitmodules --get-regexp path | awk '{print $ 2}'
 Write-Host $module
