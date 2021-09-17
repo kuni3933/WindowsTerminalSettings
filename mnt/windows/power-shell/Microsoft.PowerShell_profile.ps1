@@ -114,7 +114,7 @@ function _fzf_compgen_dir() {
 
 # https://secon.dev/entry/2020/08/17/070735/
 @"
-  arch, base32, base64, basename, cat, cksum, comm, cp, cut, date, df, dircolors, dirname,
+  arch, base32, base64, basename, cksum, comm, cp, cut, date, df, dircolors, dirname,
   echo, env, expand, expr, factor, false, fmt, fold, hashsum, head, hostname, join, link, ln,
   ls, md5sum, mkdir, mktemp, more, mv, nl, nproc, od, paste, printenv, printf, ptx, pwd,
   readlink, realpath, relpath, rm, rmdir, seq, sha1sum, sha224sum, sha256sum, sha3-224sum,
