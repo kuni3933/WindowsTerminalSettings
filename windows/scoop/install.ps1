@@ -154,6 +154,18 @@ Write_Title("# scoop cleanup *")
 scoop cleanup *
 br(1)
 
+Write_Title("# scoop cache show")
+scoop cache show
+br(1)
+
+Write_Title("# scoop cache rm *")
+scoop cache rm *
+br(1)
+
+Write_Title("# scoop cache show")
+scoop cache show
+br(1)
+
 Write_Title("# scoop status")
 scoop status
 br(1)
