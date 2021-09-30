@@ -137,8 +137,7 @@ Write_Title("# fonts")
 scoop install `
   source-han-code-jp `
   SourceCodePro-NF-Mono `
-  SourceCodePro-NF `
-  SarasaGothic-J
+  SourceCodePro-NF 
 br(1)
 
 Write_Title("# autohotkey-installer")
