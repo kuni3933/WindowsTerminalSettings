@@ -1,5 +1,6 @@
 ansible
 arch-install-scripts
+bandwhich
 bash-bats
 bash-bats-assert
 bash-bats-support
@@ -12,7 +13,10 @@ fisher
 freetype2
 fontconfig
 gdb
+gitui
 git-delta
+gping
+hyperfine
 jq
 lazygit
 less
@@ -30,6 +34,7 @@ python-markdown
 python-pywinrm
 ripgrep
 rustup
+shellharden
 silicon
 starship
 systemd
