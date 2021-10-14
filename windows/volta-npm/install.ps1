@@ -31,6 +31,10 @@ Write_Title("# npm-upgrade")
 npm install -g npm-upgrade
 br(1)
 
+Write_Title("# npm install -g express")
+npm install -g express
+br(1)
+
 Write_Title("# volta list all")
 volta list all
 br(1)
