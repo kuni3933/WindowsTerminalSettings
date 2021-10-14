@@ -35,6 +35,10 @@ Write_Title("# npm install -g express")
 npm install -g express
 br(1)
 
+Write_Title("# npm install -g ejs")
+npm install -g ejs
+br(1)
+
 Write_Title("# volta list all")
 volta list all
 br(1)
