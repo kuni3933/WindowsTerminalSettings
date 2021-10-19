@@ -16,7 +16,14 @@ if(Test-Path "$env:LOCALAPPDATA/Volta/tools/image/node"){
 volta install node@latest
 br(1)
 
-Write_Title("volta install yarn@latest")
+Write_Title("# volta install npm@latest")
+if(Test-Path "$env:LOCALAPPDATA/Volta/tools/image/npm"){
+  Remove-Item -Recurse $env:LOCALAPPDATA/Volta/tools/image/npm
+}
+volta install npm@latest
+br(1)
+
+Write_Title("# volta install yarn@latest")
 if(Test-Path "$env:LOCALAPPDATA/Volta/tools/image/yarn"){
   Remove-Item -Recurse $env:LOCALAPPDATA/Volta/tools/image/yarn
 }
@@ -27,24 +34,8 @@ Write_Title("# npm update *")
 npm update *
 br(1)
 
-Write_Title("# npm-upgrade")
-npm install -g npm-upgrade
-br(1)
-
-Write_Title("# npm install -g express")
-npm install -g express
-br(1)
-
-Write_Title("# npm install -g express-generator")
-npm install -g express-generator
-br(1)
-
-Write_Title("# npm install -g ejs")
-npm install -g ejs
-br(1)
-
-Write_Title("# npm install -g mysql")
-npm install -g mysql
+Write_Title("# npm install -g npm-upgrade express express-generator ejs mysql2")
+npm install -g npm-upgrade express express-generator ejs mysql2
 br(1)
 
 Write_Title("# volta list all")
