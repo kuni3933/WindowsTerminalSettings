@@ -36,10 +36,26 @@ Write_Title("# scoop update")
 scoop update
 br(1)
 
-Write_Title("# aria2 busybox")
+Write_Title("# aria2")
 scoop install `
   aria2 `
-  busybox
+
+Write_Title("# busybox")
+if(Test-Path $env:USERPROFILE/scoop/apps/busybox/current/busybox.exe){
+  scoop uninstall busybox
+}
+scoop install busybox
+
+Write_Title("# uutils-coreutils")
+if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe){
+    scoop uninstall uutils-coreutils
+}
+scoop install uutils-coreutils
+
+# less
+if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe){
+    scoop uninstall less
+}
 
 Write_Title("# CLI Tools")
 scoop install `
@@ -52,22 +68,18 @@ scoop install `
   cowsay `
   gh `
   gitignore `
-  ln `
   nu `
   onefetch `
   pandoc `
   scoop-completion `
-  touch `
   less `
   cacert `
-  grep `
   hub `
   imagemagick `
   innounp `
   neovim `
   winfetch `
   gsudo `
-  wget `
   bat `
   bind `
   fd `
@@ -83,7 +95,6 @@ scoop install `
   make `
   ffmpeg `
   vim `
-  uutils-coreutils `
   broot `
   xh `
   zoxide `
@@ -137,7 +148,7 @@ Write_Title("# fonts")
 scoop install `
   source-han-code-jp `
   SourceCodePro-NF-Mono `
-  SourceCodePro-NF 
+  SourceCodePro-NF
 br(1)
 
 Write_Title("# autohotkey-installer")

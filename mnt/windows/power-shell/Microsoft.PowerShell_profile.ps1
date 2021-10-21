@@ -24,17 +24,7 @@ if(Get-Command nvim -ea SilentlyContinue){
 }
 
 # c => clear
-Set-Alias c clear
-
-# bat - cat with syntax highlight
-if(Get-Command bat -ea SilentlyContinue){
-    remove-item alias:cat
-    function rebat() { bat cache --build $args}
-    function cat() { bat --wrap auto $args}
-}
-else {
-    Set-Alias cat Get-Content
-}
+Set-Alias c Clear-Host
 
 ##############################
 # PSFzf
@@ -113,24 +103,47 @@ function _fzf_compgen_dir() {
 #-----------------------------------------------------
 
 # https://secon.dev/entry/2020/08/17/070735/
-# Delete cat, mv,
+if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe){
 @"
-  arch, base32, base64, basename, cksum, comm, cp, cut, date, df, dircolors, dirname,
+  arch, base32, base64, basename, cat, cksum, comm, cp, cut, date, df, dircolors, dirname,
   echo, env, expand, expr, factor, false, fmt, fold, hashsum, head, hostname, join, link, ln,
-  ls, md5sum, mkdir, mktemp, more, nl, nproc, od, paste, printenv, printf, ptx, pwd,
+  ls, md5sum, mkdir, mktemp, more, mv, nl, nproc, od, paste, printenv, printf, ptx, pwd,
   readlink, realpath, relpath, rm, rmdir, seq, sha1sum, sha224sum, sha256sum, sha3-224sum,
   sha3-256sum, sha3-384sum, sha3-512sum, sha384sum, sha3sum, sha512sum, shake128sum,
   shake256sum, shred, shuf, sleep, sort, split, sum, sync, tac, tail, tee, test, touch, tr,
   true, truncate, tsort, unexpand, uniq, wc, whoami, yes
 "@ -split ',' |
-ForEach-Object { $_.trim() } |
-Where-Object { ! @('tee', 'sort', 'sleep').Contains($_) } |
-ForEach-Object {
-  $cmd = $_
-  if (Test-Path Alias:$cmd) { Remove-Item -Path Alias:$cmd }
-  $fn = '$input | uutils ' + $cmd + ' $args'
-  Invoke-Expression "function global:$cmd { $fn }"
+  ForEach-Object { $_.trim() } |
+  Where-Object { ! @('tee', 'sort', 'sleep').Contains($_) } |
+  ForEach-Object {
+      $cmd = $_
+      if (Test-Path Alias:$cmd) { Remove-Item -Path Alias:$cmd }
+      $fn = '$input | uutils ' + $cmd + ' $args'
+      Invoke-Expression "function global:$cmd { $fn }"
+  }
 }
+
+# less
+if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyContinue){
+    Set-Alias less $env:USERPROFILE/scoop/apps/less/current/less.exe
+}
+
+# bat - cat with syntax highlight
+# https://github.com/sharkdp/bat
+if(Get-Command bat -ea SilentlyContinue){
+    if(Get-Alias cat -ea SilentlyContinue) {
+        Remove-Item alias:cat
+    }
+    if(Get-ChildItem Function:\cat -ea SilentlyContinue){
+        Remove-Item Function:cat
+    }
+    function rebat() { bat cache --build $args}
+    function cat() { bat --wrap auto $args}
+}
+else {
+    Set-Alias cat Get-Content
+}
+
 
 # ⚠ readonlyのaliasなので問題が発生するかも..
 Remove-Item alias:sort -Force
