@@ -1,8 +1,12 @@
+# tmp./
+tmp.*
+
+# test.*
+test.*
+
+# node
 package-lock.json
 package.json
-test.bat
-test.ps1
-test.sh
 
 #mnt/linux/Arch/
 mnt/linux/Arch/.config/fish/functions/*
