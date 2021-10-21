@@ -16,8 +16,9 @@ set owl-playbook_COMMON_MNT=%WindowsTerminalSettings%\owl-playbook\mnt\common
 set dotfiles=%WindowsTerminalSettings%\dotfiles
 
 set pipes.sh=%WindowsTerminalSettings%\pipes.sh\pipes.sh
-set pipes-rs=%WindowsTerminalSettings%\mnt\windows\pipes-rs
+set pipes_rs=%WindowsTerminalSettings%\mnt\windows\.config\pipes-rs\
 
+set winfetch_=%WindowsTerminalSettings%\mnt\windows\.config\winfetch\
 
 set ROAMING=%USERPROFILE%\AppData\Roaming
 set LOCAL=%USERPROFILE%\AppData\Local
@@ -30,9 +31,10 @@ goto :tmp
 :tmp
 rem ------------------------------------------------------------------------------------------------------ÉÅÉCÉìèàóù
 :Main
-call :******************** pipes.sh/pipes-rs
+call :******************** "pipes.sh/pipes-rs & winfetch"
 call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
-call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes-rs%"
+call :link_dir "%USERPROFILE%\.config\pipes-rs\" "%pipes_rs%"
+call :link_dir "%USERPROFILE%\.config\winfetch\" "%winfetch_%"
 
 call :******************** neovim/init.vim
 call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\.vimrc"
