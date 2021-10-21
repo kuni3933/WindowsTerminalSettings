@@ -9,6 +9,11 @@
 " Clipboard magic?
 set clipboard+=unnamed
 
+
+
+
+
+
 " Encoding
 set encoding=utf-8
 scriptencoding utf-8
@@ -269,6 +274,9 @@ if dein#load_state('$HOME/.cache/dein')
     " Docs
     call dein#add('vim-jp/vimdoc-ja')
 
+    " Directory
+    call dein#add('mattn/vim-makedir-for')
+
     " Colorscheme
     call dein#add('cocopon/iceberg.vim')
     call dein#add('arcticicestudio/nord-vim')
@@ -356,6 +364,9 @@ if dein#load_state('$HOME/.cache/dein')
 
     " HTML/CSS
     call dein#add('mattn/emmet-vim')
+
+    " Japanese input
+    call dein#add('vim-skk/skkleton')
 
     " }}}
     " ======================================================================
@@ -541,5 +552,5 @@ augroup vimrc-auto-mkdir  " {{{
   endfunction  " }}}
 augroup END  " }}}
 
-" End of Vimrc ///////////////////////////////////////////////////////////
+" End of Vimrc //////////////////////////////////////////////////////////
 
