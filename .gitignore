@@ -1,8 +1,16 @@
-# tmp./
+# tmp.*
 tmp.*
+tmp.txt
+tmp.bat
+tmp.ps1
+tmp.sh
 
 # test.*
 test.*
+test.txt
+test.bat
+test.ps1
+test.sh
 
 # node
 package-lock.json
