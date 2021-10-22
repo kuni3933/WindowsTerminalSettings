@@ -13,12 +13,12 @@ $switchlogo = $true
 # $all = $true
 
 # Add a custom info line
-function info_custom_time {
-    return @{
-        title = "Time"
-        content = (Get-Date)
-    }
-}
+# function info_custom_time {
+#     return @{
+#         title = "Time"
+#         content = (Get-Date)
+#     }
+# }
 
 # Configure which disks are shown
 # $ShowDisks = @("C:", "D:")
@@ -50,8 +50,8 @@ $batterystyle = 'bartext'
     "computer"
     "kernel"
     "motherboard"
-    "custom_time"  # use custom info line
-    "uptime"
+    # "custom_time"  # use custom info line
+    # "uptime"
     # "pkgs"
     "pwsh"
     # "resolution"
@@ -63,7 +63,7 @@ $batterystyle = 'bartext'
     "memory"
     "disk"
     "battery"
-    "locale"
+    # "locale"
     # "local_ip"
     # "public_ip"
     "blank"
