@@ -123,11 +123,6 @@ if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe)
   }
 }
 
-# less
-if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyContinue){
-    Set-Alias less $env:USERPROFILE/scoop/apps/less/current/less.exe
-}
-
 # bat - cat with syntax highlight
 # https://github.com/sharkdp/bat
 if(Get-Command bat -ea SilentlyContinue){
@@ -144,6 +139,15 @@ else {
     Set-Alias cat Get-Content
 }
 
+# less
+if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyContinue){
+    Set-Alias less $env:USERPROFILE/scoop/apps/less/current/less.exe
+}
+
+#sudo
+if(Test-Path $env:USERPROFILE/scoop/apps/gsudo/current/gsudo.exe -ea SilentlyContinue){
+    Set-Alias sudp $env:USERPROFILE/scoop/apps/gsudo/current/gsudo.exe
+}
 
 # ⚠ readonlyのaliasなので問題が発生するかも..
 Remove-Item alias:sort -Force
