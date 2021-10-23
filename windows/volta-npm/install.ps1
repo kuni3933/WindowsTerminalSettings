@@ -30,8 +30,8 @@ if(Test-Path "$env:LOCALAPPDATA/Volta/tools/image/yarn"){
 volta install yarn@latest
 br(1)
 
-Write_Title("# npm install -g npm-upgrade express express-session express-generator ejs mysql2")
-npm install -g npm-upgrade express express-session express-generator ejs mysql2
+Write_Title("# npm install -g npm-upgrade express express-session express-generator ejs mysql2 bcrypt")
+npm install -g npm-upgrade express express-session express-generator ejs mysql2 bcrypt
 br(1)
 
 Write_Title("# volta list all")
