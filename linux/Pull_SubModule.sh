@@ -51,7 +51,7 @@ if [ -e "${WindowsTerminalSettings}/../WindowsTerminalSettings" ]; then
 
     _title "git submodule foreach git pull origin master"
     _pull "dotfiles" "master"
-    #_pull "owl-playbook" "master"
+    _pull "owl-playbook" "master"
     _pull "pipes.sh" "master"
     _pull "mnt/linux/Arch/.config/ranger/plugins/ranger_devicons" "main"
     cd "${WindowsTerminalSettings}"
