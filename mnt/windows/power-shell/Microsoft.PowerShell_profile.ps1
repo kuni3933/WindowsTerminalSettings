@@ -146,7 +146,7 @@ if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyConti
 
 #sudo
 if(Test-Path $env:USERPROFILE/scoop/apps/gsudo/current/gsudo.exe -ea SilentlyContinue){
-    Set-Alias sudp $env:USERPROFILE/scoop/apps/gsudo/current/gsudo.exe
+    Set-Alias sudo $env:USERPROFILE/scoop/apps/gsudo/current/gsudo.exe
 }
 
 # ⚠ readonlyのaliasなので問題が発生するかも..
