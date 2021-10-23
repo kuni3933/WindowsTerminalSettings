@@ -1,25 +1,32 @@
 #!/bin/bash
 set -eu
-title(){
+_subtitle(){
+  echo "---------------------------------------------"
+  echo "  $1"
+  echo "---------------------------------------------"
+}
+_title(){
   echo "-------------------------------------------------------------------------------------------"
   echo "  $1"
   echo "-------------------------------------------------------------------------------------------"
 }
-section(){
+_section(){
   echo "-------------------------------------------------------------------------------------------"
   echo "     $1"
   echo "-------------------------------------------------------------------------------------------"
 }
-br(){
+_br(){
     for i in `seq $1`
     do  
         echo ""
     done
 }
-pull(){
+_pull(){
     cd "${WindowsTerminalSettings}/$1"
+    _subtitle "$1"
     git pull origin "$2"
-    br 1
+    cd "${WindowsTerminalSettings}"
+    _br 1
 }
 
 # 参考 - https://devconnected.com/how-to-check-if-file-or-directory-exists-in-bash/
@@ -32,31 +39,32 @@ echo "USERNAME                : ${USERNAME}"
 echo "Current_DIR             : ${now}"
 echo "WindowsTerminalSettings : ${WindowsTerminalSettings}"
 if [ -e "${WindowsTerminalSettings}/../WindowsTerminalSettings" ]; then
-    section "Start"
+    _section "Start"
     cd "${WindowsTerminalSettings}"
-    title "現在のサブモジュールステータス / Current submodule status"
+    _title "現在のサブモジュールステータス / Current submodule status"
     git submodule status
-    br 2
+    _br 2
 
-    title "git submodule foreach git fetch"
+    _title "git submodule foreach git fetch"
     git submodule foreach git fetch
-    br 2
+    _br 2
 
-    title "git submodule foreach git pull origin master"
-    pull "dotfiles" "master"
-    pull "owl-playbook" "master"
-    pull "pipes.sh" "master"
+    _title "git submodule foreach git pull origin master"
+    _pull "dotfiles" "master"
+    #_pull "owl-playbook" "master"
+    _pull "pipes.sh" "master"
+    _pull "mnt/linux/Arch/.config/ranger/plugins/ranger_devicons" "main"
     cd "${WindowsTerminalSettings}"
-    br 2
+    _br 2
 
-    title "Pull後のサブモジュールステータス / Submodule status after Pull"
+    _title "Pull後のサブモジュールステータス / Submodule status after Pull"
     git submodule status
-    br 2
+    _br 2
 
     cd $now
-    section "Pull_SubModule.sh is complete."
+    _section "Pull_SubModule.sh is complete."
 else
-    section "Error"
+    _section "Error"
     echo "Repository:WindowsTerminalSettings が $HOME に存在しないないためサブモジュールのpullが出来ません."
     echo "Repository:WindowsTerminalSettings を $HOME に git cloneして配置してください."
     echo "Cannot pull submodules because Repository:WindowsTerminalSettings does not exist in $HOME."
