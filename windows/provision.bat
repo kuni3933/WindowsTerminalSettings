@@ -45,6 +45,10 @@ call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%WindowsTerminalSettings%\windows\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
+call :******************** "GitHub_CLI_config.yml"
+set ORIGIN_ghconfig="%WINDOWS_MNT%\ROAMINGAPPDATA\GitHub_CLI\config.yml"
+call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
+
 call :******************** IntelliJ IDEA
 
 set IDEA_DIR=IntelliJIdea2021.2
