@@ -16,9 +16,9 @@ set owl-playbook_COMMON_MNT=%WindowsTerminalSettings%\owl-playbook\mnt\common
 set dotfiles=%WindowsTerminalSettings%\dotfiles
 
 set pipes.sh=%WindowsTerminalSettings%\pipes.sh\pipes.sh
-set pipes_rs=%WindowsTerminalSettings%\mnt\windows\.config\pipes-rs\
+set pipes_rs=%WindowsTerminalSettings%\mnt\windows\.config\pipes-rs
 
-set winfetch_=%WindowsTerminalSettings%\mnt\windows\.config\winfetch\
+set winfetch_=%WindowsTerminalSettings%\mnt\windows\.config\winfetch
 
 set ROAMING=%USERPROFILE%\AppData\Roaming
 set LOCAL=%USERPROFILE%\AppData\Local
@@ -33,12 +33,13 @@ rem ----------------------------------------------------------------------------
 :Main
 call :******************** "pipes.sh/pipes-rs & winfetch"
 call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
-call :link_dir "%USERPROFILE%\.config\pipes-rs\" "%pipes_rs%"
-call :link_dir "%USERPROFILE%\.config\winfetch\" "%winfetch_%"
+call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes_rs%"
+call :link_dir "%USERPROFILE%\.config\winfetch" "%winfetch_%"
 
 call :******************** neovim/init.vim
-call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\.vimrc"
 call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
+call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\init.vim"
+call :link_file "%LOCAL%\nvim\ginit.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\ginit.vim"
 
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%WindowsTerminalSettings%\gitconfig"
@@ -77,7 +78,7 @@ call :each link_windows_home %WINDOWS%\windows-home-dots.txt
 
 call :******************** PowerShell Core
 
-set POWER_SHELL_ORIGIN_DIR=%WINDOWS_MNT%\power-shell
+set POWER_SHELL_ORIGIN_DIR=%WINDOWS_MNT%\Documents\PowerShell
 set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
 
 call :link_file "%USERPROFILE%\.oh-my-posh.json" %WINDOWS_MNT%\.oh-my-posh.json
@@ -86,18 +87,18 @@ call :link_file "%POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1" "%POWER_SHE
 
 call :******************** Windows Terminal Preview
 
-set TERMINAL_ORIGIN_DIR=%WINDOWS_MNT%\terminal
-call :link_file "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" "%TERMINAL_ORIGIN_DIR%\LocalState\settings.json"
+set TERMINAL_ORIGIN_DIR=%WINDOWS_MNT%\LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState
+call :link_file "%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" "%TERMINAL_ORIGIN_DIR%\settings.json"
 
 call :******************** winget
 
-set WINGET_ORIGIN_DIR=%WINDOWS_MNT%\winget
-call :link_file "%LOCALAPPDATA%\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json" "%WINGET_ORIGIN_DIR%\LocalState\settings.json"
+set WINGET_ORIGIN_DIR=%WINDOWS_MNT%\LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState
+call :link_file "%LOCALAPPDATA%\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json" "%WINGET_ORIGIN_DIR%\settings.json"
 
 call :******************** Keypirinha
 
-set KEYPIRINHA_ORIGIN_DIR=%WINDOWS_MNT%\keypirinha
-call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini" "%KEYPIRINHA_ORIGIN_DIR%\User\Keypirinha.ini"
+set KEYPIRINHA_ORIGIN_DIR=%WINDOWS_MNT%\scoop\persist\keypirinha\portable\Profile\User
+call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini" "%KEYPIRINHA_ORIGIN_DIR%\Keypirinha.ini"
 
 call :******************** Broot
 
