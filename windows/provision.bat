@@ -42,7 +42,7 @@ call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\init.vi
 call :link_file "%LOCAL%\nvim\ginit.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\ginit.vim"
 
 call :******************** Copying_gitconfig
-set ORIGIN_gitconfig="%WindowsTerminalSettings%\gitconfig"
+set ORIGIN_gitconfig="%WindowsTerminalSettings%\windows\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** IntelliJ IDEA
