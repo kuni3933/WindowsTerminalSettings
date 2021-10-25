@@ -15,7 +15,7 @@ function  Update_msg($ID) {
   Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
   Write-Host " "
   Write-Host " "
-  winget show --id "$ID" --source winget
+  winget show -e --id "$ID" --source winget
   Write-Host " "
   Write-Host " "
   winget upgrade -e --id "$ID" --source winget
@@ -58,7 +58,7 @@ br(2)
 
 
 Write_Title("# Windows Terminal Preview")
-$ID = "Microsoft.WindowsTerminalPreview"
+$ID = "Microsoft.WindowsTerminal.Preview"
 If (Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe") {
   Update_msg("$ID")
 }
