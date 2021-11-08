@@ -60,7 +60,6 @@ if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe){
 Write_Title("# CLI Tools")
 scoop install `
   pipes-rs `
-  volta `
   procs `
   bottom `
   streamlink `
@@ -125,6 +124,8 @@ br(1)
 
 Write_Title("# Language / Framework / MiddleWare")
 scoop install `
+  volta `
+  deno `
   dotnet-sdk-preview `
   sed `
   docker `
