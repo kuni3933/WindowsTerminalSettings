@@ -14,9 +14,9 @@ set clipboard+=unnamed
 
 
 
-" Encoding
-set encoding=utf-8
-scriptencoding utf-8
+" Encoding 
+set encoding=utf-8 
+"scriptencoding utf-8
 
 " Desable sound
 set belloff=all
@@ -27,7 +27,7 @@ set belloff=all
 "set noundofile
 set autoread
 set hidden
-" }}}
+" }}} 
 
 " Key bindings --------------------------- {{{ Leader
 " let mapleader = '\<Space>'
@@ -55,7 +55,7 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
-inoremap <C-l> <C-o>:set nohlsearch!<CR>
+"inoremap <C-l> <C-o>:set nohlsearch!<CR>
 
 " Brackets
 nnoremap <Tab> %
@@ -67,9 +67,12 @@ vnoremap <Tab> %
 "inoremap ''    ''<Left>
 "inoremap ""    ""<Left>
 "inoremap ()    ()<Left>
-
 " Replace
 nnoremap <C-s> :<C-u>%s___cg<Left><Left><Left><Left>
+
+" `[`, `]` prefix
+nnoremap <silent> [t :<C-u>tabprevious<CR>
+nnoremap <silent> ]t :<C-u>tabnext<CR>
 
 " Window --------------------------------- {{{
 "let g:window_leader_key = 's'
@@ -189,9 +192,6 @@ nnoremap <Up> <C-y><C-y>
 " nnoremap <C-d> <C-e><C-e><C-e><C-e>
 set scrolloff=5
 
-" EX mode(Q) <-> Format the lines(gq)
-nmap Q gq
-nmap gQ Q
 " }}}
 
 " Indent --------------------------------- {{{
@@ -250,6 +250,7 @@ vnoremap < <gv
 " Terminal ------------------------------- {{{
 tnoremap <silent> <Esc><Esc> <C-\><C-n>
 tnoremap <silent> <C-;>  <C-\><C-n>
+autocmd TermOpen * setlocal nonumber
 " }}}
 
 " Dein Scripts ======================================================== {{{
@@ -302,7 +303,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('easymotion/vim-easymotion')
 
     " Interface
-    "call dein#add('Shougo/unite.vim')
+    "call dein#add('Shougo/unite.vim') 
     " call dein#add('junegunn/fzf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('mattn/ctrlp-ghq')
@@ -343,7 +344,7 @@ if dein#load_state('$HOME/.cache/dein')
     " bash
     call dein#add('itspriddle/vim-shellcheck')
     call dein#add('z0mbix/vim-shfmt')
-
+    
     " fish
     call dein#add('dag/vim-fish')
 
@@ -365,8 +366,21 @@ if dein#load_state('$HOME/.cache/dein')
     " HTML/CSS
     call dein#add('mattn/emmet-vim')
 
+    " Denops
+    call dein#add('vim-denops/denops.vim')
+    call dein#add('vim-denops/denops-helloworld.vim')
+
+    " Increment / Decriment
+    call dein#add('monaqa/dps-dial.vim')
+
+    " Markdown preview
+    call dein#add('kat0h/bufpreview.vim')
+
     " Japanese input
     call dein#add('vim-skk/skkeleton')
+
+    " PaizaIO
+    call dein#add("Omochice/dps-paiza-io-vim")
 
     " }}}
     " ======================================================================
@@ -392,38 +406,49 @@ endif
 " }}}
 
 " Dein ----------------------------------- {{{
-cabbrev dinstall  call dein#install()
-cabbrev dupdate   call dein#update()
+command! DeinUpdate call dein#update()
+command! DeinCheckInstall call dein#check_install()
 " }}}
 
 " Lightline ------------------------------ {{{
 set laststatus=2
 set noshowmode
-let g:lightline = {
-            \ 'colorscheme': 'icebergDark',
-            \ 'component': {
-            \   'lineinfo': ' %3l:%-2v',
-            \ },
-            \ 'component_function': {
-            \   'readonly': 'LightlineReadonly',
-            \   'fugitive': 'LightlineFugitive'
-            \ },
-            \ 'separator': { 'left': '', 'right': '' },
-            \ 'subseparator': { 'left': '', 'right': '' }
-            \ }
+let g:lightline = {}
+let g:lightline.colorscheme = 'icebergDark'
 
-function! LightlineReadonly()
-    return &readonly ? '' : ''
-endfunction
 
-function! LightlineFugitive()
-    if exists('*FugitiveHead')
-        let branch = FugitiveHead()
-        return branch !=# '' ? ''.branch : ''
+let g:lightline.active = {}
+let g:lightline.active.left = [
+    \ ['mode', 'paste'], 
+    \ ['skk_mode', 'filename', 'modified'],
+    \ ]
+
+let g:lightline.component = {}
+let g:lightline.component_function = {}
+let g:lightline.component_function.skk_mode = 'g:LightlineSkkeleton'
+
+command! -bar LightlineUpdate
+    \ call lightline#init()|
+    \ call lightline#colorscheme()|
+    \ call lightline#update()
+
+function! g:LightlineSkkeleton() abort
+    if get(g:, 'loaded_skkeleton') == 0
+        return ''
     endif
-    return ''
-endfunction
 
+    if lightline#mode() == 'INSERT' || lightline#mode() == 'COMMAND'
+        if skkeleton#mode() == 'hira'
+            return 'あ'
+        elseif skkeleton#mode() == 'kata'
+            return 'ア'
+        else
+            return 'Aa'
+        endif
+    else
+        return ''
+    endif
+endfunction
 " }}}
 
 " Appearance ----------------------------- {{{
@@ -432,8 +457,20 @@ endfunction
 set guifont=PlemolJP:h12
 
 " Colorsceme
+set termguicolors
 colorscheme iceberg
 set background=dark
+
+function! BackgroundToggle()
+    if &background == 'light'
+        set background=dark
+    elseif &background == 'dark'
+        set background=light
+    endif
+endfunction
+
+
+command! BackgroundToggle call BackgroundToggle()
 
 if has('gui_running')
     " Fullscreen
@@ -505,6 +542,9 @@ nmap S ys
 set helplang=ja,en
 " }}}
 
+" Emmet
+let g:emmet_leader_key = '<C-t>'
+
 " Nvui ----------------------------------- {{{
 if exists('g:nvui')
     NvuiCmdBg #161821
@@ -524,8 +564,16 @@ endif
 " }}}
 
 " Skkeleton
-imap <C-y> <Plug>(skkeleton-toggle)
-cmap <C-y> <Plug>(skkeleton-toggle)
- 
-" End of Vimrc ///////////////////////////////////////////////////////////
+imap <silent> <C-l> <Plug>(skkeleton-toggle)
+cmap <silent> <C-l> <Plug>(skkeleton-toggle)
+autocmd User skkeleton-mode-changed redrawstatus
 
+" dps-dial.vim
+nmap  <C-a>  <Plug>(dps-dial-increment)
+nmap  <C-x>  <Plug>(dps-dial-decrement)
+xmap  <C-a>  <Plug>(dps-dial-increment)
+xmap  <C-x>  <Plug>(dps-dial-decrement)
+xmap g<C-a> g<Plug>(dps-dial-increment)
+xmap g<C-x> g<Plug>(dps-dial-decrement)
+
+" End of Vimrc ///////////////////////////////////////////////////////////
