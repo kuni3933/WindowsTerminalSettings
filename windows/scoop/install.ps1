@@ -136,15 +136,17 @@ scoop install `
   vcxsrv
 br(1)
 
+<#
 Write_Title("# Python")
-# Python
-#scoop install `
-#python27 `
-#python37 `
-#python38 `
-#python
+ Python
+scoop install `
+python27 `
+python37 `
+python38 `
+python
 scoop reset python
 br(1)
+#>
 
 Write_Title("# fonts")
 scoop install `
