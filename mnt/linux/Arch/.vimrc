@@ -15,7 +15,7 @@ if system('uname -a | grep -i microsoft') != ''
 endif
 
 " Encoding
-set encoding=utf-8
+set encoding=utf-8 
 "scriptencoding utf-8
 
 " Desable sound
@@ -27,7 +27,7 @@ set belloff=all
 "set noundofile
 set autoread
 set hidden
-" }}}
+" }}} 
 
 " Key bindings --------------------------- {{{ Leader
 " let mapleader = '\<Space>'
@@ -176,18 +176,18 @@ nnoremap sf :<C-u>set filetype=
 " Vimrc
 " nnoremap sR :<C-u>source $MYVIMRC<CR>
 " nnoremap sV :<C-u>edit $MYVIMRC<CR>
+command! VimrcEdit :edit $MYVIMRC
+command! VimrcReload :source $MYVIMRC
 
 " Split
 nnoremap sS :<C-u>new<CR>
 nnoremap sv :<C-u>vnew<CR>
 
-"
-
 " Scroll
-nnoremap J <C-e><C-e>
-nnoremap K <C-y><C-y>
-nnoremap <Down> <C-e><C-e>
-nnoremap <Up> <C-y><C-y>
+nnoremap <silent> J <C-e><C-e>
+nnoremap <silent> K <C-y><C-y>
+nnoremap <silent> <Down> <C-e><C-e>
+nnoremap <silent> <Up> <C-y><C-y>
 " nnoremap <C-u> <C-y><C-y><C-y><C-y>
 " nnoremap <C-d> <C-e><C-e><C-e><C-e>
 set scrolloff=5
@@ -213,9 +213,9 @@ set incsearch
 set ignorecase
 set hlsearch
 " Toggle highlight search
-nnoremap <Esc><Esc> :<C-u>set nohlsearch!<CR>
+nnoremap <silent> <Esc><Esc> :<C-u>set nohlsearch!<CR>
 " Redraw console and toggle highlight search
-nnoremap <C-l>       <C-l>:<C-u>set nohlsearch!<CR>
+nnoremap <silent> <C-l>       <C-l>:<C-u>set nohlsearch!<CR>
 
 " Search from clipboard text
 nnoremap g/ /\V<C-r>=join(map(getreg(v:register,1,1),{k,v->escape(v,'\/')}),'\n')<CR><CR>
@@ -285,13 +285,18 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('fcpg/vim-orbital')
     call dein#add('morhetz/gruvbox')
     call dein#add('sainnhe/edge')
+    call dein#add('tyrannicaltoucan/vim-deep-space')
+    call dein#add('arzg/vim-substrata')
+    call dein#add('ulwlu/abyss.vim')
+    call dein#add('eskilop/NorthernLights.vim')
+    call dein#add('pgdouyon/vim-alayas')
 
     " Color preview
     " call dein#add('gorodinskiy/vim-coloresque')
 
     " Status Line
     call dein#add('itchyny/lightline.vim')
-    call dein#add('gkeep/iceberg-dark')
+    "call dein#add('gkeep/iceberg-dark')
 
     " Text Edit
     call dein#add('tpope/vim-surround')
@@ -303,8 +308,8 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('easymotion/vim-easymotion')
 
     " Interface
-    "call dein#add('Shougo/unite.vim')
-    " call dein#add('junegunn/fzf.vim')
+    "call dein#add('Shougo/unite.vim') 
+    "call dein#add('junegunn/fzf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('mattn/ctrlp-ghq')
     call dein#add('kuuote/vim-fuzzyhistory')
@@ -323,7 +328,6 @@ if dein#load_state('$HOME/.cache/dein')
 
     " i3-wm
     call dein#add('mboughaba/i3config.vim')
-
 
     " LSP
     call dein#add('hrsh7th/vim-vsnip')
@@ -344,7 +348,7 @@ if dein#load_state('$HOME/.cache/dein')
     " bash
     call dein#add('itspriddle/vim-shellcheck')
     call dein#add('z0mbix/vim-shfmt')
-
+    
     " fish
     call dein#add('dag/vim-fish')
 
@@ -359,6 +363,7 @@ if dein#load_state('$HOME/.cache/dein')
 
     " Git
     call dein#add('lambdalisue/gina.vim')
+    "call dein#add('itchyny/vim-gitbranch')
 
     " Translate
     call dein#add('koron/codic-vim')
@@ -416,16 +421,22 @@ set noshowmode
 let g:lightline = {}
 let g:lightline.colorscheme = 'icebergDark'
 
-
 let g:lightline.active = {}
 let g:lightline.active.left = [
     \ ['mode', 'paste'], 
-    \ ['skk_mode', 'filename', 'modified'],
+    \ ['skkeleton', 'modified'],
+    \ ]
+let g:lightline.active.right = [
+    \ ['gitbranch'],
+    \ ['filename'],
+    \ ['percent'],
+    \ ['fileformat', 'fileencoding', 'filetype'],
     \ ]
 
 let g:lightline.component = {}
 let g:lightline.component_function = {}
-let g:lightline.component_function.skk_mode = 'g:LightlineSkkeleton'
+let g:lightline.component_function.skkeleton = 'g:LightlineSkkeleton'
+let g:lightline.component_function.gitbranch = 'g:GitCurrentBranch'
 
 command! -bar LightlineUpdate
     \ call lightline#init()|
@@ -448,6 +459,13 @@ function! g:LightlineSkkeleton() abort
     else
         return ''
     endif
+endfunction
+
+function! g:GitCurrentBranch()
+    if exists(':Gina') == 2
+        let branch = gina#component#repo#branch()
+    endif
+    return branch
 endfunction
 " }}}
 
@@ -575,6 +593,5 @@ xmap  <C-a>  <Plug>(dps-dial-increment)
 xmap  <C-x>  <Plug>(dps-dial-decrement)
 xmap g<C-a> g<Plug>(dps-dial-increment)
 xmap g<C-x> g<Plug>(dps-dial-decrement)
- 
-" End of Vimrc ///////////////////////////////////////////////////////////
 
+" End of Vimrc ///////////////////////////////////////////////////////////
