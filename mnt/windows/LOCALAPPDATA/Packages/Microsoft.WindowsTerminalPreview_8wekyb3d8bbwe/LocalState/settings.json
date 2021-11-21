@@ -197,7 +197,7 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/BxV2pw7CAAAjeSf_Arch.png",
         "guid": "{0c95a9bd-bc57-44bc-ba3e-169f9fbb4de0}",
         "icon": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/distributorlogoarchlinux_94330.ico",
-        "commandline": "wsl -d Distrod"
+        "commandline": "wsl ~ -d Distrod",
       },
       {
         //%GIT_INSTALL_ROOT%
