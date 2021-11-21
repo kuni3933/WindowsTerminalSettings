@@ -10,7 +10,6 @@ readonly SRC_FILES=(
 )
 readonly DEST_DIR="${USERPROFILE}/.config"
 readonly dotfile_DIR=$(cd ${CURRENT_DIR} && cd ../../../ && pwd)
-readonly genie_VER="1.42"
 
 function _update_packages(){
     sudo pacman -Syyu
@@ -29,15 +28,6 @@ function _update_packages(){
     #volta
     yay -S volta-bin
     volta setup
-}
-
-function _genie(){
-    yay -S --needed daemonize python-markdown
-    wget -O "/tmp/genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst" "https://github.com/arkane-systems/genie/releases/download/v${genie_VER}/genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst"
-    cd /tmp
-    sudo pacman -U "./genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst"
-    sudo rm -rf "./genie-systemd-${genie_VER}-1-x86_64.pkg.tar.zst"
-    cd ${CURRENT_DIR}
 }
 
 function _other_packages(){
@@ -180,10 +170,6 @@ function _main() {
     _banner "Update packages"
     _update_packages
     _info "The package has been updated."
-
-    _banner "Install genie"
-    _genie
-    _info "Finished genie installation!"
 
     _banner "Install packages"
 	_install_packages

@@ -1,8 +1,4 @@
 #WindowsTerminalSettings_Original
-#genie
-if [[ ! -v INSIDE_GENIE ]]; then
-    exec /usr/bin/genie -s
-fi
 #X_SERVER
 export LIBGL_ALWAYS_INDIRECT=1
 
