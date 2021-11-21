@@ -105,24 +105,32 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 <code>gpasswd -a {username} wheel</code><br>
 ({username}=ユーザー名)<br>
 
-4. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
-<code>vim /etc/sudoers</code><br>
-以下の行を探してアンコメント<br>
-<code>%wheel ALL=(ALL) ALL</code><br>
-
-5. mirrorlstの確認と設定<br>
-<code>vim /etc/pacman.d/mirrorlist</code><br>
-<a href="https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA">必要ならこちらも設定</a><br>
-
-6. 鍵の初期化<br>
+4. 鍵の初期化<br>
 <code>pacman-key --init</code><br>
 
-7. 鍵の更新<br>
+5. 鍵の更新<br>
 <code>pacman-key --populate archlinux</code><br>
 <code>pacman -Syy archlinux-keyring</code><br>
 
-8. パッケージの更新・必要なPackageのインストール<br>
+6. パッケージの更新・必要なPackageのインストール<br>
 <code>sudo pacman -Syyu --needed aria2 autoconf automake  base base-devel curl git gnupg make neovim ntp openssh sudo vi vim wget</code><br>
+
+7. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
+<code>nano /etc/sudoers</code><br>
+キーバインド:M = meta key = Alt<br>
+以下の行を探してアンコメント<br>
+<code>%wheel ALL=(ALL) ALL</code><br>
+
+8. close nano<br>
+以下のコマンドでnanoを閉じて保存終了<br>
+<code>ctrl + x</code><br> 
+<code>y</code><br>
+<code>ENTER</code><br>
+<code>exit</code><br>
+
+9. mirrorlstの確認と設定<br>
+<code>vim /etc/pacman.d/mirrorlist</code><br>
+<a href="https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA">必要ならこちらも設定</a><br>
 
 10. Setup wsl.conf with powershell<br>
 <code>cd $env:USERPROFILE/WindowsTerminalSettings/windows/Distrod</code><br>
