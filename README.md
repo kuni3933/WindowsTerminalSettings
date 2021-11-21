@@ -131,138 +131,50 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 5. PC再起動した後pwshを開く
 6. <code>sudo wsl --set-default-version 2</code>
 
-# Ubuntuの手順
-
-1. WindowsのMicrosoftStoreからUbuntuを検索してダウンロード
-
-2. Ubuntuを起動して、ユーザー名/パスを設定
-
-3. pwshで以下のコマンドを実行<br>
-   <code>cd $env:USERPROFILE/WindowsTerminalSettings</code>
-
-4. <code>windows/ubuntu/Ubuntu_provision.ps1</code>（Ubuntuの場合）<br>
-    <code>windows/ubuntu/Ubuntu-20.04-LTS_Provision.ps1</code>（Ubuntu20.011-LTSの場合）<br>
-    <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL commands and launch configurations</a>等を参考に、wsl.confを設定<br>
-    <a href="https://qiita.com/ys-0-sy/items/3cf7a29c1489bf5564f8">WSLでwindowsディレクトリがマウントされないのを対処した「備忘録」</a><br>
-    <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>が完了<br>
-
-5. <a href="https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git">概要で Git を使用Linux 用 Windows サブシステム</a>を参考に、以下のコマンドでwsl側の.gitconfigを修正<br>
-    <code>git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"</code><br>
-
-6. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>を全て実行していく<br>
-
-7. Ubuntuで以下のコマンドを実行<br>
-   <code>cd ~</code><br>
-   <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
-   <code>sh WindowsTerminalSettings/mnt/linux/ubuntu/setup.sh</code><br>
-          Finishedの表示が出るまで何回か実行<br>
-
-8. Ubuntuで以下のコマンドを実行<br>
-   <code>im-config -n fcitx</code><br>
-
-9. pcを再起動した後に以下のコマンド<br>
-   <code>fcitx-autostart</code><br>
-   エラーが出ても、エンターを押す.<br>
-
-10. <code>fcitx-configtool</code><br>
-
-11. 以下のように設定してウィンドウを閉じる<br>
-   <ul>
-    <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/a371c322.png</li>
-    <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/e183fa13.png</li>
-    <li>https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/resources/b8a613c6.png</li>
-   </ul>
-
-12. <a href="https://blog.mamansoft.net/2020/07/26/efficient-wsl2-with-ubuntu2/">WSL2でつくる快適なUbuntu環境Ⅱ</a>が完了<br>
-
-13. pyenv initの設定（必要なら）<br>
-
-14. vimを起動して、<code>:PlugInstall</code>と入力して実行<br>
-
-15. vimを実行して、<code>:BundleInstall</code>と入力して実行<br>
-
-16. ".bashrc"を修正<br>
-    必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
-    <code>. ~/.bashrc.org</code><br>
-    <code>. ~/.aliases.org</code><br>
-    のみが記述されている状態にする<br>
-
-17. <a href="https://docs.github.com/ja/github/authenticating-to-github/managing-commit-signature-verification">コミット署名の検証を管理する</a>を参考にgpgの設定<br>
-            <a href="https://qiita.com/suzutan/items/cbd6fc56c0a50100e7c0">GnuPGことはじめ - ひととおりさわってみる</a>を参考に、最新のed25519で作成する事<br>
-
-18. <a href="https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub に SSH で接続する</a>を参考にsshの設定<br>
-
-19. gpg/sshの情報を.gitconfigに設定<br>
-
 # Archの手順
 
-1. pwshで以下のコマンド<br>
-<code>scoop install archwsl</code><br>
 
-2. Archの起動<br>
-<code>wsl -d Arch</code><br>
+1. Setupo DistroD & Install Any Distribution<br>
+<a href="https://github.com/nullpo-head/wsl-distrod">nullpo-head/wsl-distrod</a>
 
-3. mirrorlstの設定<br>
-<code>vim /etc/pacman.d/mirrorlist</code><br>
-<a href="https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA">必要ならこちらも設定</a><br>
+2. Setup root password<br>
+<code>sudo su -</code><br>
+<code>passwd</code>
 
-4. 鍵の初期化<br>
-<code>pacman-key --init</code><br>
-
-5. 鍵の更新<br>
-<code>pacman-key --populate archlinux</code><br>
-<code>pacman -Syy archlinux-keyring</code><br>
-
-6. パッケージの更新<br>
-<code>pacman -Syu</code><br>
-
-7. 必要なPackageのインストール<br>
-<code>pacman -Syyu vi vim sudo git base base-devel</code><br>
-
-8. root-pass<br>
-<code>passwd</code><br>
-
-9. useradd<br>
-<code>useradd -m -g wheel -s /bin/bash {username}</code><br>
--m オプションはホームディレクトリを作成、 -G はグループリストを指定する。 ({username}=ユーザー名) を特権コマンドも実行できる wheel ユーザグループに指定。 -s はログインシェルを指定するオプション。<br>
-
-10. user-pass<br>
-<code>passwd {username}</code><br>
-({username}=ユーザー名)<br>
-
-11. user add wheel group<br>
+3. User Add wheel group<br>
 <code>gpasswd -a {username} wheel</code><br>
 ({username}=ユーザー名)<br>
 
-12. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
-<code>nano /etc/sudoers</code><br>
-キーバインド:M = meta key = Alt<br>
-
-13. 以下の行を探してアンコメントする。<br>
+4. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
+<code>vim /etc/sudoers</code><br>
+以下の行を探してアンコメント<br>
 <code>%wheel ALL=(ALL) ALL</code><br>
 
-14. close nano<br>
-以下のコマンドでnanoを閉じて保存終了<br>
-<code>ctrl + x</code><br> 
-<code>y</code><br>
-<code>ENTER</code><br>
-<code>exit</code><br>
+5. mirrorlstの確認と設定<br>
+<code>vim /etc/pacman.d/mirrorlist</code><br>
+<a href="https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA">必要ならこちらも設定</a><br>
 
-15. powershellで規定ユーザーセット<br>
-<code>arch.exe config --default-user {username}</code><br>
-({username}=ユーザー名)<br>
+6. 鍵の初期化<br>
+<code>pacman-key --init</code><br>
 
-16. Setup wsl.conf with powershell<br>
-<code>cd $env:USERPROFILE/WindowsTerminalSettings/windows/Arch</code><br>
-<code>.\Arch_provision.ps1</code><br>
+7. 鍵の更新<br>
+<code>pacman-key --populate archlinux</code><br>
+<code>pacman -Syy archlinux-keyring</code><br>
 
-17. setup<br>
+8. パッケージの更新・必要なPackageのインストール<br>
+<code>sudo pacman -Syyu --needed aria2 autoconf automake  base base-devel curl git gnupg make neovim ntp openssh sudo vi vim wget</code><br>
+
+10. Setup wsl.conf with powershell<br>
+<code>cd $env:USERPROFILE/WindowsTerminalSettings/windows/Distrod</code><br>
+<code>.\Distrod_provision.ps1</code><br>
+
+11. setup<br>
 <code>WindowsTerminaからArch実行</code><br>
 <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
 <code>cd ~/WindowsTerminalSettings/mnt/linux/Arch</code><br>
 <code>./setup.sh</code><br>
 
-18. setup .bashrc<br>
+12. setup .bashrc<br>
 必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
 <code>. ~/.bashrc.org</code><br>
 <code>export PATH=$PATH:'/mnt/c/Users/{Windows_username}/AppData/Local/Programs/Microsoft VS Code/bin'</code><br>
