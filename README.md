@@ -69,45 +69,6 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 2. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
 3. <code>sudo windows/provision.bat</code><br>
 
-## 7.定期アップデート
-
-インストール後に更新ファイルがあった場合は以下の作業をする必要があるので、定期的にチェックして実行する.
-
-1. windows/provision.batを管理者権限でコマンドラインから実行してアップデート
-2. 以下の項目は手動アップデート/手動マージ
-
-    <ul>
-      <li>mnt/common/settings.json</li>
-      <li>mnt/common/VSCode/User/settings.json(運用上不要)</li>
-      <li>mnt/linux/ubuntu/.bashrc</li>
-      <li>mnt/linux/ubuntu/.vimrc</li>
-      <li>mnt/linux/ubuntu/setup.sh</li>
-      <li>mnt/linux/Arch/* (<a href="https://github.com/sheepla/dotfiles">sheepla/dotfiles</a>を参考)</li>
-      <li>mnt/windows/pipes-rs</li>
-      <li>mnt/windows/power-shell</li>
-      <li>mnt/windows/terminal</li>
-      <li>mnt/windows/winget</li>
-      <li>mnt/windows/wsl</li>
-      <!--<li></li>-->
-    </ul>
-    <br>
-    <ul>
-      <li>windows/PSGallery</li>
-      <li>windows/cargo</li>
-      <li>windows/go</li>
-      <li>windows/volta-npm</li>
-      <li>windows/scoop</li>
-      <li>windows/winget</li>
-      <li>windows/ubuntu/config.xlaunch</li>
-      <li>windows/ubuntu/Ubuntu_provision.ps1</li>
-      <li>windows/ubuntu/Ubuntu-20.04-LTS_Provision.ps1</li>
-      <li>windows/install.ps1</li>
-      <li>windows/provision.bat</li>
-      <li>windows/Pull_SubModule.bat</li>
-      <li>windows/xlaunch.exe.lnk</li>
-    </ul>
-3. 各install.ps1を実行してパッケージアップデート
-4. 再度windows/provision.batを実行
 
 # WSL2の手順
 
@@ -130,7 +91,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 5. PC再起動した後pwshを開く
 6. <code>sudo wsl --set-default-version 2</code>
 
-# Archの手順
+## Archの手順
 
 
 1. Setupo DistroD & Install Any Distribution<br>
