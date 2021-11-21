@@ -54,7 +54,6 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 | 4.volta/npm  | volta/npmでインストールするもの                                 |
 | 5.go         | goでインストールするもの                                        |
 | 6.cargo      | rustでインストールするもの                                      |
-| 7.ubuntu     | WSL2-Ubuntu-20.04 LTSでインストールするもの(wsl2準備段階で使用) |
 
 初インストールの場合は、install.ps1を実行後
 <ul>
