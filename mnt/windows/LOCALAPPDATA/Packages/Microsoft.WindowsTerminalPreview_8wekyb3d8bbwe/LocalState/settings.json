@@ -44,7 +44,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       },
       "keys": "ctrl+c"
     },
-    {//kuni3933_add
+    {
+      //kuni3933_add
       "command": "paste",
       "keys": "ctrl+v"
     },
@@ -101,10 +102,10 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
     },
     //ペインクローズ
     {
-    "command": {
+      "command": {
         "action": "closePane"
-    },
-    "keys": "ctrl+shift+w"
+      },
+      "keys": "ctrl+shift+w"
     },
     // ペイン移動
     {
@@ -192,30 +193,12 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
         "source": "Windows.Terminal.PowershellCore"
       },
       {
-        "name": "WSL2-Arch",
+        "name": "Distrod-Arch",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/BxV2pw7CAAAjeSf_Arch.png",
-        "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+        "guid": "{0c95a9bd-bc57-44bc-ba3e-169f9fbb4de0}",
         "icon": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/distributorlogoarchlinux_94330.ico",
-        "commandline": "wsl.exe ~",
-        "source": "Windows.Terminal.Wsl",
-        //"colorScheme": "Campbell"
+        "commandline": "wsl -d Distrod"
       },
-      /*
-      {
-        "name": "WSL2-Ubuntu",
-        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/BxV2pw7CAAAjeSf_Ubuntu.png",
-        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-        "commandline": "wsl.exe ~",
-        "source": "Windows.Terminal.Wsl"
-      },
-      {
-        "name": "WSL2-Ubuntu-20.04 LTS",
-        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/BxV2pw7CAAAjeSf_Ubuntu.png",
-        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-        "commandline": "wsl.exe ~",
-        "source": "Windows.Terminal.Wsl"
-      },
-      */
       {
         //%GIT_INSTALL_ROOT%
         "name": "Git Bash",
