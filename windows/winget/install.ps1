@@ -1,45 +1,48 @@
 . "./../Function.ps1"
 
+function Winget_Version() {
+    $bit = "null"
+    if (${env:PROCESSOR_ARCHITECTURE} -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
+      $bit = "x64"
+    }
+    elseIf (${env:PROCESSOR_ARCHITECTURE} -ceq "X86") {
+      $bit = "x86"
+    }
+    Write_Title("# Install the $bit version.")
+  winget --Version
+  br(1)
+  winget --info
+  br(1)
+  winget  source update
+  br(2)
+}
+
 function Install_msg($ID){
   Write-Host "  インストールを開始します." -ForegroundColor Yellow
   Write-Host "  Start the installation of this application." -ForegroundColor Yellow
-  Write-Host " "
-  Write-Host " "
+  br(1)
   winget show --id "$ID" --source winget
-  Write-Host " "
-  Write-Host " "
+  br(1)
+}
+
+function Install($ID,$Option){
+  winget install -e --id "$ID" "$Option" --source winget
 }
 
 function  Update_msg($ID) {
   Write-Host "  インストール済みです. アップデートを行います." -ForegroundColor Cyan
   Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
-  Write-Host " "
-  Write-Host " "
+  br(1)
   winget show -e --id "$ID" --source winget
-  Write-Host " "
-  Write-Host " "
+  br(1)
   winget upgrade -e --id "$ID" --source winget
 }
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Write_Section("winget/install.ps1")
 
-
+Winget_Version
 $MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
-$bit = "null"
-if (${env:PROCESSOR_ARCHITECTURE} -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
-  $bit = "x64"
-}
-elseIf (${env:PROCESSOR_ARCHITECTURE} -ceq "X86") {
-  $bit = "x86"
-}
-$msg = "# Install the $bit version."
-Write_Title($msg)
-winget --Version
-winget --info
-winget  source update
-br(2)
-
 
 $ID = "Git.Git"
 Write_Title("# " + $ID)
@@ -144,7 +147,7 @@ else {
   Install_msg("$ID")
   winget install -e --id "$ID" --source winget
 }
-br(1)
+br(2)
 
 
 $ID = "Notion.Notion"
@@ -156,7 +159,7 @@ else {
   Install_msg("$ID")
   winget install -e --id "$ID" --source winget
 }
-br(1)
+br(2)
 
 
 Write_Title("# PowerShellCore (pwsh)")
@@ -168,7 +171,7 @@ else {
   Install_msg("$ID")
   winget install -ei --id "$ID" --source winget
 }
-br(1)
+br(2)
 
 
 Write_Section("# winget/install.ps1 has finished.")
