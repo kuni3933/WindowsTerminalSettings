@@ -25,6 +25,14 @@ else{
 }
 br(1)
 
+Write_Title("Chocolatey")
+if(Test-Path "${env:PROGRAMDATA}/chocolatey/choco.exe"){
+  Write-Host "Already installed." -ForegroundColor Yellow
+}
+else{
+  Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+}
+
 Write_Title("Invoke-WebRequest dein.vim/master/bin/installer.ps1 -OutFile ~/installer.ps1")
 Invoke-WebRequest https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.ps1 -OutFile installer.ps1
 # Allow to run third-party script
