@@ -14,8 +14,8 @@ set clipboard+=unnamed
 
 
 
-" Encoding 
-set encoding=utf-8 
+" Encoding
+set encoding=utf-8
 "scriptencoding utf-8
 
 " Desable sound
@@ -27,7 +27,7 @@ set belloff=all
 "set noundofile
 set autoread
 set hidden
-" }}} 
+" }}}
 
 " Key bindings --------------------------- {{{ Leader
 " let mapleader = '\<Space>'
@@ -308,7 +308,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('easymotion/vim-easymotion')
 
     " Interface
-    "call dein#add('Shougo/unite.vim') 
+    "call dein#add('Shougo/unite.vim')
     "call dein#add('junegunn/fzf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('mattn/ctrlp-ghq')
@@ -348,7 +348,7 @@ if dein#load_state('$HOME/.cache/dein')
     " bash
     call dein#add('itspriddle/vim-shellcheck')
     call dein#add('z0mbix/vim-shfmt')
-    
+
     " fish
     call dein#add('dag/vim-fish')
 
@@ -423,7 +423,7 @@ let g:lightline.colorscheme = 'icebergDark'
 
 let g:lightline.active = {}
 let g:lightline.active.left = [
-    \ ['mode', 'paste'], 
+    \ ['mode', 'paste'],
     \ ['skkeleton', 'modified'],
     \ ]
 let g:lightline.active.right = [
@@ -570,7 +570,7 @@ if exists('g:nvui')
     NvuiCmdFg #abb0c9
     NvuiCmdFontFamily PlemolJP
     NvuiCmdFontSize 18
-    NvuiCmdPadding 10 
+    NvuiCmdPadding 10
     NvuiCmdTopPos 0.8
     NvuiOpacity 0.9
     NvuiPopupMenuBorderColor #444b71
