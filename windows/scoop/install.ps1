@@ -62,6 +62,7 @@ scoop install `
   pipes-rs `
   procs `
   bottom `
+  hexyl `
   streamlink `
   youtube-dl `
   colortool `
