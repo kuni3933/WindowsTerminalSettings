@@ -85,7 +85,7 @@ scoop install `
   bind `
   fd `
   dust `
-  7zip-beta `
+  7zip `
   fzf `
   jq `
   jx `
