@@ -91,3 +91,7 @@ Write-Host "Installation is complete." -ForegroundColor Green
 
 Write_Title "Installation is complete."
 wsl --terminate "Distrod"
+
+Set_ExecutionPolicy
+br(2)
+

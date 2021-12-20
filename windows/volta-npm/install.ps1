@@ -39,5 +39,9 @@ volta list all
 br(1)
 
 
+Set_ExecutionPolicy
+br(2)
+
 Write_Section("# volta-npm/install.ps1 has finished.")
 br(2)
+

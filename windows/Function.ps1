@@ -26,3 +26,12 @@ function Want_To_Install($ID) {
     return 0
   }
 }
+
+function Set_ExecutionPolicy() {
+  Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+  Write-Host "     Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force" -ForegroundColor Green
+  Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
+  Set-ExecutionPolicy Undefined -Force
+  Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+  Get-ExecutionPolicy -List
+}

@@ -48,5 +48,9 @@ cargo install hexyl
 br(1)
 
 
+Set_ExecutionPolicy
+br(2)
+
 Write_Section("# cargo/install.ps1 has finished.")
 br(2)
+

@@ -43,5 +43,9 @@ Remove-Item ./installer.ps1
 br(1)
 
 
+Set_ExecutionPolicy
+br(2)
+
 Write_Section("# PSGallery/install.ps1 has finished.")
 br(2)
+

@@ -43,11 +43,10 @@ br(2)
 Invoke-Expression "$MyPath/gh/install.ps1"
 br(2)
 
-Write_Section("Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force")
-Set-ExecutionPolicy Undefined -Force
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+
+Set_ExecutionPolicy
 br(2)
 
 Write_Section("isntall.ps1 is Finished.")
-Get-ExecutionPolicy -List
 br(2)
+

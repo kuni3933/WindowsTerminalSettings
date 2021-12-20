@@ -17,5 +17,9 @@ gh extension install sheepla/gh-graph
 br(1)
 
 
+Set_ExecutionPolicy
+br(2)
+
 Write_Section("# scoop/install.ps1 has finished.")
 br(2)
+

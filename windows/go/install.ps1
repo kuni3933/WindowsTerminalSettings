@@ -13,5 +13,9 @@ go get -u github.com/tcnksm/ghr
 br(1)
 
 
+Set_ExecutionPolicy
+br(2)
+
 Write_Section("# go/install.ps1 has finished.")
 br(2)
+

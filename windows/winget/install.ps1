@@ -314,5 +314,9 @@ elseIf(Want_To_Install($ID)) {
 br(2)
 
 
+Set_ExecutionPolicy
+br(2)
+
 Write_Section("# winget/install.ps1 has finished.")
 br(2)
+
