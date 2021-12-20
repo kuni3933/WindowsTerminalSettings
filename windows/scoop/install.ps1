@@ -151,9 +151,8 @@ br(1)
 
 Write_Title("# fonts")
 scoop install `
-  source-han-code-jp `
-  SourceCodePro-NF-Mono `
-  SourceCodePro-NF
+  SourceCodePro-NF `
+  SourceCodePro-NF-Mono
 br(1)
 
 Write_Title("# autohotkey-installer")
