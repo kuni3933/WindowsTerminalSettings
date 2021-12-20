@@ -55,7 +55,7 @@ if (Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe") {
     Update($ID)
     git update-git-for-windows
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -66,7 +66,7 @@ $ID = Title("Microsoft.OneDrive")
 if (Test-Path  "${env:PROGRAMFILES}/Microsoft OneDrive/OneDrive.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -77,7 +77,7 @@ $ID = Title("Google.Drive")
 if (Test-Path  "${env:PROGRAMFILES}/Google/Drive File Stream/launch.bat") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -88,7 +88,7 @@ $ID = Title("7zip.7zip")
 if(Test-Path "${env:PROGRAMFILES}/7-Zip/7z.exe") {
     Update($ID)
 }
-else{
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -99,7 +99,7 @@ $ID = Title("Mp3tag.Mp3tag")
 if(Test-Path "${env:PROGRAMFILES(x86)}/Mp3tag/Mp3tag.exe"){
     Update($ID)
 }
-else{
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -110,7 +110,7 @@ $ID = Title("Microsoft.PowerToys")
 if (Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -121,7 +121,7 @@ $ID = Title("SlackTechnologies.Slack")
 if (Test-Path  "${env:LOCALAPPDATA}/slack/slack.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -132,7 +132,7 @@ $ID = Title("Notion.Notion")
 if (Test-Path  "${env:LOCALAPPDATA}/Programs/Notion/Notion.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -144,7 +144,7 @@ $ID = Title("ScreamingFrog.SEOSpider")
 if (Test-Path  "${env:PROGRAMFILES}/") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -156,7 +156,7 @@ $ID = Title("Google.Chrome")
 if (Test-Path  "${env:PROGRAMFILES(X86)}/Google/Chrome/Application/chrome.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -167,7 +167,7 @@ $ID =  Title("REALiX.HWiNFO")
 if(Test-Path "${env:PROGRAMFILES}/HWiNFO64/HWiNFO64.EXE") {
     Update($ID)
 }
-else{
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -179,7 +179,7 @@ $ID =  Title("Amazon.Kindle")
 if (Test-Path "${env:LOCALAPPDATA}/Amazon/Kindle/application/Kindle.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -190,7 +190,7 @@ $ID =  Title("Microsoft.WindowsTerminal.Preview")
 if (Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -201,7 +201,7 @@ $ID =  Title("Microsoft.VisualStudio.2019.BuildTools")
 if (Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -215,7 +215,7 @@ if (Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe") {
     code --version
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget  --override "/silent /mergetasks="runcode"addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
 }
@@ -227,7 +227,7 @@ if (Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - I
   code-insiders --version
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget --override "/silent /mergetasks="runcode"addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
 }
@@ -238,7 +238,7 @@ $ID = Title("Discord.Discord")
 if (Test-Path  "${env:LOCALAPPDATA}/Discord/app.ico") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -249,7 +249,7 @@ $ID =  Title("TeamSpeakSystems.TeamSpeakClient")
 if (Test-Path  "${env:PROGRAMFILES}/TeamSpeak 3 Client/ts3client_win64.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -261,7 +261,7 @@ else{ $ID =  Title("Adobe.Acrobat.Reader.32-bit") }
 if ((Test-Path  "${env:PROGRAMFILES}/Adobe/Acrobat DC/Acrobat/Acrobat.exe") -or (Test-Path  "${env:PROGRAMFILES(X86)}/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe")) {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -272,7 +272,7 @@ $ID =  Title("OpenMedia.4KVideoDownloader")
 if (Test-Path "${env:PROGRAMFILES}/4KDownload/4kvideodownloader/4kvideodownloader.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -283,7 +283,7 @@ $ID =  Title("DeepL.DeepL")
 if (Test-Path "${env:LOCALAPPDATA}/DeepL/DeepL.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -e --id "$ID" --source winget
 }
@@ -295,7 +295,7 @@ $ID =  Title("kite.kite")
 If (Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe") {
   Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {else {
   Install_msg("$ID")
   winget install -e --id "$ID" --source winget
 }
@@ -307,7 +307,7 @@ $ID =  Title("Microsoft.PowerShell")
 if (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
     Update($ID)
 }
-else {
+elseIf(Want_To_Install($ID)) {
     Install_msg("$ID")
     winget install -ei --id "$ID" --source winget
 }

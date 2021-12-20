@@ -13,7 +13,16 @@ function Write_Section($msg) {
 function br($times) {
   $tmp = 1
   while ($tmp -le $times) {
-    Write-Output " ";
+    Write-Output " "
     $tmp += 1
+  }
+}
+
+function Want_To_Install($ID) {
+  $bool = Read-Host("Do you want to install $ID? (y/n)")
+  if($bool -eq "y") {
+    return 1
+  } else {
+    return 0
   }
 }
