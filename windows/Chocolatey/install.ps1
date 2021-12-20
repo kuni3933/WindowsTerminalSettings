@@ -15,6 +15,7 @@ Write_Title("# choco-cleaner")
 choco install choco-cleaner
 
 Write_Title("# fonts")
+choco install font-hackgen
 choco install font-hackgen-nerd
 br(1)
 

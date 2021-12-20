@@ -63,6 +63,13 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 </ul>
 を一回起動して閉じたあとに再度windows/install.ps1を実行.
 
+フォントもインストール
+<ul>
+    <li><a href="https://github.com/adobe-fonts/source-han-code-jp/releases">Releases · adobe-fonts/source-han-code-jp</a><li>
+    <li><a href="https://github.com/yuru7/PlemolJP/releases">Releases · yuru7/PlemolJP</a><li>
+<ul>
+
+
 ## 6.windows/provision.batをコマンドラインから管理者権限で実行
 
 1. <code>pwshを管理者権限で開く</code><br>

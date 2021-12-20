@@ -16,9 +16,11 @@ Write_Title("# Add nerd-fonts bucket")
 scoop bucket add nerd-fonts
 br(1)
 
+<#
 Write_Title("# scoop-for-jp")
 scoop bucket add jp https://github.com/rkbk60/scoop-for-jp
 br(1)
+#>
 
 Write_Title("# Add Java bucket")
 scoop bucket add java
