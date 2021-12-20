@@ -28,8 +28,10 @@ Write_Title("# choco-cleaner.bat")
 Invoke-Command -ScriptBlock {
     choco-cleaner.bat
 }
+
 if(Test-Path "$env:USERPROFILE/AppData/Local/Temp/chocolatey"){
-  Remove-Item "$env:USERPROFILE/AppData/Local/Temp/chocolatey/*"
+    Write_Title("Remove-Item $env:USERPROFILE/AppData/Local/Temp/chocolatey/*")
+    Remove-Item "$env:USERPROFILE/AppData/Local/Temp/chocolatey/*"
 }
 br(1)
 
