@@ -23,6 +23,10 @@ br(2)
 Invoke-Expression "$MyPath/scoop/install.ps1"
 br(2)
 
+#Write_Section("Chocolatey/install.ps1")
+Invoke-Expression "$MyPath/Chocolatey/install.ps1"
+br(2)
+
 #Write_Section("volta-npm/install.ps1")
 Invoke-Expression "$MyPath/volta-npm/install.ps1"
 br(2)
