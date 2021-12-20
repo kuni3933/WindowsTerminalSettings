@@ -4,12 +4,14 @@
 <li><a href="https://github.com/sheepla/dotfiles">sheepla/dotfiles</a></li>
 をベースに個人的に改造したもの
 
-## 1.以下からMicrosoft.DesktopAppInstaller(winget)とvoltaをインストール
+## 1.以下からMicrosoft.DesktopAppInstaller(winget)・volta・フォントをインストール
 
 <ul>
   <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
   <li><a href="https://github.com/volta-cli/volta/releases">Releases · volta-cli/volta</a></li>
-適切なバージョンをインストールして、<a href="https://qiita.com/naoyukik/items/d6a11808338a494238db">Nodeのバージョン管理ツールVOLTA⚡</a>を参考にnode-js等をインストール
+  <li><a href="https://qiita.com/naoyukik/items/d6a11808338a494238db">Nodeのバージョン管理ツールVOLTA⚡</a></li>
+  <li><a href="https://github.com/adobe-fonts/source-han-code-jp/releases">Releases · adobe-fonts/source-han-code-jp</a></li>
+  <li><a href="https://github.com/yuru7/PlemolJP/releases">Releases · yuru7/PlemolJP</a></li>
 </ul>
 
 ## 2.Gitのインストール・本リポジトリの配置
@@ -62,12 +64,6 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 <li>pwsh</li>
 </ul>
 を一回起動して閉じたあとに再度windows/install.ps1を実行.
-
-フォントもインストール
-<ul>
-    <li><a href="https://github.com/adobe-fonts/source-han-code-jp/releases">Releases · adobe-fonts/source-han-code-jp</a><li>
-    <li><a href="https://github.com/yuru7/PlemolJP/releases">Releases · yuru7/PlemolJP</a><li>
-<ul>
 
 
 ## 6.windows/provision.batをコマンドラインから管理者権限で実行
