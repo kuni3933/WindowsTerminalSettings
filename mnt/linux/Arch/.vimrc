@@ -324,7 +324,7 @@ if dein#load_state('$HOME/.cache/dein')
     " endif
 
     " sudo
-    call dein#add('lkambdalisue/suda.vim')
+    call dein#add('lambdalisue/suda.vim')
 
     " Gist
     call dein#add('lambdalisue/vim-gista')
