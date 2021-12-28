@@ -52,6 +52,10 @@ call :******************** "GitHub_CLI_config.yml"
 set ORIGIN_ghconfig="%WINDOWS_MNT%\ROAMINGAPPDATA\GitHub_CLI\config.yml"
 call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
 
+call :******************** "bat"
+set ORIGIN_bat="%WINDOWS_MNT%\ROAMINGAPPDATA\bat"
+call :link_dir "%ROAMING%\bat" "%ORIGIN_bat%"
+
 call :******************** IntelliJ IDEA
 
 set IDEA_DIR=IntelliJIdea2021.2
