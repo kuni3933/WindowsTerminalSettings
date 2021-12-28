@@ -131,7 +131,7 @@ function _set_init_files_symlinks() {
     ln -sf ${CURRENT_DIR}/.gtkrc-2.0 ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.gtkrc-2.0.mine ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.profile ${USERPROFILE}/
-    ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
+    # ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.xinitrc ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.xprofile ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.zshrc ${USERPROFILE}/
@@ -172,9 +172,9 @@ function _main() {
     _info "The package has been updated."
 
     _banner "Install packages"
-	_install_packages
-	_info "Finished packages installation!"
-    
+    _install_packages
+    _info "Finished packages installation!"
+
     _banner "Install Other_packages"
     _other_packages
     _info "Finished Other_packages installation!"
@@ -183,14 +183,13 @@ function _main() {
     _set_init_files_symlinks
     _info "Finished init files installation!"
     _banner "Install config files"
-	_set_symlinks
-	_info "Finished config files installation!"
+    _set_symlinks
+    _info "Finished config files installation!"
 
     _banner "Install dein.vim"
-	_install_dein
-	_info "Finished dein.vim installation!"
+    _install_dein
+    _info "Finished dein.vim installation!"
 
-    #pacman_update
     _banner "Update packages"
     _update_packages
     _info "The package has been updated."
