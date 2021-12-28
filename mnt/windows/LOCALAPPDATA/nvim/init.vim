@@ -1,3 +1,11 @@
+" Clipboard magic?
+set clipboard+=unnamed
+
+" Number --------------------------------- {{{
+set number
+set norelativenumber
+" }}}
+
 " 
 "     __  ___                               _    ___                        
 "    /  |/  /_  __   ____  ___ _      __   | |  / (_)___ ___  __________    
@@ -6,14 +14,6 @@
 " /_/  /_/\__, /  /_/ /_/\___/|__/|__/     |___/_/_/ /_/ /_/_/   \___(_|_|_)
 "        /____/                                                             
 " 
-
-" Clipboard magic?
-set clipboard+=unnamed
-" blank
-" blank
-" blank
-" blank
-" blank
 
 " encoding 
 set encoding=utf-8 
