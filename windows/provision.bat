@@ -36,10 +36,13 @@ call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
 call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes_rs%"
 call :link_dir "%USERPROFILE%\.config\winfetch" "%winfetch_%"
 
-call :******************** neovim/init.vim
+call :******************** neovim
 call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
-call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\init.vim"
+call :link_file "%LOCAL%\nvim\colors.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\colors.toml"
+call :link_file "%LOCAL%\nvim\dein.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\dein.toml"
 call :link_file "%LOCAL%\nvim\ginit.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\ginit.vim"
+call :link_file "%LOCAL%\nvim\init.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\init.vim"
+call :link_file "%LOCAL%\nvim\joke.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\joke.toml"
 
 call :******************** Copying_gitconfig
 set ORIGIN_gitconfig="%WindowsTerminalSettings%\windows\gitconfig"

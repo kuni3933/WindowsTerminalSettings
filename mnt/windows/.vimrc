@@ -14,8 +14,8 @@ set clipboard+=unnamed
 
 
 
-" Encoding
-set encoding=utf-8
+" Encoding 
+set encoding=utf-8 
 "scriptencoding utf-8
 
 " Desable sound
@@ -27,7 +27,7 @@ set belloff=all
 "set noundofile
 set autoread
 set hidden
-" }}}
+" }}} 
 
 " Key bindings --------------------------- {{{ Leader
 " let mapleader = '\<Space>'
@@ -114,15 +114,15 @@ nnoremap s] :<C-u>tabnext<CR>
 nnoremap s{ :<C-u>tabmove -<CR>
 nnoremap s} :<C-u>tabmove +<CR>
 nnoremap s0 :<C-u>tablast<CR>
-nnoremap s1 :<C-u>tabnext1<CR>
-nnoremap s2 :<C-u>tabnext2<CR>
-nnoremap s3 :<C-u>tabnext3<CR>
-nnoremap s4 :<C-u>tabnext4<CR>
-nnoremap s5 :<C-u>tabnext5<CR>
-nnoremap s6 :<C-u>tabnext6<CR>
-nnoremap s7 :<C-u>tabnext7<CR>
-nnoremap s8 :<C-u>tabnext8<CR>
-nnoremap s9 :<C-u>tabnext9<CR>
+nnoremap s1 :<C-u>tabnext 1<CR>
+nnoremap s2 :<C-u>tabnext 2<CR>
+nnoremap s3 :<C-u>tabnext 3<CR>
+nnoremap s4 :<C-u>tabnext 4<CR>
+nnoremap s5 :<C-u>tabnext 5<CR>
+nnoremap s6 :<C-u>tabnext 6<CR>
+nnoremap s7 :<C-u>tabnext 7<CR>
+nnoremap s8 :<C-u>tabnext 8<CR>
+nnoremap s9 :<C-u>tabnext 9<CR>
 " To command mode
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>; :
@@ -296,7 +296,7 @@ if dein#load_state('$HOME/.cache/dein')
 
     " Status Line
     call dein#add('itchyny/lightline.vim')
-    "call dein#add('gkeep/iceberg-dark')
+    call dein#add('gkeep/iceberg-dark')
 
     " Text Edit
     call dein#add('tpope/vim-surround')
@@ -305,10 +305,10 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('nanotee/zoxide.vim')
 
     " Move cursor quickly
-    call dein#add('easymotion/vim-easymotion')
+    "call dein#add('easymotion/vim-easymotion')
 
     " Interface
-    "call dein#add('Shougo/unite.vim')
+    "call dein#add('Shougo/unite.vim') 
     "call dein#add('junegunn/fzf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('mattn/ctrlp-ghq')
@@ -324,7 +324,10 @@ if dein#load_state('$HOME/.cache/dein')
     " endif
 
     " sudo
-    call dein#add('lambdalisue/suda.vim')
+    call dein#add('lkambdalisue/suda.vim')
+
+    " Gist
+    call dein#add('lambdalisue/vim-gista')
 
     " i3-wm
     call dein#add('mboughaba/i3config.vim')
@@ -339,7 +342,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('prabirshrestha/vim-lsp')
 
     " Python
-    call dein#add('davidhalter/jedi-vim')
+    "call dein#add('davidhalter/jedi-vim')
 
     " Go
     "call dein#add('fatih/vim-go')
@@ -348,7 +351,7 @@ if dein#load_state('$HOME/.cache/dein')
     " bash
     call dein#add('itspriddle/vim-shellcheck')
     call dein#add('z0mbix/vim-shfmt')
-
+    
     " fish
     call dein#add('dag/vim-fish')
 
@@ -385,7 +388,19 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('vim-skk/skkeleton')
 
     " PaizaIO
-    call dein#add("Omochice/dps-paiza-io-vim")
+    call dein#add('Omochice/dps-paiza-io-vim')
+
+    " Shell commands
+    call dein#add('skanehira/command.vim')
+
+    " Deno
+    call dein#add('uki00a/vim-deno')
+
+    " Vim help generator
+    call dein#add('LeafCage/vimhelpgenerator')
+
+    " My plugins...................
+    call dein#add('sheepla/mayano.vim')
 
     " }}}
     " ======================================================================
@@ -423,12 +438,12 @@ let g:lightline.colorscheme = 'icebergDark'
 
 let g:lightline.active = {}
 let g:lightline.active.left = [
-    \ ['mode', 'paste'],
+    \ ['mode', 'paste'], 
     \ ['skkeleton', 'modified'],
+    \ ['filename'],
     \ ]
 let g:lightline.active.right = [
     \ ['gitbranch'],
-    \ ['filename'],
     \ ['percent'],
     \ ['fileformat', 'fileencoding', 'filetype'],
     \ ]
@@ -528,13 +543,6 @@ nnoremap <Leader>gd :<C-u>Gina diff<CR>
 nnoremap <Leader>gl :<C-u>Gina log<CR>
 nnoremap <Leader>gp :<C-u>Gina push
 nnoremap <Leader>gh :<C-u>Gina show<CR>
-cabbrev gstatus Gina<Space>status
-cabbrev gcommit Gina<Space>commit
-cabbrev glog Gina<Space>log
-cabbrev ggrep Gina<Space>grep
-cabbrev gls Gina<Space>ls
-cabbrev gdiff Gina<Space>diff
-cabbrev gshow Gina<Space>show
 " }}}
 
 " ctrlp.vim
@@ -570,7 +578,7 @@ if exists('g:nvui')
     NvuiCmdFg #abb0c9
     NvuiCmdFontFamily PlemolJP
     NvuiCmdFontSize 18
-    NvuiCmdPadding 10
+    NvuiCmdPadding 10 
     NvuiCmdTopPos 0.8
     NvuiOpacity 0.9
     NvuiPopupMenuBorderColor #444b71
@@ -580,6 +588,14 @@ if exists('g:nvui')
     NvuiFrameless v:false
 endif
 " }}}
+
+" Denops
+command! DenopsServerStatus echo denops#server#status()
+command! DenopsServerStart call denops#server#start()
+command! DenopsServerStop call denops#server#stop()
+command! DenopsServerRestart call denops#server#restart()
+command! DenopsDebugEnable let g:denops#debug = 1
+command! DenopsDebugDisable let g:denops#debug = 0
 
 " Skkeleton
 imap <silent> <C-l> <Plug>(skkeleton-toggle)
