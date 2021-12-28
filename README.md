@@ -16,37 +16,44 @@
 
 ## 2.Gitのインストール・本リポジトリの配置
 
-以下のコマンドを実行
-
-1. <code>Windows Powershellを管理者権限で開く</code>
-2. <code>winget install -e --id Git.Git</code>
-3. <code>cd $env:USERPROFILE</code>
-4. <code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code>
+<code>Windows Powershell (admin)</code>
+```Powershell
+winget install -e --id Git.Git --source winget
+cd $env:USERPROFILE
+git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive
+```
 
 ## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insidersのインストール
 
-1. <code>pwshを管理者権限で開く</code>
-2. <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force</code><br>
-3. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
-4. <code>windows/winget/install.ps1</code><br>
-  を実行して、Git・WTP・pwsh・VSCode・VSCode-Insidersの5つをインストール
+<code>Windows Powershell (admin)</code>
+```Powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+cd $env:USERPROFILE/WindowsTerminalSettings
+windows/winget/install.ps1
+```
 
 ## 4.パス設定
 
 Gitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
 1. まずは以下のコマンドを実行してgit.exeの位置を確認.<br>
-    <code>cmd /c where git</code><br>
+  <code>Windows Powershell (admin)</code><br>
+    ```Powershell
+    cmd /c where git
+    ```
+ 
 2. 出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する.<br>
-    <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
-    <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
-    <code>システム環境変数値:C:\Program Files\Git</code><br>
+  <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
+  <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
+  <code>システム環境変数値:C:\Program Files\Git</code><br>
 
 ## 5.依存packageインストール
 
-1. <code>pwshを管理者権限で開く</code><br>
-2. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
-3. <code>windows/install.ps1</code><br>
+<code>Windows Powershell (admin)</code>
+```Powershell
+cd $env:USERPROFILE/WindowsTerminalSettings
+windows/install.ps1
+```
 
 | ディレクトリ | 概要                                                            |
 | ------------ | --------------------------------------------------------------- |
@@ -65,16 +72,15 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 </ul>
 を一回起動して閉じたあとに再度windows/install.ps1を実行.
 
-
 ## 6.windows/provision.batをコマンドラインから管理者権限で実行
 
-1. <code>pwshを管理者権限で開く</code><br>
-2. <code>cd $env:USERPROFILE/WindowsTerminalSettings</code><br>
-3. <code>sudo windows/provision.bat</code><br>
-
+<code>Windows Powershell (admin)</code>
+```Powershell
+cd $env:USERPROFILE/WindowsTerminalSettings
+sudo windows/provision.bat
+```
 
 # WSL2の手順
-
 
 本家Tadashi Aikawa氏の資料を要参照<br>
 <ul>
@@ -84,15 +90,26 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 
 <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>を実行していく<br>
 
-1. pwshを開く
-2. 以下のコマンドでWSLを有効にする<br>
-    <code>sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br>
-3. VMを有効にする<br>
-    <code>sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br>
-4. <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ</a>から更新プログラムをダウンロードして実行<br>
+1. 以下のコマンドでWSLを有効にする<br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+    ```
+
+2. VMを有効にする<br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    ```
+
+3. <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ</a>から更新プログラムをダウンロードして実行<br>
   参考 - <a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする</a><br>
-5. PC再起動した後pwshを開く
-6. <code>sudo wsl --set-default-version 2</code>
+
+4. <code>Windows Powershell (admin)</code>
+    ```Powershell
+    sudo wsl --set-default-version 2
+    ```
+
 
 ## Archの手順
 
@@ -101,56 +118,83 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
 <a href="https://github.com/nullpo-head/wsl-distrod">nullpo-head/wsl-distrod</a>
 
 2. Setup root password<br>
-<code>sudo su -</code><br>
-<code>passwd</code>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    sudo su -
+    passwd
+    ```
 
 3. User Add wheel group<br>
-<code>gpasswd -a {username} wheel</code><br>
-({username}=ユーザー名)<br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    gpasswd -a {username} wheel
+    ```
+    ※{username} = UserName※<br>
 
 4. 鍵の初期化<br>
-<code>pacman-key --init</code><br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    pacman-key --init
+    ```
 
 5. 鍵の更新<br>
-<code>pacman-key --populate archlinux</code><br>
-<code>pacman -Syy archlinux-keyring</code><br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    pacman-key --populate archlinux
+    pacman -Syy archlinux-keyring
+    ```
 
 6. パッケージの更新・必要なPackageのインストール<br>
-<code>sudo pacman -Syyu --needed aria2 autoconf automake  base base-devel curl git gnupg make neovim ntp openssh sudo vi vim wget</code><br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    sudo pacman -Syyu --needed aria2 autoconf automake  base base-devel curl git gnupg make neovim ntp openssh sudo vi vim wget
+    ```
 
 7. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
-<code>nano /etc/sudoers</code><br>
-キーバインド:M = meta key = Alt<br>
-以下の行を探してアンコメント<br>
-<code>%wheel ALL=(ALL) ALL</code><br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    nano /etc/sudoers
+    ```
+    キーバインド:M = meta key = Alt<br>
+    以下の行を探してアンコメント<br>
+    <code>%wheel ALL=(ALL) ALL</code><br>
 
 8. close nano<br>
-以下のコマンドでnanoを閉じて保存終了<br>
-<code>ctrl + x</code><br> 
-<code>y</code><br>
-<code>ENTER</code><br>
-<code>exit</code><br>
+  以下のコマンドでnanoを閉じて保存終了<br>
+  <code>ctrl + x</code><br> 
+  <code>y</code><br>
+  <code>ENTER</code><br>
+  <code>exit</code><br>
 
 9. mirrorlstの確認と設定<br>
-<code>vim /etc/pacman.d/mirrorlist</code><br>
-<a href="https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA">必要ならこちらも設定</a><br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    vim /etc/pacman.d/mirrorlist
+    ```
+    <a href="https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA">必要ならこちらも設定</a><br>
 
 10. Setup wsl.conf with powershell<br>
-<code>cd $env:USERPROFILE/WindowsTerminalSettings/windows/Distrod</code><br>
-<code>.\Distrod_provision.ps1</code><br>
+  <code>Windows Powershell (admin)</code>
+    ```Powershell
+    cd $env:USERPROFILE/WindowsTerminalSettings/windows/Distrod
+    .\Distrod_provision.ps1
+    ```
 
 11. setup<br>
-<code>WindowsTerminaからArch実行</code><br>
-<code>git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive</code><br>
-<code>cd ~/WindowsTerminalSettings/mnt/linux/Arch</code><br>
-<code>./setup.sh</code><br>
+  <code>WindowsTerminaからArch実行</code><br>
+  <code>bash (Distrod)</code>
+    ```bash
+    git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive
+    cd ~/WindowsTerminalSettings/mnt/linux/Arch
+    ./setup.sh
+    ```
 
 12. setup .bashrc<br>
-必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
-<code>. ~/.bashrc.org</code><br>
-<code>export PATH=$PATH:'/mnt/c/Users/{Windows_username}/AppData/Local/Programs/Microsoft VS Code/bin'</code><br>
-のみが記述されている状態にする<br>
-({Windows_username}=Windowsのユーザー名)<br>
+  必要な部分はマージしつつ起動直後の内容等は削除して$HOMEの.bashrcには<br>
+  <code>. ~/.bashrc.org</code><br>
+  <code>export PATH=$PATH:'/mnt/c/Users/{Windows_username}/AppData/Local/Programs/Microsoft VS Code/bin'</code><br>
+  のみが記述されている状態にする<br>
+  ({Windows_username} = Windows UserName)<br>
 
 
 ## 以下参考
