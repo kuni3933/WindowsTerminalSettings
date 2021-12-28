@@ -18,11 +18,6 @@ else{
 }
 winfetch.PS1
 
-# vim => nvim
-if(Get-Command nvim -ea SilentlyContinue){
-    Set-Alias vim nvim
-}
-
 # c => clear
 Set-Alias c Clear-Host
 
