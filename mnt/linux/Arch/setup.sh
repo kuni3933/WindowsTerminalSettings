@@ -131,7 +131,7 @@ function _set_init_files_symlinks() {
     ln -sf ${CURRENT_DIR}/.gtkrc-2.0 ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.gtkrc-2.0.mine ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.profile ${USERPROFILE}/
-    # ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
+    ln -sf ${CURRENT_DIR}/.vimrc ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.xinitrc ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.xprofile ${USERPROFILE}/
     ln -sf ${CURRENT_DIR}/.zshrc ${USERPROFILE}/
