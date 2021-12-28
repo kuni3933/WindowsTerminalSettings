@@ -9,11 +9,11 @@
 
 " Clipboard magic?
 set clipboard+=unnamed
-#
-#
-#
-#
-#
+" blank
+" blank
+" blank
+" blank
+" blank
 
 " encoding 
 set encoding=utf-8 
