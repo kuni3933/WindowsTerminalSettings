@@ -1,12 +1,24 @@
 [[verbs]]
+invocation = "e"
+key = "enter"
+external = "$EDITOR {file}"
+leave_broot = false
+apply_to = "file"
+
+[[verbs]]
 invocation = "edit"
 key = "shift-enter"
 internal = ":open_stay"
 
 [[verbs]]
 invocation = "vim"
-key = "enter"
 external = "vim {file}"
+leave_broot = false
+apply_to = "file"
+
+[[verbs]]
+invocation = "nvim"
+external = "nvim {file}"
 leave_broot = false
 apply_to = "file"
 

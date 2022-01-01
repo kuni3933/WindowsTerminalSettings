@@ -18,6 +18,14 @@ else{
 }
 winfetch.PS1
 
+# $env:EDITOR
+if(Get-Command vim -ea SilentlyContinue){
+    $env:EDITOR = "vim"
+}
+if(Get-Command nvim -ea SilentlyContinue){
+    $env:EDITOR = "nvim"
+}
+
 # c => clear
 Set-Alias c Clear-Host
 
