@@ -303,6 +303,18 @@ br(2)
 #>
 
 
+$ID = Title("WiresharkFoundation.Wireshark")
+"C:\Program Files\Wireshark\Wireshark.exe"
+if (Test-Path  "${env:PROGRAMFILES}/Wireshark/Wireshark.exe") {
+    Update($ID)
+}
+elseIf(Want_To_Install($ID)) {
+    Install_msg("$ID")
+    winget install -ei --id "$ID" --source winget
+}
+br(2)
+
+
 $ID =  Title("Microsoft.PowerShell")
 if (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
     Update($ID)
