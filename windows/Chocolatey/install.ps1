@@ -11,8 +11,10 @@ choco update all
 choco upgrade all
 br(1)
 
+<#
 Write_Title("# choco-cleaner")
 choco install choco-cleaner
+#>
 
 Write_Title("# fonts")
 choco install font-hackgen
@@ -24,10 +26,12 @@ choco update all
 choco upgrade all
 br(1)
 
+<#
 Write_Title("# choco-cleaner.bat")
-Invoke-Command -ScriptBlock {
+#Invoke-Command -ScriptBlock {
     choco-cleaner.bat
 }
+#>
 
 if(Test-Path "$env:USERPROFILE/AppData/Local/Temp/chocolatey"){
     Write_Title("Remove-Item $env:USERPROFILE/AppData/Local/Temp/chocolatey/*")
