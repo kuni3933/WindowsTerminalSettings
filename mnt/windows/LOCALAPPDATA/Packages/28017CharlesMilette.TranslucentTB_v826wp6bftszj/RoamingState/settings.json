@@ -1,0 +1,54 @@
+﻿// See https://TranslucentTB.github.io/config for more information
+// Path = $env:LoOCALAPPDATA/Packages/28017CharlesMilette.TranslucentTB_v826wp6bftszj/RoamingState/settings.json
+{
+  "$schema": "https://sylveon.dev/TranslucentTB/schema",
+  "desktop_appearance": {
+    "accent": "clear",
+    "color": "#00000000",
+    "show_peek": false
+  },
+  "visible_window_appearance": {
+    "enabled": false,
+    "accent": "clear",
+    "color": "#00000000",
+    "show_peek": true
+  },
+  "maximized_window_appearance": {
+    "enabled": true,
+    "accent": "blur",
+    "color": "#00000000",
+    "show_peek": true
+  },
+  "start_opened_appearance": {
+    "enabled": true,
+    "accent": "normal",
+    "color": "#00000000",
+    "show_peek": true
+  },
+  "search_opened_appearance": {
+    "enabled": true,
+    "accent": "normal",
+    "color": "#00000000",
+    "show_peek": true
+  },
+  "task_view_opened_appearance": {
+    "enabled": true,
+    "accent": "normal",
+    "color": "#00000000",
+    "show_peek": false
+  },
+  "battery_saver_appearance": {
+    "enabled": false,
+    "accent": "opaque",
+    "color": "#00000000",
+    "show_peek": true
+  },
+  "ignored_windows": {
+    "window_class": [],
+    "window_title": [],
+    "process_name": []
+  },
+  "hide_tray": false,
+  "disable_saving": false,
+  "verbosity": "warn"
+}
