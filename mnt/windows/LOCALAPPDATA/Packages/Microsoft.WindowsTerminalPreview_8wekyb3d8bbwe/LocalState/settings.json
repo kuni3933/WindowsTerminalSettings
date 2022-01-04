@@ -170,8 +170,8 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
     "defaults": {
       "closeOnExit": "always",
       "colorScheme": "Iceberg", //"colorScheme": "Tango Dark",
-      "fontFace": "SauceCodePro NF",
-      "fontSize": 11,
+      "fontFace": "PlemolJP Console NF",
+      "fontSize": 12,
       "startingDirectory": "%USERPROFILE%",
       "useAcrylic": true,
       "acrylicOpacity": 0.5,
