@@ -63,7 +63,7 @@ br(2)
 
 
 $ID = Title("Microsoft.OneDrive")
-if (Test-Path  "${env:PROGRAMFILES}/Microsoft OneDrive/OneDrive.exe") {
+if (Test-Path  "${env:LOCALAPPDATA}/Microsoft/OneDrive/OneDrive.exe") {
     Update($ID)
 }
 elseIf(Want_To_Install($ID)) {
@@ -153,7 +153,7 @@ br(2)
 
 
 $ID = Title("Google.Chrome")
-if (Test-Path  "${env:PROGRAMFILES(X86)}/Google/Chrome/Application/chrome.exe") {
+if (Test-Path  "${env:PROGRAMFILES}/Google/Chrome/Application/chrome.exe") {
     Update($ID)
 }
 elseIf(Want_To_Install($ID)) {
@@ -217,7 +217,7 @@ if (Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe") {
 }
 elseIf(Want_To_Install($ID)) {
     Install_Msg("$ID")
-    winget install -e --id "$ID" --source winget  --override "/silent /mergetasks="runcode"addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+    winget install -e --id "$ID" --source winget  --override "/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"
 }
 br(2)
 
@@ -229,7 +229,7 @@ if (Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - I
 }
 elseIf(Want_To_Install($ID)) {
     Install_Msg("$ID")
-    winget install -e --id "$ID" --source winget --override "/silent /mergetasks="runcode"addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"""
+    winget install -e --id "$ID" --source winget --override "/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath"
 }
 br(2)
 
