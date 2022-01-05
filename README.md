@@ -4,40 +4,34 @@
 <li><a href="https://github.com/sheepla/dotfiles">sheepla/dotfiles</a></li>
 をベースに個人的に改造したもの
 
-## 1.以下からMicrosoft.DesktopAppInstaller(winget)・volta・フォントをインストール
+## 1.以下からMicrosoft.DesktopAppInstaller(winget)・フォントをインストール
 
 <ul>
   <li><a href="https://github.com/microsoft/winget-cli/releases">Releases · microsoft/winget-cli</a></li>
-  <li><a href="https://github.com/volta-cli/volta/releases">Releases · volta-cli/volta</a></li>
-  <li><a href="https://qiita.com/naoyukik/items/d6a11808338a494238db">Nodeのバージョン管理ツールVOLTA⚡</a></li>
   <li><a href="https://github.com/adobe-fonts/source-han-code-jp/releases">Releases · adobe-fonts/source-han-code-jp</a></li>
   <li><a href="https://github.com/yuru7/PlemolJP/releases">Releases · yuru7/PlemolJP</a></li>
 </ul>
 
-## 2.Gitのインストール・本リポジトリの配置
+## 2.wingetでGit,pwsh,Windows Terminal Preview(WTP)のインストール・本リポジトリの配置
 
-<code>Windows Powershell (admin)</code>
+<code>Windows Powershell (admin New Session)</code><br>
 ```Powershell
 winget install -e --id Git.Git --source winget
-cd $env:USERPROFILE
-git clone git@github.com:kuni3933/WindowsTerminalSettings.git --recursive
+winget install -e --id Microsoft.PowerShell --source winget
+winget install -e --id Microsoft.WindowsTerminal.Preview --source winget
 ```
-
-## 3.Windows Terminal Preview(WTP)・PowerShellCore(pwsh)・VSCode・VSCode-Insidersのインストール
-
-<code>Windows Powershell (admin)</code>
+<code>pwsh (admin New Session) </code><br>
 ```Powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-cd $env:USERPROFILE/WindowsTerminalSettings
-windows/winget/install.ps1
+cd $env:USERPROFILE
+git clone https://github.com/kuni3933/WindowsTerminalSettings --recursive
 ```
 
-## 4.パス設定
+## 3.パス設定
 
 Gitがインストールされたフォルダを、システム環境変数:GIT_INSTALL_ROOT として登録
 
 1. まずは以下のコマンドを実行してgit.exeの位置を確認.<br>
-  <code>Windows Powershell (admin)</code><br>
+  <code>pwsh (admin New Session) </code><br>
     ```Powershell
     cmd /c where git
     ```
@@ -47,22 +41,24 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
   <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
   <code>システム環境変数値:C:\Program Files\Git</code><br>
 
-## 5.依存packageインストール
+## 4.依存packageインストール
 
-<code>Windows Powershell (admin)</code>
+<code>pwsh (admin New Session) </code><br>
 ```Powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 cd $env:USERPROFILE/WindowsTerminalSettings
 windows/install.ps1
 ```
 
 | ディレクトリ | 概要                                                            |
-| ------------ | --------------------------------------------------------------- |
+| ------------ | ---------------------------------------------------------------|
 | 1.PSGallery  | PSGalleryでインストールするもの                                 |
 | 2.winget     | wingetでインストールするもの                                    |
-| 3.scoop      | Scoopでインストールするもの                                     |
-| 4.volta/npm  | volta/npmでインストールするもの                                 |
-| 5.go         | goでインストールするもの                                        |
-| 6.cargo      | rustでインストールするもの                                      |
+| 3.scoop      | scoopでインストールするもの                                     |
+| 4.chocolatey | chocolateyでインストールするもの                                |
+| 5.volta/npm  | volta/npmでインストールするもの                                 |
+| 6.go         | goでインストールするもの                                        |
+| 7.cargo      | rust/cargoでインストールするもの                                |
 
 初インストールの場合は、install.ps1を実行後
 <ul>
@@ -72,9 +68,9 @@ windows/install.ps1
 </ul>
 を一回起動して閉じたあとに再度windows/install.ps1を実行.
 
-## 6.windows/provision.batをコマンドラインから管理者権限で実行
+## 5.windows/provision.batをコマンドラインから管理者権限で実行
 
-<code>Windows Powershell (admin)</code>
+<code>pwsh (admin New Session) </code><br>
 ```Powershell
 cd $env:USERPROFILE/WindowsTerminalSettings
 sudo windows/provision.bat
@@ -91,13 +87,13 @@ sudo windows/provision.bat
 <a href="https://blog.mamansoft.net/2020/07/02/efficient-wsl2-with-ubuntu/">WSL2でつくる快適なUbuntu環境</a>を実行していく<br>
 
 1. 以下のコマンドでWSLを有効にする<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh (admin New Session) </code><br>
     ```Powershell
     sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
     ```
 
 2. VMを有効にする<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh (admin New Session) </code><br>
     ```Powershell
     sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
     ```
@@ -105,7 +101,7 @@ sudo windows/provision.bat
 3. <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ</a>から更新プログラムをダウンロードして実行<br>
   参考 - <a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする</a><br>
 
-4. <code>Windows Powershell (admin)</code>
+4. <code>pwsh (admin New Session) </code>
     ```Powershell
     sudo wsl --set-default-version 2
     ```
@@ -118,40 +114,40 @@ sudo windows/provision.bat
 <a href="https://github.com/nullpo-head/wsl-distrod">nullpo-head/wsl-distrod</a>
 
 2. Setup root password<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh (admin New Session) </code><br>
     ```Powershell
     sudo su -
     passwd
     ```
 
 3. User Add wheel group<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh</code><br>
     ```Powershell
     gpasswd -a {username} wheel
     ```
     ※{username} = UserName※<br>
 
 4. 鍵の初期化<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh</code><br>
     ```Powershell
     pacman-key --init
     ```
 
 5. 鍵の更新<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh</code><br>
     ```Powershell
     pacman-key --populate archlinux
     pacman -Syy archlinux-keyring
     ```
 
 6. パッケージの更新・必要なPackageのインストール<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh</code><br>
     ```Powershell
     sudo pacman -Syyu --needed aria2 autoconf automake  base base-devel curl git gnupg make neovim ntp openssh sudo vi vim wget
     ```
 
 7. /etc/sudoersを編集してwheel ユーザグループに sudo 権限を付与する。<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh</code><br>
     ```Powershell
     nano /etc/sudoers
     ```
@@ -167,14 +163,14 @@ sudo windows/provision.bat
   <code>exit</code><br>
 
 9. mirrorlstの確認と設定<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh</code><br>
     ```Powershell
     vim /etc/pacman.d/mirrorlist
     ```
     <a href="https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E5%90%8D%E5%89%8D%E8%A7%A3%E6%B1%BA">必要ならこちらも設定</a><br>
 
 10. Setup wsl.conf with powershell<br>
-  <code>Windows Powershell (admin)</code>
+  <code>pwsh (admin New Session) </code><br>
     ```Powershell
     cd $env:USERPROFILE/WindowsTerminalSettings/windows/Distrod
     .\Distrod_provision.ps1
