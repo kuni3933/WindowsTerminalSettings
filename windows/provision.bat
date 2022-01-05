@@ -1,6 +1,6 @@
 @echo off
 chcp 932
-rem ------------------------------------------------------------------------------------------------------•Ï”/ƒpƒX‚ÌƒZƒbƒgˆ—
+rem ------------------------------------------------------------------------------------------------------å¤‰æ•°/ãƒ‘ã‚¹ã®ã‚»ãƒƒãƒˆå‡¦ç†
 cd "%~dp0../"
 set WindowsTerminalSettings=%CD%
 set WINDOWS=%WindowsTerminalSettings%\windows
@@ -26,10 +26,10 @@ set SCOOP=%USERPROFILE%\scoop
 
 
 
-rem :tmp‚ð“®‚©‚·‚±‚Æ‚ÅŽÀsŠJŽn‰ÓŠ‚ð§Œä. ƒfƒoƒbƒO‚â“®ìŠm”F—p
+rem :tmpã‚’å‹•ã‹ã™ã“ã¨ã§å®Ÿè¡Œé–‹å§‹ç®‡æ‰€ã‚’åˆ¶å¾¡. ãƒ‡ãƒãƒƒã‚°ã‚„å‹•ä½œç¢ºèªç”¨
 goto :tmp
 :tmp
-rem ------------------------------------------------------------------------------------------------------ƒƒCƒ“ˆ—
+rem ------------------------------------------------------------------------------------------------------ãƒ¡ã‚¤ãƒ³å‡¦ç†
 :Main
 call :******************** "pipes.sh/pipes-rs & winfetch"
 call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
@@ -38,6 +38,7 @@ call :link_dir "%USERPROFILE%\.config\winfetch" "%winfetch_%"
 
 call :******************** neovim
 call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
+If not exist "%LOCALAPPDATA%\nvim" mkdir "%LOCALAPPDATA%\nvim"
 call :link_file "%LOCAL%\nvim\colors.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\colors.toml"
 call :link_file "%LOCAL%\nvim\dein.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\dein.toml"
 call :link_file "%LOCAL%\nvim\ginit.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\ginit.vim"
@@ -116,13 +117,13 @@ call :******************** Broot
 call :link_file "%USERPROFILE%\broot.toml" "%WINDOWS_MNT%\broot.toml"
 
 call :******************** git config
-rem ƒOƒ[ƒoƒ‹(ƒ†[ƒU[)Ý’è
+rem ã‚°ãƒ­ãƒ¼ãƒãƒ«(ãƒ¦ãƒ¼ã‚¶ãƒ¼)è¨­å®š
 git config --global core.preloadindex true
 git config --global core.fscache true
 git config --global core.autoCRLF false
 git config --global merge.ff false
 git config --global pull.ff only
-rem “ú–{ŒêƒpƒX‚Ì•¶Žš‰»‚¯–hŽ~‘Îô
+rem æ—¥æœ¬èªžãƒ‘ã‚¹ã®æ–‡å­—åŒ–ã‘é˜²æ­¢å¯¾ç­–
 git config --global core.quotepath false
 rem git-delta
 git config --global core.pager delta
@@ -147,10 +148,10 @@ goto :end
 
 
 rem  ------------------------------------------------------------------------------------------------------
-rem  --------------------------------ˆÈ‰ºŽg—p‚·‚éŠÖ”----------------------------------------------------
+rem  --------------------------------ä»¥ä¸‹ä½¿ç”¨ã™ã‚‹é–¢æ•°----------------------------------------------------
 rem  ------------------------------------------------------------------------------------------------------
 
-rem ------------------------------------------------------------------------------------------------------ƒƒCƒ“ˆ—‚ÌŠÖ”
+rem ------------------------------------------------------------------------------------------------------ãƒ¡ã‚¤ãƒ³å‡¦ç†ã®é–¢æ•°
 :link_windows_home
 call :link_file %USERPROFILE%\%1 %WINDOWS_MNT%\%1
 exit /b
@@ -192,12 +193,12 @@ exit /b
 exit /b
 
 :********************
-echo „¬„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª
-echo „« %*
-echo „¯„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª
+echo â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+echo â”ƒ %*
+echo â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 exit /b
 
-REM “r’†‚ÅŽ~‚ß‚½‚¢ê‡‚Í‚±‚±‚É..
+REM é€”ä¸­ã§æ­¢ã‚ãŸã„å ´åˆã¯ã“ã“ã«..
 :end
 echo:
 pause
