@@ -8,7 +8,7 @@ function _Winget_Version() {
     elseIf (${env:PROCESSOR_ARCHITECTURE} -ceq "X86") {
       ${bit} = "x86"
     }
-    _Write__Title("# Install the $bit version.")
+    _Write_Title("# Install the $bit version.")
     winget --Version
     _br(1)
     winget --info
@@ -19,7 +19,10 @@ function _Winget_Version() {
 }
 
 function _Title(${ID}) {
-    _Write__Title("# " + ${ID})
+    _Write_Title("# " + ${ID})
+    _br(2)
+    winget show -e --id "${ID}"
+    _br(1)
     Return ${ID}
 }
 
@@ -27,7 +30,7 @@ function _Install_Msg(${ID}) {
     Write-Host "  インストールを開始します." -ForegroundColor Yellow
     Write-Host "  Start the installation of this application." -ForegroundColor Yellow
     _br(1)
-    winget show --id "${ID}"
+    winget show -e --id "${ID}"
     _br(1)
 }
 
@@ -35,17 +38,18 @@ function  _Update(${ID}) {
     Write-Host "  インストール済みです. アップデートを行います." -ForegroundColor Cyan
     Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
     _br(1)
-    winget show -e --id "${ID}" --source winget
+    winget show -e --id "${ID}"
     _br(1)
-    winget upgrade -e --id "${ID}" --source winget
+    winget upgrade -e --id "${ID}"
 }
 
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("winget/install.ps1")
 
-${bit} = Winget_Version
+${bit} = _Winget_Version
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+
 
 ${ID} = _Title("Git.Git")
 if (Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe") {
@@ -63,7 +67,7 @@ _br(2)
 
 
 ${ID} = _Title("Microsoft.OneDrive")
-if (Test-Path  "${env:LOCALAPPDATA}/Microsoft/OneDrive/OneDrive.exe") {
+if ((Test-Path "${env:LOCALAPPDATA}/Microsoft/OneDrive/OneDrive.exe") -or (Test-Path "${env:PROGRAMFILES}/Microsoft OneDrive/OneDrive.exe")){
     _Update(${ID})
 }
 elseIf(_Want_To_Install(${ID})) {
@@ -205,8 +209,8 @@ elseIf(_Want_To_Install(${ID})) {
     _Install_Msg(${ID})
     winget install -e --id "${ID}" --source winget
 }
-_Write__Title("Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.")
-_Write__Title("Download the 'C++ Build Tools' from Visual Studio Installer.")
+_Write_Title("Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.")
+_Write_Title("Download the 'C++ Build Tools' from Visual Studio Installer.")
 _br(2)
 
 
