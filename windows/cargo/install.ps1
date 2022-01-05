@@ -1,27 +1,27 @@
 . "./../Function.ps1"
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Write_Section("cargo/install.ps1")
+_Write_Section("cargo/install.ps1")
 
 
-Write_Title("# rustup show")
+_Write_Title("# rustup show")
 rustup show
-br(1)
+_br(1)
 
-Write_Title("# rustup update")
+_Write_Title("# rustup update")
 rustup self update
 rustup update
-br(1)
+_br(1)
 
-Write_Title("# rustup install nightly-x86_64-pc-windows-msvc")
+_Write_Title("# rustup install nightly-x86_64-pc-windows-msvc")
 rustup install nightly-x86_64-pc-windows-msvc
-br(1)
+_br(1)
 
-Write_Title("# rustup default nightly-x86_64-pc-windows-msvc")
+_Write_Title("# rustup default nightly-x86_64-pc-windows-msvc")
 rustup default nightly-x86_64-pc-windows-msvc
-br(1)
+_br(1)
 
-Write_Title("# rustup component")
+_Write_Title("# rustup component")
 rustup component add `
   clippy `
   rls `
@@ -29,28 +29,28 @@ rustup component add `
   rust-src `
   rust-docs `
   rustfmt
-br(1)
+_br(1)
 
-Write_Title(" cargo install rusty-rain")
+_Write_Title(" cargo install rusty-rain")
 cargo install rusty-rain
-br(1)
+_br(1)
 
-Write_Title("# cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support")
+_Write_Title("# cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support")
 cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support
-br(1)
+_br(1)
 
-Write_Title("# cargo install silicon")
+_Write_Title("# cargo install silicon")
 cargo install silicon
-br(1)
+_br(1)
 
-Write_Title("# cargo install hexyl")
+_Write_Title("# cargo install hexyl")
 cargo install hexyl
-br(1)
+_br(1)
 
 
-Set_ExecutionPolicy
-br(2)
+_Set_ExecutionPolicy
+_br(2)
 
-Write_Section("# cargo/install.ps1 has finished.")
-br(2)
+_Write_Section("# cargo/install.ps1 has finished.")
+_br(2)
 

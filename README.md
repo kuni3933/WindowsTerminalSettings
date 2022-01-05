@@ -35,7 +35,7 @@ Gitがインストールされたフォルダを、システム環境変数:GIT_
     ```Powershell
     cmd /c where git
     ```
- 
+
 2. 出力された位置の2階層上に位置するGitフォルダを環境変数GIT_INSTALL_ROOTとして登録する.<br>
   <code>C:\Program Files\Git\cmd\git.exe</code>と出力されたら以下の設定<br>
   <code>システム環境変数名:GIT_INSTALL_ROOT</code><br>
@@ -55,7 +55,7 @@ windows/install.ps1
 | 1.PSGallery  | PSGalleryでインストールするもの                                 |
 | 2.winget     | wingetでインストールするもの                                    |
 | 3.scoop      | scoopでインストールするもの                                     |
-| 4.chocolatey | chocolateyでインストールするもの                                |
+| 4.Chocolatey | chocolateyでインストールするもの                                |
 | 5.volta/npm  | volta/npmでインストールするもの                                 |
 | 6.go         | goでインストールするもの                                        |
 | 7.cargo      | rust/cargoでインストールするもの                                |
@@ -157,7 +157,7 @@ sudo windows/provision.bat
 
 8. close nano<br>
   以下のコマンドでnanoを閉じて保存終了<br>
-  <code>ctrl + x</code><br> 
+  <code>ctrl + x</code><br>
   <code>y</code><br>
   <code>ENTER</code><br>
   <code>exit</code><br>

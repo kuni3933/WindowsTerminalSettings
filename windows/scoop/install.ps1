@@ -1,65 +1,65 @@
 . "./../Function.ps1"
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Write_Section("scoop/install.ps1")
+_Write_Section("scoop/install.ps1")
 
 
-Write_Title("# Add extras bucket")
+_Write_Title("# Add extras bucket")
 scoop bucket add extras
-br(1)
+_br(1)
 
-Write_Title("# Add versions bucket")
+_Write_Title("# Add versions bucket")
 scoop bucket add versions
-br(1)
+_br(1)
 
-Write_Title("# Add nerd-fonts bucket")
+_Write_Title("# Add nerd-fonts bucket")
 scoop bucket add nerd-fonts
-br(1)
+_br(1)
 
 <#
-Write_Title("# scoop-for-jp")
+_Write_Title("# scoop-for-jp")
 scoop bucket add jp https://github.com/rkbk60/scoop-for-jp
-br(1)
+_br(1)
 #>
 
-Write_Title("# Add Java bucket")
+_Write_Title("# Add Java bucket")
 scoop bucket add java
-br(1)
+_br(1)
 
-Write_Title("# Add pleiades bucket")
+_Write_Title("# Add pleiades bucket")
 scoop bucket add pleiades https://github.com/jfut/scoop-pleiades.git
-br(1)
+_br(1)
 
-Write_Title("# Add scoop-completion bucket")
+_Write_Title("# Add scoop-completion bucket")
 scoop bucket add scoop-completion https://github.com/Moeologist/scoop-completion
-br(1)
+_br(1)
 
-Write_Title("# scoop update")
+_Write_Title("# scoop update")
 scoop update
-br(1)
+_br(1)
 
-Write_Title("# aria2")
+_Write_Title("# aria2")
 scoop install `
   aria2 `
 
-Write_Title("# busybox")
-if(Test-Path $env:USERPROFILE/scoop/apps/busybox/current/busybox.exe){
+_Write_Title("# busybox")
+if(Test-Path ${env:USERPROFILE}/scoop/apps/busybox/current/busybox.exe){
   scoop uninstall busybox
 }
 scoop install busybox
 
-Write_Title("# uutils-coreutils")
-if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe){
+_Write_Title("# uutils-coreutils")
+if(Test-Path ${env:USERPROFILE}/scoop/apps/uutils-coreutils/current/coreutils.exe){
     scoop uninstall uutils-coreutils
 }
 scoop install uutils-coreutils
 
 # less
-if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe){
+if(Test-Path ${env:USERPROFILE}/scoop/apps/less/current/less.exe){
     scoop uninstall less
 }
 
-Write_Title("# CLI Tools")
+_Write_Title("# CLI Tools")
 scoop install `
   pipes-rs `
   procs `
@@ -103,16 +103,16 @@ scoop install `
   zoxide `
   task `
   roswell
-br(1)
+_br(1)
 
-Write_Title("# pwsh tool")
+_Write_Title("# pwsh tool")
 scoop install `
   oh-my-posh3 `
   posh-git `
   starship
-br(1)
+_br(1)
 
-Write_Title("# GUI Tools")
+_Write_Title("# GUI Tools")
 scoop install `
   alacritty `
   bugn `
@@ -123,9 +123,9 @@ scoop install `
   keypirinha `
   ditto `
   draw.io
-br(1)
+_br(1)
 
-Write_Title("# Language / Framework / MiddleWare")
+_Write_Title("# Language / Framework / MiddleWare")
 scoop install `
   volta `
   deno `
@@ -137,59 +137,59 @@ scoop install `
   python `
   hugo-extended `
   vcxsrv
-br(1)
+_br(1)
 
 <#
-Write_Title("# Python")
- Python
+_Write_Title("# Python")
+#Python
 scoop install `
 python27 `
 python37 `
 python38 `
 python
 scoop reset python
-br(1)
+_br(1)
 #>
 
-Write_Title("# fonts")
+_Write_Title("# fonts")
 scoop install `
   SourceCodePro-NF `
   SourceCodePro-NF-Mono
-br(1)
+_br(1)
 
-Write_Title("# autohotkey-installer")
+_Write_Title("# autohotkey-installer")
 scoop install autohotkey-installer
 # In the future..: scoop install volta
-br(1)
+_br(1)
 
-Write_Title("# scoop update *")
+_Write_Title("# scoop update *")
 scoop update *
-br(1)
+_br(1)
 
-Write_Title("# scoop cleanup *")
+_Write_Title("# scoop cleanup *")
 scoop cleanup *
-br(1)
+_br(1)
 
-Write_Title("# scoop cache show")
+_Write_Title("# scoop cache show")
 scoop cache show
-br(1)
+_br(1)
 
-Write_Title("# scoop cache rm *")
+_Write_Title("# scoop cache rm *")
 scoop cache rm *
-br(1)
+_br(1)
 
-Write_Title("# scoop cache show")
+_Write_Title("# scoop cache show")
 scoop cache show
-br(1)
+_br(1)
 
-Write_Title("# scoop status")
+_Write_Title("# scoop status")
 scoop status
-br(1)
+_br(1)
 
 
-Set_ExecutionPolicy
-br(2)
+_Set_ExecutionPolicy
+_br(2)
 
-Write_Section("# scoop/install.ps1 has finished.")
-br(2)
+_Write_Section("# scoop/install.ps1 has finished.")
+_br(2)
 
