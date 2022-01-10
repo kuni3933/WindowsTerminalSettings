@@ -6,17 +6,17 @@ set number
 set norelativenumber
 " }}}
 
-" 
-"     __  ___                               _    ___                        
-"    /  |/  /_  __   ____  ___ _      __   | |  / (_)___ ___  __________    
-"   / /|_/ / / / /  / __ \/ _ \ | /| / /   | | / / / __ `__ \/ ___/ ___/    
-"  / /  / / /_/ /  / / / /  __/ |/ |/ /    | |/ / / / / / / / /  / /___ _ _ 
+"
+"     __  ___                               _    ___
+"    /  |/  /_  __   ____  ___ _      __   | |  / (_)___ ___  __________
+"   / /|_/ / / / /  / __ \/ _ \ | /| / /   | | / / / __ `__ \/ ___/ ___/
+"  / /  / / /_/ /  / / / /  __/ |/ |/ /    | |/ / / / / / / / /  / /___ _ _
 " /_/  /_/\__, /  /_/ /_/\___/|__/|__/     |___/_/_/ /_/ /_/_/   \___(_|_|_)
-"        /____/                                                             
-" 
+"        /____/
+"
 
-" encoding 
-set encoding=utf-8 
+" encoding
+set encoding=utf-8
 set termencoding=utf-8
 "set fileencoding=utf-8
 
@@ -201,11 +201,11 @@ set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 " Required:
 call dein#begin('$HOME/.cache/dein')
 
-call dein#load_toml('$HOME/.config/nvim/dein.toml', {'lazy': 0})
-call dein#load_toml('$HOME/.config/nvim/colors.toml', {'lazy': 0})
-call dein#load_toml('$HOME/.config/nvim/lsp.toml', {'lazy': 0})
-call dein#load_toml('$HOME/.config/nvim/joke.toml', {'lazy': 0})
-"call dein#load_toml('$HOME/.config/dein/dein_lazy.toml', {'lazy': 1})
+call dein#load_toml('$HOME/AppData/Local/nvim/dein.toml', {'lazy': 0})
+call dein#load_toml('$HOME/AppData/Local/nvim/colors.toml', {'lazy': 0})
+call dein#load_toml('$HOME/AppData/Local/nvim/lsp.toml', {'lazy': 0})
+call dein#load_toml('$HOME/AppData/Local/nvim/joke.toml', {'lazy': 0})
+"call dein#load_toml('$HOME/AppData/Local/dein/dein_lazy.toml', {'lazy': 1})
 
 " Let dein manage dein
 call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')

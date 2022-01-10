@@ -25,7 +25,7 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = '4513ECHO/vim-readme-viewer'
 hook_add = '''
-let g:readme_viewer#plugin_manager = 'dein.vim' 
+let g:readme_viewer#plugin_manager = 'dein.vim'
 '''
 
 [[plugins]]
@@ -35,7 +35,7 @@ repo = 'cohama/lexima.vim'
 repo = 'itchyny/lightline.vim'
 depends = ['vim-skk/skkeleton']
 hook_add = '''
-source $HOME/.config/nvim/lightlinerc.vim
+source $HOME/AppData/Local/nvim/lightlinerc.vim
 '''
 
 [[plugins]]
@@ -82,7 +82,7 @@ depends = ['vim-denops/denops.vim']
 repo = 'vim-skk/skkeleton'
 depends = ['vim-denops/denops.vim']
 hook_add = '''
-source $HOME/.config/nvim/skkeletonrc.vim
+source $HOME/AppData/Local/nvim/skkeletonrc.vim
 '''
 
 [[plugins]]
