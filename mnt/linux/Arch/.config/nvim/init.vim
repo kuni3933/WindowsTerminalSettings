@@ -59,7 +59,7 @@ set background=dark
 set wrapscan
 set ignorecase
 set smartcase
-set hlsearch
+"set hlsearch
 set incsearch
 
 " command mode
@@ -67,6 +67,10 @@ set wildmenu
 
 " backspace
 set backspace=indent,eol,start
+
+" line number
+set number
+"set relativenumber
 
 " terminal
 autocmd TermOpen * setlocal nonumber
