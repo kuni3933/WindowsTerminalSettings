@@ -1,7 +1,11 @@
-. "./Function.ps1"
+. "${PSScriptRoot}/Function.ps1"
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # DirectoryPath/FilePath
-${WindowsTerminalSettings} = (Convert-Path ..)
+${WindowsTerminalSettings} = "${PSScriptRoot}/../"
 #参考 https://www.ipentec.com/document/windows-powershell-create-directory
+#参考:https://www.vwnet.jp/Windows/PowerShell/pwd.htm
 ${WINDOWS} = "${WindowsTerminalSettings}/windows/"
 ${WINDOWS_MNT} = "${WindowsTerminalSettings}/mnt/windows/"
 ${LINUX_MNT} = "${WindowsTerminalSettings}/mnt/linux/"

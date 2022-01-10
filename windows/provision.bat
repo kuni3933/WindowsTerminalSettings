@@ -31,14 +31,16 @@ goto :tmp
 :tmp
 rem ------------------------------------------------------------------------------------------------------メイン処理
 :Main
+
+If not exist "%USERPROFILE%\.config\" mkdir "%USERPROFILE%\.config\"
 call :******************** "pipes.sh/pipes-rs & winfetch"
 call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
 call :link_dir "%USERPROFILE%\.config\pipes-rs" "%pipes_rs%"
 call :link_dir "%USERPROFILE%\.config\winfetch" "%winfetch_%"
 
 call :******************** neovim
+If not exist "%LOCALAPPDATA%\nvim\" mkdir "%LOCALAPPDATA%\nvim\"
 call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
-If not exist "%LOCALAPPDATA%\nvim" mkdir "%LOCALAPPDATA%\nvim"
 call :link_file "%LOCAL%\nvim\colors.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\colors.toml"
 call :link_file "%LOCAL%\nvim\dein.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\dein.toml"
 call :link_file "%LOCAL%\nvim\ginit.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\ginit.vim"
@@ -51,6 +53,7 @@ xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** "GitHub_CLI_config.yml"
 set ORIGIN_ghconfig="%WINDOWS_MNT%\ROAMINGAPPDATA\GitHub_CLI\config.yml"
+If not exist "%ROAMING%\GitHub CLI\" mkdir "%ROAMING%\GitHub CLI\"
 call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
 
 call :******************** "bat"
@@ -89,10 +92,10 @@ call :******************** Homedir
 call :each link_windows_home %WINDOWS%\windows-home-dots.txt
 
 call :******************** PowerShell Core
-
 set POWER_SHELL_ORIGIN_DIR=%WINDOWS_MNT%\Documents\PowerShell
 set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
-
+If not exist "%USERPROFILE%\Documents" mkdir %USERPROFILE%\Documents"
+If not exist "%USERPROFILE%\Documents\PowerShell" mkdir %USERPROFILE%\Documents\PowerShell"
 call :link_file "%USERPROFILE%\.oh-my-posh.json" %WINDOWS_MNT%\.oh-my-posh.json
 call :link_file "%POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1" "%POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1"
 
@@ -112,12 +115,9 @@ call :******************** Keypirinha
 set KEYPIRINHA_ORIGIN_DIR=%WINDOWS_MNT%\scoop\persist\keypirinha\portable\Profile\User
 call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini" "%KEYPIRINHA_ORIGIN_DIR%\Keypirinha.ini"
 
-call :******************** Broot
-
-call :link_file "%USERPROFILE%\broot.toml" "%WINDOWS_MNT%\broot.toml"
-
 call :******************** git config
 rem グローバル(ユーザー)設定
+git config --global core.quotepath true
 git config --global core.preloadindex true
 git config --global core.fscache true
 git config --global core.autoCRLF false
