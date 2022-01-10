@@ -1,5 +1,11 @@
-. "./../Function.ps1"
+. "${PSScriptRoot}/../Function.ps1"
 
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+
+if (-Not (Get-Command("gh.exe"))) {
+		Write-Error -Message "gh.exe is not installed." -ErrorAction Stop
+		return 1603
+	}
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("gh/install.ps1")
 

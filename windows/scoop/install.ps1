@@ -1,5 +1,11 @@
-. "./../Function.ps1"
+. "${PSScriptRoot}/../Function.ps1"
 
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+
+if (-Not (Get-Command("scoop"))) {
+		Write-Error -Message "scoop is not installed." -ErrorAction Stop
+		return 1603
+	}
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("scoop/install.ps1")
 

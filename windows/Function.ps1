@@ -21,28 +21,28 @@ function _File_ToRecycleBin($target_file_path) {
   }
 }
 
-function _Write_Title($msg) {
+function _Write_Title([string] ${msg}) {
   Write-Host " ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
-  Write-Host " ┃$msg" -ForegroundColor Yellow
+  Write-Host " ┃${msg}" -ForegroundColor Yellow
   Write-Host " ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Yellow
 }
 
-function _Write_Section($msg) {
+function _Write_Section([string] ${msg}) {
     Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
-    Write-Host "     $msg" -ForegroundColor Green
+    Write-Host "     ${msg}" -ForegroundColor Green
     Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Green
 }
 
-function _br($times) {
-  $tmp = 1
-  while ($tmp -le $times) {
+function _br([int16] ${times}) {
+  [int16] ${tmp} = 1
+  while (${tmp} -le ${times}) {
     Write-Output " "
     $tmp += 1
   }
 }
 
-function _Want_To_Install($ID) {
-  $bool = Read-Host("Do you want to install $ID? (y/n)")
+function _Want_To_Install([string] ${msg}) {
+  $bool = Read-Host("Do you want to install ${msg} ? (y/n)")
   if($bool -eq "y") {
     return 1
   } else {
