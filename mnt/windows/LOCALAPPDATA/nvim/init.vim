@@ -186,7 +186,6 @@ nnoremap <silent> <Esc><Esc> :<C-u>set nohlsearch!<CR>
 nnoremap <silent> sT :<C-u>terminal<CR>
 " }}}
 
-
 if &compatible
   set nocompatible " Be iMproved
 endif
@@ -198,9 +197,10 @@ set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 " Required:
 call dein#begin('$HOME/.cache/dein')
 
-call dein#load_toml('$HOME/AppData/Local/nvim/dein.toml', {'lazy': 0})
-call dein#load_toml('$HOME/AppData/Local/nvim/colors.toml', {'lazy': 0})
-call dein#load_toml('$HOME/AppData/Local/nvim/joke.toml', {'lazy': 0})
+call dein#load_toml('$HOME/.config/nvim/dein.toml', {'lazy': 0})
+call dein#load_toml('$HOME/.config/nvim/colors.toml', {'lazy': 0})
+call dein#load_toml('$HOME/.config/nvim/lsp.toml', {'lazy': 0})
+call dein#load_toml('$HOME/.config/nvim/joke.toml', {'lazy': 0})
 "call dein#load_toml('$HOME/.config/dein/dein_lazy.toml', {'lazy': 1})
 
 " Let dein manage dein
@@ -223,7 +223,7 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
- call dein#install()
-endif
+"if dein#check_install()
+" call dein#install()
+"endif
 
