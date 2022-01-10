@@ -1,5 +1,6 @@
-. "./Function.ps1"
+. "${PSScriptRoot}/Function.ps1"
 
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $MyPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 # 参考:https://www.serotoninpower.club/archives/355/#%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8

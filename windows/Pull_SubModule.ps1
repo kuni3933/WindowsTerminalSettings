@@ -1,4 +1,6 @@
-. "./Function.ps1"
+. "${PSScriptRoot}/../Function.ps1"
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Path
 ${now} = Get-Location
