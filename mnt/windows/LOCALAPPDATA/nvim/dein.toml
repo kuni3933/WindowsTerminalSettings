@@ -25,7 +25,7 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = '4513ECHO/vim-readme-viewer'
 hook_add = '''
-let g:readme_viewer#plugin_manager = 'dein.vim'
+let g:readme_viewer#plugin_manager = 'dein.vim' 
 '''
 
 [[plugins]]

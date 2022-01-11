@@ -205,7 +205,7 @@ call dein#load_toml('$HOME/AppData/Local/nvim/dein.toml', {'lazy': 0})
 call dein#load_toml('$HOME/AppData/Local/nvim/colors.toml', {'lazy': 0})
 call dein#load_toml('$HOME/AppData/Local/nvim/lsp.toml', {'lazy': 0})
 call dein#load_toml('$HOME/AppData/Local/nvim/joke.toml', {'lazy': 0})
-"call dein#load_toml('$HOME/AppData/Local/dein/dein_lazy.toml', {'lazy': 1})
+"call dein#load_toml('$HOME/.config/dein/dein_lazy.toml', {'lazy': 1})
 
 " Let dein manage dein
 call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
