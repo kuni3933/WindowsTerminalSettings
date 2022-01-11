@@ -20,10 +20,14 @@ winfetch.PS1
 
 # $env:EDITOR
 if(Get-Command vim -ea SilentlyContinue){
-    $env:EDITOR = "vim"
+    ${env:EDITOR} = "vim"
+    Set-Alias EDITOR vim
+    Set-Alias :e vim
 }
 if(Get-Command nvim -ea SilentlyContinue){
-    $env:EDITOR = "nvim"
+    ${env:EDITOR} = "nvim"
+    Set-Alias EDITOR nvim
+    Set-Alias :e nvim
 }
 
 # c => clear
@@ -185,7 +189,7 @@ function buscdd() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_x
 function buscdw() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\work\\$_ } }
 
 # vim
-function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { vim $_ } }
+function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { EDITOR $_ } }
 
 # Copy current path
 function cpwd() { Convert-Path . | Set-Clipboard }
