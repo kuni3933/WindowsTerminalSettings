@@ -608,6 +608,21 @@ else{
 _br(2)
 
 
+${ID} = _Title("Datronicsoft.SpacedeskDriver.Server")
+if(${ID} -ne 1603){
+  if (Test-Path  "${env:USERPROFILE}/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/spacedeskConsole.lnk") {
+    _Update(${ID})
+  }
+  elseIf(_Want_To_Install(${ID})) {
+    _Install(${ID})
+  }
+}
+else{
+  _br(1)
+}
+_br(2)
+
+
 ${ID} = _Title("WiresharkFoundation.Wireshark")
 if(${ID} -ne 1603){
   if (Test-Path  "${env:PROGRAMFILES}/Wireshark/Wireshark.exe") {
