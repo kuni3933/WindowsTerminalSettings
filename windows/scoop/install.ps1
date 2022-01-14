@@ -76,6 +76,7 @@ scoop install `
   colortool `
   cowsay `
   gh `
+  ghq `
   gitignore `
   nu `
   onefetch `
@@ -92,6 +93,7 @@ scoop install `
   bat `
   bind `
   fd `
+  fx `
   dust `
   7zip `
   fzf `
