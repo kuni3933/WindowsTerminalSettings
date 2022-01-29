@@ -78,6 +78,7 @@ scoop install `
   gh `
   ghq `
   gitignore `
+  heroku-cli `
   nu `
   onefetch `
   pandoc `

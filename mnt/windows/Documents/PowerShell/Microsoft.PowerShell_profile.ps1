@@ -197,7 +197,8 @@ function cpwd() { Convert-Path . | Set-Clipboard }
 # git flow
 function gf()  { git fetch --all }
 function gd()  { git diff $args }
-function gds()  { git diff --staged $args }
+function gdc() { git diff --cached $args }
+function gds() { git diff --staged $args }
 function ga()  { git add $args }
 function gaa() { git add --all }
 function gco() { git commit -m $args[0] }
