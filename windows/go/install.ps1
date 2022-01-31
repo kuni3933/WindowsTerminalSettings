@@ -9,13 +9,21 @@ if (-Not (Get-Command("go.exe"))) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("go/install.ps1")
 
-
-_Write_Title("# go get -u github.com/tadashi-aikawa/gowl")
-go get -u github.com/tadashi-aikawa/gowl
+_Write_Title("# go clean -cache -testcache")
+go clean -cache -testcache -n
+go clean -cache -testcache
 _br(1)
 
-_Write_Title("# go get -u github.com/tcnksm/ghr")
-go get -u github.com/tcnksm/ghr
+_Write_Title("# go install github.com/sheepla/fzwiki@latest")
+go install github.com/sheepla/fzwiki@latest
+_br(1)
+
+_Write_Title("# go install github.com/tadashi-aikawa/gowl@latest")
+go install github.com/tadashi-aikawa/gowl@latest
+_br(1)
+
+_Write_Title("# go install github.com/tcnksm/ghr@latest")
+go install github.com/tcnksm/ghr@latest
 _br(1)
 
 

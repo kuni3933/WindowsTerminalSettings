@@ -9,6 +9,9 @@ if (-Not (Get-Command("gh.exe"))) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("gh/install.ps1")
 
+_Write_Title("# deno install mrshmllow/ghfetch")
+deno install --unstable --allow-net --allow-run "https://raw.githubusercontent.com/bwac2517/ghfetch/main/ghfetch.ts"
+_br(1)
 
 _Write_Title("# gh extension install sheepla/gh-userfetch")
 gh extension install sheepla/gh-userfetch
