@@ -27,6 +27,11 @@ go install github.com/tcnksm/ghr@latest
 _br(1)
 
 
+_Write_Title("# go clean -cache -testcache")
+go clean -cache -testcache -n
+go clean -cache -testcache
+_br(1)
+
 _Set_ExecutionPolicy
 _br(2)
 

@@ -29,16 +29,20 @@ _br(2)
 Invoke-Expression "$MyPath/Chocolatey/install.ps1"
 _br(2)
 
-#_Write_Section("volta-npm/install.ps1")
-Invoke-Expression "$MyPath/volta-npm/install.ps1"
-_br(2)
-
 #_Write_Section("go/install.ps1")
 Invoke-Expression "$MyPath/go/install.ps1"
 _br(2)
 
 #_Write_Section("cargo/install.ps1")
 Invoke-Expression "$MyPath/cargo/install.ps1"
+_br(2)
+
+#_Write_Section("volta-npm/install.ps1")
+Invoke-Expression "$MyPath/volta-npm/install.ps1"
+_br(2)
+
+#_Write_Section("deno/install.ps1")
+Invoke-Expression "$MyPath/deno/install.ps1"
 _br(2)
 
 #_Write_Section("gh/install.ps1")
