@@ -160,20 +160,19 @@ foreach (${index} in ${data}) {
     ${Message} = ${index}."Message"
     ${Flag} =  ${index}."Flag"
 
-  if((_Title(${ID}) -ne 1603) -and ((${Flag} -eq "true") -or (${Flag} -eq ${bit}))){
+  if((_Title(${ID}) -ne 1603) -and ((${Flag} -eq "true") -or (${Flag} -eq ${bit}))) {
     if(Test-Path "${Path}"){
       Write-Host(${Path})
       & "${Update_Options}"
       _br(1)
-      _Update(${ID})}
+      _Update(${ID})
     }elseIf(_Want_To_Install(${ID})) {
       _Install(${ID})
     }
-  else{
+  }else{
     Write-Host("Either the architecture is different or Flag is False.")
   }
   _br(2)
-
 }
 
 
