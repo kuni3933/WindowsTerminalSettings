@@ -15,6 +15,9 @@ test.bat
 test.ps1
 test.sh
 
+# winget_log.txt
+winget_log.txt
+
 # node
 package-lock.json
 package.json
