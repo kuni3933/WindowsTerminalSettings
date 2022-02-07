@@ -2,7 +2,7 @@
   {
     "Name": "7zip.7zip",
     "ID": "7zip.7zip",
-    "Path": "${env:PROGRAMFILES}/7-Zip/7z.exe",
+    "Path": "%PROGRAMFILES%/7-Zip/7z.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -11,7 +11,7 @@
   {
     "Name": "Adobe.Acrobat.Reader.32-bit",
     "ID": "Adobe.Acrobat.Reader.32-bit",
-    "Path": "${env:PROGRAMFILES(X86)}/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe",
+    "Path": "%PROGRAMFILES(X86)%/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -20,7 +20,7 @@
   {
     "Name": "Adobe.Acrobat.Reader.64-bit",
     "ID": "Adobe.Acrobat.Reader.64-bit",
-    "Path": "${env:PROGRAMFILES}/Adobe/Acrobat DC/Acrobat/Acrobat.exe",
+    "Path": "%PROGRAMFILES%/Adobe/Acrobat DC/Acrobat/Acrobat.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -29,7 +29,7 @@
   {
     "Name": "Amazon.Kindle",
     "ID": "Amazon.Kindle",
-    "Path": "${env:LOCALAPPDATA}/Amazon/Kindle/application/Kindle.exe",
+    "Path": "%LOCALAPPDATA%/Amazon/Kindle/application/Kindle.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -38,7 +38,7 @@
   {
     "Name": "Apple.iTunes",
     "ID": "Apple.iTunes",
-    "Path": "${env:PROGRAMFILES}/iTunes/iTunes.exe",
+    "Path": "%PROGRAMFILES%/iTunes/iTunes.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -47,7 +47,7 @@
   {
     "Name": "Corsair.iCUE.4",
     "ID": "Corsair.iCUE.4",
-    "Path": "${env:PROGRAMFILES}/Corsair/CORSAIR iCUE 4 Software/iCUE.exe",
+    "Path": "%PROGRAMFILES%/Corsair/CORSAIR iCUE 4 Software/iCUE.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -56,7 +56,7 @@
   {
     "Name": "Datronicsoft.SpacedeskDriver.Server",
     "ID": "Datronicsoft.SpacedeskDriver.Server",
-    "Path": "${env:USERPROFILE}/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/spacedeskConsole.lnk",
+    "Path": "%WINDIR%/System32/spacedeskConsole.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -65,7 +65,7 @@
   {
     "Name": "DeepL.DeepL",
     "ID": "DeepL.DeepL",
-    "Path": "${env:LOCALAPPDATA}/DeepL/DeepL.exe",
+    "Path": "%LOCALAPPDATA%/DeepL/DeepL.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -74,7 +74,7 @@
   {
     "Name": "Discord.Discord",
     "ID": "Discord.Discord",
-    "Path": "${env:LOCALAPPDATA}/Discord/app.ico",
+    "Path": "%LOCALAPPDATA%/Discord/app.ico",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -83,7 +83,7 @@
   {
     "Name": "ElectronicArts.EADesktop",
     "ID": "ElectronicArts.EADesktop",
-    "Path": "${env:PROGRAMFILES}/Electronic Arts/EA Desktop/EA Desktop/EALauncher.exe",
+    "Path": "%PROGRAMFILES%/Electronic Arts/EA Desktop/EA Desktop/EALauncher.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -92,15 +92,15 @@
   {
     "Name": "Git.Git",
     "ID": "Git.Git",
-    "Path": "${env:PROGRAMFILES}/Git/bin/git.exe",
+    "Path": "%PROGRAMFILES%/Git/bin/git.exe",
     "Install_Options": "",
-    "Update_Options": "${MyPath}/Git.GIt.ps1",
+    "Update_Options": "",
     "Flag": "true"
   },
   {
     "Name": "Google.Chrome",
     "ID": "Google.Chrome",
-    "Path": "${env:PROGRAMFILES}/Google/Chrome/Application/chrome.exe",
+    "Path": "%PROGRAMFILES%/Google/Chrome/Application/chrome.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -109,7 +109,7 @@
   {
     "Name": "Google.Drive",
     "ID": "Google.Drive",
-    "Path": "${env:PROGRAMFILES}/Google/Drive File Stream/launch.bat",
+    "Path": "%PROGRAMFILES%/Google/Drive File Stream/launch.bat",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -118,7 +118,7 @@
   {
     "Name": "kite.kite",
     "ID": "kite.kite",
-    "Path": "${env:PROGRAMFILES}/",
+    "Path": "%PROGRAMFILES%/",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -127,7 +127,7 @@
   {
     "Name": "Microsoft.PowerShell",
     "ID": "Microsoft.PowerShell",
-    "Path": "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe",
+    "Path": "%PROGRAMFILES%/PowerShell/7/pwsh.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -136,7 +136,7 @@
   {
     "Name": "Microsoft.PowerToys",
     "ID": "Microsoft.PowerToys",
-    "Path": "${env:PROGRAMFILES}/PowerToys/PowerToys.exe",
+    "Path": "%PROGRAMFILES%/PowerToys/PowerToys.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -145,7 +145,7 @@
   {
     "Name": "Microsoft.VisualStudio.2019.BuildTools",
     "ID": "Microsoft.VisualStudio.2019.BuildTools",
-    "Path": "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools",
+    "Path": "%PROGRAMFILES(X86)%/Microsoft Visual Studio/2019/BuildTools",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [
@@ -157,7 +157,7 @@
   {
     "Name": "Microsoft.VisualStudioCode",
     "ID": "Microsoft.VisualStudioCode",
-    "Path": "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe",
+    "Path": "%LOCALAPPDATA%/Programs/Microsoft VS Code/Code.exe",
     "Install_Options": "--override `\"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`\"",
     //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
     "Update_Options": "",
@@ -167,7 +167,7 @@
   {
     "Name": "Microsoft.VisualStudioCode.Insiders",
     "ID": "Microsoft.VisualStudioCode.Insiders",
-    "Path": "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - Insiders.exe",
+    "Path": "%LOCALAPPDATA%/Programs/Microsoft VS Code Insiders/Code - Insiders.exe",
     "Install_Options": "--override `\"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`\"",
     //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
     "Update_Options": "",
@@ -177,7 +177,7 @@
   {
     "Name": "Microsoft.WindowsTerminal.Preview",
     "ID": "Microsoft.WindowsTerminal.Preview",
-    "Path": "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe",
+    "Path": "%LOCALAPPDATA%/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -186,7 +186,7 @@
   {
     "Name": "Mp3tag.Mp3tag",
     "ID": "Mp3tag.Mp3tag",
-    "Path": "${env:PROGRAMFILES(x86)}/Mp3tag/Mp3tag.exe",
+    "Path": "%PROGRAMFILES(x86)%/Mp3tag/Mp3tag.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -195,7 +195,7 @@
   {
     "Name": "Notion.Notion",
     "ID": "Notion.Notion",
-    "Path": "${env:LOCALAPPDATA}/Programs/Notion/Notion.exe",
+    "Path": "%LOCALAPPDATA%/Programs/Notion/Notion.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -204,7 +204,7 @@
   {
     "Name": "OpenMedia.4KVideoDownloader",
     "ID": "OpenMedia.4KVideoDownloader",
-    "Path": "${env:PROGRAMFILES}/4KDownload/4kvideodownloader/4kvideodownloader.exe",
+    "Path": "%PROGRAMFILES%/4KDownload/4kvideodownloader/4kvideodownloader.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -213,7 +213,7 @@
   {
     "Name": "PeterPawlowski.foobar2000",
     "ID": "PeterPawlowski.foobar2000",
-    "Path": "${env:LOCALAPPDATA}/",
+    "Path": "%LOCALAPPDATA%/",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -222,7 +222,7 @@
   {
     "Name": "REALiX.HWiNFO",
     "ID": "REALiX.HWiNFO",
-    "Path": "${env:PROGRAMFILES}/HWiNFO64/HWiNFO64.EXE",
+    "Path": "%PROGRAMFILES%/HWiNFO64/HWiNFO64.EXE",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -231,7 +231,7 @@
   {
     "Name": "ScreamingFrog.SEOSpider",
     "ID": "ScreamingFrog.SEOSpider",
-    "Path": "${env:PROGRAMFILES}/",
+    "Path": "%PROGRAMFILES%/",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -240,7 +240,7 @@
   {
     "Name": "SlackTechnologies.Slack",
     "ID": "SlackTechnologies.Slack",
-    "Path": "${env:LOCALAPPDATA}/slack/slack.exe",
+    "Path": "%LOCALAPPDATA%/slack/slack.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -249,7 +249,7 @@
   {
     "Name": "SteelSeries.GG",
     "ID": "SteelSeries.GG",
-    "Path": "${env:PROGRAMFILES}/SteelSeries/GG/SteelSeriesGG.exe",
+    "Path": "%PROGRAMFILES%/SteelSeries/GG/SteelSeriesGG.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -258,7 +258,7 @@
   {
     "Name": "TeamSpeakSystems.TeamSpeakClient",
     "ID": "TeamSpeakSystems.TeamSpeakClient",
-    "Path": "${env:PROGRAMFILES}/TeamSpeak 3 Client/ts3client_win64.exe",
+    "Path": "%PROGRAMFILES%/TeamSpeak 3 Client/ts3client_win64.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -267,7 +267,7 @@
   {
     "Name": "TranslucentTB.TranslucentTB",
     "ID": "9PF4KZ2VN4W9",
-    "Path": "${env:PROGRAMFILES(X86)}/TranslucentTB/TranslucentTB.exe",
+    "Path": "%PROGRAMFILES(X86)%/TranslucentTB/TranslucentTB.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -276,7 +276,7 @@
   {
     "Name": "Valve.Steam",
     "ID": "Valve.Steam",
-    "Path": "${env:PROGRAMFILES(X86)}/Steam/Steam.exe",
+    "Path": "%PROGRAMFILES(X86)%/Steam/Steam.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -285,7 +285,7 @@
   {
     "Name": "WiresharkFoundation.Wireshark",
     "ID": "WiresharkFoundation.Wireshark",
-    "Path": "${env:PROGRAMFILES}/Wireshark/Wireshark.exe",
+    "Path": "%PROGRAMFILES%/Wireshark/Wireshark.exe",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
