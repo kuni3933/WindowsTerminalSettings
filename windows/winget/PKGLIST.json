@@ -1,6 +1,6 @@
 [
   {
-    "Name": "7zip.7zip",
+    "Name": "7-Zip",
     "ID": "7zip.7zip",
     "Path": "%PROGRAMFILES%/7-Zip/7z.exe",
     "Install_Options": "",
@@ -9,7 +9,7 @@
     "Flag": 1
   },
   {
-    "Name": "Adobe.Acrobat.Reader.32-bit",
+    "Name": "Adobe Acrobat Reader DC",
     "ID": "Adobe.Acrobat.Reader.32-bit",
     "Path": "%PROGRAMFILES(X86)%/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe",
     "Install_Options": "",
@@ -18,7 +18,7 @@
     "Flag": 86
   },
   {
-    "Name": "Adobe.Acrobat.Reader.64-bit",
+    "Name": "Adobe Acrobat DC (64-bit)",
     "ID": "Adobe.Acrobat.Reader.64-bit",
     "Path": "%PROGRAMFILES%/Adobe/Acrobat DC/Acrobat/Acrobat.exe",
     "Install_Options": "",
@@ -27,7 +27,7 @@
     "Flag": 64
   },
   {
-    "Name": "Amazon.Kindle",
+    "Name": "Amazon Kindle",
     "ID": "Amazon.Kindle",
     "Path": "%LOCALAPPDATA%/Amazon/Kindle/application/Kindle.exe",
     "Install_Options": "",
@@ -36,7 +36,7 @@
     "Flag": 1
   },
   {
-    "Name": "Apple.iTunes",
+    "Name": "iTunes",
     "ID": "Apple.iTunes",
     "Path": "%PROGRAMFILES%/iTunes/iTunes.exe",
     "Install_Options": "",
@@ -45,7 +45,7 @@
     "Flag": 1
   },
   {
-    "Name": "Corsair.iCUE.4",
+    "Name": "CORSAIR iCUE 4 Software",
     "ID": "Corsair.iCUE.4",
     "Path": "%PROGRAMFILES%/Corsair/CORSAIR iCUE 4 Software/iCUE.exe",
     "Install_Options": "",
@@ -54,7 +54,7 @@
     "Flag": 1
   },
   {
-    "Name": "Datronicsoft.SpacedeskDriver.Server",
+    "Name": "spacedesk Windows DRIVER",
     "ID": "Datronicsoft.SpacedeskDriver.Server",
     "Path": "%WINDIR%/System32/spacedeskConsole.exe",
     "Install_Options": "",
@@ -63,7 +63,7 @@
     "Flag": 1
   },
   {
-    "Name": "DeepL.DeepL",
+    "Name": "DeepL",
     "ID": "DeepL.DeepL",
     "Path": "%LOCALAPPDATA%/DeepL/DeepL.exe",
     "Install_Options": "",
@@ -72,7 +72,7 @@
     "Flag": 1
   },
   {
-    "Name": "Discord.Discord",
+    "Name": "Discord",
     "ID": "Discord.Discord",
     "Path": "%LOCALAPPDATA%/Discord/app.ico",
     "Install_Options": "",
@@ -81,7 +81,7 @@
     "Flag": 1
   },
   {
-    "Name": "ElectronicArts.EADesktop",
+    "Name": "EA app",
     "ID": "ElectronicArts.EADesktop",
     "Path": "%PROGRAMFILES%/Electronic Arts/EA Desktop/EA Desktop/EALauncher.exe",
     "Install_Options": "",
@@ -90,7 +90,7 @@
     "Flag": 1
   },
   {
-    "Name": "Git.Git",
+    "Name": "Git",
     "ID": "Git.Git",
     "Path": "%PROGRAMFILES%/Git/bin/git.exe",
     "Install_Options": "",
@@ -99,7 +99,7 @@
     "Flag": 1
   },
   {
-    "Name": "Google.Chrome",
+    "Name": "Google Chrome",
     "ID": "Google.Chrome",
     "Path": "%PROGRAMFILES%/Google/Chrome/Application/chrome.exe",
     "Install_Options": "",
@@ -108,7 +108,7 @@
     "Flag": 1
   },
   {
-    "Name": "Google.Drive",
+    "Name": "Google Drive",
     "ID": "Google.Drive",
     "Path": "%PROGRAMFILES%/Google/Drive File Stream/launch.bat",
     "Install_Options": "",
@@ -117,7 +117,7 @@
     "Flag": 1
   },
   {
-    "Name": "kite.kite",
+    "Name": "Kite",
     "ID": "kite.kite",
     "Path": "%PROGRAMFILES%/",
     "Install_Options": "",
@@ -126,7 +126,7 @@
     "Flag": 0
   },
   {
-    "Name": "Microsoft.PowerShell",
+    "Name": "PowerShell",
     "ID": "Microsoft.PowerShell",
     "Path": "%PROGRAMFILES%/PowerShell/7/pwsh.exe",
     "Install_Options": "",
@@ -135,7 +135,7 @@
     "Flag": 0
   },
   {
-    "Name": "Microsoft.PowerToys",
+    "Name": "PowerToys (Preview)",
     "ID": "Microsoft.PowerToys",
     "Path": "%PROGRAMFILES%/PowerToys/PowerToys.exe",
     "Install_Options": "",
@@ -144,7 +144,7 @@
     "Flag": 1
   },
   {
-    "Name": "Microsoft.VisualStudio.2019.BuildTools",
+    "Name": "Visual Studio Build Tools 2019",
     "ID": "Microsoft.VisualStudio.2019.BuildTools",
     "Path": "%PROGRAMFILES(X86)%/Microsoft Visual Studio/2019/BuildTools",
     "Install_Options": "",
@@ -156,7 +156,7 @@
     "Flag": 1
   },
   {
-    "Name": "Microsoft.VisualStudioCode",
+    "Name": "Microsoft Visual Studio Code",
     "ID": "Microsoft.VisualStudioCode",
     "Path": "%LOCALAPPDATA%/Programs/Microsoft VS Code/Code.exe",
     "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
@@ -166,7 +166,7 @@
     "Flag": 1
   },
   {
-    "Name": "Microsoft.VisualStudioCode.Insiders",
+    "Name": "Microsoft Visual Studio Code Insiders",
     "ID": "Microsoft.VisualStudioCode.Insiders",
     "Path": "%LOCALAPPDATA%/Programs/Microsoft VS Code Insiders/Code - Insiders.exe",
     "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
@@ -176,7 +176,7 @@
     "Flag": 1
   },
   {
-    "Name": "Microsoft.WindowsTerminal.Preview",
+    "Name": "Windows Terminal Preview",
     "ID": "Microsoft.WindowsTerminal.Preview",
     "Path": "%LOCALAPPDATA%/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe",
     "Install_Options": "",
@@ -185,7 +185,7 @@
     "Flag": 1
   },
   {
-    "Name": "Mp3tag.Mp3tag",
+    "Name": "Mp3tag",
     "ID": "Mp3tag.Mp3tag",
     "Path": "%PROGRAMFILES(x86)%/Mp3tag/Mp3tag.exe",
     "Install_Options": "",
@@ -194,7 +194,7 @@
     "Flag": 1
   },
   {
-    "Name": "Notion.Notion",
+    "Name": "Notion",
     "ID": "Notion.Notion",
     "Path": "%LOCALAPPDATA%/Programs/Notion/Notion.exe",
     "Install_Options": "",
@@ -203,7 +203,7 @@
     "Flag": 1
   },
   {
-    "Name": "OpenMedia.4KVideoDownloader",
+    "Name": "4K Video Downloader",
     "ID": "OpenMedia.4KVideoDownloader",
     "Path": "%PROGRAMFILES%/4KDownload/4kvideodownloader/4kvideodownloader.exe",
     "Install_Options": "",
@@ -212,7 +212,7 @@
     "Flag": 1
   },
   {
-    "Name": "PeterPawlowski.foobar2000",
+    "Name": "foobar2000",
     "ID": "PeterPawlowski.foobar2000",
     "Path": "%LOCALAPPDATA%/",
     "Install_Options": "",
@@ -221,7 +221,7 @@
     "Flag": 1
   },
   {
-    "Name": "REALiX.HWiNFO",
+    "Name": "HWiNFO",
     "ID": "REALiX.HWiNFO",
     "Path": "%PROGRAMFILES%/HWiNFO64/HWiNFO64.EXE",
     "Install_Options": "",
@@ -230,7 +230,7 @@
     "Flag": 1
   },
   {
-    "Name": "ScreamingFrog.SEOSpider",
+    "Name": "Screaming Frog SEO Spider",
     "ID": "ScreamingFrog.SEOSpider",
     "Path": "%PROGRAMFILES%/",
     "Install_Options": "",
@@ -239,7 +239,7 @@
     "Flag": 1
   },
   {
-    "Name": "SlackTechnologies.Slack",
+    "Name": "Slack",
     "ID": "SlackTechnologies.Slack",
     "Path": "%LOCALAPPDATA%/slack/slack.exe",
     "Install_Options": "",
@@ -248,7 +248,7 @@
     "Flag": 1
   },
   {
-    "Name": "SteelSeries.GG",
+    "Name": "SteelSeries GG",
     "ID": "SteelSeries.GG",
     "Path": "%PROGRAMFILES%/SteelSeries/GG/SteelSeriesGG.exe",
     "Install_Options": "",
@@ -257,7 +257,7 @@
     "Flag": 1
   },
   {
-    "Name": "TeamSpeakSystems.TeamSpeakClient",
+    "Name": "TeamSpeak 3 Client",
     "ID": "TeamSpeakSystems.TeamSpeakClient",
     "Path": "%PROGRAMFILES%/TeamSpeak 3 Client/ts3client_win64.exe",
     "Install_Options": "",
@@ -266,7 +266,7 @@
     "Flag": 1
   },
   {
-    "Name": "TranslucentTB.TranslucentTB",
+    "Name": "TranslucentTB",
     "ID": "9PF4KZ2VN4W9",
     "Path": "%PROGRAMFILES(X86)%/TranslucentTB/TranslucentTB.exe",
     "Install_Options": "",
@@ -275,7 +275,7 @@
     "Flag": 1
   },
   {
-    "Name": "Valve.Steam",
+    "Name": "Steam",
     "ID": "Valve.Steam",
     "Path": "%PROGRAMFILES(X86)%/Steam/Steam.exe",
     "Install_Options": "",
@@ -284,7 +284,7 @@
     "Flag": 1
   },
   {
-    "Name": "WiresharkFoundation.Wireshark",
+    "Name": "Wireshark",
     "ID": "WiresharkFoundation.Wireshark",
     "Path": "%PROGRAMFILES%/Wireshark/Wireshark.exe",
     "Install_Options": "",
@@ -294,7 +294,7 @@
   },
   {
     //最後にpwsh
-    "Name": "Microsoft.PowerShell",
+    "Name": "PowerShell",
     "ID": "Microsoft.PowerShell",
     "Path": "%PROGRAMFILES%/PowerShell/7/pwsh.exe",
     "Install_Options": "",

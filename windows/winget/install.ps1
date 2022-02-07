@@ -133,10 +133,10 @@ _Write_Section("winget/install.ps1")
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 ${bit} = _Winget_Version
 _br(2)
-if(Test-Path "${MyPath}/install.json"){
-  $data = (Get-Content "${MyPath}/install.json" | ConvertFrom-Json)
+if(Test-Path "${MyPath}/PKGLIST.json"){
+  $data = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
 }else{
-  Write-Error -Message "install.json is not found." -ErrorAction Stop
+  Write-Error -Message "PKGLIST.json is not found." -ErrorAction Stop
 		return 1603
 }
 
@@ -151,7 +151,7 @@ foreach (${index} in ${data}) {
   [int]${Flag} =  ${index}."Flag"
 
   if(((_Title ${Name} ${ID}) -eq 0) -and ((${Flag} -eq 1) -or (${Flag} -eq ${bit}))){
-    if(Select-String "${MyPath}/winget_log.txt" -Pattern ${ID} -CaseSensitive){
+    if((Select-String "${MyPath}/winget_log.txt" -Pattern ${Name} -CaseSensitive) -or (Select-String "${MyPath}/winget_log.txt" -Pattern ${ID} -CaseSensitive)){
       if(Test-Path "${MyPath}/${ID}.ps1"){ & "${MyPath}/${ID}.ps1" }
       if(${Update_Options} -eq ""){${Update_Options} = " "}
       _Update ${ID} ${Update_Options}
