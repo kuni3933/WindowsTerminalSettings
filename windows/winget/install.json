@@ -6,7 +6,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Adobe.Acrobat.Reader.32-bit",
@@ -15,7 +15,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "x86"
+    "Flag": 86
   },
   {
     "Name": "Adobe.Acrobat.Reader.64-bit",
@@ -24,7 +24,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "x64"
+    "Flag": 64
   },
   {
     "Name": "Amazon.Kindle",
@@ -33,7 +33,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Apple.iTunes",
@@ -42,7 +42,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Corsair.iCUE.4",
@@ -51,7 +51,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Datronicsoft.SpacedeskDriver.Server",
@@ -60,7 +60,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "DeepL.DeepL",
@@ -69,7 +69,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Discord.Discord",
@@ -78,7 +78,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "ElectronicArts.EADesktop",
@@ -87,7 +87,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Git.Git",
@@ -95,7 +95,8 @@
     "Path": "%PROGRAMFILES%/Git/bin/git.exe",
     "Install_Options": "",
     "Update_Options": "",
-    "Flag": "true"
+    "Message": [],
+    "Flag": 1
   },
   {
     "Name": "Google.Chrome",
@@ -104,7 +105,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Google.Drive",
@@ -113,7 +114,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "kite.kite",
@@ -122,7 +123,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "false"
+    "Flag": 0
   },
   {
     "Name": "Microsoft.PowerShell",
@@ -131,7 +132,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "false"
+    "Flag": 0
   },
   {
     "Name": "Microsoft.PowerToys",
@@ -140,7 +141,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Microsoft.VisualStudio.2019.BuildTools",
@@ -152,27 +153,27 @@
       "Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.",
       "Download the 'C++ Build Tools' from Visual Studio Installer."
     ],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Microsoft.VisualStudioCode",
     "ID": "Microsoft.VisualStudioCode",
     "Path": "%LOCALAPPDATA%/Programs/Microsoft VS Code/Code.exe",
-    "Install_Options": "--override `\"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`\"",
+    "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
     //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Microsoft.VisualStudioCode.Insiders",
     "ID": "Microsoft.VisualStudioCode.Insiders",
     "Path": "%LOCALAPPDATA%/Programs/Microsoft VS Code Insiders/Code - Insiders.exe",
-    "Install_Options": "--override `\"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`\"",
+    "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
     //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Microsoft.WindowsTerminal.Preview",
@@ -181,7 +182,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Mp3tag.Mp3tag",
@@ -190,7 +191,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Notion.Notion",
@@ -199,7 +200,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "OpenMedia.4KVideoDownloader",
@@ -208,7 +209,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "PeterPawlowski.foobar2000",
@@ -217,7 +218,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "REALiX.HWiNFO",
@@ -226,7 +227,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "ScreamingFrog.SEOSpider",
@@ -235,7 +236,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "SlackTechnologies.Slack",
@@ -244,7 +245,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "SteelSeries.GG",
@@ -253,7 +254,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "TeamSpeakSystems.TeamSpeakClient",
@@ -262,7 +263,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "TranslucentTB.TranslucentTB",
@@ -271,7 +272,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "Valve.Steam",
@@ -280,7 +281,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
   },
   {
     "Name": "WiresharkFoundation.Wireshark",
@@ -289,6 +290,16 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "true"
+    "Flag": 1
+  },
+  {
+    //最後にpwsh
+    "Name": "Microsoft.PowerShell",
+    "ID": "Microsoft.PowerShell",
+    "Path": "%PROGRAMFILES%/PowerShell/7/pwsh.exe",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": 1
   }
 ]

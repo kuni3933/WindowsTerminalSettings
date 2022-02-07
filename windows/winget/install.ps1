@@ -3,19 +3,19 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 function _Winget_Version() {
-  if (-Not (Get-Command("winget.exe"))) {
+  if (-Not (Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "winget.exe is not installed." -ErrorAction Stop
 		return 1603
 	}
 
-  ${bit} = "null"
+  [int]${bit} = 0
   if (${env:PROCESSOR_ARCHITECTURE} -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
-    ${bit} = "x64"
+    ${bit} = 64
   }
   elseIf (${env:PROCESSOR_ARCHITECTURE} -ceq "X86") {
-    ${bit} = "x86"
+    ${bit} = 86
   }
-  _Write_Title("# Install the $bit version.")
+  _Write_Title("# Install the x${bit} version.")
 
   [System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
@@ -23,7 +23,6 @@ function _Winget_Version() {
 		-NoNewWindow `
 		-PassThru `
 		-Wait
-    _br(1)
 
   [System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
@@ -31,7 +30,6 @@ function _Winget_Version() {
 		-NoNewWindow `
 		-PassThru `
 		-Wait
-    _br(1)
 
   [System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
@@ -39,618 +37,142 @@ function _Winget_Version() {
 		-NoNewWindow `
 		-PassThru `
 		-Wait
-    _br(1)
-  Return ${bit}
-  _br(2)
+
+  [System.Diagnostics.Process] ${process} = Start-Process `
+    -FilePath "winget.exe" `
+    -ArgumentList "list" `
+    -RedirectStandardOutput "${MyPath}/winget_log.txt" `
+    -NoNewWindow `
+    -PassThru `
+    -Wait
+
+    Return ${bit}
 }
 
 #参考:https://zenn.dev/sha256/articles/44a6e2f4c7b89f
-function _Title([string] ${ID}) {
-  _Write_Title("# " + ${ID})
-  _br(1)
-
-  if ([string]::IsNullOrEmpty(${id})) {
-		Write-Error -Message "Invalid id"
+function _Title([string]${Name},[string] ${ID}) {
+  if ([string]::IsNullOrEmpty(${Name})) {
+		Write-Error -Message "Name is null or empty."
 		return 1603
 	}
+  if ([string]::IsNullOrEmpty(${ID})) {
+		Write-Error -Message "ID is null or empty."
+		return 1603
+	}
+  _Write_Title("# " + ${Name})
 
 	# Require "-PassThru" option to get ExitCode
 	[System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
-		-ArgumentList "show -e --id ${id}" `
+		-ArgumentList "show -e --id ${ID}" `
 		-NoNewWindow `
 		-PassThru `
 		-Wait
-  _br(1)
-  if (${process}.ExitCode -eq 0) {
-    Return ${ID}
-  }
-	else {
-    return 1603
-  }
-  _br(2)
+
+  return ${process}.ExitCode
 }
 
 #参考:https://zenn.dev/sha256/articles/44a6e2f4c7b89f
-function _Install([string] ${ID},[string] ${options}) {
+function _Install([string] ${ID},[string] ${Options}) {
+  _br(1)
   Write-Host "  インストールを開始します." -ForegroundColor Yellow
   Write-Host "  Start the installation of this application." -ForegroundColor Yellow
   _br(1)
 
-  if ([string]::IsNullOrEmpty(${id})) {
-		Write-Error -Message "Invalid id"
+  if ([string]::IsNullOrEmpty(${ID})) {
+		Write-Error -Message "Invalid ID"
 		return 1603
 	}
 
-  if ([string]::IsNullOrEmpty(${options})) {
-		Write-Error -Message "Invalid options"
-		return 1603
-	}
-
-	# Require "-PassThru" option to get ExitCode
-	[System.Diagnostics.Process] ${process} = Start-Process `
-		-FilePath "winget.exe" `
-		-ArgumentList "install -e --id ${id} ${options}" `
-		-NoNewWindow `
-		-PassThru `
-		-Wait
-  _br(1)
-	return ${process}.ExitCode
-  _br(2)
-}
-
-#参考:https://zenn.dev/sha256/articles/44a6e2f4c7b89f
-function _Install([string] ${ID}) {
-  Write-Host "  インストールを開始します." -ForegroundColor Yellow
-  Write-Host "  Start the installation of this application." -ForegroundColor Yellow
-  _br(1)
-
-  if ([string]::IsNullOrEmpty(${id})) {
-		Write-Error -Message "Invalid id"
+  if ([string]::IsNullOrEmpty(${Options})) {
+		Write-Error -Message "Invalid Options"
 		return 1603
 	}
 
 	# Require "-PassThru" option to get ExitCode
 	[System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
-		-ArgumentList "install -e --id ${id}" `
+		-ArgumentList "install -e --id ${ID} ${Options}" `
 		-NoNewWindow `
 		-PassThru `
 		-Wait
-  _br(1)
+
 	return ${process}.ExitCode
-  _br(2)
 }
 
 #参考:https://zenn.dev/sha256/articles/44a6e2f4c7b89f
-function  _Update(${ID}) {
+function  _Update([string] ${ID},[string] ${Options}) {
+  _br(1)
   Write-Host "  インストール済みです. アップデートを行います." -ForegroundColor Cyan
   Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
   _br(1)
 
-  if ([string]::IsNullOrEmpty(${id})) {
-		Write-Error -Message "Invalid id"
+  if ([string]::IsNullOrEmpty(${ID})) {
+		Write-Error -Message "Invalid ID"
+		return 1603
+	}
+  if ([string]::IsNullOrEmpty(${Options})) {
+		Write-Error -Message "Invalid Options"
 		return 1603
 	}
 
 	# Require "-PassThru" option to get ExitCode
 	[System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
-		-ArgumentList "upgrade -e --id ${id}" `
+		-ArgumentList "upgrade -e --id ${ID} ${Options}" `
 		-NoNewWindow `
 		-PassThru `
 		-Wait
-    _br(1)
+
 	return ${process}.ExitCode
-  _br(2)
 }
 
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("winget/install.ps1")
-${bit} = _Winget_Version
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+${bit} = _Winget_Version
+_br(2)
+if(Test-Path "${MyPath}/install.json"){
+  $data = (Get-Content "${MyPath}/install.json" | ConvertFrom-Json)
+}else{
+  Write-Error -Message "install.json is not found." -ErrorAction Stop
+		return 1603
+}
 
 
-${ID} = _Title("Git.Git")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:PROGRAMFILES}/Git/bin/git.exe") {
-    git --version
-    &"${env:GIT_INSTALL_ROOT}/git-bash.exe" "${MyPath}/kill_gpg-agent.sh"
+foreach (${index} in ${data}) {
+  [string] ${Name} = ${index}."Name"
+  [string] ${ID} = ${index}."ID"
+  #[string] ${Path} = ${index}."Path"
+  [string] ${Install_Options} = ${index}."Install_Options"
+  [string] ${Update_Options} = ${index}."Update_Options"
+  [string] ${Message} = ${index}."Message"
+  [int]${Flag} =  ${index}."Flag"
+
+  if(((_Title ${Name} ${ID}) -eq 0) -and ((${Flag} -eq 1) -or (${Flag} -eq ${bit}))){
+    if(Select-String "${MyPath}/winget_log.txt" -Pattern ${ID} -CaseSensitive){
+      if(Test-Path "${MyPath}/${ID}.ps1"){ & "${MyPath}/${ID}.ps1" }
+      if(${Update_Options} -eq ""){${Update_Options} = " "}
+      _Update ${ID} ${Update_Options}
+    }elseIf(_Want_To_Install("${Name} [${ID}]")) {
+      if(${Install_Options} -eq ""){ ${Install_Options} = " " }
+      _Install ${ID} ${Install_Options}
+    }
+    if(! ${Message}.IsNullOrEmpty){
+      _br(1)
+      foreach ($MessageIndex in $Message) {
+        Write-Host("  ${Message}") -ForegroundColor Green
+      }
+      _br(1)
+    }
+  }else{
     _br(1)
-    _Update(${ID})
-    [System.Diagnostics.Process] ${process} = Start-Process `
-		-FilePath "git.exe" `
-		-ArgumentList "update-git-for-windows" `
-		-NoNewWindow `
-		-PassThru `
-		-Wait
+    Write-Host("  Error:Either the ID is different, the ISA is different, or Flag is False.") -ForegroundColor Red
+    _br(1)
   }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Microsoft.OneDrive")
-if(${ID} -ne 1603){
-  if ((Test-Path "${env:LOCALAPPDATA}/Microsoft/OneDrive/OneDrive.exe") -or (Test-Path "${env:PROGRAMFILES}/Microsoft OneDrive/OneDrive.exe")){
-    _Update(${ID})
-  }
-elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Google.Drive")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/Google/Drive File Stream/launch.bat") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("7zip.7zip")
-if(${ID} -ne 1603){
-  if(Test-Path "${env:PROGRAMFILES}/7-Zip/7z.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Mp3tag.Mp3tag")
-if(${ID} -ne 1603){
-  if(Test-Path "${env:PROGRAMFILES(x86)}/Mp3tag/Mp3tag.exe"){
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Microsoft.PowerToys")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:PROGRAMFILES}/PowerToys/PowerToys.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("SlackTechnologies.Slack")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:LOCALAPPDATA}/slack/slack.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Notion.Notion")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:LOCALAPPDATA}/Programs/Notion/Notion.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-<#
-${ID} = _Title("ScreamingFrog.SEOSpider")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-#>
-
-
-${ID} = _Title("Google.Chrome")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/Google/Chrome/Application/chrome.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("REALiX.HWiNFO")
-if(${ID} -ne 1603){
-  if(Test-Path "${env:PROGRAMFILES}/HWiNFO64/HWiNFO64.EXE") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Amazon.Kindle")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:LOCALAPPDATA}/Amazon/Kindle/application/Kindle.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Microsoft.WindowsTerminal.Preview")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:LOCALAPPDATA}/Microsoft/WindowsApps/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/wt.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Microsoft.VisualStudio.2019.BuildTools")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:PROGRAMFILES(X86)}/Microsoft Visual Studio/2019/BuildTools") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-  _Write_Title("Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.")
-  _Write_Title("Download the 'C++ Build Tools' from Visual Studio Installer.")
-}
-else{
-  _br(1)
-}
-
-_br(2)
-
-
-${ID} = _Title("Microsoft.VisualStudioCode")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:LOCALAPPDATA}/Programs/Microsoft VS Code/Code.exe") {
-    code --version
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID},"--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"")
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Microsoft.VisualStudioCode.Insiders")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:LOCALAPPDATA}/Programs/Microsoft VS Code Insiders/Code - Insiders.exe") {
-    code-insiders --version
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID},"--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"")
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-<#
-${ID} = _Title("PeterPawlowski.foobar2000")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:LOCALAPPDATA}/") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-#>
-
-
-${ID} = _Title("Discord.Discord")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:LOCALAPPDATA}/Discord/app.ico") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("TeamSpeakSystems.TeamSpeakClient")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/TeamSpeak 3 Client/ts3client_win64.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Valve.Steam")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES(X86)}/Steam/Steam.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("ElectronicArts.EADesktop")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/Electronic Arts/EA Desktop/EA Desktop/EALauncher.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("SteelSeries.GG")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/SteelSeries/GG/SteelSeriesGG.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Corsair.iCUE.4")
-if(${ID} -ne 1603){
-  if (test-path  "${env:PROGRAMFILES}/Corsair/CORSAIR iCUE 4 Software/iCUE.exe") {
-    _Update(${ID})
-  }
-  elseif(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Apple.iTunes")
-if(${ID} -ne 1603){
-  if (test-path  "${env:PROGRAMFILES}/iTunes/iTunes.exe") {
-    _Update(${ID})
-  }
-  elseif(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-if ($bit -eq "x64") { ${ID} = _Title("Adobe.Acrobat.Reader.64-bit") }
-else{ ${ID} = _Title("Adobe.Acrobat.Reader.32-bit") }
-if(${ID} -ne 1603){
-  if ((Test-Path  "${env:PROGRAMFILES}/Adobe/Acrobat DC/Acrobat/Acrobat.exe") -or (Test-Path  "${env:PROGRAMFILES(X86)}/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe")) {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("OpenMedia.4KVideoDownloader")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:PROGRAMFILES}/4KDownload/4kvideodownloader/4kvideodownloader.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("DeepL.DeepL")
-if(${ID} -ne 1603){
-  if (Test-Path "${env:LOCALAPPDATA}/DeepL/DeepL.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-<#
-${ID} = _Title("kite.kite")
-if(${ID} -ne 1603){
-  If (Test-Path "${env:PROGRAMFILES}/") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {else {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-#>
-
-
-${ID} = _Title("TranslucentTB.TranslucentTB")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES(X86)}/TranslucentTB/TranslucentTB.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Datronicsoft.SpacedeskDriver.Server")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:USERPROFILE}/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/spacedeskConsole.lnk") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("WiresharkFoundation.Wireshark")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/Wireshark/Wireshark.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
-}
-_br(2)
-
-
-${ID} = _Title("Microsoft.PowerShell")
-if(${ID} -ne 1603){
-  if (Test-Path  "${env:PROGRAMFILES}/PowerShell/7/pwsh.exe") {
-    _Update(${ID})
-  }
-  elseIf(_Want_To_Install(${ID})) {
-    _Install(${ID})
-  }
-}
-else{
-  _br(1)
+  _br(2)
 }
-_br(2)
 
 
 _Set_ExecutionPolicy
@@ -658,4 +180,3 @@ _br(2)
 
 _Write_Section("# winget/install.ps1 has finished.")
 _br(2)
-
