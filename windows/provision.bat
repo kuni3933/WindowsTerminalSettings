@@ -40,6 +40,7 @@ call :link_dir "%USERPROFILE%\.config\winfetch" "%winfetch_%"
 
 call :******************** neovim
 call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
+If exist "%LOCAL%\nvim\" del "%LOCAL%\nvim\"
 call :link_dir "%LOCAL%\nvim\" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\"
 rem call :link_file "%LOCAL%\nvim\colors.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\colors.toml"
 rem call :link_file "%LOCAL%\nvim\dein.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\dein.toml"
