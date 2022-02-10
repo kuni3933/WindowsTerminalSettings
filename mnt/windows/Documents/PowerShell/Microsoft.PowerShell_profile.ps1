@@ -89,7 +89,10 @@ Invoke-Expression (& {
 })
 
 #Set-PoshPrompt -Theme  ~/.oh-my-posh.json
-oh-my-posh --init --shell pwsh --config ~/.oh-my-posh.json | Invoke-Expression
+#oh-my-posh --init --shell pwsh --config ~/.oh-my-posh.json | Invoke-Expression
+
+#Set-PoshPrompt -Theme  ~/.config/starship.toml
+Invoke-Expression (&starship init powershell)
 
 #-----------------------------------------------------
 # fzf

@@ -109,6 +109,7 @@ set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
 If not exist "%USERPROFILE%\Documents" mkdir %USERPROFILE%\Documents"
 If not exist "%USERPROFILE%\Documents\PowerShell" mkdir %USERPROFILE%\Documents\PowerShell"
 call :link_file "%USERPROFILE%\.oh-my-posh.json" %WINDOWS_MNT%\.oh-my-posh.json
+call :link_file "%USERPROFILE%\.config\starship.toml" "%WINDOWS_MNT%\.config\starship.toml"
 call :link_file "%POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1" "%POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1"
 
 
