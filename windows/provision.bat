@@ -17,7 +17,6 @@ set dotfiles=%WindowsTerminalSettings%\dotfiles
 
 set pipes.sh=%WindowsTerminalSettings%\pipes.sh\pipes.sh
 set pipes_rs=%WindowsTerminalSettings%\mnt\windows\.config\pipes-rs
-
 set winfetch_=%WindowsTerminalSettings%\mnt\windows\.config\winfetch
 
 set ROAMING=%USERPROFILE%\AppData\Roaming
@@ -31,7 +30,7 @@ goto :tmp
 :tmp
 rem ------------------------------------------------------------------------------------------------------ÉÅÉCÉìèàóù
 :Main
-If not exist "%USERPROFILE%\.config\" mkdir "%USERPROFILE%\.config\"
+If not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
 
 call :******************** "pipes.sh/pipes-rs & winfetch"
 call :link_file "%USERPROFILE%\pipes.sh" "%pipes.sh%"
@@ -40,7 +39,7 @@ call :link_dir "%USERPROFILE%\.config\winfetch" "%winfetch_%"
 
 call :******************** neovim
 call :link_file "%USERPROFILE%\.vimrc" "%WINDOWS_MNT%\.vimrc"
-call :link_dir "%LOCAL%\nvim\" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\"
+call :link_dir "%LOCAL%\nvim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim"
 rem call :link_file "%LOCAL%\nvim\colors.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\colors.toml"
 rem call :link_file "%LOCAL%\nvim\dein.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\dein.toml"
 rem call :link_file "%LOCAL%\nvim\ginit.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\ginit.vim"
@@ -49,7 +48,7 @@ rem call :link_file "%LOCAL%\nvim\joke.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\jo
 rem call :link_file "%LOCAL%\nvim\lightlinerc.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\lightlinerc.vim"
 rem call :link_file "%LOCAL%\nvim\lsp.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\lsp.toml"
 rem call :link_file "%LOCAL%\nvim\skkeletonrc.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\skkeletonrc.vim"
-rem If not exist "%USERPROFILE%\.config\nvim\" mkdir "%USERPROFILE%\.config\nvim\"
+rem If not exist "%USERPROFILE%\.config\nvim" mkdir "%USERPROFILE%\.config\nvim"
 rem call :link_file "%USERPROFILE%\.config\nvim\colors.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\colors.toml"
 rem call :link_file "%USERPROFILE%\.config\nvim\dein.toml" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\dein.toml"
 rem call :link_file "%USERPROFILE%\.config\nvim\ginit.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\ginit.vim"
@@ -65,7 +64,7 @@ xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** "GitHub_CLI_config.yml"
 set ORIGIN_ghconfig="%WINDOWS_MNT%\ROAMINGAPPDATA\GitHub_CLI\config.yml"
-If not exist "%ROAMING%\GitHub CLI\" mkdir "%ROAMING%\GitHub CLI\"
+If not exist "%ROAMING%\GitHub CLI" mkdir "%ROAMING%\GitHub CLI"
 call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
 
 call :******************** "bat"
@@ -109,6 +108,7 @@ set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
 If not exist "%USERPROFILE%\Documents" mkdir %USERPROFILE%\Documents"
 If not exist "%USERPROFILE%\Documents\PowerShell" mkdir %USERPROFILE%\Documents\PowerShell"
 call :link_file "%USERPROFILE%\.oh-my-posh.json" %WINDOWS_MNT%\.oh-my-posh.json
+call :link_file "%USERPROFILE%\.config\starship.toml" "%WINDOWS_MNT%\.config\starship.toml"
 call :link_file "%POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1" "%POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1"
 
 

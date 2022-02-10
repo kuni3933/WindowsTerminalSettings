@@ -1,0 +1,296 @@
+format = """
+(bold white)$shlvl$status$username$directory$git_branch$git_status$git_commit\
+$aws\
+$cmake\
+$cobol\
+$conda\
+$crystal\
+$dart\
+$deno\
+$docker_context\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$gcloud\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$kubernetes\
+$lua\
+$nim\
+$nix_shell\
+$nodejs\
+$ocaml\
+$openstack\
+$package\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$red\
+$ruby\
+$rust\
+$scala\
+$sudo\
+$swift\
+$terraform\
+$vagrant\
+$vlang\
+$zig\
+$cmd_duration$memory_usage$battery$time
+(bold white)$character"""
+
+scan_timeout = 10
+#scan_timeout = 100
+
+[character]
+success_symbol = "[❯❯❯](bold white) "
+error_symbol =   "[❯❯❯](bold red) "
+#success_symbol = "[➤ ](bold white) "
+#error_symbol =   "[➤ ](bold red) "
+
+[shell]
+disabled = false
+
+[shlvl]
+disabled = false
+format = "[ Lv.$shlvl ](bold white)"
+threshold = 2
+
+[username]
+disabled = true
+show_always = true
+style_user = "bold green"
+style_root = "bold red"
+format = "[ $user]($style) "
+
+[directory]
+style = "bold blue"
+read_only_style = "white"
+fish_style_pwd_dir_length = 8
+format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
+truncation_length = 8
+truncation_symbol = ".../"
+
+[git_status]
+conflicted = " "
+untracked  = "？"
+stashed    = " "
+modified   = " "
+staged     = " "
+renamed    = " "
+deleted    = "✘ "
+style = "bold yellow"
+ahead = "▲ ${count}"
+behind = "▼ ${count}"
+diverged = "▲ ${ahead_count} ▼ ${behind_count}"
+
+[git_branch]
+style = "bold underline purple"
+
+[cmd_duration]
+format = "took [ $duration](bold white)"
+
+[time]
+disabled = true
+format = 'at [ $time](underline white) '
+time_format = "%T"
+utc_time_offset = "+9"
+
+[status]
+style = "red"
+symbol = " "
+not_executable_symbol = "🚫"
+not_found_symbol = " "
+sigint_symbol = " "
+signal_symbol = " "
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = " "
+style = "bold underline white"
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[aws]
+disabled = false
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+[aws.region_aliases]
+ap-southeast-2 = "au"
+us-east-1 = "va"
+
+[azure]
+disabled = false
+format = '\[[$symbol($subscription)]($style)\]'
+
+[cmake]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[cobol]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[conda]
+disabled = false
+format = '\[[$symbol$environment]($style)\]'
+
+[crystal]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[dart]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[deno]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[docker_context]
+disabled = false
+format = '\[[$symbol$context]($style)\]'
+
+[dotnet]
+disabled = false
+format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+
+[elixir]
+disabled = false
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+
+[elm]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[erlang]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[gcloud]
+disabled = false
+format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+
+[golang]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[helm]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[java]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[julia]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[kotlin]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[kubernetes]
+disabled = false
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[lua]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[nim]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[nix_shell]
+disabled = false
+format = '\[[$symbol$state( \($name\))]($style)\]'
+
+[nodejs]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[ocaml]
+disabled = false
+format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
+
+[openstack]
+disabled = false
+format = '\[[$symbol$cloud(\($project\))]($style)\]'
+
+[package]
+disabled = false
+format = '\[[$symbol$version]($style)\]'
+
+[perl]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[php]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[pulumi]
+disabled = false
+format = '\[[$symbol$stack]($style)\]'
+
+[purescript]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[python]
+disabled = false
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+[red]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[ruby]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[rust]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[scala]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[sudo]
+disabled = false
+format = '\[[as $symbol]\]'
+
+[swift]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[terraform]
+disabled = false
+format = '\[[$symbol$workspace]($style)\]'
+
+[vagrant]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[vlang]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[zig]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+
