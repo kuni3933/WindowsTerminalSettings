@@ -168,7 +168,6 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
   ],
   "profiles": {
     "defaults": {
-      "closeOnExit": "always",
       "colorScheme": "Iceberg", //"colorScheme": "Tango Dark",
       "fontFace": "PlemolJP Console NF",
       "fontSize": 12,
@@ -183,7 +182,10 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "padding": "0, 0, 0, 0",
       "snapOnInput": true,
       "backgroundImageOpacity": 0.125,
-      "backgroundImageStretchMode": "none"
+      "backgroundImageStretchMode": "none",
+      "closeOnExit": "graceful",
+      "bellStyle": "audible",
+      "experimental.useAtlasEngine": true
     },
     //実行するシェルの種類
     "list": [
