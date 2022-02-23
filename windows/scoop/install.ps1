@@ -116,7 +116,7 @@ _br(1)
 
 _Write_Title("# pwsh tool")
 scoop install `
-  oh-my-posh3 `
+  oh-my-posh `
   posh-git `
   starship
 _br(1)
