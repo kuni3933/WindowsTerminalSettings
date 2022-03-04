@@ -44,7 +44,7 @@ function _br([int16] ${times}) {
 function _Want_To_Install([string] ${msg}) {
   #$input = $(Write-Host "Please, type your Name" -NoNewLine) + $(Write-Host " EX: Praveen Kumar " -ForegroundColor yellow -NoNewLine; Read-Host)
   Write-Host(" ")
-  $bool = $(Write-Host("Do you want to install") -NoNewLine) + $(Write-Host(" ${msg} ") -NoNewLine -ForegroundColor Green) + $(Write-Host("? (y/n): ") -NoNewLine) + $(Read-Host)
+  $bool = $(Write-Host("Do you want to install") -NoNewLine) + $(Write-Host(" ${msg} ") -NoNewLine -ForegroundColor Green) + $(Write-Host("? [Y/n]: ") -NoNewLine) + $(Read-Host)
   if(${bool} -eq "y" -or ${bool} -eq "yes") {
     return 1
   } else {
