@@ -8,14 +8,17 @@ function _Winget_Version() {
 		return 1603
 	}
 
-  [int]${bit} = 0
-  if (${env:PROCESSOR_ARCHITECTURE} -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
-    ${bit} = 64
+  [string] ${bit} = "0"
+  if (${env:PROCESSOR_ARCHITECTURE} -ieq "AMD64" -or "X64") {
+    ${bit} = "x64"
+  }elseIf (${env:PROCESSOR_ARCHITECTURE} -ieq "X86") {
+    ${bit} = "x86"
+  }elseIf (${env:PROCESSOR_ARCHITECTURE} -ieq "IA64") {
+    ${bit} = "IA64"
+  }elseIf (${env:PROCESSOR_ARCHITECTURE} -ieq "ARM64") {
+    ${bit} = "ARM64"
   }
-  elseIf (${env:PROCESSOR_ARCHITECTURE} -ceq "X86") {
-    ${bit} = 86
-  }
-  _Write_Title("# Install the x${bit} version.")
+  _Write_Title("# Install the ${bit} version.")
 
   [System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
@@ -59,7 +62,7 @@ function _Title([string]${Name},[string] ${ID}) {
 		Write-Error -Message "ID is null or empty."
 		return 1603
 	}
-  _Write_Title("# " + ${Name})
+  _Write_Title("# " + "${Name} [${ID}]")
 
 	# Require "-PassThru" option to get ExitCode
 	[System.Diagnostics.Process] ${process} = Start-Process `
@@ -131,7 +134,7 @@ function  _Update([string] ${ID},[string] ${Options}) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("winget/install.ps1")
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
-${bit} = _Winget_Version
+[string] ${bit} = _Winget_Version
 _br(2)
 if(Test-Path "${MyPath}/PKGLIST.json"){
   $data = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
@@ -140,17 +143,16 @@ if(Test-Path "${MyPath}/PKGLIST.json"){
 		return 1603
 }
 
-
+[int] ${Count} = 0
 foreach (${index} in ${data}) {
   [string] ${Name} = ${index}."Name"
   [string] ${ID} = ${index}."ID"
-  #[string] ${Path} = ${index}."Path"
   [string] ${Install_Options} = ${index}."Install_Options"
   [string] ${Update_Options} = ${index}."Update_Options"
   [string] ${Message} = ${index}."Message"
-  [int]${Flag} =  ${index}."Flag"
+  [string] ${Flag} =  ${index}."Flag"
 
-  if(((_Title ${Name} ${ID}) -eq 0) -and ((${Flag} -eq 1) -or (${Flag} -eq ${bit}))){
+  if(((_Title ${Name} ${ID}) -eq 0) -and ((${Flag} -eq "1") -or (${Flag} -ieq ${bit}))){
     if((Select-String "${MyPath}/winget_log.txt" -Pattern ${Name} -CaseSensitive) -or (Select-String "${MyPath}/winget_log.txt" -Pattern ${ID} -CaseSensitive)){
       if(Test-Path "${MyPath}/${ID}.ps1"){ & "${MyPath}/${ID}.ps1" }
       if(${Update_Options} -eq ""){${Update_Options} = " "}
@@ -171,10 +173,12 @@ foreach (${index} in ${data}) {
     Write-Host("  Error:Either the ID is different, the ISA is different, or Flag is False.") -ForegroundColor Red
     _br(1)
   }
+  ${Count} += 1
   _br(2)
 }
 
-
+Write-Host("Count: ${Count}")
+_br(2)
 _Set_ExecutionPolicy
 _br(2)
 

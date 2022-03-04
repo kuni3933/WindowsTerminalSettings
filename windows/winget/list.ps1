@@ -8,14 +8,17 @@ function _Winget_Version() {
 		return 1603
 	}
 
-  [int]${bit} = 0
-  if (${env:PROCESSOR_ARCHITECTURE} -ceq "AMD64" -or "X64" -or "IA64" -or "ARM64") {
-    ${bit} = 64
+  [string]${bit} = "0"
+  if (${env:PROCESSOR_ARCHITECTURE} -ieq "AMD64" -or "X64") {
+    ${bit} = "x64"
+  }elseIf (${env:PROCESSOR_ARCHITECTURE} -ieq "X86") {
+    ${bit} = "x86"
+  }elseIf (${env:PROCESSOR_ARCHITECTURE} -ieq "IA64") {
+    ${bit} = "IA64"
+  }elseIf (${env:PROCESSOR_ARCHITECTURE} -ieq "ARM64") {
+    ${bit} = "ARM64"
   }
-  elseIf (${env:PROCESSOR_ARCHITECTURE} -ceq "X86") {
-    ${bit} = 86
-  }
-  _Write_Title("# Install the x${bit} version.")
+  _Write_Title("# Install the ${bit} version.")
 
   [System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "winget.exe" `
@@ -76,7 +79,7 @@ function _Title([string]${Name},[string] ${ID}) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("winget/list.ps1")
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
-${bit} = _Winget_Version
+[string] ${bit} = _Winget_Version
 _br(2)
 if(Test-Path "${MyPath}/PKGLIST.json"){
   $data = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
@@ -85,19 +88,27 @@ if(Test-Path "${MyPath}/PKGLIST.json"){
 		return 1603
 }
 
-
+[int] ${Count} = 0
 foreach (${index} in ${data}) {
   [string] ${Name} = ${index}."Name"
   [string] ${ID} = ${index}."ID"
+  [string] ${Flag} = ${index}."Flag"
 
+  Write-Host($(Write-Host("${Name} ") -NoNewline -ForegroundColor DarkCyan) + $(Write-Host("[") -NoNewline) + $(Write-Host("${ID}") -NoNewline -ForegroundColor Green) + $(Write-Host("]") -NoNewline))
   #Write-Host(${Name})
   #Write-Host(${ID})
-  Write-Host($(Write-Host("${Name} ") -NoNewline -ForegroundColor DarkCyan) + $(Write-Host("[") -NoNewline) + $(Write-Host("${ID}") -NoNewline -ForegroundColor Green) + $(Write-Host("]") -NoNewline))
+  #Write-Host("Flag: ${Flag}")
+  _br(1)
+  ${Count} += 1
 }
 
-_br(2)
-_Set_ExecutionPolicy
-_br(2)
+_br(1)
+Write-Host("Count: ${Count}")
 
+_br(1)
+_Set_ExecutionPolicy
+
+
+_br(2)
 _Write_Section("# winget/list.ps1 has finished.")
 _br(2)
