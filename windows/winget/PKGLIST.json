@@ -80,6 +80,14 @@
     "Flag": "1"
   },
   {
+    "Name": "EpocCam drivers",
+    "ID": "Elgato.EpocCam",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "foobar2000",
     "ID": "PeterPawlowski.foobar2000",
     "Install_Options": "",
@@ -271,6 +279,14 @@
   {
     "Name": "Wondershare PDFelement",
     "ID": "Wondershare.PDFelement",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Zoom",
+    "ID": "Zoom.Zoom",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
