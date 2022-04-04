@@ -40,6 +40,38 @@
     "Flag": "1"
   },
   {
+    "Name": "Brave",
+    "ID": "BraveSoftware.BraveBrowser",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "Brave Beta",
+    "ID": "BraveSoftware.BraveBrowser.Beta",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "Brave Dev",
+    "ID": "BraveSoftware.BraveBrowser.Dev",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Brave Nightly",
+    "ID": "BraveSoftware.BraveBrowser.Nightly",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "CORSAIR iCUE 4 Software",
     "ID": "Corsair.iCUE.4",
     "Install_Options": "",
