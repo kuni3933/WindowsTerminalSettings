@@ -40,6 +40,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Android Studio",
+    "ID": "Google.AndroidStudio",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Brave",
     "ID": "BraveSoftware.BraveBrowser",
     "Install_Options": "",
