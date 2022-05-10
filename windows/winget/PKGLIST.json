@@ -45,7 +45,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "0"
+    "Flag": "1"
   },
   {
     "Name": "Brave Beta",
@@ -61,7 +61,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "Brave Nightly",

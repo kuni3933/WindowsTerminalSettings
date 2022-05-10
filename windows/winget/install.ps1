@@ -153,7 +153,7 @@ foreach (${index} in ${data}) {
   [string] ${Flag} =  ${index}."Flag"
 
   if(((_Title ${Name} ${ID}) -eq 0) -and ((${Flag} -eq "1") -or (${Flag} -ieq ${bit}))){
-    if((Select-String "${MyPath}/winget_log.txt" -Pattern ${Name} -CaseSensitive) -or (Select-String "${MyPath}/winget_log.txt" -Pattern ${ID} -CaseSensitive)){
+    if((Select-String "${MyPath}/winget_log.txt" -Pattern "^${Name}/s" -CaseSensitive) -or (Select-String "${MyPath}/winget_log.txt" -Pattern "\s${ID}\s" -CaseSensitive)){
       if(Test-Path "${MyPath}/${ID}.ps1"){ & "${MyPath}/${ID}.ps1" }
       if(${Update_Options} -eq ""){${Update_Options} = " "}
       _Update ${ID} ${Update_Options}
