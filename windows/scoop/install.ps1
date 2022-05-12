@@ -92,15 +92,18 @@ scoop install `
   winfetch `
   gsudo `
   bat `
+  bit `
   bind `
   fd `
   fx `
   dust `
   7zip `
   fzf `
+  jo `
   jq `
   jx `
   jid `
+  gron `
   ripgrep `
   delta `
   lsd `
