@@ -250,6 +250,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Standard Notes",
+    "ID": "StandardNotes.StandardNotes",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "spacedesk Windows DRIVER",
     "ID": "Datronicsoft.SpacedeskDriver.Server",
     "Install_Options": "",
