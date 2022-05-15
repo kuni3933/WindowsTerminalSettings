@@ -32,6 +32,14 @@
     "Flag": "x86"
   },
   {
+    "Name": "Alacritty",
+    "ID": "Alacritty.Alacritty",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Amazon Kindle",
     "ID": "Amazon.Kindle",
     "Install_Options": "",
@@ -42,6 +50,22 @@
   {
     "Name": "Android Studio",
     "ID": "Google.AndroidStudio",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "AutoHotkey",
+    "ID": "Lexikos.AutoHotkey",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "balenaEtcher",
+    "ID": "Balena.Etcher",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -106,6 +130,22 @@
   {
     "Name": "Discord",
     "ID": "Discord.Discord",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Ditto",
+    "ID": "Ditto.Ditto",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "draw.io",
+    "ID": "JGraph.Draw",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -218,6 +258,22 @@
     "Flag": "1"
   },
   {
+    "Name": "Open Video Downloader",
+    "ID": "jely2002.youtube-dl-gui",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Postman",
+    "ID": "Postman.Postman",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "PowerShell",
     "ID": "Microsoft.PowerShell",
     "Install_Options": "",
@@ -294,6 +350,22 @@
     "ID": "9PF4KZ2VN4W9",
     "Install_Options": "--source msstore",
     "Update_Options": "--source msstore",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Typora",
+    "ID": "Typora.Typora",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "VcXsrv",
+    "ID": "marha.VcXsrv",
+    "Install_Options": "",
+    "Update_Options": "",
     "Message": [],
     "Flag": "1"
   },

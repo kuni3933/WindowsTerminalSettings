@@ -9,17 +9,20 @@ if (-Not (Get-Command("scoop"))) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("scoop/install.ps1")
 
-
-_Write_Title("# Add extras bucket")
-scoop bucket add extras
+_Write_Title("# Add Main bucket")
+scoop bucket add Main "https://github.com/ScoopInstaller/Main"
 _br(1)
 
-_Write_Title("# Add versions bucket")
-scoop bucket add versions
+_Write_Title("# Add Extras bucket")
+scoop bucket add Extras "https://github.com/ScoopInstaller/Extras"
+_br(1)
+
+_Write_Title("# Add Versions bucket")
+scoop bucket add Versions "https://github.com/ScoopInstaller/Versions"
 _br(1)
 
 _Write_Title("# Add nerd-fonts bucket")
-scoop bucket add nerd-fonts
+scoop bucket add nerd-fonts "https://github.com/matthewjberger/scoop-nerd-fonts"
 _br(1)
 
 <#
@@ -29,15 +32,15 @@ _br(1)
 #>
 
 _Write_Title("# Add Java bucket")
-scoop bucket add java
+scoop bucket add java "https://github.com/ScoopInstaller/Java"
 _br(1)
 
-_Write_Title("# Add pleiades bucket")
-scoop bucket add pleiades https://github.com/jfut/scoop-pleiades.git
+_Write_Title("# Add scoop-pleiades bucket")
+scoop bucket add pleiades "https://github.com/jfut/scoop-pleiades"
 _br(1)
 
 _Write_Title("# Add scoop-completion bucket")
-scoop bucket add scoop-completion https://github.com/Moeologist/scoop-completion
+scoop bucket add scoop-completion "https://github.com/Moeologist/scoop-completion"
 _br(1)
 
 _Write_Title("# scoop update")
@@ -45,110 +48,103 @@ scoop update
 _br(1)
 
 _Write_Title("# aria2")
-scoop install `
-  aria2 `
+scoop install Main/aria2
 
-_Write_Title("# busybox")
+_Write_Title("# Main/busybox")
 if(Test-Path ${env:USERPROFILE}/scoop/apps/busybox/current/busybox.exe){
-  scoop uninstall busybox
+  scoop uninstall Main/busybox
 }
-scoop install busybox
+scoop install Main/busybox
 
 _Write_Title("# uutils-coreutils")
 if(Test-Path ${env:USERPROFILE}/scoop/apps/uutils-coreutils/current/coreutils.exe){
-    scoop uninstall uutils-coreutils
+    scoop uninstall Main/uutils-coreutils
 }
-scoop install uutils-coreutils
+scoop install Main/uutils-coreutils
 
 # less
 if(Test-Path ${env:USERPROFILE}/scoop/apps/less/current/less.exe){
-    scoop uninstall less
+    scoop uninstall Main/less
 }
 
 _Write_Title("# CLI Tools")
 scoop install `
-  pipes-rs `
-  procs `
-  bottom `
-  hexyl `
-  streamlink `
-  youtube-dl `
-  colortool `
-  cowsay `
-  gh `
-  ghq `
-  gitignore `
-  heroku-cli `
-  nu `
-  onefetch `
-  pandoc `
-  scoop-completion `
-  less `
-  cacert `
-  hub `
-  imagemagick `
-  innounp `
-  neovim `
-  winfetch `
-  gsudo `
-  bat `
-  bit `
-  bind `
-  fd `
-  fx `
-  dust `
-  7zip `
-  fzf `
-  jo `
-  jq `
-  jx `
-  jid `
-  gron `
-  ripgrep `
-  delta `
-  lsd `
-  make `
-  ffmpeg `
-  vim `
-  broot `
-  xh `
-  zoxide `
-  task `
-  roswell
+  Extras/pipes-rs `
+  Main/procs `
+  Main/bottom `
+  Main/hexyl `
+  Extras/streamlink `
+  Main/youtube-dl `
+  Main/colortool `
+  Main/neo-cowsay `
+  Main/gh `
+  Main/ghq `
+  Main/gitignore `
+  Main/heroku-cli `
+  Main/nu `
+  Extras/onefetch `
+  Extras/terminal-icons `
+  Main/pandoc `
+  Extras/scoop-completion `
+  Main/less `
+  Main/cacert `
+  Main/hub `
+  Main/imagemagick `
+  Main/innounp `
+  Main/neovim `
+  Main/winfetch `
+  Main/gsudo `
+  Main/bat `
+  Main/bit `
+  Main/bind `
+  Main/fd `
+  Main/fx `
+  Main/dust `
+  Main/7zip `
+  Main/fzf `
+  Main/jo `
+  Main/jq `
+  Main/jx `
+  Main/jid `
+  Main/gron `
+  Main/ripgrep `
+  Main/delta `
+  Main/lsd `
+  Main/make `
+  Main/ffmpeg `
+  Main/vim `
+  Main/broot `
+  Main/xh `
+  Main/zoxide `
+  Main/task `
+  Main/roswell
 _br(1)
 
 _Write_Title("# pwsh tool")
 scoop install `
-  oh-my-posh `
-  posh-git `
-  starship
+  Main/oh-my-posh `
+  Extras/posh-git `
+  Main/starship
 _br(1)
 
 _Write_Title("# GUI Tools")
 scoop install `
-  alacritty `
-  bugn `
-  etcher `
-  typora `
-  dbeaver `
-  postman `
-  keypirinha `
-  ditto `
-  draw.io
+  Extras/bugn `
+  Extras/dbeaver `
+  Extras/keypirinha
 _br(1)
 
 _Write_Title("# Language / Framework / MiddleWare")
 scoop install `
-  volta `
-  deno `
-  dotnet-sdk-preview `
-  sed `
-  docker `
-  go `
-  rustup-msvc `
-  python `
-  hugo-extended `
-  vcxsrv
+  Main/volta `
+  Main/deno `
+  Main/dotnet-sdk `
+  Main/sed `
+  Main/docker `
+  Main/go `
+  Main/rustup-msvc `
+  Main/python `
+  Main/hugo-extended
 _br(1)
 
 <#
@@ -165,13 +161,8 @@ _br(1)
 
 _Write_Title("# fonts")
 scoop install `
-  SourceCodePro-NF `
-  SourceCodePro-NF-Mono
-_br(1)
-
-_Write_Title("# autohotkey-installer")
-scoop install autohotkey-installer
-# In the future..: scoop install volta
+  nerd-fonts/SourceCodePro-NF `
+  nerd-fonts/SourceCodePro-NF-Mono
 _br(1)
 
 _Write_Title("# scoop update *")

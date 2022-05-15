@@ -5,16 +5,11 @@ $IsSet = "$SplitDirPath/IsSet.ps1"
 # if((powershell $IsSet command_name -eq $true){alias...function...}
 # command_name...exa/cat/...etc
 
-if(Test-Path $env:USERPROFILE/scoop/apps/rustup-msvc/current/.cargo/bin/rusty-rain.exe){
-  if((Get-Random 2) -eq 0){
+if(((Get-Random 2) -eq 0) -AND (Test-Path "${env:USERPROFILE}/scoop/apps/pipes-rs/current/pipes-rs.exe")){
     pipes-rs
-  }
-  else{
-    rusty-rain -C 0,139,139 -H 255,255,255 -s
-  }
 }
-else{
-  pipes-rs
+elseif(Test-Path "${env:USERPROFILE}/scoop/apps/rustup-msvc/current/.cargo/bin/rusty-rain.exe"){
+    rusty-rain -C 0,139,139 -H 255,255,255 -s
 }
 winfetch.PS1
 
@@ -32,6 +27,21 @@ if(Get-Command nvim -ea SilentlyContinue){
 
 # c => clear
 Set-Alias c Clear-Host
+
+#ReturnPath => Resolve-Path
+Set-Alias ReturnPath Resolve-Path
+
+#Git/usr/bin
+[string] ${Git_usr_bin} = "null";
+if(Test-Path "${env:GIT_INSTALL_ROOT}/cmd/git.exe"){
+    ${Git_usr_bin} = "${env:GIT_INSTALL_ROOT}/usr/bin"
+}
+elseif(Test-Path "C:/Program Files/Git/cmd/git.exe"){
+    ${Git_usr_bin} = "C:/Program Files/Git//usr/bin"
+}
+if(${Git_usr_bin} -ne "null"){
+    Set-Alias tig "${Git_usr_bin}/tig"
+}
 
 ##############################
 # PSFzf
