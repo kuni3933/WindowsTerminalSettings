@@ -49,10 +49,6 @@ _Write_Title("# cargo install silicon")
 cargo install silicon
 _br(1)
 
-_Write_Title("# cargo install hexyl")
-cargo install hexyl
-_br(1)
-
 
 _Set_ExecutionPolicy
 _br(2)
