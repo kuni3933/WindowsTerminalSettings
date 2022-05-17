@@ -32,14 +32,14 @@ Set-Alias c Clear-Host
 Set-Alias ReturnPath Resolve-Path
 
 #Git/usr/bin
-[string] ${Git_usr_bin} = "null";
+[string] ${Git_usr_bin} = ${null};
 if(Test-Path "${env:GIT_INSTALL_ROOT}/cmd/git.exe"){
     ${Git_usr_bin} = "${env:GIT_INSTALL_ROOT}/usr/bin"
 }
 elseif(Test-Path "C:/Program Files/Git/cmd/git.exe"){
     ${Git_usr_bin} = "C:/Program Files/Git//usr/bin"
 }
-if(${Git_usr_bin} -ne "null"){
+if(${Git_usr_bin} -ne ${null}){
     Set-Alias tig "${Git_usr_bin}/tig"
 }
 
