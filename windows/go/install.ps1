@@ -9,6 +9,9 @@ if (-Not (Get-Command("go.exe"))) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("go/install.ps1")
 
+_Write_Title("go env -w GOBIN=${env:GOPATH}/bin")
+go env -w GOBIN=${env:GOPATH}/bin
+
 _Write_Title("# go clean -cache -testcache")
 go clean -cache -testcache -n
 go clean -cache -testcache
