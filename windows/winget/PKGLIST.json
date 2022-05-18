@@ -176,6 +176,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Fork - a fast and friendly git client",
+    "ID": "Fork.Fork",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Git",
     "ID": "Git.Git",
     "Install_Options": "",
