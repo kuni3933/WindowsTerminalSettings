@@ -9,11 +9,10 @@ if (-Not (Get-Command("choco.exe"))) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("Chocolatey/install.ps1")
 
-_Write_Title("# chocolatey version")
-chocolatey version
+_Write_Title("# chocolatey --version")
+chocolatey --version
 
 _Write_Title("# choco update all / choco upgrade all")
-choco update all
 choco upgrade all
 _br(1)
 
@@ -23,11 +22,6 @@ choco install choco-cleaner
 _Write_Title("# fonts")
 choco install font-hackgen
 choco install font-hackgen-nerd
-_br(1)
-
-_Write_Title("# choco update all / choco upgrade all")
-choco update all
-choco upgrade all
 _br(1)
 
 _Write_Title("# choco-cleaner.bat")
@@ -41,8 +35,8 @@ if(Test-Path "${env:USERPROFILE}/AppData/Local/Temp/chocolatey"){
 }
 _br(1)
 
-_Write_Title("# chocolatey version")
-chocolatey version
+_Write_Title("# chocolatey --version")
+chocolatey --version
 _br(1)
 
 
