@@ -53,6 +53,11 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory
 # ##############################
 Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)/modules/scoop-completion"
 
+##############################
+# volta tab-completions
+# ##############################
+(& volta completions powershell) | Out-String | Invoke-Expression
+
 #-----------------------------------------------------
 # General
 #-----------------------------------------------------
