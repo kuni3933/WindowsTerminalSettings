@@ -12,32 +12,33 @@ _Write_Section("volta-npm/install.ps1")
 
 _Write_Title("# volta")
 volta -v
+volta setup
 volta list all
 _br(1)
 
 _Write_Title("# volta install node@latest")
-if(Test-Path "${env:LOCALAPPDATA}/Volta/tools/image/node"){
-  Remove-Item -Recurse ${env:LOCALAPPDATA}/Volta/tools/image/node
+if(Test-Path "${VOLTA_HOME}/tools/image/node"){
+  Remove-Item -Recurse ${env:VOLTA_HOME}/tools/image/node
 }
 volta install node@latest
 _br(1)
 
 _Write_Title("# volta install npm@latest")
-if(Test-Path "${env:LOCALAPPDATA}/Volta/tools/image/npm"){
-  Remove-Item -Recurse ${env:LOCALAPPDATA}/Volta/tools/image/npm
+if(Test-Path "${env:VOLTA_HOME}/tools/image/npm"){
+  Remove-Item -Recurse ${env:VOLTA_HOME}/tools/image/npm
 }
 volta install npm@latest
 _br(1)
 
 _Write_Title("# volta install yarn@latest")
-if(Test-Path "${env:LOCALAPPDATA}/Volta/tools/image/yarn"){
-  Remove-Item -Recurse ${env:LOCALAPPDATA}/Volta/tools/image/yarn
+if(Test-Path "${env:VOLTA_HOME}/tools/image/yarn"){
+  Remove-Item -Recurse ${env:VOLTA_HOME}/tools/image/yarn
 }
 volta install yarn@latest
 _br(1)
 
-_Write_Title("# npm install -g npm-upgrade express-generator bcrypt")
-npm install -g npm-upgrade express-generator bcrypt
+_Write_Title("# npm install -g express-generator json-server npx")
+npm install -g json-server express-generator
 _br(1)
 
 _Write_Title("# volta list all")
