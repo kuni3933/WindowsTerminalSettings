@@ -169,8 +169,9 @@ echo Clone...
 echo   * spinal-reflex-bindings-template
 echo Create a shortcut of Xlaunch in `Star Menu / Program` with a to-link as following.
 echo   * ex: %USERPROFILE%\scoop\apps\vcxsrv\current\xlaunch.exe -run %WindowsTerminalSettings%\windows\config.xlaunch
-set xlaunch_Shortcut="%WindowsTerminalSettings%\windows\xlaunch.exe.lnk"
-copy "%xlaunch_Shortcut%" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\xlaunch.exe.lnk"
+set config_xlaunch="%WindowsTerminalSettings%\windows\config.xlaunch"
+call :link_file "%APPDATA%\Microsoft\Windows\Start Menu\Programs\config.xlaunch" "%config_xlaunch%"
+call :link_file "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\config.xlaunch" "%config_xlaunch%"
 
 goto :end
 
