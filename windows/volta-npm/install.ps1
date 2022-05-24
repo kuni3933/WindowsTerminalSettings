@@ -38,7 +38,7 @@ volta install yarn@latest
 _br(1)
 
 _Write_Title("# npm install -g express-generator json-server npx")
-npm install -g json-server express-generator
+npm install -g express-generator json-server typescript
 _br(1)
 
 _Write_Title("# volta list all")
