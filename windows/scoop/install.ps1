@@ -81,6 +81,7 @@ scoop install `
   Main/ghq `
   Main/gitignore `
   Main/heroku-cli `
+  Main/firebase `
   Main/nu `
   Extras/onefetch `
   Extras/terminal-icons `
