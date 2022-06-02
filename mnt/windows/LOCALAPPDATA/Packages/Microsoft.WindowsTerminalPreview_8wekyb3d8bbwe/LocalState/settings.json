@@ -16,12 +16,11 @@ https: //qiita.com/ma2shita/items/a6256ef3d81329f52ec7
       "command": "unbound",
       "keys": "ctrl+comma"
     },
-    /*
     {
-      "command": "unbound",
+      //"command": "unbound",
+      "command": "paste",
       "keys": "ctrl+v"
     },
-    */
     {
       "command": {
         "action": "copy",
