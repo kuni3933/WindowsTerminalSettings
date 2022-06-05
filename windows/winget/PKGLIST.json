@@ -173,7 +173,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "Fork - a fast and friendly git client",
@@ -252,6 +252,14 @@
   {
     "Name": "Mp3tag",
     "ID": "Mp3tag.Mp3tag",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "MusicBee",
+    "ID": "9P4CLT2RJ1RS",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],

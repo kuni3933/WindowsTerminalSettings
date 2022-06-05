@@ -151,17 +151,8 @@ if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe)
 # bat - cat with syntax highlight
 # https://github.com/sharkdp/bat
 if(Get-Command bat -ea SilentlyContinue){
-    if(Get-Alias cat -ea SilentlyContinue) {
-        Remove-Item alias:cat
-    }
-    if(Get-ChildItem Function:\cat -ea SilentlyContinue){
-        Remove-Item Function:cat
-    }
-    function rebat() { bat cache --build $args}
-    function cat() { bat --wrap auto $args}
-}
-else {
-    Set-Alias cat Get-Content
+    #function rebat() { bat cache --build $args}
+    function b() { bat --wrap auto $args}
 }
 
 # less
@@ -180,15 +171,12 @@ function sort() { $input | uutils sort $args}
 
 # 代替コマンドを使用
 Set-Alias grep rg
-function ls() { uutils ls $args }
-function tree() { exa --long --all --git --icons --tree --header }
 
 # Linuxコマンドのエイリアス
-function l() { exa --all --icons --classify }
-function la() { exa --all --icons --classify }
-function ls() { exa --icons }
-function ll() { exa --long --all --git --icons --header }
-function lt() { exa --long --all --git --icons --tree --header }
+function ls() { exa --git --icons $args }
+function ll() { exa --all --git --group --header --icons --long --time-style long-iso $args}
+function lt() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args}
+function tree() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args}
 
 #function awslocal { aws '--endpoint-url=http://localhost:4566' $args }
 
