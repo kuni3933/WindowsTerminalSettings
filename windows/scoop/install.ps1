@@ -98,6 +98,7 @@ scoop install `
   Main/bat `
   Main/bit `
   Main/bind `
+  Main/gping `
   Main/fd `
   Main/fx `
   Main/dust `
