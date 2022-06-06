@@ -21,7 +21,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "x64"
+    "Flag": "x64_0"
   },
   {
     "Name": "Adobe Acrobat Reader DC",
@@ -29,7 +29,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "x86"
+    "Flag": "x86_0"
   },
   {
     "Name": "Alacritty",
