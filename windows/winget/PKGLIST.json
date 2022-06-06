@@ -56,6 +56,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Arctype",
+    "ID": "Arctype.Arctype",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "AutoHotkey",
     "ID": "Lexikos.AutoHotkey",
     "Install_Options": "",
@@ -106,6 +114,14 @@
   {
     "Name": "CORSAIR iCUE 4 Software",
     "ID": "Corsair.iCUE.4",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "DBeaver",
+    "ID": "dbeaver.dbeaver",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -300,6 +316,14 @@
   {
     "Name": "PowerToys (Preview)",
     "ID": "Microsoft.PowerToys",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Qalculate!",
+    "ID": "Qalculate.Qalculate",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],

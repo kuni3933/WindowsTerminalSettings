@@ -132,7 +132,6 @@ _br(1)
 _Write_Title("# GUI Tools")
 scoop install `
   Extras/bugn `
-  Extras/dbeaver `
   Extras/keypirinha
 _br(1)
 
