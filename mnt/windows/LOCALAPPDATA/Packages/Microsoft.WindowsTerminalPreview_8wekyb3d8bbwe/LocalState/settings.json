@@ -17,10 +17,6 @@
       "keys": "ctrl+v"
     },
     {
-      "command": "unbound",
-      "keys": "ctrl+c"
-    },
-    {
       "command": "paste",
       "keys": "ctrl+shift+v"
     },
