@@ -224,6 +224,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Hourglass",
+    "ID": "dziemborowicz.hourglass",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "HWiNFO",
     "ID": "REALiX.HWiNFO",
     "Install_Options": "",
