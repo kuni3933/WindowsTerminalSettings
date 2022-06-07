@@ -306,6 +306,24 @@
     "Flag": "1"
   },
   {
+    "Name": "pomatez",
+    "ID": "roldanjr.pomatez",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [
+        "URL:https://github.com/roldanjr/pomatez"
+    ],
+    "Flag": "0"
+  },
+  {
+    "Name": "Pomotroid",
+    "ID": "splode.pomotroid",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Postman",
     "ID": "Postman.Postman",
     "Install_Options": "",
