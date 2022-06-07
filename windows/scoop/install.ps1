@@ -5,7 +5,9 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 if (-Not (Get-Command("scoop"))) {
 		Write-Error -Message "scoop is not installed." -ErrorAction Stop
 		return 1603
-	}
+}
+
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("scoop/install.ps1")
 
@@ -187,6 +189,7 @@ scoop cache show
 _br(1)
 
 _Write_Title("# scoop status")
+scoop list > "${MyPath}/scoop_log.txt"
 scoop status
 _br(1)
 
