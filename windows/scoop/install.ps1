@@ -100,7 +100,6 @@ scoop install `
   Main/heroku-cli `
   Main/hexyl `
   Main/hub `
-  Main/hx `
   Main/hyperfine `
   Main/imagemagick `
   Main/innounp `
