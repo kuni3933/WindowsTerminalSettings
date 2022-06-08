@@ -116,7 +116,7 @@ scoop install `
   Main/pandoc `
   Main/procs `
   Main/ripgrep `
-  Main/roswell
+  Main/roswell `
   Main/sd `
   Main/sed `
   Main/task `
@@ -151,7 +151,7 @@ scoop install `
   Main/docker `
   Main/dotnet-sdk `
   Main/go `
-  Main/hugo-extended
+  Main/hugo-extended `
   Main/python `
   Main/rustup-msvc `
   Main/volta
