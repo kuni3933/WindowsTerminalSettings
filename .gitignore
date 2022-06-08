@@ -16,8 +16,10 @@ test.ps1
 test.sh
 
 # windows/*/log.txt
-winget_log.txt
-scoop_log.txt
+windows/winget/winget_log.txt
+windows/scoop/scoop_log.txt
+windows/Python-pip/pip_freeze_log.txt
+windows/Python-pip/pip_log.txt
 
 # node
 package-lock.json

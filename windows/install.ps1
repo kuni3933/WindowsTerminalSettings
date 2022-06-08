@@ -41,6 +41,10 @@ _br(2)
 Invoke-Expression "$MyPath/volta-npm/install.ps1"
 _br(2)
 
+#_Write_Section("Python-pip/install.ps1")
+Invoke-Expression "$MyPath/Python-pip/install.ps1"
+_br(2)
+
 #_Write_Section("deno/install.ps1")
 Invoke-Expression "$MyPath/deno/install.ps1"
 _br(2)

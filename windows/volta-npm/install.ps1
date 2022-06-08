@@ -37,7 +37,7 @@ if(Test-Path "${env:VOLTA_HOME}/tools/image/yarn"){
 volta install yarn@latest
 _br(1)
 
-_Write_Title("# npm install -g create-react-app expo-cli express-generator json-server npx typescript")
+_Write_Title("# npm install -g create-react-app expo-cli express-generator gtop json-server npx tldr typescript")
 npm install -g create-react-app expo-cli express-generator json-server npx typescript
 _br(1)
 

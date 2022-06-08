@@ -71,64 +71,73 @@ if(Test-Path ${env:USERPROFILE}/scoop/apps/less/current/less.exe){
 
 _Write_Title("# CLI Tools")
 scoop install `
-  Extras/pipes-rs `
-  Main/procs `
+  Main/7zip `
+  Main/ag `
+  Main/bat `
+  Main/bind `
+  Main/bit `
   Main/bottom `
-  Main/hexyl `
-  Extras/streamlink `
-  Main/youtube-dl `
+  Main/broot `
+  Main/cacert `
+  Main/cheat `
   Main/colortool `
-  Main/neo-cowsay `
+  Main/curlie `
+  Main/delta `
+  Main/dog `
+  Main/duf `
+  Main/dust `
+  Main/fd `
+  Main/ffmpeg `
+  Main/firebase `
+  Main/fx `
+  Main/fzf `
   Main/gh `
   Main/ghq `
   Main/gitignore `
+  Main/gping `
+  Main/gron `
+  Main/gsudo `
   Main/heroku-cli `
-  Main/firebase `
-  Main/nu `
-  Extras/onefetch `
-  Extras/terminal-icons `
-  Main/pandoc `
-  Extras/scoop-completion `
-  Main/less `
-  Main/cacert `
+  Main/hexyl `
   Main/hub `
+  Main/hx `
+  Main/hyperfine `
   Main/imagemagick `
   Main/innounp `
-  Main/neovim `
-  Main/winfetch `
-  Main/gsudo `
-  Main/bat `
-  Main/bit `
-  Main/bind `
-  Main/gping `
-  Main/fd `
-  Main/fx `
-  Main/dust `
-  Main/7zip `
-  Main/fzf `
+  Main/jid `
   Main/jo `
   Main/jq `
   Main/jx `
-  Main/jid `
-  Main/gron `
-  Main/ripgrep `
-  Main/delta `
+  Main/less `
   Main/lsd `
   Main/make `
-  Main/ffmpeg `
-  Main/vim `
-  Main/broot `
-  Main/xh `
-  Main/zoxide `
-  Main/task `
+  Main/neo-cowsay `
+  Main/neovim `
+  Main/nu `
+  Main/pandoc `
+  Main/procs `
+  Main/ripgrep `
   Main/roswell
+  Main/sd `
+  Main/sed `
+  Main/task `
+  Main/vim `
+  Main/winfetch `
+  Main/xh `
+  Main/youtube-dl `
+  Main/zoxide `
+  Extras/onefetch `
+  Extras/pipes-rs `
+  Extras/scoop-completion `
+  Extras/streamlink `
+  Extras/terminal-icons
 _br(1)
 
 _Write_Title("# pwsh tool")
 scoop install `
   Main/oh-my-posh `
-  Extras/posh-git `
-  Main/starship
+  Main/starship `
+  Extras/posh-git
 _br(1)
 
 _Write_Title("# GUI Tools")
@@ -139,15 +148,14 @@ _br(1)
 
 _Write_Title("# Language / Framework / MiddleWare")
 scoop install `
-  Main/volta `
   Main/deno `
-  Main/dotnet-sdk `
-  Main/sed `
   Main/docker `
+  Main/dotnet-sdk `
   Main/go `
-  Main/rustup-msvc `
-  Main/python `
   Main/hugo-extended
+  Main/python `
+  Main/rustup-msvc `
+  Main/volta
 _br(1)
 
 <#
