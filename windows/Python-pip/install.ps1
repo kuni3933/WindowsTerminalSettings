@@ -13,9 +13,10 @@ _Write_Section("Python-pip/install.ps1")
 
 
 _Write_Title("# CLI Tools")
-pip install --upgrade --user `
+pip install --upgrade `
   'glances[action,browser,cloud,cpuinfo,docker,export,folders,gpu,graph,ip,raid,snmp,web,wifi]' `
-  'httpie'
+  'httpie' `
+  'windows-curses'
 _br(1)
 
 
