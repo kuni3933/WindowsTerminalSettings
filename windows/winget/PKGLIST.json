@@ -447,6 +447,14 @@
     "Flag": "1"
   },
   {
+    "Name": "VSCodium",
+    "ID": "VSCodium.VSCodium",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Windows Terminal Preview",
     "ID": "Microsoft.WindowsTerminal.Preview",
     "Install_Options": "",
