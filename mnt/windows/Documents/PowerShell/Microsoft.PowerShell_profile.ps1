@@ -151,7 +151,8 @@ if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe)
 # bat - cat with syntax highlight
 # https://github.com/sharkdp/bat
 if(Get-Command bat -ea SilentlyContinue){
-    #function rebat() { bat cache --build $args}
+    bat cache --build
+    function rebat() { bat cache --build $args}
     function b() { bat --wrap auto $args}
 }
 

@@ -63,12 +63,12 @@ set ORIGIN_gitconfig="%WindowsTerminalSettings%\windows\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** "GitHub_CLI_config.yml"
-set ORIGIN_ghconfig="%WINDOWS_MNT%\ROAMINGAPPDATA\GitHub_CLI\config.yml"
+set ORIGIN_ghconfig="%COMMON_MNT%\GitHub_CLI-gh\config.yml"
 If not exist "%ROAMING%\GitHub CLI" mkdir "%ROAMING%\GitHub CLI"
 call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
 
 call :******************** "bat"
-set ORIGIN_bat="%WINDOWS_MNT%\ROAMINGAPPDATA\bat"
+set ORIGIN_bat="%COMMON_MNT%\bat"
 call :link_dir "%ROAMING%\bat" "%ORIGIN_bat%"
 
 call :******************** IntelliJ IDEA
