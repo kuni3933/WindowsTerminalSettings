@@ -12,6 +12,8 @@
   interactive = auto
 	status = true
   ui = true
+[commit]
+  verbose = true
 [credential]
 	helper = manager-core
 [delta]
@@ -36,17 +38,17 @@
 	minus-emph-style = "syntax #445861"
 	minus-non-emph-style = "syntax #2D3841"
 [diff]
-    colorMoved = default
+  colorMoved = default
+  indentHeuristic = true
 [diff "astextplain"]
 	textconv = astextplain
+[fetch]
+  prune = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
   process = git-lfs filter-process
   required = true
   smudge = git-lfs smudge -- %f
-[ghq]
-  user = "kuni3933"
-  root = ~/ghq
 [help]
 	format = html
 [http]
@@ -65,3 +67,6 @@
 [rebase]
   #autoSquash =
   #autoStash =
+[status]
+  showUntrackedFiles = all
+
