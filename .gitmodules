@@ -2,6 +2,3 @@
     path = pipes.sh
     url = https://github.com/pipeseroni/pipes.sh
     branch = master
-[submodule "mnt/linux/Arch/.config/ranger/plugins/ranger_devicons"]
-	path = mnt/linux/Arch/.config/ranger/plugins/ranger_devicons
-	url = https://github.com/alexanderjeurissen/ranger_devicons
