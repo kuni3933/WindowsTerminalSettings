@@ -256,6 +256,14 @@
     "Flag": "0"
   },
   {
+    "Name": "Mark Text",
+    "ID": "MarkText.MarkText",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Microsoft Edge WebView2 Runtime",
     "ID": "Microsoft.EdgeWebView2Runtime",
     "Install_Options": "",
@@ -433,7 +441,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "VcXsrv",
