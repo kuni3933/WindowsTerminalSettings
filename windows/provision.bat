@@ -127,41 +127,6 @@ call :******************** Keypirinha
 set KEYPIRINHA_ORIGIN_DIR=%WINDOWS_MNT%\scoop\persist\keypirinha\portable\Profile\User
 call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini" "%KEYPIRINHA_ORIGIN_DIR%\Keypirinha.ini"
 
-call :******************** git config
-rem グローバル(ユーザー)設定
-git config --global core.quotepath true
-git config --global core.preloadindex true
-git config --global core.fscache true
-git config --global core.autoCRLF false
-git config --global merge.ff false
-git config --global pull.ff only
-rem 日本語パスの文字化け防止対策
-git config --global core.quotepath false
-rem git-delta
-git config --global core.whitespace cr-at-eol
-git config --global core.pager delta
-git config --global delta.navigate true
-git config --global delta.line-number true
-git config --global delta.side-by-side true
-git config --global delta.syntax-theme "Monokai Extended"
-rem git config --global delta.features "iceberg"
-git config --global delta.iceberg.syntax-theme "iceberg"
-git config --global delta.iceberg.file-style "bold #6b7089"
-git config --global delta.iceberg.file-decoration-style "#34394E ul"
-git config --global delta.iceberg.hunk-header-style "omit"
-git config --global delta.iceberg.line-numbers-left-style "#34394E"
-git config --global delta.iceberg.line-numbers-right-style "line-numbers-left-style"
-git config --global delta.iceberg.line-numbers-zero-style "#454b68"
-git config --global delta.iceberg.line-numbers-plus-style "line-numbers-zero-style"
-git config --global delta.iceberg.line-numbers-minus-style "line-numbers-zero-style"
-git config --global delta.iceberg.plus-style "syntax #353933"
-git config --global delta.iceberg.plus-emph-style "syntax #445861"
-git config --global delta.iceberg.plus-non-emph-style "syntax #2D3841"
-git config --global delta.iceberg.minus-style "syntax #3E2B32"
-git config --global delta.iceberg.minus-emph-style "syntax #445861"
-git config --global delta.iceberg.minus-non-emph-style "syntax #2D3841"
-git config --global interactive.diffFilter delta --color-only
-
 call :******************** To be continued.. (Not administrator
 
 echo Install Tablacus Explorer manually!
