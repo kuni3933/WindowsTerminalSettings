@@ -142,7 +142,8 @@ _br(1)
 _Write_Title("# GUI Tools")
 scoop install `
   Extras/bugn `
-  Extras/keypirinha
+  Extras/keypirinha `
+  Extras/lazygit
 _br(1)
 
 _Write_Title("# Language / Framework / MiddleWare")
