@@ -141,6 +141,7 @@ _br(1)
 
 _Write_Title("# GUI Tools")
 scoop install `
+  Main/gitui `
   Extras/bugn `
   Extras/keypirinha `
   Extras/lazygit
