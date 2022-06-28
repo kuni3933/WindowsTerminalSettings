@@ -463,6 +463,22 @@
     "Flag": "1"
   },
   {
+    "Name": "VNC Viewer",
+    "ID": "RealVNC.VNCViewer",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "VNC Server",
+    "ID": "RealVNC.VNCServer",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "VSCodium",
     "ID": "VSCodium.VSCodium",
     "Install_Options": "",
