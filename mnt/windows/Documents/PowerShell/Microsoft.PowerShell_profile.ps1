@@ -151,17 +151,8 @@ if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe)
 # bat - cat with syntax highlight
 # https://github.com/sharkdp/bat
 if(Get-Command bat -ea SilentlyContinue){
-    if(Get-Alias cat -ea SilentlyContinue) {
-        Remove-Item alias:cat
-    }
-    if(Get-ChildItem Function:\cat -ea SilentlyContinue){
-        Remove-Item Function:cat
-    }
     function rebat() { bat cache --build $args}
-    function cat() { bat --wrap auto $args}
-}
-else {
-    Set-Alias cat Get-Content
+    function b() { bat --wrap auto $args}
 }
 
 # less
@@ -180,15 +171,12 @@ function sort() { $input | uutils sort $args}
 
 # 代替コマンドを使用
 Set-Alias grep rg
-function ls() { uutils ls $args }
-function tree() { exa --long --all --git --icons --tree --header }
 
 # Linuxコマンドのエイリアス
-function l() { exa --all --icons --classify }
-function la() { exa --all --icons --classify }
-function ls() { exa --icons }
-function ll() { exa --long --all --git --icons --header }
-function lt() { exa --long --all --git --icons --tree --header }
+function ls() { exa --git --icons $args }
+function ll() { exa --all --git --group --header --icons --long --time-style long-iso $args}
+function lt() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args}
+function tree() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args}
 
 #function awslocal { aws '--endpoint-url=http://localhost:4566' $args }
 
@@ -232,6 +220,7 @@ function gls()   { git log -3}
 function gll()   { git log -10 --oneline --all --graph --decorate }
 function glll()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
 function glls()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10}
+function ggraph()  { git log --graph --all  --date=format:'%Y-%m-%d %H:%M' -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date-order }
 
 # git status
 function gs()  { git status --short }
@@ -278,3 +267,13 @@ $env:GO111MODULE = "on"
 
 $env:PATH += ";" + $env:LOCALAPPDATA + "\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\bin"
 $env:PATH += ";" + $env:USERPROFILE + "\git\bitbucket.org\ntj-developer\diamant\target\release"
+
+# Import the Chocolatey Profile that contains the necessary code to enable
+# tab-completions to function for `choco`.
+# Be aware that if you are missing these lines from your profile, tab completion
+# for `choco` will not function.
+# See https://ch0.co/tab-completion for details.
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}

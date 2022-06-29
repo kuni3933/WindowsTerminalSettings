@@ -25,7 +25,7 @@ _br(1)
 _Set_ExecutionPolicy
 _br(2)
 
-_Write_Section("# volta-npm/install.ps1 has finished.")
+_Write_Section("# deno/install.ps1 has finished.")
 _br(2)
 
 

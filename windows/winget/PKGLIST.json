@@ -13,7 +13,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "Adobe Acrobat DC (64-bit)",
@@ -21,7 +21,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "x64"
+    "Flag": "x64_0"
   },
   {
     "Name": "Adobe Acrobat Reader DC",
@@ -29,7 +29,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "x86"
+    "Flag": "x86_0"
   },
   {
     "Name": "Alacritty",
@@ -56,6 +56,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Arctype",
+    "ID": "Arctype.Arctype",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "AutoHotkey",
     "ID": "Lexikos.AutoHotkey",
     "Install_Options": "",
@@ -69,7 +77,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "Brave",
@@ -106,6 +114,14 @@
   {
     "Name": "CORSAIR iCUE 4 Software",
     "ID": "Corsair.iCUE.4",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "DBeaver",
+    "ID": "dbeaver.dbeaver",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -173,7 +189,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "Fork - a fast and friendly git client",
@@ -208,6 +224,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Hourglass",
+    "ID": "dziemborowicz.hourglass",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "HWiNFO",
     "ID": "REALiX.HWiNFO",
     "Install_Options": "",
@@ -230,6 +254,22 @@
     "Update_Options": "",
     "Message": [],
     "Flag": "0"
+  },
+  {
+    "Name": "Mark Text",
+    "ID": "MarkText.MarkText",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Microsoft Edge WebView2 Runtime",
+    "ID": "Microsoft.EdgeWebView2Runtime",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
   },
   {
     "Name": "Microsoft Visual Studio Code",
@@ -258,6 +298,14 @@
     "Flag": "1"
   },
   {
+    "Name": "MusicBee",
+    "ID": "9P4CLT2RJ1RS",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Notion",
     "ID": "Notion.Notion",
     "Install_Options": "",
@@ -268,6 +316,24 @@
   {
     "Name": "Open Video Downloader",
     "ID": "jely2002.youtube-dl-gui",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "pomatez",
+    "ID": "roldanjr.pomatez",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [
+        "URL:https://github.com/roldanjr/pomatez"
+    ],
+    "Flag": "0"
+  },
+  {
+    "Name": "Pomotroid",
+    "ID": "splode.pomotroid",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -292,6 +358,14 @@
   {
     "Name": "PowerToys (Preview)",
     "ID": "Microsoft.PowerToys",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "Qalculate!",
+    "ID": "Qalculate.Qalculate",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -367,7 +441,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "VcXsrv",
@@ -387,6 +461,30 @@
       "Download the 'C++ Build Tools' from Visual Studio Installer."
     ],
     "Flag": "1"
+  },
+  {
+    "Name": "VNC Viewer",
+    "ID": "RealVNC.VNCViewer",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "VNC Server",
+    "ID": "RealVNC.VNCServer",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "VSCodium",
+    "ID": "VSCodium.VSCodium",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
   },
   {
     "Name": "Windows Terminal Preview",

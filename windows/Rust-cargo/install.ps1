@@ -37,12 +37,16 @@ rustup component add `
   rustfmt
 _br(1)
 
-_Write_Title(" cargo install rusty-rain")
-cargo install rusty-rain
+_Write_Title("# cargo install choose")
+cargo install choose
 _br(1)
 
 _Write_Title("# cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support")
 cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support
+_br(1)
+
+_Write_Title("# cargo install rusty-rain")
+cargo install rusty-rain
 _br(1)
 
 _Write_Title("# cargo install silicon")

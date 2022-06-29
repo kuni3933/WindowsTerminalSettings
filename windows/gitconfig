@@ -1,33 +1,72 @@
 [core]
-	autocrlf = true
+  autoCRLF = false
 	fscache = true
-	symlinks = true
+  ignorecase = false
+	preloadindex = true
+	quotepath = false
+  safecrlf = true
+	whitespace = cr-at-eol
 [color]
+  branch = true
 	diff = auto
-	status = auto
-	branch = auto
-	interactive = true
-[help]
-	format = html
+  interactive = auto
+	status = true
+  ui = true
+[commit]
+  verbose = true
+[credential]
+	helper = manager-core
+[delta]
+	navigate = true
+	line-number = true
+	side-by-side = true
+  #syntax-theme = iceberg
+[delta "iceberg"]
+  syntax-theme = iceberg
+  file-style = bold "#6b7089"
+  file-decoration-style = "#34394E" ul
+  hunk-header-style = omit
+  line-numbers-left-style = "#34394E"
+  line-numbers-right-style = line-numbers-left-style
+  line-numbers-zero-style = "#454b68"
+  line-numbers-plus-style = line-numbers-zero-style
+  line-numbers-minus-style = line-numbers-zero-style
+  plus-style = syntax "#353933"
+  plus-emph-style = syntax "#445861"
+  plus-non-emph-style = syntax "#2D3841"
+  minus-style = syntax "#3E2B32"
+  minus-emph-style = syntax "#445861"
+  minus-non-emph-style = syntax "#2D3841"
+[diff]
+  colorMoved = default
+  indentHeuristic = true
 [diff "astextplain"]
 	textconv = astextplain
-[rebase]
-	autosquash = true
+[fetch]
+  prune = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f
+[help]
+	format = html
 [http]
 	sslBackend = openssl
 	sslCAInfo = C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
-[pull]
-	rebase = false
-[credential]
-	helper = manager-core
-[credential "https://dev.azure.com"]
-	useHttpPath = true
-[alias]
-    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
 [init]
-	defaultBranch = master
+  defaultBranch = master
+[merge]
+	ff = false
+  conflictstyle = diff3
+[pull]
+  ff = only
+	rebase = false
+[push]
+  default = nothing
+[rebase]
+  #autoSquash =
+  #autoStash =
+[status]
+  showUntrackedFiles = all
+

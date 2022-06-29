@@ -1,6 +1,6 @@
 @echo off
-chcp 932
-rem ------------------------------------------------------------------------------------------------------•Ï”/ƒpƒX‚ÌƒZƒbƒgˆ—
+chcp 65001
+rem ------------------------------------------------------------------------------------------------------å¤‰æ•°/ãƒ‘ã‚¹ã®ã‚»ãƒƒãƒˆå‡¦ç†
 cd "%~dp0../"
 set WindowsTerminalSettings=%CD%
 set WINDOWS=%WindowsTerminalSettings%\windows
@@ -25,10 +25,10 @@ set SCOOP=%USERPROFILE%\scoop
 
 
 
-rem :tmp‚ğ“®‚©‚·‚±‚Æ‚ÅÀsŠJn‰ÓŠ‚ğ§Œä. ƒfƒoƒbƒO‚â“®ìŠm”F—p
+rem :tmpã‚’å‹•ã‹ã™ã“ã¨ã§å®Ÿè¡Œé–‹å§‹ç®‡æ‰€ã‚’åˆ¶å¾¡. ãƒ‡ãƒãƒƒã‚°ã‚„å‹•ä½œç¢ºèªç”¨
 goto :tmp
 :tmp
-rem ------------------------------------------------------------------------------------------------------ƒƒCƒ“ˆ—
+rem ------------------------------------------------------------------------------------------------------ãƒ¡ã‚¤ãƒ³å‡¦ç†
 :Main
 If not exist "%USERPROFILE%\.config" mkdir "%USERPROFILE%\.config"
 
@@ -59,17 +59,24 @@ rem call :link_file "%USERPROFILE%\.config\nvim\lsp.toml" "%WINDOWS_MNT%\LOCALAP
 rem call :link_file "%USERPROFILE%\.config\nvim\skkeletonrc.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\skkeletonrc.vim"
 
 call :******************** Copying_gitconfig
-set ORIGIN_gitconfig="%WindowsTerminalSettings%\windows\gitconfig"
+set ORIGIN_gitconfig="%WINDOWS%\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** "GitHub_CLI_config.yml"
-set ORIGIN_ghconfig="%WINDOWS_MNT%\ROAMINGAPPDATA\GitHub_CLI\config.yml"
+set ORIGIN_ghconfig="%COMMON_MNT%\GitHub_CLI-gh\config.yml"
 If not exist "%ROAMING%\GitHub CLI" mkdir "%ROAMING%\GitHub CLI"
 call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
 
 call :******************** "bat"
-set ORIGIN_bat="%WINDOWS_MNT%\ROAMINGAPPDATA\bat"
+set ORIGIN_bat="%COMMON_MNT%\bat"
 call :link_dir "%ROAMING%\bat" "%ORIGIN_bat%"
+
+call :******************** "pomotroid"
+set ORIGIN_pomotroid="%COMMON_MNT%\pomotroid\pomotroid-Iceberg"
+If not exist "%ROAMING%\pomotroid" mkdir "%ROAMING%\pomotroid"
+If not exist "%ROAMING%\pomotroid\themes" mkdir "%ROAMING%\pomotroid\themes"
+call :link_file "%ROAMING%\pomotroid\themes\Iceberg.json" "%ORIGIN_pomotroid%\Iceberg.json"
+call :link_file "%ROAMING%\pomotroid\themes\Iceberg-LightBlue.json" "%ORIGIN_pomotroid%\Iceberg-LightBlue.json"
 
 call :******************** IntelliJ IDEA
 
@@ -127,41 +134,6 @@ call :******************** Keypirinha
 set KEYPIRINHA_ORIGIN_DIR=%WINDOWS_MNT%\scoop\persist\keypirinha\portable\Profile\User
 call :link_file "%SCOOP%\persist\keypirinha\portable\Profile\User\Keypirinha.ini" "%KEYPIRINHA_ORIGIN_DIR%\Keypirinha.ini"
 
-call :******************** git config
-rem ƒOƒ[ƒoƒ‹(ƒ†[ƒU[)İ’è
-git config --global core.quotepath true
-git config --global core.preloadindex true
-git config --global core.fscache true
-git config --global core.autoCRLF false
-git config --global merge.ff false
-git config --global pull.ff only
-rem “ú–{ŒêƒpƒX‚Ì•¶š‰»‚¯–h~‘Îô
-git config --global core.quotepath false
-rem git-delta
-git config --global core.whitespace cr-at-eol
-git config --global core.pager delta
-git config --global delta.navigate true
-git config --global delta.line-number true
-git config --global delta.side-by-side true
-git config --global delta.syntax-theme "Monokai Extended"
-rem git config --global delta.features "iceberg"
-git config --global delta.iceberg.syntax-theme "iceberg"
-git config --global delta.iceberg.file-style "bold #6b7089"
-git config --global delta.iceberg.file-decoration-style "#34394E ul"
-git config --global delta.iceberg.hunk-header-style "omit"
-git config --global delta.iceberg.line-numbers-left-style "#34394E"
-git config --global delta.iceberg.line-numbers-right-style "line-numbers-left-style"
-git config --global delta.iceberg.line-numbers-zero-style "#454b68"
-git config --global delta.iceberg.line-numbers-plus-style "line-numbers-zero-style"
-git config --global delta.iceberg.line-numbers-minus-style "line-numbers-zero-style"
-git config --global delta.iceberg.plus-style "syntax #353933"
-git config --global delta.iceberg.plus-emph-style "syntax #445861"
-git config --global delta.iceberg.plus-non-emph-style "syntax #2D3841"
-git config --global delta.iceberg.minus-style "syntax #3E2B32"
-git config --global delta.iceberg.minus-emph-style "syntax #445861"
-git config --global delta.iceberg.minus-non-emph-style "syntax #2D3841"
-git config --global interactive.diffFilter delta --color-only
-
 call :******************** To be continued.. (Not administrator
 
 echo Install Tablacus Explorer manually!
@@ -178,10 +150,10 @@ goto :end
 
 
 rem  ------------------------------------------------------------------------------------------------------
-rem  --------------------------------ˆÈ‰ºg—p‚·‚éŠÖ”----------------------------------------------------
+rem  --------------------------------ä»¥ä¸‹ä½¿ç”¨ã™ã‚‹é–¢æ•°----------------------------------------------------
 rem  ------------------------------------------------------------------------------------------------------
 
-rem ------------------------------------------------------------------------------------------------------ƒƒCƒ“ˆ—‚ÌŠÖ”
+rem ------------------------------------------------------------------------------------------------------ãƒ¡ã‚¤ãƒ³å‡¦ç†ã®é–¢æ•°
 :link_windows_home
 call :link_file %USERPROFILE%\%1 %WINDOWS_MNT%\%1
 exit /b
@@ -223,12 +195,12 @@ exit /b
 exit /b
 
 :********************
-echo „¬„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª
-echo „« %*
-echo „¯„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª„ª
+echo â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+echo â”ƒ %*
+echo â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 exit /b
 
-REM “r’†‚Å~‚ß‚½‚¢ê‡‚Í‚±‚±‚É..
+REM é€”ä¸­ã§æ­¢ã‚ãŸã„å ´åˆã¯ã“ã“ã«..
 :end
 echo:
 pause
