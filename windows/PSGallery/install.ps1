@@ -23,6 +23,7 @@ _br(1)
 
 _Write_Title("Chocolatey")
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+choco upgrade chocolatey
 _br(1)
 
 _Write_Title("Invoke-WebRequest dein.vim/master/bin/installer.ps1 -OutFile ~/installer.ps1")

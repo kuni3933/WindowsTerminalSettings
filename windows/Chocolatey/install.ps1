@@ -12,6 +12,9 @@ _Write_Section("Chocolatey/install.ps1")
 _Write_Title("# chocolatey --version")
 chocolatey --version
 
+_Write_Title("# choco upgrade chocolatey")
+choco upgrade chocolatey
+
 _Write_Title("# choco upgrade all")
 choco upgrade all
 _br(1)
