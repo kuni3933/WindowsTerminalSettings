@@ -59,7 +59,7 @@ rem call :link_file "%USERPROFILE%\.config\nvim\lsp.toml" "%WINDOWS_MNT%\LOCALAP
 rem call :link_file "%USERPROFILE%\.config\nvim\skkeletonrc.vim" "%WINDOWS_MNT%\LOCALAPPDATA\nvim\skkeletonrc.vim"
 
 call :******************** Copying_gitconfig
-set ORIGIN_gitconfig="%WindowsTerminalSettings%\windows\gitconfig"
+set ORIGIN_gitconfig="%WINDOWS%\gitconfig"
 xcopy "%ORIGIN_gitconfig%" "%GIT_INSTALL_ROOT%\etc\gitconfig"
 
 call :******************** "GitHub_CLI_config.yml"
@@ -70,6 +70,13 @@ call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
 call :******************** "bat"
 set ORIGIN_bat="%COMMON_MNT%\bat"
 call :link_dir "%ROAMING%\bat" "%ORIGIN_bat%"
+
+call :******************** "pomotroid"
+set ORIGIN_pomotroid="%COMMON_MNT%\pomotroid\pomotroid-Iceberg"
+If not exist "%ROAMING%\pomotroid" mkdir "%ROAMING%\pomotroid"
+If not exist "%ROAMING%\pomotroid\themes" mkdir "%ROAMING%\pomotroid\themes"
+call :link_file "%ROAMING%\pomotroid\themes\Iceberg.json" "%ORIGIN_pomotroid%\Iceberg.json"
+call :link_file "%ROAMING%\pomotroid\themes\Iceberg-LightBlue.json" "%ORIGIN_pomotroid%\Iceberg-LightBlue.json"
 
 call :******************** IntelliJ IDEA
 

@@ -2,3 +2,6 @@
     path = pipes.sh
     url = https://github.com/pipeseroni/pipes.sh
     branch = master
+[submodule "mnt/common/pomotroid/pomotroid-Iceberg"]
+	path = mnt/common/pomotroid/pomotroid-Iceberg
+	url = https://github.com/kuni3933/pomotroid-Iceberg
