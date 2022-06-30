@@ -124,6 +124,7 @@ scoop install `
   Main/winfetch `
   Main/xh `
   Main/youtube-dl `
+  Main/yq `
   Main/zoxide `
   Extras/onefetch `
   Extras/pipes-rs `
