@@ -50,9 +50,9 @@ depends = ['airblade/vim-gitgutter', 'sinetoami/lightline-hunks']
 [[plugins]]
 repo = 'gkeep/iceberg-dark'
 depends = ['itchyny/lightline.vim']
-#hook_add = '''
-#let g:lightline.colorscheme = 'icebergDark'
-#'''
+hook_add = '''
+let g:lightline#colorscheme = 'icebergDark'
+'''
 
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
@@ -128,9 +128,6 @@ nnoremap <Leader>tc :<C-u>TigOpenFileWithCommit<CR>
 #depends = ['rbgrouleff/bclose.vim']
 
 [[plugins]]
-repo = 'voldikss/vim-floaterm'
-
-[[plugins]]
 repo = 'ptzz/lf.vim'
 depends = ['voldikss/vim-floaterm']
 hook_add = '''
@@ -138,6 +135,9 @@ let g:lf_replace_netrw = 1
 let g:lf_command_override = 'lf -command "set hidden"'
 nnoremap <Leader>lc :Lflcd<CR>
 '''
+
+[[plugins]]
+repo = 'voldikss/vim-floaterm'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
