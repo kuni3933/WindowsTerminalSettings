@@ -1,10 +1,4 @@
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
-hook_add = '''
-colorscheme iceberg
-'''
-
-[[plugins]]
 repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
@@ -18,6 +12,12 @@ repo = 'fcpg/vim-orbital'
 
 [[plugins]]
 repo = 'sainnhe/edge'
+
+[[plugins]]
+repo = 'sainnhe/sonokai'
+
+[[plugins]]
+repo = 'sainnhe/everforest'
 
 [[plugins]]
 repo = 'elianiva/icy.nvim'
@@ -37,3 +37,21 @@ repo = 'eskilop/NorthernLights.vim'
 [[plugins]]
 repo = 'pgdouyon/vim-alayas'
 
+[[plugins]]
+repo = 'cocopon/pgmnt.vim'
+
+[[plugins]]
+repo = 'kjssad/quantum.vim'
+
+[[plugins]]
+repo = 'projekt0n/github-nvim-theme'
+
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
+hook_add = '''
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+'''
+
+[[plugin]]
+repo = 'hachy/eva01.vim'

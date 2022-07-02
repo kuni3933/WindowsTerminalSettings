@@ -1,0 +1,5 @@
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'rbgrouleff/bclose.vim'

@@ -1,10 +1,11 @@
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+colorscheme iceberg
+'''
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
-hoook_add = '''
-nmap s <Nop>
-tmap s <Nop>
-'''
 
 #[[plugins]]
 #repo = 'rhysd/accelerated-jk'
@@ -25,7 +26,7 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = '4513ECHO/vim-readme-viewer'
 hook_add = '''
-let g:readme_viewer#plugin_manager = 'dein.vim' 
+let g:readme_viewer#plugin_manager = 'dein.vim'
 '''
 
 [[plugins]]
@@ -33,61 +34,72 @@ repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-depends = ['vim-skk/skkeleton']
+depends = ['vim-skk/skkeleton',]
 hook_add = '''
-source $HOME/AppData/Local/nvim/lightlinerc.vim
+source "{g:nvim_config_path}/lightlinerc.vim"
 '''
+
+[[plugins]]
+repo = 'yasunori-kirin0418/lightline_skk.vim'
+depends = ['itchyny/lightline.vim', 'vim-skk/skkeleton']
+
+[[plugins]]
+repo = 'sineto/lightline-hunks'
+depends = ['airblade/vim-gitgutter', 'sinetoami/lightline-hunks']
 
 [[plugins]]
 repo = 'gkeep/iceberg-dark'
 depends = ['itchyny/lightline.vim']
-hook_add = '''
-let g:lightline.colorscheme = 'icebergDark'
-'''
+#hook_add = '''
+#let g:lightline.colorscheme = 'icebergDark'
+#'''
 
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
 
 [[plugins]]
-repo = 'lambdalisue/gina.vim'
+repo = 'lambdalisue/gin.vim'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 
 [[plugins]]
-repo = 'lambdalisue/guise.vim'
-depends = ['vim-denops/denops.vim']
-
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
+nnoremap <Leader>pb :<C-u>CtrlPBuffer<CR>
+nnoremap <Leader>pf :<C-u>CtrlPBuffer<CR>
+nnoremap <Leader>pm :<C-u>CtrlPMRU<CR>
+'''
 
 [[plugins]]
 repo = 'mattn/ctrlp-ghq'
+hook_add = '''
+let g:ctrlp_ghq_actions = [
+\ {"label": "Open", "action": "e", "path": 1},
+\ {"label": "Look", "action": "!ghq look", "path": 0},
+\]
+nnoremap <Leader>pg :<C-u>CtrlPGhq<CR>
+'''
+
+[[plugins]]
+repo = 'mattn/ctrlp-lsp'
+hook_add = '''
+nnoremap <Leader>ps :<C-u>CtrlPLspDocumentSymbol<CR>
+'''
 
 [[plugins]]
 repo = 'mattn/vim-makedir-for'
 
 [[plugins]]
 repo = 'mattn/vim-maketable'
-
-[[plugins]]
-repo = 'vim-denops/denops-helloworld.vim'
-depends = ['vim-denops/denops.vim']
-
-[[plugins]]
-repo = 'vim-skk/skkeleton'
-depends = ['vim-denops/denops.vim']
-hook_add = '''
-source $HOME/AppData/Local/nvim/skkeletonrc.vim
-'''
-
-[[plugins]]
-repo = 'kat0h/bufpreview.vim'
-depends = ['vim-denops/denops.vim']
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
@@ -102,11 +114,50 @@ repo = 'nanotee/zoxide.vim'
 [[plugins]]
 repo = 'iberianpig/tig-explorer.vim'
 depends = ['rbgrouleff/bclose.vim']
+hook_add = '''
+nnoremap <Leader>tg :<C-u>TigGrep<CR>
+nnoremap <Leader>tb :<C-u>TigBlame<CR>
+nnoremap <Leader>ts :<C-u>TigStatus<CR>
+nnoremap <Leader>tr :<C-u>TigOpenProjectRootDir<CR>
+nnoremap <Leader>tf :<C-u>TigOpenCurrentFile<CR>
+nnoremap <Leader>tc :<C-u>TigOpenFileWithCommit<CR>
+'''
+
+#[[plugins]]
+#repo = 'iberianpig/ranger-explorer.vim'
+#depends = ['rbgrouleff/bclose.vim']
 
 [[plugins]]
-repo = 'iberianpig/ranger-explorer.vim'
-depends = ['rbgrouleff/bclose.vim']
+repo = 'voldikss/vim-floaterm'
+
+[[plugins]]
+repo = 'ptzz/lf.vim'
+depends = ['voldikss/vim-floaterm']
+hook_add = '''
+let g:lf_replace_netrw = 1
+let g:lf_command_override = 'lf -command "set hidden"'
+nnoremap <Leader>lc :Lflcd<CR>
+'''
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
+hook_add = '''
+let g:goimports = 1
+let g:goimports_simplify = 1
+let g:goimports_simplify_cmd = 'gofumpt'
+'''
 
+[[plugins]]
+repo = 'mattn/emmet-vim'
+hook_add = '''
+let g:user_emmet_leader_key = '<C-y>'
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'rakr/vim-togglebg'
+
+[[plugins]]
+repo = 'mattn/vim-findroot'

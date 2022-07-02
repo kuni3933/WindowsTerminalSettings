@@ -7,8 +7,11 @@ repo = 'sheepla/mayano.vim'
 # [[plugins]]
 # repo = 'mattn/die-vim'
 
-[[plugins]]
-repo = 'unkontributors/super_unko.vim'
+#[[plugins]]
+#repo = 'unkontributors/super_unko.vim'
 
 #[[plugins]]
 #repo = 'skanehira/christmas.vim'
+
+[[plugins]]
+repo = 'pocke/sushibar.vim'

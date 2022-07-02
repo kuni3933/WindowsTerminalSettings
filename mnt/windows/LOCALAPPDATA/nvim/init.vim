@@ -1,10 +1,5 @@
-" Clipboard magic?
-set clipboard+=unnamed
-
-" Number --------------------------------- {{{
-set number
-set norelativenumber
-" }}}
+let g:nvim_config_path = expand('<sfile>:p:h')
+source "{g:nvim_config_path}/kuni3933_init.vim"
 
 "
 "     __  ___                               _    ___
@@ -22,14 +17,14 @@ set termencoding=utf-8
 
 " file
 set autoread
-set autochdir
+"set autochdir
 set hidden
 
 " desable sound
 set belloff=all
 
 " indent
-"set autoindent
+set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -42,7 +37,7 @@ set completeopt-=preview
 set clipboard+=unnamed
 set showtabline=2
 set list
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+set listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%
 set scrolloff=5
 
 " colorscheme
@@ -67,16 +62,79 @@ set backspace=indent,eol,start
 set number
 "set relativenumber
 
+" indent
+augroup vimrc
+  autocmd BufEnter *.ts,*.js,*.tsx,*jsx set expandtab | set shiftwidth=2
+  autocmd BufEnter *.json set expandtab | set shiftwidth=2
+augroup END
+
 " terminal
-autocmd TermOpen * setlocal nonumber
+augroup vimrc
+   autocmd TermOpen * setlocal nonumber
+augroup END
 tnoremap <silent> <Esc><Esc> <C-\><C-n>
 tnoremap <silent> <C-;>  <C-\><C-n>
+
+if !has('nvim')
+    tnoremap <C-W>n       <cmd>new<cr>
+    tnoremap <C-W><C-N>   <cmd>new<cr>
+    tnoremap <C-W>q       <cmd>quit<cr>
+    tnoremap <C-W><C-Q>   <cmd>quit<cr>
+    tnoremap <C-W>c       <cmd>close<cr>
+    tnoremap <C-W>o       <cmd>only<cr>
+    tnoremap <C-W><C-O>   <cmd>only<cr>
+    tnoremap <C-W><Down>  <cmd>wincmd j<cr>
+    tnoremap <C-W><C-J>   <cmd>wincmd j<cr>
+    tnoremap <C-W>j       <cmd>wincmd j<cr>
+    tnoremap <C-W><Up>    <cmd>wincmd k<cr>
+    tnoremap <C-W><C-K>   <cmd>wincmd k<cr>
+    tnoremap <C-W>k       <cmd>wincmd k<cr>
+    tnoremap <C-W><Left>  <cmd>wincmd h<cr>
+    tnoremap <C-W><C-H>   <cmd>wincmd h<cr>
+    tnoremap <C-W><BS>    <cmd>wincmd h<cr>
+    tnoremap <C-W>h       <cmd>wincmd h<cr>
+    tnoremap <C-W><Right> <cmd>wincmd l<cr>
+    tnoremap <C-W><C-L>   <cmd>wincmd l<cr>
+    tnoremap <C-W>l       <cmd>wincmd l<cr>
+    tnoremap <C-W>w       <cmd>wincmd w<cr>
+    tnoremap <C-W><C-W>   <cmd>wincmd w<cr>
+    tnoremap <C-W>W       <cmd>wincmd W<cr>
+    tnoremap <C-W>t       <cmd>wincmd t<cr>
+    tnoremap <C-W><C-T>   <cmd>wincmd t<cr>
+    tnoremap <C-W>b       <cmd>wincmd b<cr>
+    tnoremap <C-W><C-B>   <cmd>wincmd b<cr>
+    tnoremap <C-W>p       <cmd>wincmd p<cr>
+    tnoremap <C-W><C-P>   <cmd>wincmd p<cr>
+    tnoremap <C-W>P       <cmd>wincmd P<cr>
+    tnoremap <C-W>r       <cmd>wincmd r<cr>
+    tnoremap <C-W><C-R>   <cmd>wincmd r<cr>
+    tnoremap <C-W>R       <cmd>wincmd R<cr>
+    tnoremap <C-W>x       <cmd>wincmd x<cr>
+    tnoremap <C-W><C-X>   <cmd>wincmd x<cr>
+    tnoremap <C-W>K       <cmd>wincmd K<cr>
+    tnoremap <C-W>J       <cmd>wincmd J<cr>
+    tnoremap <C-W>H       <cmd>wincmd H<cr>
+    tnoremap <C-W>L       <cmd>wincmd L<cr>
+    tnoremap <C-W>T       <cmd>wincmd T<cr>
+    tnoremap <C-W>=       <cmd>wincmd =<cr>
+    tnoremap <C-W>-       <cmd>wincmd -<cr>
+    tnoremap <C-W>+       <cmd>wincmd +<cr>
+    tnoremap <C-W>z       <cmd>pclose<cr>
+    tnoremap <C-W><C-Z>   <cmd>pclose<cr>
+endif
 
 " help doc
 set helplang=ja,en
 
 " key bindings---------------------------------------------------------------{{{
-"
+
+" https://zenn.dev/mattn/articles/83c2d4c7645faa
+nmap gj gj<SID>g
+nmap gk gk<SID>g
+nnoremap <script> <SID>gj gj<SID>g
+nnoremap <script> <SID>gk gk<SID>g
+nmap <SID>g <Nop>
+
 " leader key
 map <Space> <Leader>
 
@@ -174,6 +232,11 @@ nnoremap sy "+y
 nnoremap sd "+d
 nnoremap sp "+gp
 nnoremap sP "+gP
+vnoremap sy "+y
+vnoremap sd "+d
+vnoremap sp "+gp
+vnoremap sP "+gP
+
 
 " scroll
 nnoremap <silent> J <C-e><C-e>
@@ -190,6 +253,15 @@ nnoremap <silent> <Esc><Esc> :<C-u>set nohlsearch!<CR>
 nnoremap <silent> sT :<C-u>terminal<CR>
 " }}}
 
+" GUI
+set guifont=PlemolJP\ Console\ NF:h11
+if exists('g:nvui')
+  " Configure nvui
+  NvuiCmdFontFamily! PlemolJP\ Console\ NF:h11
+  NvuiCmdFontSize 25.0
+  NvuiScrollAnimationDuration 0.2
+endif
+
 if &compatible
   set nocompatible " Be iMproved
 endif
@@ -201,10 +273,12 @@ set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 " Required:
 call dein#begin('$HOME/.cache/dein')
 
-call dein#load_toml('$HOME/AppData/Local/nvim/dein.toml', {'lazy': 0})
-call dein#load_toml('$HOME/AppData/Local/nvim/colors.toml', {'lazy': 0})
-call dein#load_toml('$HOME/AppData/Local/nvim/lsp.toml', {'lazy': 0})
-call dein#load_toml('$HOME/AppData/Local/nvim/joke.toml', {'lazy': 0})
+call dein#load_toml(g:nvim_config_path.'/dein.toml', {'lazy': 0})
+call dein#load_toml(g:nvim_config_path.'/kuni3933_dein.toml', {'lazy': 0})
+call dein#load_toml(g:nvim_config_path.'/colors.toml', {'lazy': 0})
+call dein#load_toml(g:nvim_config_path.'/lsp.toml', {'lazy': 0})
+call dein#load_toml(g:nvim_config_path.'/denops.toml', {'lazy': 0})
+call dein#load_toml(g:nvim_config_path.'/joke.toml', {'lazy': 0})
 "call dein#load_toml('$HOME/.config/dein/dein_lazy.toml', {'lazy': 1})
 
 " Let dein manage dein
@@ -227,7 +301,6 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-" call dein#install()
-"endif
-
+if dein#check_install()
+ call dein#install()
+endif
