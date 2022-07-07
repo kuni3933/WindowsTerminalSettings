@@ -146,6 +146,7 @@ scoop install `
   Extras/bugn `
   Extras/keypirinha `
   Extras/lazygit
+#Extras/imhex
 _br(1)
 
 _Write_Title("# Language / Framework / MiddleWare")
