@@ -189,6 +189,7 @@ function ..() { Set-Location ../ }
 function ...() { Set-Location ../../ }
 function ....() { Set-Location ../../../ }
 function cdg() { gowl list | fzf | Set-Location }
+function cdghq { ghq list -p | fzf | Set-Location }
 function cdr() { fd -H -t d -E .git -E node_modules | fzf | Set-Location }
 Set-Alias cdz zi
 function buscdd() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\data\\$_ } }
