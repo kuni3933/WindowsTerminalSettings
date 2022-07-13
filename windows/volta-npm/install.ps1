@@ -3,9 +3,12 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 if (-Not (Get-Command("volta.exe"))) {
-		Write-Error -Message "volta.exe is not installed." -ErrorAction Stop
-		return 1603
-	}
+	Write-Error -Message "volta.exe is not installed." -ErrorAction Stop
+	return 1603
+}
+
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("volta-npm/install.ps1")
 
@@ -17,32 +20,27 @@ volta list all
 _br(1)
 
 _Write_Title("# volta install node@latest")
-if(Test-Path "${VOLTA_HOME}/tools/image/node"){
-  Remove-Item -Recurse ${env:VOLTA_HOME}/tools/image/node
-}
 volta install node@latest
 _br(1)
 
 _Write_Title("# volta install npm@latest")
-if(Test-Path "${env:VOLTA_HOME}/tools/image/npm"){
-  Remove-Item -Recurse ${env:VOLTA_HOME}/tools/image/npm
-}
 volta install npm@latest
 _br(1)
 
+_Write_Title("# volta install npx@latest")
+volta install npx@latest
+_br(1)
+
 _Write_Title("# volta install yarn@latest")
-if(Test-Path "${env:VOLTA_HOME}/tools/image/yarn"){
-  Remove-Item -Recurse ${env:VOLTA_HOME}/tools/image/yarn
-}
 volta install yarn@latest
 _br(1)
 
-_Write_Title("# npm install -g create-react-app expo-cli express-generator gtop json-server npx tldr typescript")
-npm install -g create-react-app expo-cli express-generator gtop json-server npx tldr typescript
+_Write_Title("# npm install -g expo-cli gtop json-server serve tldr typescript")
+npm install -g expo-cli gtop json-server serve tldr typescript
 _br(1)
 
 _Write_Title("# volta list all")
-volta list all
+volta list all > "${MyPath}/volta_log.txt"
 _br(1)
 
 
