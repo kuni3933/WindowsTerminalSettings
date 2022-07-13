@@ -16,6 +16,7 @@ _Write_Title("# CLI Tools")
 pip install --upgrade `
   'glances[action,browser,cloud,cpuinfo,docker,export,folders,gpu,graph,ip,raid,snmp,web,wifi]' `
   'httpie' `
+  'vnu' `
   'windows-curses'
 _br(1)
 
