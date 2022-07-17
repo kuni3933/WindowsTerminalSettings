@@ -511,6 +511,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Zettlr",
+    "ID": "Zettlr.Zettlr",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
     "Name": "Zoom",
     "ID": "Zoom.Zoom",
     "Install_Options": "",
