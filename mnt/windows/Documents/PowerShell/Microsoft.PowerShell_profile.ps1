@@ -1,6 +1,6 @@
 $scriptPath = $MyInvocation.MyCommand.Path
-$SplitDirPath = Split-Path -Parent $scriptPath
-$IsSet = "$SplitDirPath/IsSet.ps1"
+# $SplitDirPath = Split-Path -Parent $scriptPath
+# $IsSet = "$SplitDirPath/IsSet.ps1"
 # Example of "IsSet" usage
 # if((powershell $IsSet command_name -eq $true){alias...function...}
 # command_name...exa/cat/...etc
@@ -116,19 +116,20 @@ Invoke-Expression (&starship init powershell)
 # fzf
 $env:FZF_DEFAULT_OPTS="--reverse --border --height 50%"
 $env:FZF_DEFAULT_COMMAND='fd -HL --exclude ".git" .'
-function _fzf_compgen_path() {
-  fd -HL --exclude ".git" . "$1"
+if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+  function _fzf_compgen_path() {
+    fd -HL --exclude ".git" . "$1"
+  }
+  function _fzf_compgen_dir() {
+    fd --type d -HL --exclude ".git" . "$1"
+  }
 }
-function _fzf_compgen_dir() {
-  fd --type d -HL --exclude ".git" . "$1"
-}
-
 #-----------------------------------------------------
 # Linux like commands
 #-----------------------------------------------------
 
 # https://secon.dev/entry/2020/08/17/070735/
-if(Test-Path $env:USERPROFILE/scoop/apps/uutils-coreutils/current/coreutils.exe){
+if(Get-Command coreutils -ea SilentlyContinue){
 @"
   arch, base32, base64, basename, cat, cksum, comm, cp, cut, date, df, dircolors, dirname,
   echo, env, expand, expr, factor, false, fmt, fold, hashsum, head, hostname, join, link, ln,
@@ -161,23 +162,22 @@ if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyConti
 }
 
 #sudo
-if(Test-Path $env:USERPROFILE/scoop/apps/gsudo/current/gsudo.exe -ea SilentlyContinue){
-    Set-Alias sudo $env:USERPROFILE/scoop/apps/gsudo/current/gsudo.exe
-}
+if(Get-Command gsudo -ea SilentlyContinue){ Set-Alias sudo gsudo }
 
 # ⚠ readonlyのaliasなので問題が発生するかも..
-Remove-Item alias:sort -Force
-function sort() { $input | uutils sort $args}
-
+if(Get-Command uutils -ea SilentlyContinue){
+  Remove-Item alias:sort -Force
+  function sort() { $input | uutils sort $args}
+}
 # 代替コマンドを使用
-Set-Alias grep rg
-
+if(Get-Command rg -ea SilentlyContinue){ Set-Alias grep rg }
 # Linuxコマンドのエイリアス
-function ls() { exa --git --icons $args }
-function ll() { exa --all --git --group --header --icons --long --time-style long-iso $args}
-function lt() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args}
-function tree() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args}
-
+if(Get-Command exa -ea SilentlyContinue){
+  function ls() { exa --git --icons $args }
+  function ll() { exa --all --git --group --header --icons --long --time-style long-iso $args }
+  function lt() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args }
+  function tree() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args }
+}
 #function awslocal { aws '--endpoint-url=http://localhost:4566' $args }
 
 #-----------------------------------------------------
@@ -188,16 +188,30 @@ function tree() { exa --all --git --group --header --icons --long --time-style l
 function ..() { Set-Location ../ }
 function ...() { Set-Location ../../ }
 function ....() { Set-Location ../../../ }
-function cdg() { gowl list | fzf | Set-Location }
-function cdghq { ghq list -p | fzf | Set-Location }
-function cdr() { fd -H -t d -E .git -E node_modules | fzf | Set-Location }
-Set-Alias cdz zi
-function buscdd() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\data\\$_ } }
-function buscdw() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\work\\$_ } }
-
+if(Get-Command gowl -ea SilentlyContinue){ function cdgowl() { gowl list | fzf | Set-Location } }
+function cdghq {
+    ${d} = $null
+    # $d = ghq list | fzf --preview "pwsh -c ls -l $(ghq root)/{}"
+    if(Get-Command exa -ea SilentlyContinue){
+      ${d} = ghq list | fzf --preview "cd $(ghq root)/{} & exa --all --git --group --header --icons --long --time-style long-iso"
+    }
+    else{ $d = ghq list | fzf --preview "cd $(ghq root)/{} & powershell -c ls" }
+    if (${d}) {
+        Set-Location "$(ghq root)/$d"
+    }
+}
+if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+  function cdr() { fd -H -t d -E .git -E node_modules | fzf | Set-Location }
+}
+if(Get-Command zoxide -ea SilentlyContinue){ Set-Alias cdz zi }
+if(Get-Command rg -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+  function buscdd() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\data\\$_ } }
+  function buscdw() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\work\\$_ } }
+}
 # vim
-function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { EDITOR $_ } }
-
+if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+  function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { EDITOR $_ } }
+}
 # Copy current path
 function cpwd() { Convert-Path . | Set-Clipboard }
 
