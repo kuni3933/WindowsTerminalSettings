@@ -3,8 +3,8 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 if (-Not (Get-Command("volta.exe"))) {
-	Write-Error -Message "volta.exe is not installed." -ErrorAction Stop
-	return 1603
+  Write-Error -Message "volta.exe is not installed." -ErrorAction Stop
+  return 1603
 }
 
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -35,8 +35,8 @@ _Write_Title("# volta install yarn@latest")
 volta install yarn@latest
 _br(1)
 
-_Write_Title("# npm install -g expo-cli gtop json-server serve tldr typescript")
-npm install -g expo-cli gtop json-server serve tldr typescript
+_Write_Title("# npm install -g expo-cli gtop json-server license-checker serve tldr typescript")
+npm install -g expo-cli gtop json-server license-checker serve tldr typescript
 _br(1)
 
 _Write_Title("# volta list all")
