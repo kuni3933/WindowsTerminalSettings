@@ -165,7 +165,7 @@ if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyConti
 if(Get-Command gsudo -ea SilentlyContinue){ Set-Alias sudo gsudo }
 
 # ⚠ readonlyのaliasなので問題が発生するかも..
-if(Get-Command uutils -ea SilentlyContinue){
+if((Get-Command uutils -ea SilentlyContinue) -AND (Get-Alias sort -ea SilentlyContinue)) {
   Remove-Item alias:sort -Force
   function sort() { $input | uutils sort $args}
 }
@@ -173,6 +173,8 @@ if(Get-Command uutils -ea SilentlyContinue){
 if(Get-Command rg -ea SilentlyContinue){ Set-Alias grep rg }
 # Linuxコマンドのエイリアス
 if(Get-Command exa -ea SilentlyContinue){
+  function l() { exa --all --git --icons --classify $args }
+  function la() { exa --all --git --icons --classify $args }
   function ls() { exa --git --icons $args }
   function ll() { exa --all --git --group --header --icons --long --time-style long-iso $args }
   function lt() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args }
@@ -258,20 +260,20 @@ function ffjpeg() { ffmpeg -i $args[0] -vf scale=1280":-1" $args[0] }
 # broot
 function bo() { broot -g --conf $env:USERPROFILE\broot.toml $args }
 function br() {
-  $outcmd = new-temporaryfile
+  $outcmd = New-Temporaryfile
   bo --outcmd $outcmd $args
   if (!$?) {
-    remove-item -force $outcmd
+    Remove-Item -Force $outcmd
     return $lastexitcode
   }
 
-  $command = get-content $outcmd
+  $command = Get-Content $outcmd
   if ($command) {
     # workaround - paths have some garbage at the start
     $command = $command.replace("\\?\", "", 1)
-    invoke-expression $command
+    Invoke-Expression $command
   }
-  remove-item -force $outcmd
+  Remove-Item -Force $outcmd
 }
 
 #-----------------------------------------------------
