@@ -188,8 +188,11 @@ if(Get-Command exa -ea SilentlyContinue){
 function ..() { Set-Location ../ }
 function ...() { Set-Location ../../ }
 function ....() { Set-Location ../../../ }
-if(Get-Command gowl -ea SilentlyContinue){ function cdgowl() { gowl list | fzf | Set-Location } }
-function cdghq {
+if(Get-Command gowl -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
+  function cd-gowl() { gowl list | fzf | Set-Location }
+}
+if(Get-Command ghq -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
+  function cd-ghq {
     ${d} = $null
     # $d = ghq list | fzf --preview "pwsh -c ls -l $(ghq root)/{}"
     if(Get-Command exa -ea SilentlyContinue){
@@ -199,6 +202,7 @@ function cdghq {
     if (${d}) {
         Set-Location "$(ghq root)/$d"
     }
+  }
 }
 if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
   function cdr() { fd -H -t d -E .git -E node_modules | fzf | Set-Location }
