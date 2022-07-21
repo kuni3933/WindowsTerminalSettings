@@ -5,10 +5,10 @@ $scriptPath = $MyInvocation.MyCommand.Path
 # if((powershell $IsSet command_name -eq $true){alias...function...}
 # command_name...exa/cat/...etc
 
-if(((Get-Random 2) -eq 0) -AND (Test-Path "${env:USERPROFILE}/scoop/apps/pipes-rs/current/pipes-rs.exe")){
+if(((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
     pipes-rs
 }
-elseif(Test-Path "${env:USERPROFILE}/scoop/apps/rustup-msvc/current/.cargo/bin/rusty-rain.exe"){
+elseif(Get-Command rusty-rain -ea SilentlyContinue) {
     rusty-rain -C 0,139,139 -H 255,255,255 -s
 }
 winfetch.PS1
