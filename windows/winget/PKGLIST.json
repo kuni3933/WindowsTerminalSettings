@@ -300,8 +300,8 @@
   {
     "Name": "MusicBee",
     "ID": "9P4CLT2RJ1RS",
-    "Install_Options": "",
-    "Update_Options": "",
+    "Install_Options": "--source msstore",
+    "Update_Options": "--source msstore",
     "Message": [],
     "Flag": "1"
   },
