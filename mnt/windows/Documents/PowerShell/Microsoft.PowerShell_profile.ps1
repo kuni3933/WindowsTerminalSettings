@@ -2,27 +2,27 @@ $scriptPath = $MyInvocation.MyCommand.Path
 # $SplitDirPath = Split-Path -Parent $scriptPath
 # $IsSet = "$SplitDirPath/IsSet.ps1"
 # Example of "IsSet" usage
-# if((powershell $IsSet command_name -eq $true){alias...function...}
+# if ((powershell $IsSet command_name -eq $true) { alias...function... }
 # command_name...exa/cat/...etc
 
-if(((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
-    pipes-rs
+if (((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
+  pipes-rs
 }
-elseif(Get-Command rusty-rain -ea SilentlyContinue) {
-    rusty-rain -C 0,139,139 -H 255,255,255 -s
+elseif (Get-Command rusty-rain -ea SilentlyContinue) {
+  rusty-rain -C 0,139,139 -H 255,255,255 -s
 }
 winfetch.PS1
 
 # $env:EDITOR
-if(Get-Command vim -ea SilentlyContinue){
-    ${env:EDITOR} = "vim"
-    Set-Alias EDITOR vim
-    Set-Alias :e vim
+if (Get-Command vim -ea SilentlyContinue) {
+  ${env:EDITOR} = "vim"
+  Set-Alias EDITOR vim
+  Set-Alias :e vim
 }
-if(Get-Command nvim -ea SilentlyContinue){
-    ${env:EDITOR} = "nvim"
-    Set-Alias EDITOR nvim
-    Set-Alias :e nvim
+if (Get-Command nvim -ea SilentlyContinue) {
+  ${env:EDITOR} = "nvim"
+  Set-Alias EDITOR nvim
+  Set-Alias :e nvim
 }
 
 # c => clear
@@ -33,14 +33,14 @@ Set-Alias ReturnPath Resolve-Path
 
 #Git/usr/bin
 [string] ${Git_usr_bin} = ${null};
-if(Test-Path "${env:GIT_INSTALL_ROOT}/cmd/git.exe"){
-    ${Git_usr_bin} = "${env:GIT_INSTALL_ROOT}/usr/bin"
+if (Test-Path "${env:GIT_INSTALL_ROOT}/cmd/git.exe") {
+  ${Git_usr_bin} = "${env:GIT_INSTALL_ROOT}/usr/bin"
 }
-elseif(Test-Path "C:/Program Files/Git/cmd/git.exe"){
-    ${Git_usr_bin} = "C:/Program Files/Git//usr/bin"
+elseif (Test-Path "C:/Program Files/Git/cmd/git.exe") {
+  ${Git_usr_bin} = "C:/Program Files/Git//usr/bin"
 }
-if(${Git_usr_bin} -ne ${null}){
-    Set-Alias tig "${Git_usr_bin}/tig"
+if (${Git_usr_bin} -ne ${null}) {
+  Set-Alias tig "${Git_usr_bin}/tig"
 }
 
 ##############################
@@ -99,8 +99,8 @@ Set-PSReadLineOption -EditMode Windows
 
 Import-Module posh-git
 Invoke-Expression (& {
-    $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
-    (zoxide init --hook $hook powershell) -join "`n"
+  $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
+  (zoxide init --hook $hook powershell) -join "`n"
 })
 
 #Set-PoshPrompt -Theme  ~/.oh-my-posh.json
@@ -116,7 +116,7 @@ Invoke-Expression (&starship init powershell)
 # fzf
 $env:FZF_DEFAULT_OPTS="--reverse --border --height 50%"
 $env:FZF_DEFAULT_COMMAND='fd -HL --exclude ".git" .'
-if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+if (Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
   function _fzf_compgen_path() {
     fd -HL --exclude ".git" . "$1"
   }
@@ -129,7 +129,7 @@ if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
 #-----------------------------------------------------
 
 # https://secon.dev/entry/2020/08/17/070735/
-if(Get-Command coreutils -ea SilentlyContinue){
+if (Get-Command coreutils -ea SilentlyContinue) {
 @"
   arch, base32, base64, basename, cat, cksum, comm, cp, cut, date, df, dircolors, dirname,
   echo, env, expand, expr, factor, false, fmt, fold, hashsum, head, hostname, join, link, ln,
@@ -142,37 +142,37 @@ if(Get-Command coreutils -ea SilentlyContinue){
   ForEach-Object { $_.trim() } |
   Where-Object { ! @('tee', 'sort', 'sleep').Contains($_) } |
   ForEach-Object {
-      $cmd = $_
-      if (Test-Path Alias:$cmd) { Remove-Item -Path Alias:$cmd }
-      $fn = '$input | uutils ' + $cmd + ' $args'
-      Invoke-Expression "function global:$cmd { $fn }"
+    $cmd = $_
+    if (Test-Path Alias:$cmd) { Remove-Item -Path Alias:$cmd }
+    $fn = '$input | uutils ' + $cmd + ' $args'
+    Invoke-Expression "function global:$cmd { $fn }"
   }
 }
 
 # bat - cat with syntax highlight
 # https://github.com/sharkdp/bat
-if(Get-Command bat -ea SilentlyContinue){
-    function rebat() { bat cache --build $args}
-    function b() { bat --wrap auto $args}
+if (Get-Command bat -ea SilentlyContinue) {
+  function rebat() { bat cache --build $args }
+  function b() { bat --wrap auto $args }
 }
 
 # less
-if(Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyContinue){
-    Set-Alias less $env:USERPROFILE/scoop/apps/less/current/less.exe
+if (Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyContinue) {
+  Set-Alias less $env:USERPROFILE/scoop/apps/less/current/less.exe
 }
 
 #sudo
-if(Get-Command gsudo -ea SilentlyContinue){ Set-Alias sudo gsudo }
+if (Get-Command gsudo -ea SilentlyContinue) { Set-Alias sudo gsudo }
 
 # ⚠ readonlyのaliasなので問題が発生するかも..
-if((Get-Command uutils -ea SilentlyContinue) -AND (Get-Alias sort -ea SilentlyContinue)) {
+if ((Get-Command uutils -ea SilentlyContinue) -AND (Get-Alias sort -ea SilentlyContinue)) {
   Remove-Item alias:sort -Force
-  function sort() { $input | uutils sort $args}
+  function sort() { $input | uutils sort $args }
 }
 # 代替コマンドを使用
-if(Get-Command rg -ea SilentlyContinue){ Set-Alias grep rg }
+if (Get-Command rg -ea SilentlyContinue) { Set-Alias grep rg }
 # Linuxコマンドのエイリアス
-if(Get-Command exa -ea SilentlyContinue){
+if (Get-Command exa -ea SilentlyContinue) {
   function l() { exa --all --git --icons --classify $args }
   function la() { exa --all --git --icons --classify $args }
   function ls() { exa --git --icons $args }
@@ -190,61 +190,64 @@ if(Get-Command exa -ea SilentlyContinue){
 function ..() { Set-Location ../ }
 function ...() { Set-Location ../../ }
 function ....() { Set-Location ../../../ }
-if(Get-Command gowl -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
+if (Get-Command gowl -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
   function cdgowl() { gowl list | fzf | Set-Location }
 }
-if(Get-Command ghq -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function cdghq {
-    ${d} = $null
-    # $d = ghq list | fzf --preview "pwsh -c ls -l $(ghq root)/{}"
-    if(Get-Command exa -ea SilentlyContinue){
-      ${d} = ghq list | fzf --preview "cd $(ghq root)/{} & exa --all --git --group --header --icons --long --time-style long-iso"
-    }
-    else{ $d = ghq list | fzf --preview "cd $(ghq root)/{} & powershell -c ls" }
-    if (${d}) {
-        Set-Location "$(ghq root)/$d"
+if (Get-Command ghq -ea SilentlyContinue) {
+  function cdghqr { Set-Location "$(ghq root)" }
+
+  if (Get-Command fzf -ea SilentlyContinue) {
+    function cdghq {
+      ${d} = $null
+      # $d = ghq list | fzf --preview "pwsh -c ls -l $(ghq root)/{}"
+      if (Get-Command exa -ea SilentlyContinue) {
+        ${d} = ghq list | fzf --preview "cd $(ghq root)/{} & exa --all --git --group --header --icons --long --time-style long-iso"
+      } else {
+        ${d} = ghq list | fzf --preview "cd $(ghq root)/{} & powershell -c ls"
+      }
+      if (${d}) { Set-Location "$(ghq root)/${d}" }
     }
   }
 }
-if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+if (Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
   function cdr() { fd -H -t d -E .git -E node_modules | fzf | Set-Location }
 }
-if(Get-Command zoxide -ea SilentlyContinue){ Set-Alias cdz zi }
-if(Get-Command rg -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+if (Get-Command zoxide -ea SilentlyContinue) { Set-Alias cdz zi }
+if (Get-Command rg -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
   function buscdd() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\data\\$_ } }
   function buscdw() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\work\\$_ } }
 }
 # vim
-if(Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue){
+if (Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
   function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { EDITOR $_ } }
 }
 # Copy current path
 function cpwd() { Convert-Path . | Set-Clipboard }
 
 # git flow
-function gf()  { git fetch --all }
-function gd()  { git diff $args }
+function gf() { git fetch --all }
+function gd() { git diff $args }
 function gdc() { git diff --cached $args }
 function gds() { git diff --staged $args }
-function ga()  { git add $args }
+function ga() { git add $args }
 function gaa() { git add --all }
 function gco() { git commit -m $args[0] }
 
 # git switch
-function gb()  { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git switch $_ } }
+function gb() { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git switch $_ } }
 function gbr() { git branch -rl | rg -v "HEAD|master" | ForEach-Object { $_ -replace "  origin/", "" } | fzf | ForEach-Object { git switch $_ } }
 function gbc() { git switch -c $args[0] }
-function gbm()  { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git merge --no-ff $_ } }
+function gbm() { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git merge --no-ff $_ } }
 
 # git log
-function gls()   { git log -3}
-function gll()   { git log -10 --oneline --all --graph --decorate }
-function glll()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
-function glls()  { git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10}
-function ggraph()  { git log --graph --all  --date=format:'%Y-%m-%d %H:%M:%S' -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date-order }
+function gls() { git log -3 }
+function gll() { git log -10 --oneline --all --graph --decorate }
+function glll() { git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
+function glls() { git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10 }
+function ggraph() { git log --graph --all  --date=format:'%Y-%m-%d %H:%M:%S' -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date-order }
 
 # git status
-function gs()  { git status --short }
+function gs() { git status --short }
 function gss() { git status -v }
 
 # explorer
