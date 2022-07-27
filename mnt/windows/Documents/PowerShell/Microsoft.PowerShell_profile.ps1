@@ -191,10 +191,10 @@ function ..() { Set-Location ../ }
 function ...() { Set-Location ../../ }
 function ....() { Set-Location ../../../ }
 if(Get-Command gowl -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function cd-gowl() { gowl list | fzf | Set-Location }
+  function cdgowl() { gowl list | fzf | Set-Location }
 }
 if(Get-Command ghq -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function cd-ghq {
+  function cdghq {
     ${d} = $null
     # $d = ghq list | fzf --preview "pwsh -c ls -l $(ghq root)/{}"
     if(Get-Command exa -ea SilentlyContinue){
