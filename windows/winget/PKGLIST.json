@@ -224,6 +224,14 @@
     "Flag": "1"
   },
   {
+    "Name": "Graviton Editor",
+    "ID": "MarcEspinSanz.GravitonEditor",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "Hourglass",
     "ID": "dziemborowicz.hourglass",
     "Install_Options": "",
@@ -254,6 +262,14 @@
     "Update_Options": "",
     "Message": [],
     "Flag": "0"
+  },
+  {
+    "Name": "Lapce",
+    "ID": "Lapce.Lapce",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
   },
   {
     "Name": "Mark Text",
@@ -319,7 +335,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "pomatez",

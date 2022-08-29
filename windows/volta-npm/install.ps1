@@ -35,8 +35,9 @@ _Write_Title("# volta install yarn@latest")
 volta install yarn@latest
 _br(1)
 
-_Write_Title("# npm install -g expo-cli gtop json-server license-checker serve tldr typescript")
-npm install -g expo-cli gtop json-server license-checker serve tldr typescript
+_Write_Title("# CLI Tool")
+npm install -g expo-cli git-cz gtop json-server license-checker serve tldr typescript
+#npm install -g commitizen cz-conventional-changelog-ja
 _br(1)
 
 _Write_Title("# volta list all")

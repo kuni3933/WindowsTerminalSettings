@@ -1,67 +1,25 @@
-$scriptPath = $MyInvocation.MyCommand.Path
-# $SplitDirPath = Split-Path -Parent $scriptPath
-# $IsSet = "$SplitDirPath/IsSet.ps1"
+# ${IsSet} = "${PSScriptRoot}/IsSet.ps1"
 # Example of "IsSet" usage
 # if ((powershell $IsSet command_name -eq $true) { alias...function... }
 # command_name...exa/cat/...etc
 
-if (((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
-  pipes-rs
-}
-elseif (Get-Command rusty-rain -ea SilentlyContinue) {
-  rusty-rain -C 0,139,139 -H 255,255,255 -s
-}
-winfetch.PS1
+#-----------------------------------------------------
+# Alias
+#-----------------------------------------------------
+. "${PSScriptRoot}/Alias.ps1"
 
-# $env:EDITOR
-if (Get-Command vim -ea SilentlyContinue) {
-  ${env:EDITOR} = "vim"
-  Set-Alias EDITOR vim
-  Set-Alias :e vim
-}
-if (Get-Command nvim -ea SilentlyContinue) {
-  ${env:EDITOR} = "nvim"
-  Set-Alias EDITOR nvim
-  Set-Alias :e nvim
+
+#-----------------------------------------------------
+# Path
+#-----------------------------------------------------
+if((Get-Command deno -ea SilentlyContinue) -AND (Test-Path "${env:USERPROFILE}/.deno/bin")) {
+  ${env:path} += ";${env:USERPROFILE}/.deno/bin"
 }
 
-# c => clear
-Set-Alias c Clear-Host
-
-#ReturnPath => Resolve-Path
-Set-Alias ReturnPath Resolve-Path
-
-#Git/usr/bin
-[string] ${Git_usr_bin} = ${null};
-if (Test-Path "${env:GIT_INSTALL_ROOT}/cmd/git.exe") {
-  ${Git_usr_bin} = "${env:GIT_INSTALL_ROOT}/usr/bin"
-}
-elseif (Test-Path "C:/Program Files/Git/cmd/git.exe") {
-  ${Git_usr_bin} = "C:/Program Files/Git//usr/bin"
-}
-if (${Git_usr_bin} -ne ${null}) {
-  Set-Alias tig "${Git_usr_bin}/tig"
-}
-
-##############################
-# PSFzf
-# ##############################
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-
-##############################
-# Scoop completion
-# ##############################
-Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)/modules/scoop-completion"
-
-##############################
-# volta tab-completions
-# ##############################
-(& volta completions powershell) | Out-String | Invoke-Expression
 
 #-----------------------------------------------------
 # General
 #-----------------------------------------------------
-
 # PowerShell Core7でもConsoleのデフォルトエンコーディングはsjisなので必要
 [System.Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
 [System.Console]::InputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
@@ -69,235 +27,220 @@ Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName
 # git logなどのマルチバイト文字を表示させるため (絵文字含む)
 $env:LESSCHARSET = "utf-8"
 
+
+
+#-----------------------------------------------------
+# PSReadline
+#-----------------------------------------------------
+Import-Module PSReadLine
+
 # 音を消す
 Set-PSReadlineOption -BellStyle None
 
-# 予測インテリセンス
-Set-PSReadLineOption -PredictionSource History
-#参考https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1
-#参考-https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
-#参考 https://docs.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.1
+# 履歴
 Set-PSReadLineOption -HistoryNoDuplicates:$true
+# 履歴からコマンド読み込みした際のカーソル位置
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
+
+# 予測インテリセンス
+#https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1
+#https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
+#https://docs.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.1
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+
+# 単語区切り
+#https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E5%8D%98%E8%AA%9E%E5%8C%BA%E5%88%87%E3%82%8A
+Set-PSReadLineOption -WordDelimiters ";:,.[]{}()/\|^&*-=+'`" !?@#$%&_<>「」（）『』『』［］、，。：；／"
+
+# 括弧／引用符の入力補完
+#https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E6%8B%AC%E5%BC%A7%E5%BC%95%E7%94%A8%E7%AC%A6%E3%81%AE%E5%85%A5%E5%8A%9B%E8%A3%9C%E5%AE%8C
+Set-PSReadLineKeyHandler -Key "(","{","[" -BriefDescription "InsertPairedBraces" -LongDescription "Insert matching braces or wrap selection by matching braces" -ScriptBlock {
+  param($key, $arg)
+  $openChar = $key.KeyChar
+  $closeChar = switch ($openChar) {
+    <#case#> "(" { [char]")"; break }
+    <#case#> "{" { [char]"}"; break }
+    <#case#> "[" { [char]"]"; break }
+  }
+  $selectionStart = $null
+  $selectionLength = $null
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetSelectionState([ref]$selectionStart, [ref]$selectionLength)
+  $line = $null
+  $cursor = $null
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+  if ($selectionStart -ne -1) {
+    [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $openChar + $line.SubString($selectionStart, $selectionLength) + $closeChar)
+    [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
+    return
+  }
+  $nOpen = [regex]::Matches($line, [regex]::Escape($openChar)).Count
+  $nClose = [regex]::Matches($line, [regex]::Escape($closeChar)).Count
+  if ($nOpen -ne $nClose) {
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert($openChar)
+  }
+  else {
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert($openChar + $closeChar)
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+    [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor - 1)
+  }
+}
+
+# コマンドを括弧で囲む
+#https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E6%8B%AC%E5%BC%A7%E3%81%A7%E5%9B%B2%E3%82%80
+Set-PSReadLineKeyHandler -Key "alt+w" -BriefDescription "WrapLineByParenthesis" -LongDescription "Wrap the entire line and move the cursor after the closing parenthesis or wrap selected string" -ScriptBlock {
+  $selectionStart = $null
+  $selectionLength = $null
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetSelectionState([ref]$selectionStart, [ref]$selectionLength)
+  $line = $null
+  $cursor = $null
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+  if ($selectionStart -ne -1) {
+    [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, "(" + $line.SubString($selectionStart, $selectionLength) + ")")
+    [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
+  }
+  else {
+    [Microsoft.PowerShell.PSConsoleReadLine]::Replace(0, $line.Length, '(' + $line + ')')
+    [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
+  }
+}
+
+# メソッドの補完時に閉じ括弧を忘れない
+#https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%AE%E8%A3%9C%E5%AE%8C%E6%99%82%E3%81%AB%E9%96%89%E3%81%98%E6%8B%AC%E5%BC%A7%E3%82%92%E5%BF%98%E3%82%8C%E3%81%AA%E3%81%84
+Remove-PSReadlineKeyHandler "tab"
+Set-PSReadLineKeyHandler -Key "tab" -BriefDescription "smartNextCompletion" -LongDescription "insert closing parenthesis in forward completion of method" -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::TabCompleteNext()
+  $line = $null
+  $cursor = $null
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+  if ($line[($cursor - 1)] -eq "(") {
+    if ($line[$cursor] -ne ")") {
+      [Microsoft.PowerShell.PSConsoleReadLine]::Insert(")")
+      [Microsoft.PowerShell.PSConsoleReadLine]::BackwardChar()
+    }
+  }
+}
+Remove-PSReadlineKeyHandler "shift+tab"
+Set-PSReadLineKeyHandler -Key "shift+tab" -BriefDescription "smartPreviousCompletion" -LongDescription "insert closing parenthesis in backward completion of method" -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::TabCompletePrevious()
+  $line = $null
+  $cursor = $null
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+
+  if ($line[($cursor - 1)] -eq "(") {
+    if ($line[$cursor] -ne ")") {
+      [Microsoft.PowerShell.PSConsoleReadLine]::Insert(")")
+      [Microsoft.PowerShell.PSConsoleReadLine]::BackwardChar()
+    }
+  }
+}
+
+# プロファイルの再読み込み
+#https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%8D%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF
+Set-PSReadLineKeyHandler -Key "alt+r" -BriefDescription "reloadPROFILE" -LongDescription "reloadPROFILE" -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert('<#SKIPHISTORY#> . $PROFILE')
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
+# 直前に使用した変数を利用する
+#https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E7%9B%B4%E5%89%8D%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E5%A4%89%E6%95%B0%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B
+Set-PSReadLineKeyHandler -Key "alt+a" -BriefDescription "yankLastArgAsVariable" -LongDescription "yankLastArgAsVariable" -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$")
+  [Microsoft.PowerShell.PSConsoleReadLine]::YankLastArg()
+  $line = $null
+  $cursor = $null
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+  if ($line -match '\$\$') {
+    $newLine = $line -replace '\$\$', "$"
+    [Microsoft.PowerShell.PSConsoleReadLine]::Replace(0, $line.Length, $newLine)
+  }
+}
+
+# クリップボード内容を変数に格納する
+#https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%83%9C%E3%83%BC%E3%83%89%E5%86%85%E5%AE%B9%E3%82%92%E5%A4%89%E6%95%B0%E3%81%AB%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B
+Set-PSReadLineKeyHandler -Key "ctrl+shift+V" -BriefDescription "setClipString" -LongDescription "setClipString" -ScriptBlock {
+  $command = "<#SKIPHISTORY#> get-clipboard | sv CLIPPING"
+  [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert($command)
+  [Microsoft.PowerShell.PSConsoleReadLine]::AddToHistory('$CLIPPING ')
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
 # (optional) Ctrl+f 入力で前方1単語進む : 補完の確定に使う用
 Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
 Set-PSReadLineKeyHandler -Key "UpArrow" -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key "Ctrl+o" -Function MenuComplete
 
-#-----------------------------------------------------
 # Key binding
-#-----------------------------------------------------
-
-# Emacsベース
+# Emacs
 #Set-PSReadLineOption -EditMode Emacs
+# Vim
+#Set-PSReadLineOption -EditMode Vi
 # Windowsベース
 Set-PSReadLineOption -EditMode Windows
 
-#-----------------------------------------------------
-# Powerline
-#-----------------------------------------------------
-
-Import-Module posh-git
-Invoke-Expression (& {
-  $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
-  (zoxide init --hook $hook powershell) -join "`n"
-})
-
-#Set-PoshPrompt -Theme  ~/.oh-my-posh.json
-#oh-my-posh --init --shell pwsh --config ~/.oh-my-posh.json | Invoke-Expression
-
-#Set-PoshPrompt -Theme  ~/.config/starship.toml
-Invoke-Expression (&starship init powershell)
 
 #-----------------------------------------------------
-# fzf
+# PSFzf
 #-----------------------------------------------------
+Import-Module PSFzf
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
-# fzf
-$env:FZF_DEFAULT_OPTS="--reverse --border --height 50%"
-$env:FZF_DEFAULT_COMMAND='fd -HL --exclude ".git" .'
-if (Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function _fzf_compgen_path() {
-    fd -HL --exclude ".git" . "$1"
-  }
-  function _fzf_compgen_dir() {
-    fd --type d -HL --exclude ".git" . "$1"
-  }
-}
-#-----------------------------------------------------
-# Linux like commands
-#-----------------------------------------------------
-
-# https://secon.dev/entry/2020/08/17/070735/
-if (Get-Command coreutils -ea SilentlyContinue) {
-@"
-  arch, base32, base64, basename, cat, cksum, comm, cp, cut, date, df, dircolors, dirname,
-  echo, env, expand, expr, factor, false, fmt, fold, hashsum, head, hostname, join, link, ln,
-  ls, md5sum, mkdir, mktemp, more, mv, nl, nproc, od, paste, printenv, printf, ptx, pwd,
-  readlink, realpath, relpath, rm, rmdir, seq, sha1sum, sha224sum, sha256sum, sha3-224sum,
-  sha3-256sum, sha3-384sum, sha3-512sum, sha384sum, sha3sum, sha512sum, shake128sum,
-  shake256sum, shred, shuf, sleep, sort, split, sum, sync, tac, tail, tee, test, touch, tr,
-  true, truncate, tsort, unexpand, uniq, wc, whoami, yes
-"@ -split ',' |
-  ForEach-Object { $_.trim() } |
-  Where-Object { ! @('tee', 'sort', 'sleep').Contains($_) } |
-  ForEach-Object {
-    $cmd = $_
-    if (Test-Path Alias:$cmd) { Remove-Item -Path Alias:$cmd }
-    $fn = '$input | uutils ' + $cmd + ' $args'
-    Invoke-Expression "function global:$cmd { $fn }"
-  }
-}
-
-# bat - cat with syntax highlight
-# https://github.com/sharkdp/bat
-if (Get-Command bat -ea SilentlyContinue) {
-  function rebat() { bat cache --build $args }
-  function b() { bat --wrap auto $args }
-}
-
-# less
-if (Test-Path $env:USERPROFILE/scoop/apps/less/current/less.exe -ea SilentlyContinue) {
-  Set-Alias less $env:USERPROFILE/scoop/apps/less/current/less.exe
-}
-
-#sudo
-if (Get-Command gsudo -ea SilentlyContinue) { Set-Alias sudo gsudo }
-
-# ⚠ readonlyのaliasなので問題が発生するかも..
-if ((Get-Command uutils -ea SilentlyContinue) -AND (Get-Alias sort -ea SilentlyContinue)) {
-  Remove-Item alias:sort -Force
-  function sort() { $input | uutils sort $args }
-}
-# 代替コマンドを使用
-if (Get-Command rg -ea SilentlyContinue) { Set-Alias grep rg }
-# Linuxコマンドのエイリアス
-if (Get-Command exa -ea SilentlyContinue) {
-  function l() { exa --all --git --icons --classify $args }
-  function la() { exa --all --git --icons --classify $args }
-  function ls() { exa --git --icons $args }
-  function ll() { exa --all --git --group --header --icons --long --time-style long-iso $args }
-  function lt() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args }
-  function tree() { exa --all --git --group --header --icons --long --time-style long-iso --tree $args }
-}
-#function awslocal { aws '--endpoint-url=http://localhost:4566' $args }
 
 #-----------------------------------------------------
-# Useful commands
+# Scoop completion
 #-----------------------------------------------------
+Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)/modules/scoop-completion"
 
-# cd
-function ..() { Set-Location ../ }
-function ...() { Set-Location ../../ }
-function ....() { Set-Location ../../../ }
-if (Get-Command gowl -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function cdgowl() { gowl list | fzf | Set-Location }
-}
-if (Get-Command ghq -ea SilentlyContinue) {
-  function cdghqr { Set-Location "$(ghq root)" }
-
-  if (Get-Command fzf -ea SilentlyContinue) {
-    function cdghq {
-      ${d} = $null
-      # $d = ghq list | fzf --preview "pwsh -c ls -l $(ghq root)/{}"
-      if (Get-Command exa -ea SilentlyContinue) {
-        ${d} = ghq list | fzf --preview "cd $(ghq root)/{} & exa --all --git --group --header --icons --long --time-style long-iso"
-      } else {
-        ${d} = ghq list | fzf --preview "cd $(ghq root)/{} & powershell -c ls"
-      }
-      if (${d}) { Set-Location "$(ghq root)/${d}" }
-    }
-  }
-}
-if (Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function cdr() { fd -H -t d -E .git -E node_modules | fzf | Set-Location }
-}
-if (Get-Command zoxide -ea SilentlyContinue) { Set-Alias cdz zi }
-if (Get-Command rg -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function buscdd() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\data | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\data\\$_ } }
-  function buscdw() { Get-ChildItem -1 C:\\Work\\treng\\Bus\\work | rg .*$Arg1.*_xrf | fzf | ForEach-Object { Set-Location C:\\Work\\treng\\Bus\\work\\$_ } }
-}
-# vim
-if (Get-Command fd -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinue) {
-  function vimr() { fd -H -E .git -E node_modules | fzf | ForEach-Object { EDITOR $_ } }
-}
-# Copy current path
-function cpwd() { Convert-Path . | Set-Clipboard }
-
-# git flow
-function gf() { git fetch --all }
-function gd() { git diff $args }
-function gdc() { git diff --cached $args }
-function gds() { git diff --staged $args }
-function ga() { git add $args }
-function gaa() { git add --all }
-function gco() { git commit -m $args[0] }
-
-# git switch
-function gb() { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git switch $_ } }
-function gbr() { git branch -rl | rg -v "HEAD|master" | ForEach-Object { $_ -replace "  origin/", "" } | fzf | ForEach-Object { git switch $_ } }
-function gbc() { git switch -c $args[0] }
-function gbm() { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git merge --no-ff $_ } }
-
-# git log
-function gls() { git log -3 }
-function gll() { git log -10 --oneline --all --graph --decorate }
-function glll() { git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' }
-function glls() { git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%d%Creset\ %C(yellow)%h%Creset %C(magenta)%ae%Creset %C(cyan)%ad%Creset%n%C(white bold)%w(80)%s%Creset%n%b' -10 }
-function ggraph() { git log --graph --all  --date=format:'%Y-%m-%d %H:%M:%S' -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date-order }
-
-# git status
-function gs() { git status --short }
-function gss() { git status -v }
-
-# explorer
-function e() { explorer $args }
-
-# ffmpeg
-function ffmp4red() { ffmpeg -i $args[0] -vcodec libx264 -crf 20 $args[1] }
-function ff256() { ffmpeg -i $args[0] -filter_complex "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse" $args[1] }
-function ffresize() { $width = $args[1]; ffmpeg -i $args[0] -vf scale=$width":-1" $args[2] }
-function fffavicon() { $width = $args[1]; ffmpeg -i $args[0] -vf scale=$width":-1" favicon.ico }
-function ffjpeg() { ffmpeg -i $args[0] -vf scale=1280":-1" $args[0] }
-
-# broot
-function bo() { broot -g --conf $env:USERPROFILE\broot.toml $args }
-function br() {
-  $outcmd = New-Temporaryfile
-  bo --outcmd $outcmd $args
-  if (!$?) {
-    Remove-Item -Force $outcmd
-    return $lastexitcode
-  }
-
-  $command = Get-Content $outcmd
-  if ($command) {
-    # workaround - paths have some garbage at the start
-    $command = $command.replace("\\?\", "", 1)
-    Invoke-Expression $command
-  }
-  Remove-Item -Force $outcmd
-}
 
 #-----------------------------------------------------
-# Golang
+# Chololatey completion
 #-----------------------------------------------------
-
-$env:GO111MODULE = "on"
-
-#-----------------------------------------------------
-# Execution PATHs
-#-----------------------------------------------------
-
-$env:PATH += ";" + $env:LOCALAPPDATA + "\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\bin"
-$env:PATH += ";" + $env:USERPROFILE + "\git\bitbucket.org\ntj-developer\diamant\target\release"
-
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
 # Be aware that if you are missing these lines from your profile, tab completion
 # for `choco` will not function.
 # See https://ch0.co/tab-completion for details.
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+$ChocolateyProfile = "${env:ChocolateyInstall}/helpers/chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
+
+#-----------------------------------------------------
+# volta tab-completions
+#-----------------------------------------------------
+(& volta completions powershell) | Out-String | Invoke-Expression
+
+
+#-----------------------------------------------------
+# starship
+#-----------------------------------------------------
+# ~/.config/starship.toml
+Invoke-Expression (&starship init powershell)
+
+
+#-----------------------------------------------------
+# Golang
+#-----------------------------------------------------
+$env:GO111MODULE = "on"
+
+
+#-----------------------------------------------------
+# Execution PATHs
+#-----------------------------------------------------
+#$env:PATH += ";" + $env:LOCALAPPDATA + "\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\bin"
+#$env:PATH += ";" + $env:USERPROFILE + "\git\bitbucket.org\ntj-developer\diamant\target\release"
+
+
+#-----------------------------------------------------
+# Startup
+#-----------------------------------------------------
+if (((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
+  pipes-rs
+}
+elseif (Get-Command rusty-rain -ea SilentlyContinue) {
+  rusty-rain -C 0,180,200 -H 255,255,255 -s
+}
+winfetch.PS1

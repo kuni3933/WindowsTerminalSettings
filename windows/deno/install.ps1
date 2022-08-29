@@ -17,8 +17,8 @@ _Write_Title("# deno install sheepla/dwebsh")
 deno install --force --allow-net --allow-write --name dwebsh "https://raw.githubusercontent.com/sheepla/dwebsh/master/cli.ts"
 _br(1)
 
-_Write_Title("# deno install sheepla/zenn-trend-cli")
-deno install --force --allow-net --name zenn-trend-cli "https://raw.githubusercontent.com/sheepla/zenn-trend-cli/master/cli.ts"
+#_Write_Title("# deno install sheepla/zenn-trend-cli")
+#deno install --force --allow-net --name zenn-trend-cli "https://raw.githubusercontent.com/sheepla/zenn-trend-cli/master/cli.ts"
 _br(1)
 
 

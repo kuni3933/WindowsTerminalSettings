@@ -3,9 +3,9 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 if (-Not (Get-Command("cargo.exe"))) {
-		Write-Error -Message "cargo.exe (rust) is not installed." -ErrorAction Stop
-		return 1603
-	}
+  Write-Error -Message "cargo.exe (rust) is not installed." -ErrorAction Stop
+	return 1603
+}
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("cargo/install.ps1")
 
@@ -30,10 +30,12 @@ _br(1)
 _Write_Title("# rustup component")
 rustup component add `
   clippy `
+  llvm-tools-preview `
   rls `
   rust-analysis `
-  rust-src `
+  rust-analyzer `
   rust-docs `
+  rust-src `
   rustfmt
 _br(1)
 

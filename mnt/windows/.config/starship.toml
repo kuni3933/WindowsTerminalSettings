@@ -1,10 +1,15 @@
+"$schema" = "https://starship.rs/config-schema.json"
 format = """
-(bold white)$shlvl$status$username$directory$git_branch$git_status$git_commit\
+(bold white)$shlvl$status$username$directory$git_branch$git_status$git_commit$git_metrics$hg_branch\
 $aws\
+$azure\
+$c\
 $cmake\
 $cobol\
 $conda\
+$container\
 $crystal\
+$daml\
 $dart\
 $deno\
 $docker_context\
@@ -14,6 +19,7 @@ $elm\
 $erlang\
 $gcloud\
 $golang\
+$haskell\
 $helm\
 $java\
 $julia\
@@ -31,75 +37,36 @@ $php\
 $pulumi\
 $purescript\
 $python\
+$rlang\
+$raku\
 $red\
 $ruby\
 $rust\
 $scala\
+$singularity\
+$spack\
 $sudo\
 $swift\
 $terraform\
 $vagrant\
 $vlang\
+$vcsh\
 $zig\
-$cmd_duration$memory_usage$battery$time
+$cmd_duration$memory_usage$battery$fill$hostname$localip$shell$time
 (bold white)$character"""
 
-scan_timeout = 50
-#scan_timeout = 100
+add_newline = true
 
-[character]
-success_symbol = "[❯❯❯](bold white) "
-error_symbol =   "[❯❯❯](bold red) "
-#success_symbol = "[➤ ](bold white) "
-#error_symbol =   "[➤ ](bold red) "
+scan_timeout = 25
+#scan_timeout = 50
 
-[shell]
-disabled = false
+[line_break]
+disabled =false
 
 [shlvl]
 disabled = false
 format = "[ Lv.$shlvl ](bold white)"
 threshold = 2
-
-[username]
-disabled = true
-show_always = true
-style_user = "bold green"
-style_root = "bold red"
-format = "[ $user]($style) "
-
-[directory]
-style = "bold blue"
-read_only_style = "white"
-fish_style_pwd_dir_length = 8
-format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
-truncation_length = 8
-truncation_symbol = ".../"
-
-[git_status]
-conflicted = " "
-untracked  = "？"
-stashed    = " "
-modified   = " "
-staged     = " "
-renamed    = " "
-deleted    = "✘ "
-style = "bold yellow"
-ahead = "▲ ${count}"
-behind = "▼ ${count}"
-diverged = "▲ ${ahead_count} ▼ ${behind_count}"
-
-[git_branch]
-style = "bold underline purple"
-
-[cmd_duration]
-format = "took [ $duration](bold white)"
-
-[time]
-disabled = true
-format = 'at [ $time](underline white) '
-time_format = "%T"
-utc_time_offset = "+9"
 
 [status]
 style = "red"
@@ -112,26 +79,133 @@ format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = false
 
+[username]
+disabled = false
+show_always = false
+style_user = "bold green"
+style_root = "bold red"
+format = "[ $user]($style) "
+
+[directory]
+disabled = false
+style = "bold blue"
+read_only_style = "white"
+fish_style_pwd_dir_length = 8
+format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
+truncation_length = 8
+truncation_symbol = ".../"
+use_os_path_sep = false
+
+[git_branch]
+disabled = false
+style = "bold underline purple"
+
+[git_status]
+disabled = false
+conflicted = " "
+untracked  = "？"
+stashed    = " "
+modified   = " "
+staged     = " "
+renamed    = " "
+deleted    = "✘ "
+style = "bold yellow"
+ahead = "▲ ${count}"
+behind = "▼ ${count}"
+diverged = "▲ ${ahead_count} ▼ ${behind_count}"
+
+[git_commit]
+disabled = false
+
+[git_metrics]
+disabled = false
+
+[hg_branch]
+disabled = false
+symbol = " "
+style = "bold underline purple"
+
+[cmd_duration]
+disabled = false
+format = "took [ $duration](bold black)"
+min_time = 500
+show_milliseconds = true
+show_notifications = false
+
 [memory_usage]
 disabled = true
 threshold = -1
 symbol = " "
 style = "bold underline white"
 
+[battery]
+disabled = false
+
 [[battery.display]]
+disabled = false
 threshold = 10
 style = "bold red"
 
+[fill]
+disabled = false
+style = ""
+symbol = " "
+
+[hostname]
+ssh_only = true
+format = '\[ [$ssh_symbol](bold blue) on [$hostname](bold red) '
+#trim_at = ".companyname.com"
+disabled = true
+
+[localip]
+ssh_only = true
+format = '@ [$localipv4](bold red) \] '
+disabled = true
+
+[shell]
+disabled = false
+#format = '[$indicator]($style) '
+#fish_indicator = ""
+#powershell_indicator = "_"
+unknown_indicator = "mystery_shell"
+style = "cyan bold"
+
+[time]
+disabled = false
+#format = 'at [ $time](underline white) '
+format = '\[[ $time ](bold blue)\] '
+time_format = "%Y/%m/%d - %T"
+use_12hr = false
+utc_time_offset = "+9"
+
+[character]
+disabled = false
+success_symbol = "[❯](bold white)[❯](bold blue)[❯](bold cyan) "
+error_symbol =   "[❯❯❯](bold red) "
+#success_symbol = "[❯❯❯](bold white) "
+#error_symbol =   "[❯❯❯](bold red) "
+#success_symbol = "[➤ ](bold white) "
+#error_symbol =   "[➤ ](bold red) "
+#success_symbol = "[▶ ](bold white) "
+#error_symbol =   "[▶ ](bold red) "
+
+
+#------------------------------------------------
+#                   Language
+#------------------------------------------------
 [aws]
 disabled = false
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-[aws.region_aliases]
-ap-southeast-2 = "au"
-us-east-1 = "va"
+format = '\[[$symbol($profile)(\($region\))(\[$duration\] )]($style)\]'
+style = "bold orange"
 
 [azure]
 disabled = false
 format = '\[[$symbol($subscription)]($style)\]'
+style = "bold blue"
+
+[c]
+disabled =false
+format = '\[[$symbol($version(-$name))]($style)\]'
 
 [cmake]
 disabled = false
@@ -145,8 +219,16 @@ format = '\[[$symbol($version)]($style)\]'
 disabled = false
 format = '\[[$symbol$environment]($style)\]'
 
+[container]
+disabled = false
+format = '\[[$symbol \\[$name\\]]($style)\]'
+
 [crystal]
 disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[daml]
+disabled =false
 format = '\[[$symbol($version)]($style)\]'
 
 [dart]
@@ -179,9 +261,13 @@ format = '\[[$symbol($version)]($style)\]'
 
 [gcloud]
 disabled = false
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+format = '\[[$symbol$account(@$domain)(\($region\))(\($project\))]($style)\]'
 
 [golang]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[haskell]
 disabled = false
 format = '\[[$symbol($version)]($style)\]'
 
@@ -191,7 +277,8 @@ format = '\[[$symbol($version)]($style)\]'
 
 [java]
 disabled = false
-format = '\[[$symbol($version)]($style)\]'
+#format = '\[[$symbol($version)]($style)\]'
+format = '\[[${symbol}(${version})]($style)\]'
 
 [julia]
 disabled = false
@@ -243,7 +330,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [pulumi]
 disabled = false
-format = '\[[$symbol$stack]($style)\]'
+format = '\[[$symbol($username@)$stack]($style)\]'
 
 [purescript]
 disabled = false
@@ -252,6 +339,14 @@ format = '\[[$symbol($version)]($style)\]'
 [python]
 disabled = false
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+[rlang]
+disabled = false
+format = '\[[$symbol($version)]($style)\]'
+
+[raku]
+disabled = false
+format = '\[[$symbol($version-$vm_version)]($style)\]'
 
 [red]
 disabled = false
@@ -267,11 +362,20 @@ format = '\[[$symbol($version)]($style)\]'
 
 [scala]
 disabled = false
-format = '\[[$symbol($version)]($style)\]'
+#format = '\[[$symbol($version)]($style)\]'
+format = '\[[${symbol}(${version})]($style)\]'
+
+[singularity]
+disabled = false
+format = '\[[$symbol\[$env\]]($style)\]'
+
+[spack]
+disabled = false
+format = '\[[$symbol$environment]($style)\]'
 
 [sudo]
 disabled = false
-format = '\[[as $symbol]\]'
+format = '\[[as $symbol]($style)\]'
 
 [swift]
 disabled = false
@@ -289,8 +393,10 @@ format = '\[[$symbol($version)]($style)\]'
 disabled = false
 format = '\[[$symbol($version)]($style)\]'
 
+[vcsh]
+disabled = false
+format = '\[[$symbol$repo]($style)\]'
+
 [zig]
 disabled = false
 format = '\[[$symbol($version)]($style)\]'
-
-

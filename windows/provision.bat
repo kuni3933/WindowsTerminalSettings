@@ -67,6 +67,10 @@ set ORIGIN_ghconfig="%COMMON_MNT%\GitHub_CLI-gh\config.yml"
 If not exist "%ROAMING%\GitHub CLI" mkdir "%ROAMING%\GitHub CLI"
 call :link_file "%ROAMING%\GitHub CLI\config.yml" "%ORIGIN_ghconfig%"
 
+call :******************** "git-cz"
+set ORIGIN_changelog_config_js="%COMMON_MNT%\git-cz\changelog.config.js"
+call :link_file "%USERPROFILE%\changelog.config.js" "%ORIGIN_changelog_config_js%"
+
 call :******************** "bat"
 set ORIGIN_bat="%COMMON_MNT%\bat"
 call :link_dir "%ROAMING%\bat" "%ORIGIN_bat%"
@@ -112,10 +116,10 @@ call :each link_windows_home %WINDOWS%\windows-home-dots.txt
 call :******************** PowerShell Core
 set POWER_SHELL_ORIGIN_DIR=%WINDOWS_MNT%\Documents\PowerShell
 set POWER_SHELL_DIR=%USERPROFILE%\Documents\PowerShell
-If not exist "%USERPROFILE%\Documents" mkdir %USERPROFILE%\Documents"
 If not exist "%USERPROFILE%\Documents\PowerShell" mkdir %USERPROFILE%\Documents\PowerShell"
 call :link_file "%USERPROFILE%\.oh-my-posh.json" %WINDOWS_MNT%\.oh-my-posh.json
 call :link_file "%USERPROFILE%\.config\starship.toml" "%WINDOWS_MNT%\.config\starship.toml"
+call :link_file "%POWER_SHELL_DIR%\Alias.ps1" "%POWER_SHELL_ORIGIN_DIR%\Alias.ps1"
 call :link_file "%POWER_SHELL_DIR%\Microsoft.PowerShell_profile.ps1" "%POWER_SHELL_ORIGIN_DIR%\Microsoft.PowerShell_profile.ps1"
 
 

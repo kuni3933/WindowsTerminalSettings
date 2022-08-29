@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if (-Not (Get-Command("scoop"))) {
+if(-Not (Get-Command("scoop"))){
 		Write-Error -Message "scoop is not installed." -ErrorAction Stop
 		return 1603
 }
@@ -33,11 +33,11 @@ scoop bucket add jp https://github.com/rkbk60/scoop-for-jp
 _br(1)
 #>
 
-_Write_Title("# Add Java bucket")
+_Write_Title("# Add java bucket")
 scoop bucket add java "https://github.com/ScoopInstaller/Java"
 _br(1)
 
-_Write_Title("# Add scoop-pleiades bucket")
+_Write_Title("# Add pleiades bucket")
 scoop bucket add pleiades "https://github.com/jfut/scoop-pleiades"
 _br(1)
 
@@ -58,16 +58,17 @@ if(Test-Path ${env:USERPROFILE}/scoop/apps/busybox/current/busybox.exe){
 }
 scoop install Main/busybox
 
-_Write_Title("# uutils-coreutils")
+_Write_Title("# Main/uutils-coreutils")
 if(Test-Path ${env:USERPROFILE}/scoop/apps/uutils-coreutils/current/coreutils.exe){
-    scoop uninstall Main/uutils-coreutils
+  scoop uninstall Main/uutils-coreutils
 }
 scoop install Main/uutils-coreutils
 
-# less
+_Write_Title("# Main/less")
 if(Test-Path ${env:USERPROFILE}/scoop/apps/less/current/less.exe){
-    scoop uninstall Main/less
+  scoop uninstall Main/less
 }
+scoop install Main/less
 
 _Write_Title("# CLI Tools")
 scoop install `
@@ -96,9 +97,7 @@ scoop install `
   Main/gitignore `
   Main/gping `
   Main/gron `
-  Main/gsudo `
-  Main/heroku-cli `
-  Main/hexyl `
+  Main/gsudo ` <#Main/heroku-cli `#> Main/hexyl `
   Main/hub `
   Main/hyperfine `
   Main/imagemagick `
@@ -107,7 +106,6 @@ scoop install `
   Main/jo `
   Main/jq `
   Main/jx `
-  Main/less `
   Main/lsd `
   Main/make `
   Main/neo-cowsay `
@@ -125,6 +123,7 @@ scoop install `
   Main/xh `
   Main/youtube-dl `
   Main/yq `
+  Main/yt-dlp `
   Main/zoxide `
   Extras/onefetch `
   Extras/pipes-rs `
@@ -135,14 +134,15 @@ _br(1)
 
 _Write_Title("# pwsh tool")
 scoop install `
-  Main/oh-my-posh `
   Main/starship `
-  Extras/posh-git
+  Extras/psfzf `
+  Extras/psreadline
 _br(1)
 
 _Write_Title("# GUI Tools")
 scoop install `
   Main/gitui `
+  Main/helix `
   Extras/bugn `
   Extras/keypirinha `
   Extras/lazygit

@@ -186,6 +186,14 @@
         "source": "Windows.Terminal.PowershellCore"
       },
       {
+        "name": "Nu Shell",
+        "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/BxV2pw7CAAAjeSf_NuShell.png",
+        "commandline": "nu.exe",
+        "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+        "hidden": false,
+        "icon": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/NuShell_icon.png"
+      },
+      {
         "name": "Distrod-Arch",
         "backgroundImage": "%USERPROFILE%/WindowsTerminalSettings/mnt/common/img/BxV2pw7CAAAjeSf_Arch.png",
         "commandline": "wsl ~ -d Distrod",
