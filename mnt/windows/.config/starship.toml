@@ -153,7 +153,6 @@ style = "bold underline white"
 disabled = false
 
 [[battery.display]]
-disabled = false
 threshold = 10
 style = "bold red"
 
