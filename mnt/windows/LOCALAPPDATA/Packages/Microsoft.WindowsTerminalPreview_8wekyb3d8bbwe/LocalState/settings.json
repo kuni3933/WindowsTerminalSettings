@@ -146,6 +146,11 @@
       "keys": "alt+shift+k"
     }
   ],
+  "experimental.autoMarkPrompts": true,
+  "experimental.showMarksOnScrollbar": true,
+  "experimental.rendering.forceFullRepaint": true,
+  "experimental.rendering.software": true,
+  "experimental.useBackgroundImageForWindow": false,
   "copyFormatting": "none",
   "copyOnSelect": false,
   "launchMode": "default",
@@ -154,13 +159,10 @@
   "useAcrylicInTabRow": true,
   "profiles": {
     "defaults": {
-      "acrylicOpacity": 0.5,
       "antialiasingMode": "cleartype",
-      "backgroundImageOpacity": 0.125,
-      "backgroundImageStretchMode": "none",
+      "backgroundImageOpacity": 0.1,
+      "backgroundImageStretchMode": "uniformToFill",
       "bellStyle": "audible",
-      "experimental.rendering.forceFullRepaint": true,
-      "experimental.rendering.software": true,
       "experimental.useAtlasEngine": true,
       "closeOnExit": "always",
       "colorScheme": "Iceberg",
@@ -168,11 +170,13 @@
       "cursorShape": "bar",
       "font": {
         "face": "PlemolJP Console NF",
-        "size": 12
+        "size": 12,
+        "weight": "normal"
       },
       "historySize": 9001,
-      "opacity": 75,
+      "opacity": 85,
       "padding": "0, 0, 0, 0",
+      "scrollbarState": "visible",
       "snapOnInput": true,
       "startingDirectory": "%USERPROFILE%",
       "useAcrylic": true

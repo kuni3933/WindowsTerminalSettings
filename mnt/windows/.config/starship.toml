@@ -1,6 +1,6 @@
 "$schema" = "https://starship.rs/config-schema.json"
 format = """
-(bold white)$shlvl$status$username$directory$git_branch$git_status$git_commit$git_metrics$hg_branch\
+[┌── ](bold white)$shlvl$status$username$directory$git_branch$git_status$git_commit$git_state$git_metrics$hg_branch\
 $aws\
 $azure\
 $c\
@@ -53,13 +53,17 @@ $vlang\
 $vcsh\
 $zig\
 $cmd_duration$memory_usage$battery$fill$hostname$localip$shell$time
-(bold white)$character"""
+[└─](bold white)$character"""
 
 add_newline = true
 
 scan_timeout = 25
 #scan_timeout = 50
 
+
+#------------------------------------------------
+#                   Character
+#------------------------------------------------
 [line_break]
 disabled =false
 
@@ -69,15 +73,16 @@ format = "[ Lv.$shlvl ](bold white)"
 threshold = 2
 
 [status]
+disabled = false
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
 style = "red"
 symbol = " "
 not_executable_symbol = "🚫"
 not_found_symbol = " "
 sigint_symbol = " "
 signal_symbol = " "
-format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
-disabled = false
+pipestatus =true
 
 [username]
 disabled = false
@@ -108,13 +113,18 @@ stashed    = " "
 modified   = " "
 staged     = " "
 renamed    = " "
-deleted    = "✘ "
+deleted    = "✖ " #"✘ "
 style = "bold yellow"
 ahead = "▲ ${count}"
 behind = "▼ ${count}"
 diverged = "▲ ${ahead_count} ▼ ${behind_count}"
 
 [git_commit]
+disabled = false
+only_detached = true
+tag_disabled = false
+
+[git_state]
 disabled = false
 
 [git_metrics]
@@ -127,7 +137,8 @@ style = "bold underline purple"
 
 [cmd_duration]
 disabled = false
-format = "took [ $duration](bold black)"
+#format = "took [ $duration](bold black)"
+format = "[ $duration](bold black)"
 min_time = 500
 show_milliseconds = true
 show_notifications = false
@@ -164,17 +175,19 @@ disabled = true
 
 [shell]
 disabled = false
-#format = '[$indicator]($style) '
+format = '[$indicator]($style)'
 #fish_indicator = ""
 #powershell_indicator = "_"
-unknown_indicator = "mystery_shell"
+unknown_indicator = "?"
+#unknown_indicator = "mystery_shell"
 style = "cyan bold"
 
 [time]
 disabled = false
 #format = 'at [ $time](underline white) '
-format = '\[[ $time ](bold blue)\] '
-time_format = "%Y/%m/%d - %T"
+format = '\[[ $time](bold blue)\]'
+#time_format = "%Y/%m/%d - %T"
+time_format = "%T"
 use_12hr = false
 utc_time_offset = "+9"
 

@@ -16,11 +16,12 @@ test.ps1
 test.sh
 
 # windows/*/log.txt
-windows/winget/winget_log.txt
-windows/scoop/scoop_log.txt
-windows/volta-npm/volta_log.txt
+windows/gh/gh_log.txt
 windows/Python-pip/pip_freeze_log.txt
 windows/Python-pip/pip_log.txt
+windows/scoop/scoop_log.txt
+windows/volta-npm/volta_log.txt
+windows/winget/winget_log.txt
 
 # node
 package-lock.json

@@ -77,16 +77,14 @@ scoop install `
   Main/bat `
   Main/bind `
   Main/bit `
-  Main/bottom `
   Main/broot `
   Main/cacert `
   Main/cheat `
   Main/colortool `
   Main/curlie `
   Main/delta `
+  Main/docfx `
   Main/dog `
-  Main/duf `
-  Main/dust `
   Main/fd `
   Main/ffmpeg `
   Main/firebase `
@@ -94,31 +92,27 @@ scoop install `
   Main/fzf `
   Main/gh `
   Main/ghq `
-  Main/gitignore `
-  Main/gping `
   Main/gron `
-  Main/gsudo ` <#Main/heroku-cli `#> Main/hexyl `
+  Main/grpcurl `
+  Main/gsudo `
+  Main/hexyl `
+  Main/htmlq `
+  Main/httpstat `
   Main/hub `
   Main/hyperfine `
   Main/imagemagick `
-  Main/innounp `
   Main/jid `
   Main/jo `
   Main/jq `
-  Main/jx `
   Main/lsd `
   Main/make `
   Main/neo-cowsay `
-  Main/neovim `
-  Main/nu `
-  Main/pandoc `
-  Main/procs `
+  Main/reviewdog `
   Main/ripgrep `
   Main/roswell `
   Main/sd `
   Main/sed `
   Main/task `
-  Main/vim `
   Main/winfetch `
   Main/xh `
   Main/youtube-dl `
@@ -127,35 +121,49 @@ scoop install `
   Main/zoxide `
   Extras/onefetch `
   Extras/pipes-rs `
-  Extras/scoop-completion `
-  Extras/streamlink `
-  Extras/terminal-icons
+  Extras/streamlink
 _br(1)
 
 _Write_Title("# pwsh tool")
 scoop install `
   Main/starship `
   Extras/psfzf `
-  Extras/psreadline
+  Extras/psreadline `
+  Extras/scoop-completion `
+  Extras/terminal-icons
 _br(1)
 
-_Write_Title("# GUI Tools")
+_Write_Title("# GUI/TUI Tools")
 scoop install `
+  Main/bottom `
+  Main/duf `
+  Main/dust `
   Main/gitui `
+  Main/gotop `
+  Main/gping `
   Main/helix `
+  Main/lazydocker `
+  Main/mprocs `
+  Main/neovim `
+  Main/procs `
+  Main/termshark `
+  Main/vim `
   Extras/bugn `
+  Extras/imhex `
   Extras/keypirinha `
-  Extras/lazygit
-#Extras/imhex
+  Extras/lazygit `
+  Extras/wireshark
+#Extras/asciidocfx
 _br(1)
 
-_Write_Title("# Language / Framework / MiddleWare")
+_Write_Title("# Framework / Language / MiddleWare / Shell")
 scoop install `
   Main/deno `
   Main/docker `
   Main/dotnet-sdk `
   Main/go `
   Main/hugo-extended `
+  Main/nu `
   Main/python `
   Main/rustup-msvc `
   Main/volta

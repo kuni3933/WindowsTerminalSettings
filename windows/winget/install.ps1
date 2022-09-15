@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-function _Winget_Version() {
+function _Winget_Version([string]${Path}) {
   if (-Not (Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "winget.exe is not installed." -ErrorAction Stop
 		return 1603
@@ -44,7 +44,7 @@ function _Winget_Version() {
   [System.Diagnostics.Process] ${process} = Start-Process `
     -FilePath "winget.exe" `
     -ArgumentList "list" `
-    -RedirectStandardOutput "${MyPath}/winget_log.txt" `
+    -RedirectStandardOutput "${Path}" `
     -NoNewWindow `
     -PassThru `
     -Wait
@@ -55,11 +55,11 @@ function _Winget_Version() {
 #参考:https://zenn.dev/sha256/articles/44a6e2f4c7b89f
 function _Title([string]${Name},[string] ${ID}) {
   if ([string]::IsNullOrEmpty(${Name})) {
-		Write-Error -Message "Name is null or empty."
+		Write-Error -Message "[Name] is null or empty."
 		return 1603
 	}
   if ([string]::IsNullOrEmpty(${ID})) {
-		Write-Error -Message "ID is null or empty."
+		Write-Error -Message "[ID] is null or empty."
 		return 1603
 	}
   _Write_Title("# " + "${Name} [${ID}]")
@@ -83,12 +83,12 @@ function _Install([string] ${ID},[string] ${Options}) {
   _br(1)
 
   if ([string]::IsNullOrEmpty(${ID})) {
-		Write-Error -Message "Invalid ID"
+		Write-Error -Message "Invalid [ID]"
 		return 1603
 	}
 
   if ([string]::IsNullOrEmpty(${Options})) {
-		Write-Error -Message "Invalid Options"
+		Write-Error -Message "Invalid [Install_Options]"
 		return 1603
 	}
 
@@ -107,15 +107,15 @@ function _Install([string] ${ID},[string] ${Options}) {
 function  _Update([string] ${ID},[string] ${Options}) {
   _br(1)
   Write-Host "  インストール済みです. アップデートを行います." -ForegroundColor Cyan
-  Write-Host "  This application is already installed. Update the pwsh." -ForegroundColor Cyan
+  Write-Host "  This application is already installed. Start the updating of this application." -ForegroundColor Cyan
   _br(1)
 
   if ([string]::IsNullOrEmpty(${ID})) {
-		Write-Error -Message "Invalid ID"
+		Write-Error -Message "Invalid [ID]"
 		return 1603
 	}
   if ([string]::IsNullOrEmpty(${Options})) {
-		Write-Error -Message "Invalid Options"
+		Write-Error -Message "Invalid [Update_Options]"
 		return 1603
 	}
 
@@ -134,16 +134,19 @@ function  _Update([string] ${ID},[string] ${Options}) {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("winget/install.ps1")
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
-[string] ${bit} = _Winget_Version
+${LogFilePath} = "${MyPath}/winget_log.txt"
+[string] ${bit} = _Winget_Version("${LogFilePath}")
 _br(2)
+
 if(Test-Path "${MyPath}/PKGLIST.json"){
-  $data = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
+  ${data} = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
 }else{
   Write-Error -Message "PKGLIST.json is not found." -ErrorAction Stop
 		return 1603
 }
 
 [int] ${Count} = 0
+
 foreach (${index} in ${data}) {
   [string] ${Name} = ${index}."Name"
   [string] ${ID} = ${index}."ID"
@@ -153,9 +156,9 @@ foreach (${index} in ${data}) {
   [string] ${Flag} =  ${index}."Flag"
 
   if(((_Title ${Name} ${ID}) -eq 0) -and ((${Flag} -eq "1") -or (${Flag} -ieq "${bit}_1"))){
-    if((Select-String "${MyPath}/winget_log.txt" -Pattern "^${Name}/s" -CaseSensitive) -or (Select-String "${MyPath}/winget_log.txt" -Pattern "\s${ID}\s" -CaseSensitive)){
+    if(Select-String "${LogFilePath}" -Pattern "\s${ID}\s" -CaseSensitive){
       if(Test-Path "${MyPath}/${ID}.ps1"){ & "${MyPath}/${ID}.ps1" }
-      if(${Update_Options} -eq ""){${Update_Options} = " "}
+      if(${Update_Options} -eq ""){ ${Update_Options} = " " }
       _Update ${ID} ${Update_Options}
     }elseIf(_Want_To_Install("${Name} [${ID}]")) {
       if(${Install_Options} -eq ""){ ${Install_Options} = " " }
@@ -170,7 +173,7 @@ foreach (${index} in ${data}) {
     }
   }else{
     _br(1)
-    Write-Host("  Error:Either the ID is different, the ISA is different, or Flag is False.") -ForegroundColor Red
+    Write-Host("  Error:Either the [ID] is different, the [ISA] is different, or [Flag] is False.") -ForegroundColor Red
     _br(1)
   }
   ${Count} += 1

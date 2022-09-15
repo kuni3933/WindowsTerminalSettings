@@ -112,6 +112,14 @@
     "Flag": "0"
   },
   {
+    "Name": "CopyQ",
+    "ID": "hluk.CopyQ",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "CORSAIR iCUE 4 Software",
     "ID": "Corsair.iCUE.4",
     "Install_Options": "",
@@ -134,6 +142,14 @@
     "Update_Options": "",
     "Message": [],
     "Flag": "1"
+  },
+  {
+    "Name": "DevHub",
+    "ID": "DevHub.DevHub",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
   },
   {
     "Name": "DevToys",
@@ -197,11 +213,19 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "Git",
     "ID": "Git.Git",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "1"
+  },
+  {
+    "Name": "GitHub Desktop",
+    "ID": "GitHub.GitHubDesktop",
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
@@ -237,7 +261,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "HWiNFO",
@@ -246,6 +270,30 @@
     "Update_Options": "",
     "Message": [],
     "Flag": "1"
+  },
+  {
+    "Name": "Hyper",
+    "ID": "Zeit.Hyper",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "Hyperamp",
+    "ID": "Hypermodules.Hyperamp",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "Hyperspace Desktop",
+    "ID": "HyperspaceDev.HyperspaceDesktop",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
   },
   {
     "Name": "iTunes",
@@ -342,9 +390,7 @@
     "ID": "roldanjr.pomatez",
     "Install_Options": "",
     "Update_Options": "",
-    "Message": [
-        "URL:https://github.com/roldanjr/pomatez"
-    ],
+    "Message": ["URL:https://github.com/roldanjr/pomatez"],
     "Flag": "0"
   },
   {
@@ -402,6 +448,14 @@
     "Update_Options": "",
     "Message": [],
     "Flag": "1"
+  },
+  {
+    "Name": "Sourcetree",
+    "ID": "Atlassian.Sourcetree",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
   },
   {
     "Name": "Standard Notes",
@@ -532,7 +586,7 @@
     "Install_Options": "",
     "Update_Options": "",
     "Message": [],
-    "Flag": "1"
+    "Flag": "0"
   },
   {
     "Name": "Wondershare PDFelement",
