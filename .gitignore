@@ -1,6 +1,10 @@
 # .gitconfig
 .gitconfig
 
+# node
+package-lock.json
+package.json
+
 # tmp.*
 tmp.*
 tmp.txt
@@ -15,6 +19,15 @@ test.bat
 test.ps1
 test.sh
 
+
+#------------------------------
+# Specified Directory file
+#------------------------------
+# mnt/linux/Arch/
+mnt/linux/Arch/.config/fish/functions/*
+mnt/linux/Arch/.config/fish/completions/*
+mnt/linux/Arch/.config/fish/conf.d/*
+
 # windows/*/log.txt
 windows/gh/gh_log.txt
 windows/Python-pip/pip_freeze_log.txt
@@ -23,11 +36,3 @@ windows/scoop/scoop_log.txt
 windows/volta-npm/volta_log.txt
 windows/winget/winget_log.txt
 
-# node
-package-lock.json
-package.json
-
-#mnt/linux/Arch/
-mnt/linux/Arch/.config/fish/functions/*
-mnt/linux/Arch/.config/fish/completions/*
-mnt/linux/Arch/.config/fish/conf.d/*
