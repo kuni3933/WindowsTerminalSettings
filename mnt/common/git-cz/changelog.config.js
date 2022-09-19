@@ -31,62 +31,62 @@ module.exports = {
   types: {
     chore: {
       description: "ドキュメントの生成やビルドプロセス、ライブラリなどの変更",
-      //emoji: "🤖",
+      emoji: "🤖",
       value: "chore",
     },
     ci: {
       description: "CI用の設定やスクリプトに関する変更",
-      //emoji: "🎡",
+      emoji: "🎡",
       value: "ci",
     },
     config: {
       description: "設定ファイルの追加・修正",
-      //emoji: "⚙️",
+      emoji: "⚙️",
       value: "config",
     },
     docs: {
       description: "ドキュメントのみの変更",
-      //emoji: "✏️",
+      emoji: "✏️",
       value: "docs",
     },
     feat: {
       description: "新機能",
-      //emoji: "🎸",
+      emoji: "🎸",
       value: "feat",
     },
     fix: {
       description: "不具合の修正",
-      //emoji: "🐛",
+      emoji: "🐛",
       value: "fix",
     },
     package: {
       description: "パッケージの追加・更新・削除",
-      //emoji: '📦',
+      emoji: "📦",
       value: "package",
     },
     perf: {
       description: "パフォーマンス改善を行うためのコードの変更",
-      //emoji: "⚡️",
+      emoji: "⚡️",
       value: "perf",
     },
     refactor: {
       description: "バグ修正や機能の追加を行わないコードの変更",
-      //emoji: "💡",
+      emoji: "💡",
       value: "refactor",
     },
     release: {
       description: "リリースコミットの作成",
-      //emoji: "🏹",
+      emoji: "🏹",
       value: "release",
     },
     style: {
       description: "コードの処理に影響しない変更（スペースや書式設定など）",
-      //emoji: "💄",
+      emoji: "💄",
       value: "style",
     },
     test: {
       description: "テストコードの変更",
-      //emoji: "💍",
+      emoji: "💍",
       value: "test",
     },
     messages: {
