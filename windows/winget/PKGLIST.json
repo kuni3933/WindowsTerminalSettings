@@ -16,6 +16,22 @@
     "Flag": "0"
   },
   {
+    "Name": "AdGuard",
+    "ID": "AdGuard.AdGuard",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "AdGuardVPN",
+    "ID": "AdGuard.AdGuardVPN",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "Adobe Acrobat DC (64-bit)",
     "ID": "Adobe.Acrobat.Reader.64-bit",
     "Install_Options": "",
