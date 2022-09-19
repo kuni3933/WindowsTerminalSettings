@@ -312,6 +312,14 @@
     "Flag": "0"
   },
   {
+    "Name": "Inssist",
+    "ID": "SlashedIo.Inssist",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "iTunes",
     "ID": "Apple.iTunes",
     "Install_Options": "",
@@ -368,6 +376,14 @@
     "Update_Options": "",
     "Message": [],
     "Flag": "1"
+  },
+  {
+    "Name": "ModernDeck",
+    "ID": "dangeredwolf.ModernDeck",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
   },
   {
     "Name": "Mp3tag",
@@ -522,6 +538,22 @@
     "Flag": "1"
   },
   {
+    "Name": "ttth",
+    "ID": "yafp.ttth",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "Tweeten",
+    "ID": "MehediHassan.Tweeten",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
     "Name": "Typora",
     "ID": "Typora.Typora",
     "Install_Options": "",
@@ -611,6 +643,30 @@
     "Update_Options": "",
     "Message": [],
     "Flag": "1"
+  },
+  {
+    "Name": "YouTube Music",
+    "ID": "th-ch.YouTubeMusic",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "YouTube Music Desktop App",
+    "ID": "Ytmdesktop.Ytmdesktop",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
+  },
+  {
+    "Name": "YouTube Music for Desktop",
+    "ID": "MartinFinnerup.YouTubeMusicforDesktop",
+    "Install_Options": "",
+    "Update_Options": "",
+    "Message": [],
+    "Flag": "0"
   },
   {
     "Name": "Zettlr",
