@@ -143,6 +143,7 @@ scoop install `
   Main/lazydocker `
   Main/mprocs `
   Main/neovim `
+  Main/ntop `
   Main/procs `
   Main/termshark `
   Main/vim `
