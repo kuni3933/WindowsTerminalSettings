@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if (-Not (Get-Command("volta.exe"))) {
+if (!(Get-Command("volta.exe") -ErrorAction SilentlyContinue)) {
   Write-Error -Message "volta.exe is not installed." -ErrorAction Stop
   return 1603
 }

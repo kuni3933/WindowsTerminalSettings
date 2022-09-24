@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if (-Not (Get-Command("go.exe"))) {
+if (!(Get-Command("go.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "go.exe is not installed." -ErrorAction Stop
 		return 1603
 	}

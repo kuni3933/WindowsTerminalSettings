@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if (-Not (Get-Command("pip"))) {
+if (!(Get-Command("pip") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "Python/pip is not installed." -ErrorAction Stop
 		return 1603
 }

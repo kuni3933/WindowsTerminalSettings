@@ -3,7 +3,7 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 function _Gh_Version([string]${Path}) {
-  if (-Not (Get-Command("gh.exe") -ErrorAction SilentlyContinue)) {
+  if (!(Get-Command("gh.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "gh.exe is not installed." -ErrorAction Stop
 		return 1603
 	}

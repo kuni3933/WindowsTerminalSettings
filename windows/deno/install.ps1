@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if (-Not (Get-Command("deno.exe"))) {
+if (!(Get-Command("deno.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "deno.exe is not installed." -ErrorAction Stop
 		return 1603
 	}

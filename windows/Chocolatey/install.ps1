@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if (-Not (Get-Command("choco.exe"))) {
+if (!(Get-Command("choco.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "choco.exe is not installed." -ErrorAction Stop
 		return 1603
 	}

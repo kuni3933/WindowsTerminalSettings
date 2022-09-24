@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if (-Not (Get-Command("cargo.exe"))) {
+if (!(Get-Command("cargo.exe") -ErrorAction SilentlyContinue)) {
   Write-Error -Message "cargo.exe (rust) is not installed." -ErrorAction Stop
 	return 1603
 }

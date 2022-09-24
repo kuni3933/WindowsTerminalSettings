@@ -3,7 +3,7 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 function _Winget_Version([string]${Path}) {
-  if (-Not (Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
+  if (!(Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "winget.exe is not installed." -ErrorAction Stop
 		return 1603
 	}
