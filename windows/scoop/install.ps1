@@ -2,7 +2,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-if(-Not (Get-Command("scoop"))){
+if(!(Get-Command("scoop"))){
 		Write-Error -Message "scoop is not installed." -ErrorAction Stop
 		return 1603
 }
@@ -138,9 +138,7 @@ scoop install `
   Main/bottom `
   Main/duf `
   Main/dust `
-  Main/gitui `
-  Main/gotop `
-  Main/gping `
+  Main/gitui ` <#Main/gotop `#> Main/gping `
   Main/helix `
   Main/lazydocker `
   Main/mprocs `
