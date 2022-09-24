@@ -1,16 +1,10 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"cSpell.words": [
-			"Traiangle",
-			"funclist",
-			"javalib",
-			"larray",
-			"rpgsave"
-		]
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cSpell.words": []
+  }
 }

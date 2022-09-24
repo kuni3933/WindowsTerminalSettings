@@ -81,15 +81,18 @@ _Write_Section("winget/list.ps1")
 ${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 [string] ${bit} = _Winget_Version
 _br(2)
+
+${json} = $null
 if(Test-Path "${MyPath}/PKGLIST.json"){
-  $data = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
+  ${json} = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
 }else{
   Write-Error -Message "PKGLIST.json is not found." -ErrorAction Stop
 		return 1603
 }
 
 [int] ${Count} = 0
-foreach (${index} in ${data}) {
+
+foreach (${index} in ${json}."data") {
   [string] ${Name} = ${index}."Name"
   [string] ${ID} = ${index}."ID"
   [string] ${Flag} = ${index}."Flag"

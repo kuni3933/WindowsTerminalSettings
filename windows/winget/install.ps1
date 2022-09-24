@@ -138,8 +138,9 @@ ${LogFilePath} = "${MyPath}/winget_log.txt"
 [string] ${bit} = _Winget_Version("${LogFilePath}")
 _br(2)
 
+${json} = $null
 if(Test-Path "${MyPath}/PKGLIST.json"){
-  ${data} = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
+  ${json} = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
 }else{
   Write-Error -Message "PKGLIST.json is not found." -ErrorAction Stop
 		return 1603
@@ -147,13 +148,13 @@ if(Test-Path "${MyPath}/PKGLIST.json"){
 
 [int] ${Count} = 0
 
-foreach (${index} in ${data}) {
+foreach (${index} in ${json}."data") {
   [string] ${Name} = ${index}."Name"
   [string] ${ID} = ${index}."ID"
+  [string] ${Flag} =  ${index}."Flag"
   [string] ${Install_Options} = ${index}."Install_Options"
   [string] ${Update_Options} = ${index}."Update_Options"
-  [string] ${Message} = ${index}."Message"
-  [string] ${Flag} =  ${index}."Flag"
+  [string[]] ${ArrayMessages} = ${index}."Message"
 
   if(((_Title ${Name} ${ID}) -eq 0) -and ((${Flag} -eq "1") -or (${Flag} -ieq "${bit}_1"))){
     if(Select-String "${LogFilePath}" -Pattern "\s${ID}\s" -CaseSensitive){
@@ -164,13 +165,11 @@ foreach (${index} in ${data}) {
       if(${Install_Options} -eq ""){ ${Install_Options} = " " }
       _Install ${ID} ${Install_Options}
     }
-    if(! ${Message}.IsNullOrEmpty){
-      _br(1)
-      foreach ($MessageIndex in $Message) {
-        Write-Host("  ${Message}") -ForegroundColor Green
-      }
-      _br(1)
+    _br(1)
+    foreach(${MessageIndex} in ${ArrayMessages}) {
+      Write-Host("  ${MessageIndex}") -ForegroundColor Green
     }
+    _br(1)
   }else{
     _br(1)
     Write-Host("  Error:Either the [ID] is different, the [ISA] is different, or [Flag] is False.") -ForegroundColor Red

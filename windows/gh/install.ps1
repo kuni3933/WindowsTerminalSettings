@@ -109,8 +109,9 @@ ${LogFilePath} = "${MyPath}/gh_log.txt"
 _Gh_Version("${LogFilePath}")
 _br(2)
 
+${json} = $null
 if(Test-Path "${MyPath}/PKGLIST.json"){
-  ${data} = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
+  ${json} = (Get-Content "${MyPath}/PKGLIST.json" | ConvertFrom-Json)
 }else{
   Write-Error -Message "PKGLIST.json is not found." -ErrorAction Stop
 		return 1603
@@ -118,7 +119,7 @@ if(Test-Path "${MyPath}/PKGLIST.json"){
 
 [int] ${Count} = 0
 
-foreach (${index} in ${data}) {
+foreach (${index} in ${json}."data") {
   [string] ${Name} = ${index}."Name"
   [string] ${Flag} =  ${index}."Flag"
 

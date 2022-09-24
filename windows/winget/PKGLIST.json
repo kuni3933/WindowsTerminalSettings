@@ -1,696 +1,723 @@
-[
-  {
-    "Name": "4K Video Downloader",
-    "ID": "OpenMedia.4KVideoDownloader",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "7-Zip",
-    "ID": "7zip.7zip",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "AdGuard",
-    "ID": "AdGuard.AdGuard",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "AdGuardVPN",
-    "ID": "AdGuard.AdGuardVPN",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Adobe Acrobat DC (64-bit)",
-    "ID": "Adobe.Acrobat.Reader.64-bit",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "x64_0"
-  },
-  {
-    "Name": "Adobe Acrobat Reader DC",
-    "ID": "Adobe.Acrobat.Reader.32-bit",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "x86_0"
-  },
-  {
-    "Name": "Alacritty",
-    "ID": "Alacritty.Alacritty",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Amazon Kindle",
-    "ID": "Amazon.Kindle",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Android Studio",
-    "ID": "Google.AndroidStudio",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Arctype",
-    "ID": "Arctype.Arctype",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "AutoHotkey",
-    "ID": "Lexikos.AutoHotkey",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "balenaEtcher",
-    "ID": "Balena.Etcher",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Brave",
-    "ID": "BraveSoftware.BraveBrowser",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Brave Beta",
-    "ID": "BraveSoftware.BraveBrowser.Beta",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Brave Dev",
-    "ID": "BraveSoftware.BraveBrowser.Dev",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Brave Nightly",
-    "ID": "BraveSoftware.BraveBrowser.Nightly",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "CopyQ",
-    "ID": "hluk.CopyQ",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "CORSAIR iCUE 4 Software",
-    "ID": "Corsair.iCUE.4",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "DBeaver",
-    "ID": "dbeaver.dbeaver",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "DeepL",
-    "ID": "DeepL.DeepL",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "DevHub",
-    "ID": "DevHub.DevHub",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "DevToys",
-    "ID": "9PGCV4V3BK4W",
-    "Install_Options": "--source msstore",
-    "Update_Options": "--source msstore",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Discord",
-    "ID": "Discord.Discord",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Ditto",
-    "ID": "Ditto.Ditto",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "draw.io",
-    "ID": "JGraph.Draw",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "EA app",
-    "ID": "ElectronicArts.EADesktop",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "EpocCam drivers",
-    "ID": "Elgato.EpocCam",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "foobar2000",
-    "ID": "PeterPawlowski.foobar2000",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Fork - a fast and friendly git client",
-    "ID": "Fork.Fork",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Git",
-    "ID": "Git.Git",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "GitHub Desktop",
-    "ID": "GitHub.GitHubDesktop",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Google Chrome",
-    "ID": "Google.Chrome",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Google Drive",
-    "ID": "Google.Drive",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Graviton Editor",
-    "ID": "MarcEspinSanz.GravitonEditor",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Hourglass",
-    "ID": "dziemborowicz.hourglass",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "HWiNFO",
-    "ID": "REALiX.HWiNFO",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Hyper",
-    "ID": "Zeit.Hyper",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Hyperamp",
-    "ID": "Hypermodules.Hyperamp",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Hyperspace Desktop",
-    "ID": "HyperspaceDev.HyperspaceDesktop",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Inssist",
-    "ID": "SlashedIo.Inssist",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "iTunes",
-    "ID": "Apple.iTunes",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Kite",
-    "ID": "Kite.Kite",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Lapce",
-    "ID": "Lapce.Lapce",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Mark Text",
-    "ID": "MarkText.MarkText",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Microsoft Edge WebView2 Runtime",
-    "ID": "Microsoft.EdgeWebView2Runtime",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Microsoft Visual Studio Code",
-    "ID": "Microsoft.VisualStudioCode",
-    "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
-    //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Microsoft Visual Studio Code Insiders",
-    "ID": "Microsoft.VisualStudioCode.Insiders",
-    "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
-    //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "ModernDeck",
-    "ID": "dangeredwolf.ModernDeck",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Mp3tag",
-    "ID": "Mp3tag.Mp3tag",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "MusicBee",
-    "ID": "9P4CLT2RJ1RS",
-    "Install_Options": "--source msstore",
-    "Update_Options": "--source msstore",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Notion",
-    "ID": "Notion.Notion",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Open Video Downloader",
-    "ID": "jely2002.youtube-dl-gui",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "pomatez",
-    "ID": "roldanjr.pomatez",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": ["URL:https://github.com/roldanjr/pomatez"],
-    "Flag": "0"
-  },
-  {
-    "Name": "Pomotroid",
-    "ID": "splode.pomotroid",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Postman",
-    "ID": "Postman.Postman",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "PowerShell",
-    "ID": "Microsoft.PowerShell",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "PowerToys (Preview)",
-    "ID": "Microsoft.PowerToys",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Qalculate!",
-    "ID": "Qalculate.Qalculate",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Screaming Frog SEO Spider",
-    "ID": "ScreamingFrog.SEOSpider",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Slack",
-    "ID": "SlackTechnologies.Slack",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Sourcetree",
-    "ID": "Atlassian.Sourcetree",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Standard Notes",
-    "ID": "StandardNotes.StandardNotes",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "spacedesk Windows DRIVER",
-    "ID": "Datronicsoft.SpacedeskDriver.Server",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Steam",
-    "ID": "Valve.Steam",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "SteelSeries GG",
-    "ID": "SteelSeries.GG",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "TeamSpeak 3 Client",
-    "ID": "TeamSpeakSystems.TeamSpeakClient",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "TranslucentTB",
-    "ID": "9PF4KZ2VN4W9",
-    "Install_Options": "--source msstore",
-    "Update_Options": "--source msstore",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "ttth",
-    "ID": "yafp.ttth",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Tweeten",
-    "ID": "MehediHassan.Tweeten",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Typora",
-    "ID": "Typora.Typora",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "VcXsrv",
-    "ID": "marha.VcXsrv",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Visual Studio Build Tools 2019",
-    "ID": "Microsoft.VisualStudio.2019.BuildTools",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [
-      "Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.",
-      "Download the 'C++ Build Tools' from Visual Studio Installer."
-    ],
-    "Flag": "1"
-  },
-  {
-    "Name": "VNC Viewer",
-    "ID": "RealVNC.VNCViewer",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "VNC Server",
-    "ID": "RealVNC.VNCServer",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "VSCodium",
-    "ID": "VSCodium.VSCodium",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Windows Terminal Preview",
-    "ID": "Microsoft.WindowsTerminal.Preview",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "WinMerge",
-    "ID": "WinMerge.WinMerge",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "WinMerge Beta",
-    "ID": "WinMerge.WinMerge.Beta",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Wireshark",
-    "ID": "WiresharkFoundation.Wireshark",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Wondershare PDFelement",
-    "ID": "Wondershare.PDFelement",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "YouTube Music",
-    "ID": "th-ch.YouTubeMusic",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "YouTube Music Desktop App",
-    "ID": "Ytmdesktop.Ytmdesktop",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "YouTube Music for Desktop",
-    "ID": "MartinFinnerup.YouTubeMusicforDesktop",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "0"
-  },
-  {
-    "Name": "Zettlr",
-    "ID": "Zettlr.Zettlr",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    "Name": "Zoom",
-    "ID": "Zoom.Zoom",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  },
-  {
-    //最後にpwsh
-    "Name": "PowerShell",
-    "ID": "Microsoft.PowerShell",
-    "Install_Options": "",
-    "Update_Options": "",
-    "Message": [],
-    "Flag": "1"
-  }
-]
+{
+  "$schema": "./winget_PKGLIST_schema.json",
+  "data": [
+    {
+      "Name": "4K Video Downloader",
+      "ID": "OpenMedia.4KVideoDownloader",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "7-Zip",
+      "ID": "7zip.7zip",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "AdGuard",
+      "ID": "AdGuard.AdGuard",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "AdGuardVPN",
+      "ID": "AdGuard.AdGuardVPN",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Adobe Acrobat DC (64-bit)",
+      "ID": "Adobe.Acrobat.Reader.64-bit",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "x64_0"
+    },
+    {
+      "Name": "Adobe Acrobat Reader DC",
+      "ID": "Adobe.Acrobat.Reader.32-bit",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "x86_0"
+    },
+    {
+      "Name": "Alacritty",
+      "ID": "Alacritty.Alacritty",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Amazon Kindle",
+      "ID": "Amazon.Kindle",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Android Studio",
+      "ID": "Google.AndroidStudio",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Arctype",
+      "ID": "Arctype.Arctype",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "AutoHotkey",
+      "ID": "Lexikos.AutoHotkey",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "balenaEtcher",
+      "ID": "Balena.Etcher",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Brave",
+      "ID": "BraveSoftware.BraveBrowser",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Brave Beta",
+      "ID": "BraveSoftware.BraveBrowser.Beta",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Brave Dev",
+      "ID": "BraveSoftware.BraveBrowser.Dev",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Brave Nightly",
+      "ID": "BraveSoftware.BraveBrowser.Nightly",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "CopyQ",
+      "ID": "hluk.CopyQ",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "CORSAIR iCUE 4 Software",
+      "ID": "Corsair.iCUE.4",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "CubeICE",
+      "ID": "CubeSoft.CubeICE",
+      "Install_Options": "--interactive",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "CubePDF",
+      "ID": "CubeSoft.CubePDF",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "CubePDF Utility",
+      "ID": "CubeSoft.CubePDFUtility",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "DBeaver",
+      "ID": "dbeaver.dbeaver",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "DeepL",
+      "ID": "DeepL.DeepL",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "DevHub",
+      "ID": "DevHub.DevHub",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "DevToys",
+      "ID": "9PGCV4V3BK4W",
+      "Install_Options": "--source msstore",
+      "Update_Options": "--source msstore",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Discord",
+      "ID": "Discord.Discord",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Ditto",
+      "ID": "Ditto.Ditto",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "draw.io",
+      "ID": "JGraph.Draw",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "EA app",
+      "ID": "ElectronicArts.EADesktop",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "EpocCam drivers",
+      "ID": "Elgato.EpocCam",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "foobar2000",
+      "ID": "PeterPawlowski.foobar2000",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Fork - a fast and friendly git client",
+      "ID": "Fork.Fork",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Git",
+      "ID": "Git.Git",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "GitHub Desktop",
+      "ID": "GitHub.GitHubDesktop",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Google Chrome",
+      "ID": "Google.Chrome",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Google Drive",
+      "ID": "Google.Drive",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Graviton Editor",
+      "ID": "MarcEspinSanz.GravitonEditor",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Hourglass",
+      "ID": "dziemborowicz.hourglass",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "HWiNFO",
+      "ID": "REALiX.HWiNFO",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Hyper",
+      "ID": "Zeit.Hyper",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Hyperamp",
+      "ID": "Hypermodules.Hyperamp",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Hyperspace Desktop",
+      "ID": "HyperspaceDev.HyperspaceDesktop",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Inssist",
+      "ID": "SlashedIo.Inssist",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "iTunes",
+      "ID": "Apple.iTunes",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Kite",
+      "ID": "Kite.Kite",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Lapce",
+      "ID": "Lapce.Lapce",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Mark Text",
+      "ID": "MarkText.MarkText",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Microsoft Edge WebView2 Runtime",
+      "ID": "Microsoft.EdgeWebView2Runtime",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Microsoft Visual Studio Code",
+      "ID": "Microsoft.VisualStudioCode",
+      "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
+      //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Microsoft Visual Studio Code Insiders",
+      "ID": "Microsoft.VisualStudioCode.Insiders",
+      "Install_Options": "--override \"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath\"",
+      //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "ModernDeck",
+      "ID": "dangeredwolf.ModernDeck",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Mp3tag",
+      "ID": "Mp3tag.Mp3tag",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "MusicBee",
+      "ID": "9P4CLT2RJ1RS",
+      "Install_Options": "--source msstore",
+      "Update_Options": "--source msstore",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Notion",
+      "ID": "Notion.Notion",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Open Video Downloader",
+      "ID": "jely2002.youtube-dl-gui",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "pomatez",
+      "ID": "roldanjr.pomatez",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": ["URL:https://github.com/roldanjr/pomatez"],
+      "Flag": "0"
+    },
+    {
+      "Name": "Pomotroid",
+      "ID": "splode.pomotroid",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Postman",
+      "ID": "Postman.Postman",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "PowerShell",
+      "ID": "Microsoft.PowerShell",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "PowerToys (Preview)",
+      "ID": "Microsoft.PowerToys",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Qalculate!",
+      "ID": "Qalculate.Qalculate",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Screaming Frog SEO Spider",
+      "ID": "ScreamingFrog.SEOSpider",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Slack",
+      "ID": "SlackTechnologies.Slack",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Sourcetree",
+      "ID": "Atlassian.Sourcetree",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Standard Notes",
+      "ID": "StandardNotes.StandardNotes",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "spacedesk Windows DRIVER",
+      "ID": "Datronicsoft.SpacedeskDriver.Server",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Steam",
+      "ID": "Valve.Steam",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "SteelSeries GG",
+      "ID": "SteelSeries.GG",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "TeamSpeak 3 Client",
+      "ID": "TeamSpeakSystems.TeamSpeakClient",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "TranslucentTB",
+      "ID": "9PF4KZ2VN4W9",
+      "Install_Options": "--source msstore",
+      "Update_Options": "--source msstore",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "ttth",
+      "ID": "yafp.ttth",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Tweeten",
+      "ID": "MehediHassan.Tweeten",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Typora",
+      "ID": "Typora.Typora",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "VcXsrv",
+      "ID": "marha.VcXsrv",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Visual Studio Build Tools 2019",
+      "ID": "Microsoft.VisualStudio.2019.BuildTools",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [
+        "Visual Studio Installerから'C++ Build Tools'をダウンロードしてください.",
+        "Download the 'C++ Build Tools' from Visual Studio Installer."
+      ],
+      "Flag": "1"
+    },
+    {
+      "Name": "VNC Viewer",
+      "ID": "RealVNC.VNCViewer",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "VNC Server",
+      "ID": "RealVNC.VNCServer",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "VSCodium",
+      "ID": "VSCodium.VSCodium",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Windows Terminal Preview",
+      "ID": "Microsoft.WindowsTerminal.Preview",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "WinMerge",
+      "ID": "WinMerge.WinMerge",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "WinMerge Beta",
+      "ID": "WinMerge.WinMerge.Beta",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Wireshark",
+      "ID": "WiresharkFoundation.Wireshark",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Wondershare PDFelement",
+      "ID": "Wondershare.PDFelement",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "YouTube Music",
+      "ID": "th-ch.YouTubeMusic",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "YouTube Music Desktop App",
+      "ID": "Ytmdesktop.Ytmdesktop",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "YouTube Music for Desktop",
+      "ID": "MartinFinnerup.YouTubeMusicforDesktop",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Zettlr",
+      "ID": "Zettlr.Zettlr",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      "Name": "Zoom",
+      "ID": "Zoom.Zoom",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
+      //最後にpwsh
+      "Name": "PowerShell",
+      "ID": "Microsoft.PowerShell",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    }
+  ]
+}

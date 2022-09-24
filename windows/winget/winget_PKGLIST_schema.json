@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "winget_PKGLIST_schema.json",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "Name": {
+              "type": "string"
+            },
+            "ID": {
+              "type": "string"
+            },
+            "Install_Options": {
+              "type": "string"
+            },
+            "Update_Options": {
+              "type": "string"
+            },
+            "Message": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "Flag": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Name",
+            "ID",
+            "Install_Options",
+            "Update_Options",
+            "Message",
+            "Flag"
+          ]
+        }
+      ]
+    }
+  },
+  "required": ["$schema", "data"],
+  "additionalProperties": false
+}

@@ -1,17 +1,40 @@
 {
-    "$schema": "https://aka.ms/winget-settings.schema.json",
-    // For documentation on these settings, see: https://aka.ms/winget-settings
-    "source": {
-        "autoUpdateIntervalInMinutes": 5
-    },
-    "visual": {
-        "progressBar": "accent"
-    },
-    "telemetry": {
-        "disable": true
-    },
-    "experimentalFeatures": {
-        "dependencies":true,
-        "directMSI":true
+  "$schema": "https://aka.ms/winget-settings.schema.json",
+  // For documentation on these settings, see: https://aka.ms/winget-settings
+  // For documentation on these settings, see: https://learn.microsoft.com/ja-jp/windows/package-manager/winget/settings
+  // For documentation on these settings, see: https://github.com/microsoft/winget-cli/blob/master/doc/Settings.md
+  "source": {
+    "autoUpdateIntervalInMinutes": 5
+  },
+  "visual": {
+    "progressBar": "accent"
+  },
+  "installBehavior": {
+    "disableInstallNotes": false,
+    "preferences": {
+      //"scope": "user",
+      //"locale": ["jp-JP", "en-US"],
+      //"architectures": ["x64", "arm64"]
     }
+  },
+  "uninstallBehavior": {
+    //"purgePortablePackage": true
+  },
+  "telemetry": {
+    "disable": true
+  },
+  "logging": {
+    "level": "verbose"
+  },
+  "network": { "downloader": "default", "doProgressTimeoutInSeconds": 60 },
+  "interactivity": {
+    "disable": false
+  },
+  "experimentalFeatures": {
+    "experimentalCmd": true,
+    "experimentalArg": false,
+    "directMSI": true,
+    "dependencies": true,
+    "zipInstall": false
+  }
 }
