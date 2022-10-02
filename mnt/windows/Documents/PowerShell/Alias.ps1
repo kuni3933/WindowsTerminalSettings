@@ -163,7 +163,7 @@ if (${Git_usr_bin} -ne ${null}) {
 
 # git flow
 function gf() { git fetch --all }
-function gd() { git diff $args }
+function gd() { git diff -U5 $args }
 function gdc() { git diff --cached $args }
 function gds() { git diff --staged $args }
 function ga() { git add $args }
