@@ -165,7 +165,8 @@ scoop install `
   Main/nu `
   Main/python `
   Main/rustup-msvc `
-  Main/volta
+  Main/volta `
+  Extras/fvm
 _br(1)
 
 <#
