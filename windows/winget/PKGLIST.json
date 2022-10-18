@@ -146,6 +146,14 @@
       "Flag": "1"
     },
     {
+      "Name": "CrystalDiskMark",
+      "ID": "CrystalDewWorld.CrystalDiskMark",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "1"
+    },
+    {
       "Name": "CubeICE",
       "ID": "CubeSoft.CubeICE",
       "Install_Options": "--interactive",
