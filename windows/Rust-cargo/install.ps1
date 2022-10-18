@@ -1,11 +1,12 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (!(Get-Command("cargo.exe") -ErrorAction SilentlyContinue)) {
   Write-Error -Message "cargo.exe (rust) is not installed." -ErrorAction Stop
 	return 1603
 }
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("cargo/install.ps1")
 
@@ -27,6 +28,9 @@ _Write_Title("# rustup default nightly-x86_64-pc-windows-msvc")
 rustup default nightly-x86_64-pc-windows-msvc
 _br(1)
 
+rustup show > ${MyPath}/rustup_show_log.txt
+
+
 _Write_Title("# rustup component")
 rustup component add `
   clippy `
@@ -38,6 +42,9 @@ rustup component add `
   rust-src `
   rustfmt
 _br(1)
+
+rustup component list --installed > ${MyPath}/rustup_component_list_log.txt
+
 
 _Write_Title("# cargo install choose")
 cargo install choose
@@ -54,6 +61,8 @@ _br(1)
 _Write_Title("# cargo install silicon")
 cargo install silicon
 _br(1)
+
+cargo install --list > ${MyPath}/cargo_log.txt
 
 
 _Set_ExecutionPolicy

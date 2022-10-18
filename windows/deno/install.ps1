@@ -1,11 +1,12 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-
+#${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (!(Get-Command("deno.exe") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "deno.exe is not installed." -ErrorAction Stop
 		return 1603
 	}
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("deno/install.ps1")
 

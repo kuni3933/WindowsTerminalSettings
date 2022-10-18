@@ -1,17 +1,15 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ${USERNAME} = wsl -- whoami
 if (${USERNAME} -eq "root"){
     _Write_Title "既定ユーザーをroot以外にしてから実行してください. / Set the default user to something other than root, and then run it."
     exit
 }
-${now} = Get-Location
-${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
-Set-Location "${MyPath}/../../"
-${WindowsTerminalSettings} = Get-Location
-Set-Location ${now}
+#Set-Location "${MyPath}/../../"
+${WindowsTerminalSettings} = "${MyPath}/../../"
+Set-Location "${MyPath}"
 _Write_Title "USERNAME : ${USERNAME}"
 wsl --terminate "Distrod"
 

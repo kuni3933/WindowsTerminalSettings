@@ -1,13 +1,11 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (!(Get-Command("volta.exe") -ErrorAction SilentlyContinue)) {
   Write-Error -Message "volta.exe is not installed." -ErrorAction Stop
   return 1603
 }
-
-${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("volta-npm/install.ps1")

@@ -1,13 +1,12 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (!(Get-Command("pip") -ErrorAction SilentlyContinue)) {
 		Write-Error -Message "Python/pip is not installed." -ErrorAction Stop
 		return 1603
 }
 
-${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("Python-pip/install.ps1")
 

@@ -1,6 +1,6 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+#${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("PSGallery/install.ps1")
 

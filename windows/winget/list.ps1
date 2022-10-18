@@ -1,13 +1,14 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+if (!(Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
+  Write-Error -Message "winget.exe is not installed." -ErrorAction Stop
+  return 1603
+}
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function _Winget_Version() {
-  if (!(Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
-		Write-Error -Message "winget.exe is not installed." -ErrorAction Stop
-		return 1603
-	}
-
   [string]${bit} = "0"
   if (${env:PROCESSOR_ARCHITECTURE} -ieq "AMD64" -or "X64") {
     ${bit} = "x64"
@@ -78,7 +79,6 @@ function _Title([string]${Name},[string] ${ID}) {
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("winget/list.ps1")
-${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 [string] ${bit} = _Winget_Version
 _br(2)
 
@@ -91,6 +91,7 @@ if(Test-Path "${MyPath}/PKGLIST.json"){
 }
 
 [int] ${Count} = 0
+
 
 foreach (${index} in ${json}."data") {
   [string] ${Name} = ${index}."Name"

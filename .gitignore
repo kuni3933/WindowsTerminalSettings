@@ -29,9 +29,18 @@ mnt/linux/Arch/.config/fish/completions/*
 mnt/linux/Arch/.config/fish/conf.d/*
 
 # windows/*/log.txt
+windows/Chocolatey/Chocolatey_log.txt
+windows/Chocolatey/package.config
+windows/Chocolatey/package.config.backup
+#//windows/deno/deno_log.txt
 windows/gh/gh_log.txt
+#//windows/go/go_log.txt
+#//windows/PSGallery/PSGallery/_log.txt
 windows/Python-pip/pip_freeze_log.txt
 windows/Python-pip/pip_log.txt
+windows/Rust-cargo/cargo_log.txt
+windows/Rust-cargo/rustup_component_list_log.txt
+windows/Rust-cargo/rustup_show_log.txt
 windows/scoop/scoop_log.txt
 windows/volta-npm/volta_log.txt
 windows/winget/winget_log.txt

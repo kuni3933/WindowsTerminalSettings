@@ -1,13 +1,14 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+if (!(Get-Command("gh.exe") -ErrorAction SilentlyContinue)) {
+  Write-Error -Message "gh.exe is not installed." -ErrorAction Stop
+  return 1603
+}
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function _Gh_Version([string]${Path}) {
-  if (!(Get-Command("gh.exe") -ErrorAction SilentlyContinue)) {
-		Write-Error -Message "gh.exe is not installed." -ErrorAction Stop
-		return 1603
-	}
-
   [System.Diagnostics.Process] ${process} = Start-Process `
 		-FilePath "gh.exe" `
 		-ArgumentList "--version" `
@@ -102,9 +103,9 @@ function _Update([string] ${Name}) {
   }
 }
 
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("gh/install.ps1")
-${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 ${LogFilePath} = "${MyPath}/gh_log.txt"
 _Gh_Version("${LogFilePath}")
 _br(2)
@@ -119,13 +120,13 @@ if(Test-Path "${MyPath}/PKGLIST.json"){
 
 [int] ${Count} = 0
 
+
 foreach (${index} in ${json}."data") {
   [string] ${Name} = ${index}."Name"
   [string] ${Flag} =  ${index}."Flag"
 
   _Title ${Name}
   if(${Flag} -eq "1"){
-    Write-Host ${LogFilePath}
     if(Select-String "${LogFilePath}" -Pattern "\s${Name}\s" -CaseSensitive){ _Update ${Name} }
     else{ _Install ${Name} }
   }
@@ -139,6 +140,7 @@ foreach (${index} in ${json}."data") {
 }
 
 Write-Host("Count: ${Count}")
+gh extension list > ${LogFilePath}
 _br(2)
 _Set_ExecutionPolicy
 _br(2)

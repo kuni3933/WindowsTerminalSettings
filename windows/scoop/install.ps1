@@ -1,13 +1,12 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if(!(Get-Command("scoop"))){
 		Write-Error -Message "scoop is not installed." -ErrorAction Stop
 		return 1603
 }
 
-${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("scoop/install.ps1")
 
@@ -138,7 +137,8 @@ scoop install `
   Main/bottom `
   Main/duf `
   Main/dust `
-  Main/gitui ` <#Main/gotop `#> Main/gping `
+  Main/gitui ` <#Main/gotop `#> Main/gotop `
+  Main/gping `
   Main/helix `
   Main/lazydocker `
   Main/mprocs `

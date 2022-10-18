@@ -1,11 +1,12 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if (!(Get-Command("go.exe") -ErrorAction SilentlyContinue)) {
-		Write-Error -Message "go.exe is not installed." -ErrorAction Stop
-		return 1603
-	}
+  Write-Error -Message "go.exe is not installed." -ErrorAction Stop
+  return 1603
+}
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("go/install.ps1")
 

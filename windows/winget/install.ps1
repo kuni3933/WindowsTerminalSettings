@@ -1,13 +1,14 @@
 . "${PSScriptRoot}/../Function.ps1"
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+if (!(Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
+  Write-Error -Message "winget.exe is not installed." -ErrorAction Stop
+  return 1603
+}
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function _Winget_Version([string]${Path}) {
-  if (!(Get-Command("winget.exe") -ErrorAction SilentlyContinue)) {
-		Write-Error -Message "winget.exe is not installed." -ErrorAction Stop
-		return 1603
-	}
-
   [string] ${bit} = "0"
   if (${env:PROCESSOR_ARCHITECTURE} -ieq "AMD64" -or "X64") {
     ${bit} = "x64"
@@ -133,7 +134,6 @@ function  _Update([string] ${ID},[string] ${Options}) {
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 _Write_Section("winget/install.ps1")
-${MyPath} = Split-Path -Parent $MyInvocation.MyCommand.Path
 ${LogFilePath} = "${MyPath}/winget_log.txt"
 [string] ${bit} = _Winget_Version("${LogFilePath}")
 _br(2)
@@ -147,6 +147,7 @@ if(Test-Path "${MyPath}/PKGLIST.json"){
 }
 
 [int] ${Count} = 0
+
 
 foreach (${index} in ${json}."data") {
   [string] ${Name} = ${index}."Name"
@@ -180,6 +181,7 @@ foreach (${index} in ${json}."data") {
 }
 
 Write-Host("Count: ${Count}")
+winget list > ${LogFilePath}
 _br(2)
 _Set_ExecutionPolicy
 _br(2)
