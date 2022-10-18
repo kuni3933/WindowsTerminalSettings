@@ -99,7 +99,7 @@
     },
     {
       "Name": "Brave",
-      "ID": "BraveSoftware.BraveBrowser",
+      "ID": "Brave.Brave",
       "Install_Options": "",
       "Update_Options": "",
       "Message": [],
@@ -107,7 +107,7 @@
     },
     {
       "Name": "Brave Beta",
-      "ID": "BraveSoftware.BraveBrowser.Beta",
+      "ID": "Brave.Brave.Beta",
       "Install_Options": "",
       "Update_Options": "",
       "Message": [],
@@ -115,7 +115,7 @@
     },
     {
       "Name": "Brave Dev",
-      "ID": "BraveSoftware.BraveBrowser.Dev",
+      "ID": "Brave.Brave.Dev",
       "Install_Options": "",
       "Update_Options": "",
       "Message": [],
@@ -123,7 +123,7 @@
     },
     {
       "Name": "Brave Nightly",
-      "ID": "BraveSoftware.BraveBrowser.Nightly",
+      "ID": "Brave.Brave.Nightly",
       "Install_Options": "",
       "Update_Options": "",
       "Message": [],
@@ -581,7 +581,7 @@
     },
     {
       "Name": "Typora",
-      "ID": "Typora.Typora",
+      "ID": "appmakes.Typora",
       "Install_Options": "",
       "Update_Options": "",
       "Message": [],
