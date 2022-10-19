@@ -34,7 +34,7 @@ volta install yarn@latest
 _br(1)
 
 _Write_Title("# CLI Tool")
-npm install -g expo-cli git-cz gtop json-server license-checker serve tldr typescript
+npm install -g @nestjs/cli expo-cli git-cz gtop json-server license-checker serve tldr typescript
 #npm install -g commitizen cz-conventional-changelog-ja
 _br(1)
 
