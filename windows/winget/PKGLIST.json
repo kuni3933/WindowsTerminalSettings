@@ -23,7 +23,7 @@
       "Install_Options": "",
       "Update_Options": "",
       "Message": [],
-      "Flag": "0"
+      "Flag": "1"
     },
     {
       "Name": "AdGuardVPN",
@@ -409,7 +409,7 @@
       //"Install_Options": "--override `"/VERYSILENT /NORESTART /MERGETASKS=runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles,addtopath`"",
       "Update_Options": "",
       "Message": [],
-      "Flag": "1"
+      "Flag": "0"
     },
     {
       "Name": "ModernDeck",
