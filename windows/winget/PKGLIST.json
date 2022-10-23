@@ -74,6 +74,22 @@
       "Flag": "1"
     },
     {
+      "Name": "Android Studio Beta",
+      "ID": "Google.AndroidStudio.Beta",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
+      "Name": "Android Studio Canary",
+      "ID": "Google.AndroidStudio.Canary",
+      "Install_Options": "",
+      "Update_Options": "",
+      "Message": [],
+      "Flag": "0"
+    },
+    {
       "Name": "Arctype",
       "ID": "Arctype.Arctype",
       "Install_Options": "",
