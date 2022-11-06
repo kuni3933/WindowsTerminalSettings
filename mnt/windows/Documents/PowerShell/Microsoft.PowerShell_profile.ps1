@@ -46,7 +46,7 @@ Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 #https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.1
 #https://serverfault.com/questions/36991/windows-powershell-vim-keybindings
 #https://docs.microsoft.com/ja-jp/powershell/module/psreadline/about/about_psreadline?view=powershell-7.1
-Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -PredictionSource History
 
 # 単語区切り
 #https://qiita.com/AWtnb/items/5551fcc762ed2ad92a81#%E5%8D%98%E8%AA%9E%E5%8C%BA%E5%88%87%E3%82%8A
