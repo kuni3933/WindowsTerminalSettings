@@ -86,7 +86,6 @@ scoop install `
   Main/dog `
   Main/fd `
   Main/ffmpeg `
-  Main/firebase `
   Main/fx `
   Main/fzf `
   Main/gh `
@@ -160,6 +159,8 @@ scoop install `
   Main/deno `
   Main/docker `
   Main/dotnet-sdk `
+  Main/firebase `
+  Main/flyctl `
   Main/go `
   Main/hugo-extended `
   Main/nu `
