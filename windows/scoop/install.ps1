@@ -165,6 +165,7 @@ scoop install `
   Main/hugo-extended `
   Main/nu `
   Main/python `
+  Main/railway `
   Main/rustup-msvc `
   Main/volta `
   Extras/fvm
