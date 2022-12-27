@@ -172,7 +172,6 @@ function gco() { git commit -m $args[0] }
 
 # git switch
 function gba() { git branch -a }
-function gbl() { git branch -l }
 function gb() { git branch -l | rg -v '^\* ' | ForEach-Object { $_ -replace " ", "" } | fzf | ForEach-Object { git switch $_ } }
 function gbr() { git branch -rl | rg -v "HEAD|master" | ForEach-Object { $_ -replace "  origin/", "" } | fzf | ForEach-Object { git switch $_ } }
 function gbc() { git switch -c $args[0] }
