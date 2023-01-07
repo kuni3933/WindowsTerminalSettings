@@ -1,6 +1,14 @@
 bold = true
-color_mode = "ansi" # ansi, rgb or none
+
+#color_mode = "ansi" # ansi, rgb or none
+color_mode = "rgb" # ansi, rgb or none
+
+#palette = "default" # default, darker, pastel or matrix
+#palette = "darker" # default, darker, pastel or matrix
 palette = "pastel" # default, darker, pastel or matrix
+#palette = "matrix" # default, darker, pastel or matrix
+
+#rainbow = 1
 delay_ms = 10
 inherit_style = false
 kinds = ["heavy"] # heavy, light, curved, knobby, emoji, outline, dots

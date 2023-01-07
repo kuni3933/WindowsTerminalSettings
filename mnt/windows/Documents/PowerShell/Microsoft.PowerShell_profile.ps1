@@ -237,10 +237,16 @@ $env:GO111MODULE = "on"
 #-----------------------------------------------------
 # Startup
 #-----------------------------------------------------
-if (((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
-  pipes-rs
-}
-elseif (Get-Command rusty-rain -ea SilentlyContinue) {
-  rusty-rain -C 0,180,200 -H 255,255,255 -s
+${tmp} = $null
+if(Get-Command pipes-rs -ea SilentlyContinue) { $tmp += 2}
+if(Get-Command rusty-rain -ea SilentlyContinue) { $tmp += 3 }
+if($null -ne ${tmp}){
+  switch(Get-Random $tmp){
+    0{ pipes-rs }
+    1{ pipes-rs --rainbow 1}
+    2{ rusty-rain -s }
+    3{ rusty-rain -C 0,139,139 -H 255,255,255 -s }
+    4{ rusty-rain -C 0,180,200 -H 255,255,255 -s }
+  }
 }
 winfetch.PS1
