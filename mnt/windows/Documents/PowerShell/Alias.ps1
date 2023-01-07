@@ -21,7 +21,7 @@ Set-Alias c Clear-Host
 #-----------------------------------------------------
 # cliSaver
 #-----------------------------------------------------
-function cliSaver{
+function cliSaver() {
   if (((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
     pipes-rs
   }
