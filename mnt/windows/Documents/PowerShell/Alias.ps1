@@ -19,6 +19,19 @@ Set-Alias c Clear-Host
 
 
 #-----------------------------------------------------
+# cliSaver
+#-----------------------------------------------------
+function cliSaver{
+  if (((Get-Random 2) -eq 0) -AND (Get-Command pipes-rs -ea SilentlyContinue)) {
+    pipes-rs
+  }
+  elseif (Get-Command rusty-rain -ea SilentlyContinue) {
+    rusty-rain -C 0,180,200 -H 255,255,255 -s
+  }
+}
+
+
+#-----------------------------------------------------
 # fzf
 #-----------------------------------------------------
 $env:FZF_DEFAULT_OPTS="--reverse --border --height 50%"
