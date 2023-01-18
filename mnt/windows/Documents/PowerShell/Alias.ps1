@@ -122,7 +122,8 @@ if (Get-Command gowl -ea SilentlyContinue && Get-Command fzf -ea SilentlyContinu
   function cdgowl() { gowl list | fzf | Set-Location }
 }
 if (Get-Command ghq -ea SilentlyContinue) {
-  function cdghqr { Set-Location "$(ghq root)" }
+  function cdghq_root { Set-Location "$(ghq root)" }
+  function cdghq_rootGithub { Set-Location "$(ghq root)/github.com" }
 
   if (Get-Command fzf -ea SilentlyContinue) {
     function cdghq {
